@@ -10,22 +10,22 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>72086dab-08e7-4b38-83af-96d9f57287b4</PackageIdentityName>
     <PackageIdentityPublisher>CN=kabilan-13333</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\obj\x64\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\obj\x64\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType></RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x64\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x64\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x64\Debug\ZBMS.exe">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\ZBMS.exe">
       <PackagePath>entrypoint\ZBMS.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\microsoft.data.sqlite.core\6.0.5\lib\netstandard2.0\Microsoft.Data.Sqlite.dll">
@@ -58,342 +58,342 @@
     <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\system.runtime.compilerservices.unsafe\4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll">
       <PackagePath>System.Runtime.CompilerServices.Unsafe.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\DataModule\bin\Debug\netstandard2.0\DataModule.dll">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\DataModule\bin\Debug\netstandard2.0\DataModule.dll">
       <PackagePath>DataModule.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.19041.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\BackGround.jpg">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\BackGround.jpg">
       <PackagePath>Assets\BackGround.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Login1.jpg">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Login1.jpg">
       <PackagePath>Assets\Login1.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Login2.jpg">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Login2.jpg">
       <PackagePath>Assets\Login2.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\BackGround2.jpg">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\BackGround2.jpg">
       <PackagePath>Assets\BackGround2.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\MoneyTransfer1.jpg">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\MoneyTransfer1.jpg">
       <PackagePath>Assets\MoneyTransfer1.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\MoneyTransfer2.jpg">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\MoneyTransfer2.jpg">
       <PackagePath>Assets\MoneyTransfer2.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\ProfileImage1.jpg">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\ProfileImage1.jpg">
       <PackagePath>Assets\ProfileImage1.jpg</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Balance1.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Balance1.png">
       <PackagePath>Assets\Balance1.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Balance2.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Balance2.png">
       <PackagePath>Assets\Balance2.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\BankIcon.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\BankIcon.png">
       <PackagePath>Assets\BankIcon.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\BankIcon2.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\BankIcon2.png">
       <PackagePath>Assets\BankIcon2.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\CreateNewAccount1.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\CreateNewAccount1.png">
       <PackagePath>Assets\CreateNewAccount1.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\CreateNewAccount2.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\CreateNewAccount2.png">
       <PackagePath>Assets\CreateNewAccount2.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Deposit1.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Deposit1.png">
       <PackagePath>Assets\Deposit1.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\ironman.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\ironman.png">
       <PackagePath>Assets\ironman.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\ironman2.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\ironman2.png">
       <PackagePath>Assets\ironman2.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\ironman3.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\ironman3.png">
       <PackagePath>Assets\ironman3.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\LargeTile.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\LargeTile.scale-100.png">
       <PackagePath>Assets\LargeTile.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\LargeTile.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\LargeTile.scale-125.png">
       <PackagePath>Assets\LargeTile.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\LargeTile.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\LargeTile.scale-150.png">
       <PackagePath>Assets\LargeTile.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\LargeTile.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\LargeTile.scale-200.png">
       <PackagePath>Assets\LargeTile.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\LargeTile.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\LargeTile.scale-400.png">
       <PackagePath>Assets\LargeTile.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Loan1.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Loan1.png">
       <PackagePath>Assets\Loan1.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Money1.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Money1.png">
       <PackagePath>Assets\Money1.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Money2.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Money2.png">
       <PackagePath>Assets\Money2.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\MoneyTransfer3.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\MoneyTransfer3.png">
       <PackagePath>Assets\MoneyTransfer3.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\SmallTile.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\SmallTile.scale-100.png">
       <PackagePath>Assets\SmallTile.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\SmallTile.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\SmallTile.scale-125.png">
       <PackagePath>Assets\SmallTile.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\SmallTile.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\SmallTile.scale-150.png">
       <PackagePath>Assets\SmallTile.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\SmallTile.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\SmallTile.scale-200.png">
       <PackagePath>Assets\SmallTile.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\SmallTile.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\SmallTile.scale-400.png">
       <PackagePath>Assets\SmallTile.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\SplashScreen.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\SplashScreen.scale-125.png">
       <PackagePath>Assets\SplashScreen.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\SplashScreen.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\SplashScreen.scale-150.png">
       <PackagePath>Assets\SplashScreen.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\SplashScreen.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\SplashScreen.scale-400.png">
       <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square150x150Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Square150x150Logo.scale-100.png">
       <PackagePath>Assets\Square150x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square150x150Logo.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Square150x150Logo.scale-125.png">
       <PackagePath>Assets\Square150x150Logo.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square150x150Logo.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Square150x150Logo.scale-150.png">
       <PackagePath>Assets\Square150x150Logo.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square150x150Logo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Square150x150Logo.scale-400.png">
       <PackagePath>Assets\Square150x150Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square44x44Logo.altform-lightunplated_targetsize-16.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Square44x44Logo.altform-lightunplated_targetsize-16.png">
       <PackagePath>Assets\Square44x44Logo.altform-lightunplated_targetsize-16.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square44x44Logo.altform-lightunplated_targetsize-24.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Square44x44Logo.altform-lightunplated_targetsize-24.png">
       <PackagePath>Assets\Square44x44Logo.altform-lightunplated_targetsize-24.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square44x44Logo.altform-lightunplated_targetsize-256.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Square44x44Logo.altform-lightunplated_targetsize-256.png">
       <PackagePath>Assets\Square44x44Logo.altform-lightunplated_targetsize-256.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square44x44Logo.altform-lightunplated_targetsize-32.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Square44x44Logo.altform-lightunplated_targetsize-32.png">
       <PackagePath>Assets\Square44x44Logo.altform-lightunplated_targetsize-32.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square44x44Logo.altform-lightunplated_targetsize-48.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Square44x44Logo.altform-lightunplated_targetsize-48.png">
       <PackagePath>Assets\Square44x44Logo.altform-lightunplated_targetsize-48.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-16.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square44x44Logo.altform-unplated_targetsize-256.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Square44x44Logo.altform-unplated_targetsize-256.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-256.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square44x44Logo.altform-unplated_targetsize-32.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Square44x44Logo.altform-unplated_targetsize-32.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-32.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square44x44Logo.altform-unplated_targetsize-48.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Square44x44Logo.altform-unplated_targetsize-48.png">
       <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-48.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square44x44Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Square44x44Logo.scale-100.png">
       <PackagePath>Assets\Square44x44Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square44x44Logo.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Square44x44Logo.scale-125.png">
       <PackagePath>Assets\Square44x44Logo.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square44x44Logo.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Square44x44Logo.scale-150.png">
       <PackagePath>Assets\Square44x44Logo.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square44x44Logo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Square44x44Logo.scale-400.png">
       <PackagePath>Assets\Square44x44Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square44x44Logo.targetsize-16.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Square44x44Logo.targetsize-16.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-16.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square44x44Logo.targetsize-24.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Square44x44Logo.targetsize-24.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square44x44Logo.targetsize-256.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Square44x44Logo.targetsize-256.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-256.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square44x44Logo.targetsize-32.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Square44x44Logo.targetsize-32.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-32.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square44x44Logo.targetsize-48.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Square44x44Logo.targetsize-48.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-48.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\StoreLogo.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\StoreLogo.scale-125.png">
       <PackagePath>Assets\StoreLogo.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\StoreLogo.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\StoreLogo.scale-150.png">
       <PackagePath>Assets\StoreLogo.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\StoreLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\StoreLogo.scale-200.png">
       <PackagePath>Assets\StoreLogo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\StoreLogo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\StoreLogo.scale-400.png">
       <PackagePath>Assets\StoreLogo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\ViewTransactions1.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\ViewTransactions1.png">
       <PackagePath>Assets\ViewTransactions1.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Wide310x150Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Wide310x150Logo.scale-100.png">
       <PackagePath>Assets\Wide310x150Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Wide310x150Logo.scale-125.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Wide310x150Logo.scale-125.png">
       <PackagePath>Assets\Wide310x150Logo.scale-125.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Wide310x150Logo.scale-150.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Wide310x150Logo.scale-150.png">
       <PackagePath>Assets\Wide310x150Logo.scale-150.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Wide310x150Logo.scale-400.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Wide310x150Logo.scale-400.png">
       <PackagePath>Assets\Wide310x150Logo.scale-400.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\zb.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\zb.png">
       <PackagePath>Assets\zb.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\zb1.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\zb1.png">
       <PackagePath>Assets\zb1.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\MoneyTransfer4.jfif">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\MoneyTransfer4.jfif">
       <PackagePath>Assets\MoneyTransfer4.jfif</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\plainbg.jfif">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\plainbg.jfif">
       <PackagePath>Assets\plainbg.jfif</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x64\Debug\ZBMS.xr.xml">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\ZBMS.xr.xml">
       <PackagePath>ZBMS.xr.xml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x64\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x64\Debug\LoanPaymentPage.xbf">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\LoanPaymentPage.xbf">
       <PackagePath>LoanPaymentPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x64\Debug\OtherCustomerTransferPage.xbf">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\OtherCustomerTransferPage.xbf">
       <PackagePath>OtherCustomerTransferPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x64\Debug\CreateAccountPage.xbf">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\CreateAccountPage.xbf">
       <PackagePath>CreateAccountPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x64\Debug\CustomerHomePage.xbf">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\CustomerHomePage.xbf">
       <PackagePath>CustomerHomePage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x64\Debug\DepositPage.xbf">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\DepositPage.xbf">
       <PackagePath>DepositPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x64\Debug\EditProfilePage.xbf">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\EditProfilePage.xbf">
       <PackagePath>EditProfilePage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x64\Debug\MainFramePage.xbf">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\MainFramePage.xbf">
       <PackagePath>MainFramePage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x64\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x64\Debug\OtherBankCustomerTransferPage.xbf">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\OtherBankCustomerTransferPage.xbf">
       <PackagePath>OtherBankCustomerTransferPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x64\Debug\SelfTransferPage.xbf">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\SelfTransferPage.xbf">
       <PackagePath>SelfTransferPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x64\Debug\SignUpPage.xbf">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\SignUpPage.xbf">
       <PackagePath>SignUpPage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x64\Debug\ViewAccountDetails.xbf">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\ViewAccountDetails.xbf">
       <PackagePath>ViewAccountDetails.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x64\Debug\ViewProfilePage.xbf">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\ViewProfilePage.xbf">
       <PackagePath>ViewProfilePage.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x64\Debug\ViewTransactionsPage.xbf">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\ViewTransactionsPage.xbf">
       <PackagePath>ViewTransactionsPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.19041.0\\redist\Debug\X64\ucrtbased.dll">
@@ -405,10 +405,10 @@
     <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\microsoft.ui.xaml\2.7.1\buildTransitive\..\lib\uap10.0\Microsoft.UI.Xaml.winmd">
       <PackagePath>Microsoft.UI.Xaml.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x64\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x64\Debug\Core\ZBMS.exe">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\Core\ZBMS.exe">
       <PackagePath>ZBMS.exe</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

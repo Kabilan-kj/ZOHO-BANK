@@ -14,7 +14,6 @@
             <Setter Property="Height" Value="40"></Setter>
             <Setter Property="Width" Value="200"></Setter>
             <Setter Property="FontSize" Value="12"></Setter>
-            <!--<Setter Property="Foreground" Value="LightSkyBlue" ></Setter>-->
             <Setter Property="PlaceholderForeground" Value="Gray"></Setter>
             <Setter Property="Background" Value="White"></Setter>
             <Setter Property="BorderThickness" Value="0.5"></Setter>
@@ -27,7 +26,6 @@
             <Setter Property="Width" Value="300"></Setter>
             <Setter Property="FontSize" Value="16"></Setter>
             <Setter Property="Background" Value="White"></Setter>
-            <!--<Setter Property="Foreground" Value="LightSkyBlue"></Setter>-->
             <Setter Property="PlaceholderForeground" Value="Gray"></Setter>
             <Setter Property="BorderThickness" Value="1"></Setter>
             <Setter Property="Padding" Value="5"></Setter>
@@ -39,7 +37,6 @@
             <Setter Property="Width" Value="160"></Setter>
             <Setter Property="FontSize" Value="12"></Setter>
             <Setter Property="Background" Value="White"></Setter>
-            <!--<Setter Property="Foreground" Value="LightSkyBlue"></Setter>-->
             <Setter Property="PlaceholderForeground" Value="Gray"></Setter>
             <Setter Property="BorderThickness" Value="0.5"></Setter>
             <Setter Property="Padding" Value="2"></Setter>
@@ -50,7 +47,6 @@
             <Setter Property="Height" Value="40"></Setter>
             <Setter Property="Width" Value="320"></Setter>
             <Setter Property="FontSize" Value="16"></Setter>
-            <!--<Setter Property="Foreground" Value="LightSkyBlue"></Setter>-->
             <Setter Property="PlaceholderForeground" Value="Gray"></Setter>
             <Setter Property="BorderThickness" Value="1"></Setter>
             <Setter Property="Padding" Value="5"></Setter>
@@ -61,7 +57,6 @@
             <Setter Property="Height" Value="20"></Setter>
             <Setter Property="Width" Value="200"></Setter>
             <Setter Property="FontSize" Value="12"></Setter>
-            <!--<Setter Property="Foreground" Value="LightSkyBlue"></Setter>-->
             <Setter Property="Padding" Value="2"></Setter>
 
         </Style>
@@ -70,7 +65,6 @@
             <Setter Property="Height" Value="40"></Setter>
             <Setter Property="Width" Value="240"></Setter>
             <Setter Property="FontSize" Value="16"></Setter>
-            <!--<Setter Property="Foreground" Value="LightSkyBlue"></Setter>-->
             <Setter Property="Padding" Value="5"></Setter>
 
         </Style>
@@ -78,8 +72,6 @@
             <Setter Property="Height" Value="30"></Setter>
             <Setter Property="Width" Value="150"></Setter>
             <Setter Property="FontSize" Value="12"></Setter>
-            <!--<Setter Property="Background" Value="LightSkyBlue"></Setter>-->
-            <!--<Setter Property="Foreground" Value="White"></Setter>-->
             <Setter Property="Padding" Value="2"></Setter>
 
         </Style>
@@ -88,8 +80,6 @@
             <Setter Property="Height" Value="50"></Setter>
             <Setter Property="Width" Value="200"></Setter>
             <Setter Property="FontSize" Value="16"></Setter>
-            <!--<Setter Property="Background" Value="LightSkyBlue"></Setter>-->
-            <!--<Setter Property="Foreground" Value="White"></Setter>-->
             <Setter Property="Padding" Value="5"></Setter>
 
         </Style>
@@ -102,7 +92,6 @@
                 <VisualState>
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="700"></AdaptiveTrigger>
-                        <!--<AdaptiveTrigger></AdaptiveTrigger>-->
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="AccountTypeComboBox.Style" Value="{StaticResource WideComboBox}"/>
