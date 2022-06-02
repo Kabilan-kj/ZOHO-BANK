@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>KABILAN-13333</Machine>
+    <WindowsUser>kabilan-13333</WindowsUser>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetOsVersion>10.0</TargetOsVersion>
+    <TargetOsDescription>Windows 10.0</TargetOsDescription>
+    <SolutionConfiguration>Debug|x86</SolutionConfiguration>
+    <PackageArchitecture>x86</PackageArchitecture>
+    <PackageIdentityName>72086dab-08e7-4b38-83af-96d9f57287b4</PackageIdentityName>
+    <PackageIdentityPublisher>CN=kabilan-13333</PackageIdentityPublisher>
+    <IntermediateOutputPath>C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\obj\x86\Debug\</IntermediateOutputPath>
+    <RemoteDeploymentType>
+    </RemoteDeploymentType>
+    <PackageRegistrationPath>
+    </PackageRegistrationPath>
+    <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
+    <DeployOptionalPackages>false</DeployOptionalPackages>
+    <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
+    <LayoutDir>C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x86\Debug\AppX</LayoutDir>
+    <RegisteredManifestChecksum>9EAE743E76C3CBFEBBE422B84FF6996B31AEBA1A8112A65D825414F58D30B7E2</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>72086dab-08e7-4b38-83af-96d9f57287b4_1.0.0.0_x86__qw1tt99nqb7pj</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>72086dab-08e7-4b38-83af-96d9f57287b4_qw1tt99nqb7pj!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>72086dab-08e7-4b38-83af-96d9f57287b4</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=kabilan-13333</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x86\Debug\Core\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2022-04-26T10:57:39.437</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x86\Debug\ZBMS.exe">
+      <PackagePath>entrypoint\ZBMS.exe</PackagePath>
+      <Modified>2022-04-26T10:57:37.846</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.13\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
+      <PackagePath>System.Runtime.dll</PackagePath>
+      <Modified>2021-10-10T01:19:52.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.19041.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
+      <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
+      <Modified>2020-12-01T23:22:00.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\BackGround.jpg">
+      <PackagePath>Assets\BackGround.jpg</PackagePath>
+      <Modified>2022-04-19T05:34:16.349</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Login1.jpg">
+      <PackagePath>Assets\Login1.jpg</PackagePath>
+      <Modified>2022-04-19T05:34:16.315</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Login2.jpg">
+      <PackagePath>Assets\Login2.jpg</PackagePath>
+      <Modified>2022-04-19T05:34:16.324</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\BackGround2.jpg">
+      <PackagePath>Assets\BackGround2.jpg</PackagePath>
+      <Modified>2022-04-19T05:34:16.333</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\MoneyTransfer1.jpg">
+      <PackagePath>Assets\MoneyTransfer1.jpg</PackagePath>
+      <Modified>2022-04-21T05:34:43.131</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\MoneyTransfer2.jpg">
+      <PackagePath>Assets\MoneyTransfer2.jpg</PackagePath>
+      <Modified>2022-04-21T05:34:43.151</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\ProfileImage1.jpg">
+      <PackagePath>Assets\ProfileImage1.jpg</PackagePath>
+      <Modified>2022-04-25T09:34:52.762</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Balance1.png">
+      <PackagePath>Assets\Balance1.png</PackagePath>
+      <Modified>2022-04-21T05:34:43.064</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Balance2.png">
+      <PackagePath>Assets\Balance2.png</PackagePath>
+      <Modified>2022-04-21T05:34:43.078</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\CreateNewAccount1.png">
+      <PackagePath>Assets\CreateNewAccount1.png</PackagePath>
+      <Modified>2022-04-21T05:34:43.094</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\CreateNewAccount2.png">
+      <PackagePath>Assets\CreateNewAccount2.png</PackagePath>
+      <Modified>2022-04-21T05:34:43.107</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Deposit1.png">
+      <PackagePath>Assets\Deposit1.png</PackagePath>
+      <Modified>2022-04-21T05:34:43.119</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\ViewTransactions1.png">
+      <PackagePath>Assets\ViewTransactions1.png</PackagePath>
+      <Modified>2022-04-21T05:34:43.041</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\zb.png">
+      <PackagePath>Assets\zb.png</PackagePath>
+      <Modified>2022-04-26T10:27:44.012</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\zb1.png">
+      <PackagePath>Assets\zb1.png</PackagePath>
+      <Modified>2022-04-26T10:32:38.734</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\LockScreenLogo.scale-200.png">
+      <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
+      <Modified>2022-04-05T06:25:09.873</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\SplashScreen.scale-200.png">
+      <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2022-04-05T06:25:09.888</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square150x150Logo.scale-200.png">
+      <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2022-04-05T06:25:09.891</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square44x44Logo.scale-200.png">
+      <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2022-04-05T06:25:09.893</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2022-04-05T06:25:09.895</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\StoreLogo.png">
+      <PackagePath>Assets\StoreLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2022-04-05T06:25:09.898</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\Wide310x150Logo.scale-200.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2022-04-05T06:25:09.900</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\plainbg.jfif">
+      <PackagePath>Assets\plainbg.jfif</PackagePath>
+      <Modified>2022-04-19T05:34:16.341</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
+      <Modified>2022-04-19T05:14:22.125</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x86\Debug\ZBMS.xr.xml">
+      <PackagePath>ZBMS.xr.xml</PackagePath>
+      <Modified>2022-04-26T10:43:50.138</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x86\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+      <Modified>2022-04-26T10:57:37.681</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x86\Debug\CreateAccountPage.xbf">
+      <PackagePath>CreateAccountPage.xbf</PackagePath>
+      <Modified>2022-04-26T10:57:37.684</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x86\Debug\CustomerHomePage.xbf">
+      <PackagePath>CustomerHomePage.xbf</PackagePath>
+      <Modified>2022-04-26T10:57:37.691</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x86\Debug\DepositPage.xbf">
+      <PackagePath>DepositPage.xbf</PackagePath>
+      <Modified>2022-04-26T10:57:37.695</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x86\Debug\EditProfilePage.xbf">
+      <PackagePath>EditProfilePage.xbf</PackagePath>
+      <Modified>2022-04-26T10:57:37.703</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x86\Debug\MainFramePage.xbf">
+      <PackagePath>MainFramePage.xbf</PackagePath>
+      <Modified>2022-04-26T10:57:37.669</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x86\Debug\MainPage.xbf">
+      <PackagePath>MainPage.xbf</PackagePath>
+      <Modified>2022-04-26T10:57:37.674</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x86\Debug\MoneyTransferPage.xbf">
+      <PackagePath>MoneyTransferPage.xbf</PackagePath>
+      <Modified>2022-04-26T10:57:37.716</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x86\Debug\SignUpPage.xbf">
+      <PackagePath>SignUpPage.xbf</PackagePath>
+      <Modified>2022-04-26T10:57:37.680</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x86\Debug\ViewBalancePage.xbf">
+      <PackagePath>ViewBalancePage.xbf</PackagePath>
+      <Modified>2022-04-26T10:57:37.723</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x86\Debug\ViewProfilePage.xbf">
+      <PackagePath>ViewProfilePage.xbf</PackagePath>
+      <Modified>2022-04-26T10:57:37.729</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x86\Debug\ViewTransactionsPage.xbf">
+      <PackagePath>ViewTransactionsPage.xbf</PackagePath>
+      <Modified>2022-04-26T10:57:37.732</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.19041.0\\redist\Debug\x86\ucrtbased.dll">
+      <PackagePath>ucrtbased.dll</PackagePath>
+      <Modified>2020-12-01T23:29:30.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd">
+      <PackagePath>WinMetadata\Windows.winmd</PackagePath>
+      <Modified>2020-12-01T21:22:06.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\microsoft.ui.xaml\2.7.1\buildTransitive\..\lib\uap10.0\Microsoft.UI.Xaml.winmd">
+      <PackagePath>Microsoft.UI.Xaml.winmd</PackagePath>
+      <Modified>2022-03-17T16:43:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x86\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2022-04-26T10:41:38.267</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\bin\x86\Debug\Core\ZBMS.exe">
+      <PackagePath>ZBMS.exe</PackagePath>
+      <Modified>2022-04-26T10:57:39.423</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResolvedSDKReference Include="C:\Users\kabilan-13333\.nuget\packages\microsoft.ui.xaml\2.7.1\buildTransitive\..\tools\AppX\x86\Release\Microsoft.UI.Xaml.2.7.appx">
+      <Name>Microsoft.UI.Xaml.2.7</Name>
+      <Version>7.2203.17001.0</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.UI.Xaml.2.7, MinVersion = 7.2203.17001.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\kabilan-13333\.nuget\packages\microsoft.ui.xaml\2.7.1\buildTransitive\..\tools\AppX\x86\Release\Microsoft.UI.Xaml.2.7.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Users\kabilan-13333\.nuget\packages\microsoft.ui.xaml\2.7.1\buildTransitive\..\tools\AppX\x86\Release\Microsoft.UI.Xaml.2.7.appx">
+      <Name>Microsoft.UI.Xaml.2.7</Name>
+      <Version>7.2203.17001.0</Version>
+      <Architecture>Win32</Architecture>
+      <FrameworkIdentity>Name = Microsoft.UI.Xaml.2.7, MinVersion = 7.2203.17001.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\kabilan-13333\.nuget\packages\microsoft.ui.xaml\2.7.1\buildTransitive\..\tools\AppX\x86\Release\Microsoft.UI.Xaml.2.7.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Users\kabilan-13333\.nuget\packages\microsoft.ui.xaml\2.7.1\buildTransitive\..\tools\AppX\x64\Release\Microsoft.UI.Xaml.2.7.appx">
+      <Name>Microsoft.UI.Xaml.2.7</Name>
+      <Version>7.2203.17001.0</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.UI.Xaml.2.7, MinVersion = 7.2203.17001.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\kabilan-13333\.nuget\packages\microsoft.ui.xaml\2.7.1\buildTransitive\..\tools\AppX\x64\Release\Microsoft.UI.Xaml.2.7.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Users\kabilan-13333\.nuget\packages\microsoft.ui.xaml\2.7.1\buildTransitive\..\tools\AppX\arm\Release\Microsoft.UI.Xaml.2.7.appx">
+      <Name>Microsoft.UI.Xaml.2.7</Name>
+      <Version>7.2203.17001.0</Version>
+      <Architecture>arm</Architecture>
+      <FrameworkIdentity>Name = Microsoft.UI.Xaml.2.7, MinVersion = 7.2203.17001.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\kabilan-13333\.nuget\packages\microsoft.ui.xaml\2.7.1\buildTransitive\..\tools\AppX\arm\Release\Microsoft.UI.Xaml.2.7.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Users\kabilan-13333\.nuget\packages\microsoft.ui.xaml\2.7.1\buildTransitive\..\tools\AppX\arm64\Release\Microsoft.UI.Xaml.2.7.appx">
+      <Name>Microsoft.UI.Xaml.2.7</Name>
+      <Version>7.2203.17001.0</Version>
+      <Architecture>arm64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.UI.Xaml.2.7, MinVersion = 7.2203.17001.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\kabilan-13333\.nuget\packages\microsoft.ui.xaml\2.7.1\buildTransitive\..\tools\AppX\arm64\Release\Microsoft.UI.Xaml.2.7.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.13\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
+      <Name>Microsoft.NET.CoreRuntime.2.2</Name>
+      <Version>2.2.30527.2</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.30527.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.13\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.13\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
+      <Name>Microsoft.NET.CoreRuntime.2.2</Name>
+      <Version>2.2.30527.2</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.30527.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.13\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.13\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
+      <Name>Microsoft.NET.CoreRuntime.2.2</Name>
+      <Version>2.2.30527.2</Version>
+      <Architecture>arm</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.30527.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.13\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.13\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
+      <Name>Microsoft.NET.CoreFramework.Debug.2.2</Name>
+      <Version>2.2.30316.1</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.30316.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.13\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.13\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
+      <Name>Microsoft.NET.CoreFramework.Debug.2.2</Name>
+      <Version>2.2.30316.1</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.30316.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.13\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.13\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
+      <Name>Microsoft.NET.CoreFramework.Debug.2.2</Name>
+      <Version>2.2.30316.1</Version>
+      <Architecture>arm</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.30316.1, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.13\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00.Debug</Name>
+      <Version>14.0.30704.0</Version>
+      <Architecture>ARM</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.30704.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\ARM\Microsoft.VCLibs.ARM.Debug.14.00.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00.Debug</Name>
+      <Version>14.0.30704.0</Version>
+      <Architecture>ARM64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.30704.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\ARM64\Microsoft.VCLibs.ARM64.Debug.14.00.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00.Debug</Name>
+      <Version>14.0.30704.0</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.30704.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\x64\Microsoft.VCLibs.x64.Debug.14.00.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00.Debug</Name>
+      <Version>14.0.30704.0</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.30704.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\x86\Microsoft.VCLibs.x86.Debug.14.00.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,13 @@
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\DatabaseHandler\bin\Debug\netstandard2.0\DatabaseHandler.deps.json
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\DatabaseHandler\bin\Debug\netstandard2.0\DatabaseHandler.dll
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\DatabaseHandler\bin\Debug\netstandard2.0\DatabaseHandler.pdb
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\DatabaseHandler\bin\Debug\netstandard2.0\DataModule.dll
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\DatabaseHandler\bin\Debug\netstandard2.0\DataModule.pdb
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\DatabaseHandler\obj\Debug\netstandard2.0\DatabaseHandler.csproj.AssemblyReference.cache
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\DatabaseHandler\obj\Debug\netstandard2.0\DatabaseHandler.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\DatabaseHandler\obj\Debug\netstandard2.0\DatabaseHandler.AssemblyInfoInputs.cache
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\DatabaseHandler\obj\Debug\netstandard2.0\DatabaseHandler.AssemblyInfo.cs
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\DatabaseHandler\obj\Debug\netstandard2.0\DatabaseHandler.csproj.CoreCompileInputs.cache
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\DatabaseHandler\obj\Debug\netstandard2.0\DatabaseHandler.csproj.CopyComplete
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\DatabaseHandler\obj\Debug\netstandard2.0\DatabaseHandler.dll
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\DatabaseHandler\obj\Debug\netstandard2.0\DatabaseHandler.pdb

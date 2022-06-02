@@ -1,0 +1,15 @@
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\BankManagementSystem\bin\Debug\netstandard2.0\BankManagementSystem.deps.json
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\BankManagementSystem\bin\Debug\netstandard2.0\BankManagementSystem.dll
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\BankManagementSystem\bin\Debug\netstandard2.0\BankManagementSystem.pdb
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\BankManagementSystem\bin\Debug\netstandard2.0\DatabaseHandler.dll
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\BankManagementSystem\bin\Debug\netstandard2.0\DataModule.dll
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\BankManagementSystem\bin\Debug\netstandard2.0\DatabaseHandler.pdb
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\BankManagementSystem\bin\Debug\netstandard2.0\DataModule.pdb
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\BankManagementSystem\obj\Debug\netstandard2.0\BankManagementSystem.csproj.AssemblyReference.cache
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\BankManagementSystem\obj\Debug\netstandard2.0\BankManagementSystem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\BankManagementSystem\obj\Debug\netstandard2.0\BankManagementSystem.AssemblyInfoInputs.cache
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\BankManagementSystem\obj\Debug\netstandard2.0\BankManagementSystem.AssemblyInfo.cs
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\BankManagementSystem\obj\Debug\netstandard2.0\BankManagementSystem.csproj.CoreCompileInputs.cache
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\BankManagementSystem\obj\Debug\netstandard2.0\BankManagementSystem.csproj.CopyComplete
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\BankManagementSystem\obj\Debug\netstandard2.0\BankManagementSystem.dll
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\BankManagementSystem\obj\Debug\netstandard2.0\BankManagementSystem.pdb

@@ -1,0 +1,10 @@
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\DataModule\bin\Debug\netstandard2.0\DataModule.deps.json
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\DataModule\bin\Debug\netstandard2.0\DataModule.dll
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\DataModule\bin\Debug\netstandard2.0\DataModule.pdb
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\DataModule\obj\Debug\netstandard2.0\DataModule.csproj.AssemblyReference.cache
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\DataModule\obj\Debug\netstandard2.0\DataModule.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\DataModule\obj\Debug\netstandard2.0\DataModule.AssemblyInfoInputs.cache
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\DataModule\obj\Debug\netstandard2.0\DataModule.AssemblyInfo.cs
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\DataModule\obj\Debug\netstandard2.0\DataModule.csproj.CoreCompileInputs.cache
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\DataModule\obj\Debug\netstandard2.0\DataModule.dll
+C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\DataModule\obj\Debug\netstandard2.0\DataModule.pdb

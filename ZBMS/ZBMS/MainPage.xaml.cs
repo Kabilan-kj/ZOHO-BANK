@@ -1,0 +1,106 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using Windows.UI;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
+
+using System.Threading.Tasks;
+using DataModule;
+using Windows.UI.Popups;
+using System.Threading;
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+
+namespace ZBMS
+{
+    /// <summary>
+    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// </summary>
+    public sealed partial class MainPage : Page
+    {
+        private CustomerLoginPage LoginPage = new CustomerLoginPage();
+        private static CustomerData customer = new CustomerData();
+
+        public MainPage()
+        {
+            this.InitializeComponent();
+         
+        }
+        public static CustomerData GetCustomerData()
+        {
+            return customer;
+        }
+        
+        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            LoginPage.CancelCall();
+            LoginFailed();
+            MainFrame.Navigate(typeof(SignUpPage));
+        }
+
+        private async void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (UserIdTextBox.Text !="")
+            {
+                customer = null;
+                customer = await LoginPage.GetCustomer(UserIdTextBox.Text);
+                if (customer.Name==null)
+                {
+                    ErrorMessage.Foreground = new SolidColorBrush(Colors.Red);
+                    ErrorMessage.Text = "Invalid UserID";
+                }
+                else 
+                {
+
+                    Login(customer.Name);
+
+                }
+              
+            }
+            else
+            {
+                ErrorMessage.Foreground = new SolidColorBrush(Colors.Red);
+                ErrorMessage.Text = "UserId must not be empty";
+            }
+        }
+
+      
+        public async void Login( string UserName)
+        {
+            MessageDialog showDialog = new MessageDialog("Welcome " +UserName + " !!..");
+            showDialog.Commands.Add(new UICommand("Okay") { Id = 0 });
+            showDialog.DefaultCommandIndex = 0;
+            var result = await showDialog.ShowAsync();
+            if ((int)result.Id == 0)
+            {
+                MainFrame.Navigate(typeof(MainFramePage));
+            }
+
+
+        }
+        public async void LoginFailed()
+        {
+            MessageDialog showDialog = new MessageDialog("Login Failed");
+            showDialog.Commands.Add(new UICommand("Okay") { Id = 0 });
+            showDialog.DefaultCommandIndex = 0;
+            var result = await showDialog.ShowAsync();
+            if ((int)result.Id == 0)
+            {
+               // MainFrame.Navigate(typeof(MainPage));
+            }
+
+
+        }
+
+
+    }
+}

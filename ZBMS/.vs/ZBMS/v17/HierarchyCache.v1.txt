@@ -1,0 +1,347 @@
+﻿++Solution 'ZBMS' ‎(4 of 4 projects)
+i:{00000000-0000-0000-0000-000000000000}:ZBMS.sln
+++ZBMS ‎(Universal Windows)
+i:{00000000-0000-0000-0000-000000000000}:ZBMS
+++Properties
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\properties\
+++References
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:
+++Assets
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\
+++App.xaml
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\app.xaml
+++CreateAccountPage.xaml
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\createaccountpage.xaml
+++CustomerAccountPage.cs
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\customeraccountpage.cs
+i:{af0e3478-68d7-4a59-a4f0-5742045b3fb2}:c:\users\kabilan-13333\desktop\windows apps\zbms\bankmanagementsystem\customeraccountpage.cs
+++CustomerAccountPageDBHandler.cs
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\customeraccountpagedbhandler.cs
+i:{60c5c854-18e7-4415-a89e-ea72ef09ded3}:c:\users\kabilan-13333\desktop\windows apps\zbms\databasehandler\customeraccountpagedbhandler.cs
+++CustomerHomePage.xaml
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\customerhomepage.xaml
+++CustomerHomePage.xaml.cs
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\customerhomepage.xaml.cs
+++CustomerLoginPage.cs
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\customerloginpage.cs
+i:{af0e3478-68d7-4a59-a4f0-5742045b3fb2}:c:\users\kabilan-13333\desktop\windows apps\zbms\bankmanagementsystem\customerloginpage.cs
+++CustomerLoginPageDBHandler.cs
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\customerloginpagedbhandler.cs
+i:{60c5c854-18e7-4415-a89e-ea72ef09ded3}:c:\users\kabilan-13333\desktop\windows apps\zbms\databasehandler\customerloginpagedbhandler.cs
+++DatabaseHandler.cs
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\databasehandler.cs
+++DepositPage.xaml
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\depositpage.xaml
+++EditProfilePage.xaml
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\editprofilepage.xaml
+++LoanPaymentPage.xaml
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\loanpaymentpage.xaml
+++LoanPaymentPage.xaml.cs
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\loanpaymentpage.xaml.cs
+++MainFramePage.xaml
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\mainframepage.xaml
+++MainFramePage.xaml.cs
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\mainframepage.xaml.cs
+++MainPage.xaml
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\mainpage.xaml
+++OtherBankCustomerTransferPage.xaml
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\otherbankcustomertransferpage.xaml
+++OtherCustomerTransferPage.xaml
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\othercustomertransferpage.xaml
+++OtherCustomerTransferPage.xaml.cs
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\othercustomertransferpage.xaml.cs
+++Package.appxmanifest
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\package.appxmanifest
+++SelfTransferPage.xaml
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\selftransferpage.xaml
+++SelfTransferPage.xaml.cs
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\selftransferpage.xaml.cs
+++ShortcutMenuItemManager.cs
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\shortcutmenuitemmanager.cs
+++ShortcutMenuItems.cs
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\shortcutmenuitems.cs
+++SignUpPage.xaml
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\signuppage.xaml
+++TransactionDetail.cs
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\transactiondetail.cs
+++TransactionDetailsManager.cs
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\transactiondetailsmanager.cs
+++ViewAccountDetails.xaml
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\viewaccountdetails.xaml
+++ViewAccountDetails.xaml.cs
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\viewaccountdetails.xaml.cs
+++ViewProfilePage.xaml
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\viewprofilepage.xaml
+++ViewTransactionsPage.xaml
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\viewtransactionspage.xaml
+++ViewTransactionsPage.xaml.cs
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\viewtransactionspage.xaml.cs
+++AssemblyInfo.cs
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\properties\assemblyinfo.cs
+++Default.rd.xml
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\properties\default.rd.xml
+++BankManagementSystem
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:
+i:{00000000-0000-0000-0000-000000000000}:BankManagementSystem
+++DatabaseHandler
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:
+i:{af0e3478-68d7-4a59-a4f0-5742045b3fb2}:c:\users\kabilan-13333\desktop\windows apps\zbms\databasehandler\bin\debug\netstandard2.0\databasehandler.dll
+i:{00000000-0000-0000-0000-000000000000}:DatabaseHandler
+++DataModule
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:
+i:{af0e3478-68d7-4a59-a4f0-5742045b3fb2}:c:\users\kabilan-13333\desktop\windows apps\zbms\datamodule\bin\debug\netstandard2.0\datamodule.dll
+i:{60c5c854-18e7-4415-a89e-ea72ef09ded3}:c:\users\kabilan-13333\desktop\windows apps\zbms\datamodule\bin\debug\netstandard2.0\datamodule.dll
+i:{00000000-0000-0000-0000-000000000000}:DataModule
+++Microsoft.Data.Sqlite
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:
+++Microsoft.NETCore.UniversalWindowsPlatform
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:
+++Microsoft.UI.Xaml
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:
+++Microsoft.UI.Xaml.Markup
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:
+++Microsoft.VCLibs
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:
+++Universal Windows
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:
+++BackGround.jpg
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\background.jpg
+++BackGround2.jpg
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\background2.jpg
+++Balance1.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\balance1.png
+++Balance2.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\balance2.png
+++BankIcon.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\bankicon.png
+++BankIcon2.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\bankicon2.png
+++CreateNewAccount1.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\createnewaccount1.png
+++CreateNewAccount2.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\createnewaccount2.png
+++Deposit1.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\deposit1.png
+++ironman.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\ironman.png
+++ironman2.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\ironman2.png
+++ironman3.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\ironman3.png
+++LargeTile.scale-100.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\largetile.scale-100.png
+++LargeTile.scale-125.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\largetile.scale-125.png
+++LargeTile.scale-150.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\largetile.scale-150.png
+++LargeTile.scale-200.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\largetile.scale-200.png
+++LargeTile.scale-400.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\largetile.scale-400.png
+++Loan1.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\loan1.png
+++LockScreenLogo.scale-200.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\lockscreenlogo.scale-200.png
+++Login1.jpg
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\login1.jpg
+++Login2.jpg
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\login2.jpg
+++Money1.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\money1.png
+++Money2.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\money2.png
+++MoneyTransfer1.jpg
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\moneytransfer1.jpg
+++MoneyTransfer2.jpg
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\moneytransfer2.jpg
+++MoneyTransfer3.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\moneytransfer3.png
+++MoneyTransfer4.jfif
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\moneytransfer4.jfif
+++plainbg.jfif
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\plainbg.jfif
+++ProfileImage1.jpg
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\profileimage1.jpg
+++SmallTile.scale-100.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\smalltile.scale-100.png
+++SmallTile.scale-125.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\smalltile.scale-125.png
+++SmallTile.scale-150.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\smalltile.scale-150.png
+++SmallTile.scale-200.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\smalltile.scale-200.png
+++SmallTile.scale-400.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\smalltile.scale-400.png
+++SplashScreen.scale-100.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\splashscreen.scale-100.png
+++SplashScreen.scale-125.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\splashscreen.scale-125.png
+++SplashScreen.scale-150.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\splashscreen.scale-150.png
+++SplashScreen.scale-200.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\splashscreen.scale-200.png
+++SplashScreen.scale-400.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\splashscreen.scale-400.png
+++Square150x150Logo.scale-100.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\square150x150logo.scale-100.png
+++Square150x150Logo.scale-125.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\square150x150logo.scale-125.png
+++Square150x150Logo.scale-150.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\square150x150logo.scale-150.png
+++Square150x150Logo.scale-200.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\square150x150logo.scale-200.png
+++Square150x150Logo.scale-400.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\square150x150logo.scale-400.png
+++Square44x44Logo.altform-lightunplated_targetsize-16.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\square44x44logo.altform-lightunplated_targetsize-16.png
+++Square44x44Logo.altform-lightunplated_targetsize-24.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\square44x44logo.altform-lightunplated_targetsize-24.png
+++Square44x44Logo.altform-lightunplated_targetsize-256.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\square44x44logo.altform-lightunplated_targetsize-256.png
+++Square44x44Logo.altform-lightunplated_targetsize-32.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\square44x44logo.altform-lightunplated_targetsize-32.png
+++Square44x44Logo.altform-lightunplated_targetsize-48.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\square44x44logo.altform-lightunplated_targetsize-48.png
+++Square44x44Logo.altform-unplated_targetsize-16.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\square44x44logo.altform-unplated_targetsize-16.png
+++Square44x44Logo.altform-unplated_targetsize-256.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\square44x44logo.altform-unplated_targetsize-256.png
+++Square44x44Logo.altform-unplated_targetsize-32.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\square44x44logo.altform-unplated_targetsize-32.png
+++Square44x44Logo.altform-unplated_targetsize-48.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\square44x44logo.altform-unplated_targetsize-48.png
+++Square44x44Logo.scale-100.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\square44x44logo.scale-100.png
+++Square44x44Logo.scale-125.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\square44x44logo.scale-125.png
+++Square44x44Logo.scale-150.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\square44x44logo.scale-150.png
+++Square44x44Logo.scale-200.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\square44x44logo.scale-200.png
+++Square44x44Logo.scale-400.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\square44x44logo.scale-400.png
+++Square44x44Logo.targetsize-16.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\square44x44logo.targetsize-16.png
+++Square44x44Logo.targetsize-24.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\square44x44logo.targetsize-24.png
+++Square44x44Logo.targetsize-24_altform-unplated.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\square44x44logo.targetsize-24_altform-unplated.png
+++Square44x44Logo.targetsize-256.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\square44x44logo.targetsize-256.png
+++Square44x44Logo.targetsize-32.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\square44x44logo.targetsize-32.png
+++Square44x44Logo.targetsize-48.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\square44x44logo.targetsize-48.png
+++StoreLogo.scale-100.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\storelogo.scale-100.png
+++StoreLogo.scale-125.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\storelogo.scale-125.png
+++StoreLogo.scale-150.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\storelogo.scale-150.png
+++StoreLogo.scale-200.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\storelogo.scale-200.png
+++StoreLogo.scale-400.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\storelogo.scale-400.png
+++ViewTransactions1.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\viewtransactions1.png
+++Wide310x150Logo.scale-100.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\wide310x150logo.scale-100.png
+++Wide310x150Logo.scale-125.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\wide310x150logo.scale-125.png
+++Wide310x150Logo.scale-150.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\wide310x150logo.scale-150.png
+++Wide310x150Logo.scale-200.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\wide310x150logo.scale-200.png
+++Wide310x150Logo.scale-400.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\wide310x150logo.scale-400.png
+++zb.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\zb.png
+++zb1.png
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\zb1.png
+++ZBMS_Database.db
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\assets\zbms_database.db
+++App.xaml.cs
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\app.xaml.cs
+++CreateAccountPage.xaml.cs
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\createaccountpage.xaml.cs
+++DepositPage.xaml.cs
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\depositpage.xaml.cs
+++EditProfilePage.xaml.cs
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\editprofilepage.xaml.cs
+++MainPage.xaml.cs
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\mainpage.xaml.cs
+++OtherBankCustomerTransferPage.xaml.cs
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\otherbankcustomertransferpage.xaml.cs
+++SignUpPage.xaml.cs
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\signuppage.xaml.cs
+++ViewProfilePage.xaml.cs
+i:{f75392b9-656d-4e9e-932e-66aee6010d23}:c:\users\kabilan-13333\desktop\windows apps\zbms\zbms\viewprofilepage.xaml.cs
+++Dependencies
+i:{af0e3478-68d7-4a59-a4f0-5742045b3fb2}:>236
+i:{60c5c854-18e7-4415-a89e-ea72ef09ded3}:>238
+i:{71dc78c8-cddc-432d-a817-48f4f3fe30a2}:>237
+++AccountPages
+i:{af0e3478-68d7-4a59-a4f0-5742045b3fb2}:c:\users\kabilan-13333\desktop\windows apps\zbms\bankmanagementsystem\accountpages\
+++CustomerProfilePage.cs
+i:{af0e3478-68d7-4a59-a4f0-5742045b3fb2}:c:\users\kabilan-13333\desktop\windows apps\zbms\bankmanagementsystem\customerprofilepage.cs
+++Packages
+i:{af0e3478-68d7-4a59-a4f0-5742045b3fb2}:packages
+i:{60c5c854-18e7-4415-a89e-ea72ef09ded3}:packages
+i:{71dc78c8-cddc-432d-a817-48f4f3fe30a2}:packages
+++Projects
+i:{af0e3478-68d7-4a59-a4f0-5742045b3fb2}:projects
+i:{60c5c854-18e7-4415-a89e-ea72ef09ded3}:projects
+++CurrentAccountPage.cs
+i:{af0e3478-68d7-4a59-a4f0-5742045b3fb2}:c:\users\kabilan-13333\desktop\windows apps\zbms\bankmanagementsystem\accountpages\currentaccountpage.cs
+++FixedDepositAccountPage.cs
+i:{af0e3478-68d7-4a59-a4f0-5742045b3fb2}:c:\users\kabilan-13333\desktop\windows apps\zbms\bankmanagementsystem\accountpages\fixeddepositaccountpage.cs
+++LoanAccountPage.cs
+i:{af0e3478-68d7-4a59-a4f0-5742045b3fb2}:c:\users\kabilan-13333\desktop\windows apps\zbms\bankmanagementsystem\accountpages\loanaccountpage.cs
+++RecurringAccountPage.cs
+i:{af0e3478-68d7-4a59-a4f0-5742045b3fb2}:c:\users\kabilan-13333\desktop\windows apps\zbms\bankmanagementsystem\accountpages\recurringaccountpage.cs
+++SavingsAccountPage.cs
+i:{af0e3478-68d7-4a59-a4f0-5742045b3fb2}:c:\users\kabilan-13333\desktop\windows apps\zbms\bankmanagementsystem\accountpages\savingsaccountpage.cs
+++NETStandard.Library (2.0.3)
+i:{af0e3478-68d7-4a59-a4f0-5742045b3fb2}:>254
+i:{60c5c854-18e7-4415-a89e-ea72ef09ded3}:>245
+i:{71dc78c8-cddc-432d-a817-48f4f3fe30a2}:>243
+++CustomerProfilePageDBHandler.cs
+i:{60c5c854-18e7-4415-a89e-ea72ef09ded3}:c:\users\kabilan-13333\desktop\windows apps\zbms\databasehandler\customerprofilepagedbhandler.cs
+++DatabaseInitializer.cs
+i:{60c5c854-18e7-4415-a89e-ea72ef09ded3}:c:\users\kabilan-13333\desktop\windows apps\zbms\databasehandler\databaseinitializer.cs
+++DBAccountData.cs
+i:{60c5c854-18e7-4415-a89e-ea72ef09ded3}:c:\users\kabilan-13333\desktop\windows apps\zbms\databasehandler\dbaccountdata.cs
+++Microsoft.NETCore.UniversalWindowsPlatform (6.2.13)
+i:{60c5c854-18e7-4415-a89e-ea72ef09ded3}:>250
+++sqlite-net (1.6.292)
+i:{60c5c854-18e7-4415-a89e-ea72ef09ded3}:>249
+++sqlite-net-pcl (1.8.116)
+i:{60c5c854-18e7-4415-a89e-ea72ef09ded3}:>244
+i:{71dc78c8-cddc-432d-a817-48f4f3fe30a2}:>241
+++System.Data.SQLite (1.0.115.5)
+i:{60c5c854-18e7-4415-a89e-ea72ef09ded3}:>242
+++System.Data.SQLite.Core (1.0.115.5)
+i:{60c5c854-18e7-4415-a89e-ea72ef09ded3}:>248
+i:{71dc78c8-cddc-432d-a817-48f4f3fe30a2}:>246
+++AccountDetails
+i:{71dc78c8-cddc-432d-a817-48f4f3fe30a2}:c:\users\kabilan-13333\desktop\windows apps\zbms\datamodule\accountdetails\
+++BankData.cs
+i:{71dc78c8-cddc-432d-a817-48f4f3fe30a2}:c:\users\kabilan-13333\desktop\windows apps\zbms\datamodule\bankdata.cs
+++CustomerData.cs
+i:{71dc78c8-cddc-432d-a817-48f4f3fe30a2}:c:\users\kabilan-13333\desktop\windows apps\zbms\datamodule\customerdata.cs
+++TransactionDetails.cs
+i:{71dc78c8-cddc-432d-a817-48f4f3fe30a2}:c:\users\kabilan-13333\desktop\windows apps\zbms\datamodule\transactiondetails.cs
+++AccountData.cs
+i:{71dc78c8-cddc-432d-a817-48f4f3fe30a2}:c:\users\kabilan-13333\desktop\windows apps\zbms\datamodule\accountdetails\accountdata.cs
+++CurrentAccountData.cs
+i:{71dc78c8-cddc-432d-a817-48f4f3fe30a2}:c:\users\kabilan-13333\desktop\windows apps\zbms\datamodule\accountdetails\currentaccountdata.cs
+++FixedDepositAccountData.cs
+i:{71dc78c8-cddc-432d-a817-48f4f3fe30a2}:c:\users\kabilan-13333\desktop\windows apps\zbms\datamodule\accountdetails\fixeddepositaccountdata.cs
+++LoanAccountData.cs
+i:{71dc78c8-cddc-432d-a817-48f4f3fe30a2}:c:\users\kabilan-13333\desktop\windows apps\zbms\datamodule\accountdetails\loanaccountdata.cs
+++RecurringAccountData.cs
+i:{71dc78c8-cddc-432d-a817-48f4f3fe30a2}:c:\users\kabilan-13333\desktop\windows apps\zbms\datamodule\accountdetails\recurringaccountdata.cs
+++SavingsAccountData.cs
+i:{71dc78c8-cddc-432d-a817-48f4f3fe30a2}:c:\users\kabilan-13333\desktop\windows apps\zbms\datamodule\accountdetails\savingsaccountdata.cs
+++Microsoft.Data.Sqlite.Core (6.0.4)
+i:{71dc78c8-cddc-432d-a817-48f4f3fe30a2}:>247

@@ -1,0 +1,680 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="ZBMS.MainFramePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ZBMS"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <Style x:ConnectionId='2' TargetType="TextBlock" x:Name="WideCharacter">
+            <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        
+        <Style x:ConnectionId='3' TargetType="TextBlock" x:Name="NarrowCharacter">
+            <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:ConnectionId='4' TargetType="TextBlock" x:Name="WideExpandCharacter">
+            <Setter Property="Margin" Value="10,0,0,0"/>
+            <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+        </Style>
+        <Style x:ConnectionId='5' TargetType="TextBlock" x:Name="NarrowExpandCharacter">
+            <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="WideMenuText">
+            <Setter Property="FontSize"  Value="20"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="15,0,0,0"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="NarrowMenuText">
+            <Setter Property="FontSize"  Value="14"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="10,0,10,0"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="WideListText">
+            <Setter Property="FontSize"  Value="16"/>
+            <Setter Property="Margin" Value="15,0,0,0"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="NarrowListText">
+            <Setter Property="FontSize"  Value="12"/>
+            <Setter Property="Margin" Value="10,0,10,0"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="Button" x:Key="NarrowButton">
+            <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" Value="Transparent"/>
+
+        </Style>
+
+        <Style TargetType="Button" x:Key="WideButton">
+            <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" Value="Transparent"/>
+
+        </Style>
+
+        <Style TargetType="Button" x:Key="WideMenuButton">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Height" Value="70"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Padding" Value="0"/>
+        </Style>
+        <Style TargetType="Button" x:Key="NarrowMenuButton">
+
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Padding" Value="0"/>
+        </Style>
+
+        <Thickness x:Key="FlyoutContentThemePadding">0,0,0,0</Thickness>
+        <Thickness x:Key="FlyoutBorderThemeThickness">0</Thickness>
+
+    </Page.Resources>
+
+
+    <Grid Background="White">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="700" ></AdaptiveTrigger>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        
+                        <Setter Target="HomeButton.Style" Value="{StaticResource WideMenuButton}" />
+                        <Setter Target="MoneyTransferButton.Style" Value="{StaticResource WideMenuButton}"/>
+                        <Setter Target="ProfileSettingsButton.Style" Value="{StaticResource WideMenuButton}" />
+                        <Setter Target="AccountSettingsButton.Style" Value="{StaticResource WideMenuButton}"/>
+                        <Setter Target="AboutUsButton.Style" Value="{StaticResource WideMenuButton}" />
+                        <Setter Target="SignOutButton.Style" Value="{StaticResource WideMenuButton}"/>
+                        <Setter Target="ForwardButton.Style" Value="{StaticResource WideButton}"/>
+                        <Setter Target="BackwardButton.Style" Value="{StaticResource WideButton}"/>
+
+                        <Setter Target="HomeCharacter.Style" Value="{StaticResource WideCharacter}"/>
+                        <Setter Target="MoneyTransferCharacter.Style" Value="{StaticResource WideCharacter}"/>
+                        <Setter Target="ProfileSettingsCharacter.Style" Value="{StaticResource WideCharacter}"/>
+                        <Setter Target="AccountSettingsCharacter.Style" Value="{StaticResource WideCharacter}"/>
+                        <Setter Target="AboutUsCharacter.Style" Value="{StaticResource WideCharacter}"/>
+                        <Setter Target="SignOutCharacter.Style" Value="{StaticResource WideCharacter}"/>
+                        <Setter Target="ExpandCharacter1.Style" Value="{StaticResource WideExpandCharacter}"/>
+                        <Setter Target="ExpandCharacter2.Style" Value="{StaticResource WideExpandCharacter}"/>
+                        <Setter Target="ExpandCharacter3.Style" Value="{StaticResource WideExpandCharacter}"/>
+
+                        <Setter Target="HomeTextBlock.Style" Value="{StaticResource WideMenuText}"/>
+                        <Setter Target="MoneyTransferTextBlock.Style" Value="{StaticResource WideMenuText}"/>
+                        <Setter Target="ProfileSettingsTextBlock.Style" Value="{StaticResource WideMenuText}"/>
+                        <Setter Target="AccountSettingsTextBlock.Style" Value="{StaticResource WideMenuText}"/>
+                        <Setter Target="AboutUsTextBlock.Style" Value="{StaticResource WideMenuText}"/>
+                        <Setter Target="SignOutTextBlock.Style" Value="{StaticResource WideMenuText}"/>
+                        <Setter Target="WelcomeTextBlock.Style" Value="{StaticResource WideMenuText}"/>
+                        <Setter Target="UserNameTextBlock.Style" Value="{StaticResource WideMenuText}"/>
+                        <Setter Target="LastLoginTextBlock.Style" Value="{StaticResource WideMenuText}"/>
+                        <Setter Target="LastLoginContentTextBlock.Style" Value="{StaticResource WideMenuText}"/>
+
+                        <Setter Target="SelfTransferTextBlock.Style" Value="{StaticResource WideListText}"/>
+                        <Setter Target="OtherCustomerTransferTextBlock.Style" Value="{StaticResource WideListText}"/>
+                        <Setter Target="OtherBankTransferTextBlock.Style" Value="{StaticResource WideListText}"/>
+
+                        <Setter Target="ViewProfileTextBlock.Style" Value="{StaticResource WideListText}"/>
+                        <Setter Target="EditProfileTextBlock.Style" Value="{StaticResource WideListText}"/>
+
+                        <Setter Target="ViewTransactionTextBlock.Style" Value="{StaticResource WideListText}"/>
+                        <Setter Target="ViewAccountTextBlock.Style" Value="{StaticResource WideListText}"/>
+                        
+
+                        <Setter Target="LogoImage.Height" Value="50"/>
+                        <Setter Target="LogoImage.Width" Value="150"/>
+
+                        <Setter Target="ProfileImage.Height" Value="100"/>
+                        <Setter Target="ProfileImage.Width" Value="100"/>
+
+
+                    </VisualState.Setters>
+                    
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <StackPanel Background="DeepSkyBlue">
+
+                <Button x:ConnectionId='53' 
+                    Margin="10"
+                    Name="ProfileButton"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    CornerRadius="150"
+                    Background="Transparent"
+                     >
+
+
+                    <Ellipse x:ConnectionId='54' Name="ProfileImage" Height="50" Width="50">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="Assets/ironman3.png" />
+                        </Ellipse.Fill>
+
+                    </Ellipse>
+                    
+                    <Button.Flyout >
+                        <Flyout x:ConnectionId='55' x:Name="MoreOptions" >
+                            
+                           
+                            <StackPanel Background="DeepSkyBlue" Orientation="Vertical" >
+
+                                <Button x:ConnectionId='56' Name="ViewProfileButton" Content="View Profile" FontSize="14"                                 Foreground="White" Background="Transparent" HorizontalAlignment="Stretch" >
+                                    <Button.Resources>
+                                        <ResourceDictionary>
+                                            <ResourceDictionary.ThemeDictionaries>
+                                                <ResourceDictionary x:Key="Dark">
+                                                    <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent"/>
+                                                    <SolidColorBrush x:Key="ButtonBorderBrushPointerPressed" Color="Transparent"/>
+                                                </ResourceDictionary>
+                                                <ResourceDictionary x:Key="Light">
+                                                    <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent"/>
+                                                    <SolidColorBrush x:Key="ButtonBorderBrushPointerPressed" Color="Transparent"/>
+                                                </ResourceDictionary>
+                                            </ResourceDictionary.ThemeDictionaries>
+                                        </ResourceDictionary>
+                                    </Button.Resources>
+                                </Button>
+
+                                <Button x:ConnectionId='57' Name="EditProfileButton" Content="Edit Profile" FontSize="14"  Foreground="White"                                  Background="Transparent" HorizontalAlignment="Stretch" Margin="0,0,0,30">
+                                    <Button.Resources>
+                                        <ResourceDictionary>
+                                            <ResourceDictionary.ThemeDictionaries>
+                                                <ResourceDictionary x:Key="Dark">
+                                                    <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent"/>
+                                                    <SolidColorBrush x:Key="ButtonBorderBrushPointerPressed" Color="Transparent"/>
+                                                </ResourceDictionary>
+                                                <ResourceDictionary x:Key="Light">
+                                                    <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent"/>
+                                                    <SolidColorBrush x:Key="ButtonBorderBrushPointerPressed" Color="Transparent"/>
+                                                </ResourceDictionary>
+                                            </ResourceDictionary.ThemeDictionaries>
+                                        </ResourceDictionary>
+                                    </Button.Resources>
+                                </Button>
+
+                                <HyperlinkButton x:ConnectionId='58' Content="Sign Out"                               FontSize="14" Foreground="IndianRed" HorizontalAlignment="Center" Margin="0,0,0,10"></HyperlinkButton>
+
+                            </StackPanel>
+                        </Flyout>
+                    </Button.Flyout>
+
+                    <Button.Resources>
+                        <ResourceDictionary>
+                            <ResourceDictionary.ThemeDictionaries>
+                                <ResourceDictionary x:Key="Dark">
+                                    <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent"/>
+                                    <SolidColorBrush x:Key="ButtonBorderBrushPointerPressed" Color="Transparent"/>
+                                </ResourceDictionary>
+                                <ResourceDictionary x:Key="Light">
+                                    <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent"/>
+                                    <SolidColorBrush x:Key="ButtonBorderBrushPointerPressed" Color="Transparent"/>
+                                </ResourceDictionary>
+                            </ResourceDictionary.ThemeDictionaries>
+                        </ResourceDictionary>
+                    </Button.Resources>
+
+
+                </Button>
+
+            </StackPanel>
+
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" >
+
+                <StackPanel Orientation="Vertical" Background="DeepSkyBlue" >
+
+
+                    <Button x:ConnectionId='15' VerticalAlignment="Center"
+                        Name="HomeButton"
+                                                
+                        Style="{StaticResource NarrowMenuButton}" 
+                        >
+
+                        <StackPanel  Orientation="Horizontal" Margin=" 10,0,0,0">
+                            <TextBlock x:ConnectionId='51' 
+                                 Name="HomeCharacter" 
+                                 Text="&#xE10F;" 
+                                 Style="{StaticResource NarrowCharacter}" 
+                                 ></TextBlock>
+
+                            <TextBlock x:ConnectionId='52' 
+                                 Name="HomeTextBlock"
+                                 Text="Home" 
+                                 Style="{StaticResource NarrowMenuText}"  
+                                 />
+
+                        </StackPanel>
+                        <Button.Resources>
+                            <ResourceDictionary>
+                                <ResourceDictionary.ThemeDictionaries>
+                                    <ResourceDictionary x:Key="Dark">
+                                        <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent"/>
+                                        <SolidColorBrush x:Key="ButtonBorderBrushPointerPressed" Color="Transparent"/>
+                                    </ResourceDictionary>
+                                    <ResourceDictionary x:Key="Light">
+                                        <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent"/>
+                                        <SolidColorBrush x:Key="ButtonBorderBrushPointerPressed" Color="Transparent"/>
+                                    </ResourceDictionary>
+                                </ResourceDictionary.ThemeDictionaries>
+                            </ResourceDictionary>
+                        </Button.Resources>
+                    </Button>
+
+                    <Button x:ConnectionId='16'
+                        Name="MoneyTransferButton"
+                                                         
+                        Style="{StaticResource NarrowMenuButton}" 
+                        >
+
+                        <StackPanel 
+                            Margin="10,0,0,0"
+                            Orientation="Horizontal">
+
+                            <TextBlock x:ConnectionId='48' 
+                                Name="MoneyTransferCharacter"
+                                Style="{StaticResource NarrowCharacter}"
+                                Text="&#xE117;" 
+                            />
+
+                            <TextBlock x:ConnectionId='49' 
+                                 Name="MoneyTransferTextBlock"
+                                 Text="Money Transfer" 
+                                 Style="{StaticResource NarrowMenuText}" />
+
+                            <TextBlock x:ConnectionId='50' 
+                                Name="ExpandCharacter1"
+                                Text="&#xE011;" 
+                                Style="{StaticResource NarrowExpandCharacter}"  >
+                            </TextBlock>
+
+                        </StackPanel>
+                        <Button.Resources>
+                            <ResourceDictionary>
+                                <ResourceDictionary.ThemeDictionaries>
+                                    <ResourceDictionary x:Key="Dark">
+                                        <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent"/>
+                                        <SolidColorBrush x:Key="ButtonBorderBrushPointerPressed" Color="Transparent"/>
+                                    </ResourceDictionary>
+                                    <ResourceDictionary x:Key="Light">
+                                        <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent"/>
+                                        <SolidColorBrush x:Key="ButtonBorderBrushPointerPressed" Color="Transparent"/>
+                                    </ResourceDictionary>
+                                </ResourceDictionary.ThemeDictionaries>
+                            </ResourceDictionary>
+                        </Button.Resources>
+
+                    </Button>
+
+                    <ListView x:ConnectionId='17' Background="White" Margin="0,0,0,10" Name="MoneyTransferList" Visibility="Collapsed" SelectionMode="Single" IsItemClickEnabled="True"                                                                                              >
+
+                        <ListViewItem x:ConnectionId='42' Name="SelfTransfer">
+                            <TextBlock x:ConnectionId='47' 
+                               Name="SelfTransferTextBlock"
+                               Text="Self" 
+                               Style="{StaticResource NarrowListText}" />
+                        </ListViewItem>
+
+                        <ListViewItem x:ConnectionId='43' Name="OtherCustomer ">
+                            <TextBlock x:ConnectionId='46' 
+                                Name="OtherCustomerTransferTextBlock"
+                                Text="Other Customer " 
+                                Style="{StaticResource NarrowListText}" />
+                        </ListViewItem>
+
+                        <ListViewItem x:ConnectionId='44' Name="OtherBank" >
+                            <TextBlock x:ConnectionId='45' 
+                                Name="OtherBankTransferTextBlock"
+                                Text="Other Bank" 
+                                Style="{StaticResource NarrowListText}" />
+                        </ListViewItem>
+
+                    </ListView>
+
+                    <Button x:ConnectionId='18'  Name="ProfileSettingsButton"
+                                                          
+                             Style="{StaticResource NarrowMenuButton}" >
+                        
+                        <StackPanel >
+                            <StackPanel Margin="10,0,0,0" Orientation="Horizontal">
+                                <TextBlock x:ConnectionId='39' 
+                                     Name="ProfileSettingsCharacter"
+                                     Style="{StaticResource NarrowCharacter}"
+                                     Text="&#xE13D;" 
+                                 />
+
+                                <TextBlock x:ConnectionId='40'
+                                      Name="ProfileSettingsTextBlock"
+                                      Text="Profile Settings " 
+                                      Style="{StaticResource NarrowMenuText}" />
+
+                                <TextBlock x:ConnectionId='41'  
+                                    Name="ExpandCharacter2"
+                                    Style="{StaticResource NarrowExpandCharacter}" 
+                                    Text="&#xE011;"
+                                   />
+                            </StackPanel>
+
+
+                        </StackPanel>
+                        <Button.Resources>
+                            <ResourceDictionary>
+                                <ResourceDictionary.ThemeDictionaries>
+                                    <ResourceDictionary x:Key="Dark">
+                                        <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent"/>
+                                        <SolidColorBrush x:Key="ButtonBorderBrushPointerPressed" Color="Transparent"/>
+                                    </ResourceDictionary>
+                                    <ResourceDictionary x:Key="Light">
+                                        <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent"/>
+                                        <SolidColorBrush x:Key="ButtonBorderBrushPointerPressed" Color="Transparent"/>
+                                    </ResourceDictionary>
+                                </ResourceDictionary.ThemeDictionaries>
+                            </ResourceDictionary>
+                        </Button.Resources>
+
+
+                    </Button>
+
+                    <ListView x:ConnectionId='19' Background="White" Margin="0,0,0,10" Name="ProfileSettingsList" Visibility="Collapsed" SelectionMode="Single"                                                        >
+
+                        <ListViewItem x:ConnectionId='35' Name="ViewProfile">
+                            <TextBlock x:ConnectionId='38' 
+                                         Name="ViewProfileTextBlock"
+                                         Text="View Profile" 
+                                         Style="{StaticResource NarrowListText}" />
+                        </ListViewItem>
+
+                        <ListViewItem x:ConnectionId='36' Name="EditProfile">
+                            <TextBlock x:ConnectionId='37' 
+                                        Name="EditProfileTextBlock"
+                                        Text="Edit Profile" 
+                                        Style="{StaticResource NarrowListText}" />
+                        </ListViewItem>
+
+                    </ListView>
+
+                    <Button x:ConnectionId='20' 
+                        Name="AccountSettingsButton" 
+                                                     
+                        Style="{StaticResource NarrowMenuButton}">
+                        <StackPanel Margin="10,0,5,0" Orientation="Horizontal">
+                            <TextBlock x:ConnectionId='32' 
+                                            Name="AccountSettingsCharacter"
+                                            Style="{StaticResource NarrowCharacter}"
+                                            Text="&#xE15E;" 
+                                          
+                                            />
+
+                            <TextBlock x:ConnectionId='33'  
+                                            Name="AccountSettingsTextBlock"
+                                            Text="Account Settings"
+                                            Style="{StaticResource NarrowMenuText}" />
+
+                            <TextBlock x:ConnectionId='34'   
+                                Name="ExpandCharacter3"
+                                Style="{StaticResource NarrowExpandCharacter}"  
+                                Text="&#xE011;" >
+
+
+                            </TextBlock>
+
+                        </StackPanel>
+
+                        <Button.Resources>
+                            <ResourceDictionary>
+                                <ResourceDictionary.ThemeDictionaries>
+                                    <ResourceDictionary x:Key="Dark">
+                                        <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent"/>
+                                        <SolidColorBrush x:Key="ButtonBorderBrushPointerPressed" Color="Transparent"/>
+                                    </ResourceDictionary>
+                                    <ResourceDictionary x:Key="Light">
+                                        <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent"/>
+                                        <SolidColorBrush x:Key="ButtonBorderBrushPointerPressed" Color="Transparent"/>
+                                    </ResourceDictionary>
+                                </ResourceDictionary.ThemeDictionaries>
+                            </ResourceDictionary>
+                        </Button.Resources>
+
+                    </Button>
+                    <ListView x:ConnectionId='21'  Background="White" Margin="0,0,0,10" Name="AccountSettingsList" Visibility="Collapsed" SelectionMode="Single"                                                        >
+
+                        <ListViewItem x:ConnectionId='28' Name="ViewAccount">
+                            <TextBlock x:ConnectionId='31' 
+                                 Name="ViewAccountTextBlock"
+                                 Text="View Account Details" 
+                                 Style="{StaticResource NarrowListText}" />
+                        </ListViewItem>
+
+                        <ListViewItem x:ConnectionId='29' Name="ViewTransaction">
+                            <TextBlock x:ConnectionId='30' 
+                                   Name="ViewTransactionTextBlock"
+                                   Text="View Transaction " 
+                                   Style="{StaticResource NarrowListText}" />
+                        </ListViewItem>
+
+                    </ListView>
+
+                    <Button x:ConnectionId='22'   
+                        Name="AboutUsButton"
+                        Style="{StaticResource NarrowMenuButton}"
+                                                   >
+                        <StackPanel Margin="10,0,0,0" Orientation="Horizontal">
+                            <TextBlock x:ConnectionId='26' 
+                               Name="AboutUsCharacter"
+                               Style="{StaticResource NarrowCharacter}"
+                               Text="&#xE160;"
+                            />
+
+                            <TextBlock x:ConnectionId='27' 
+                               Name="AboutUsTextBlock"
+                               Text="About Us" 
+                               Style="{StaticResource NarrowMenuText}" />
+
+
+                        </StackPanel>
+
+                        <Button.Resources>
+                            <ResourceDictionary>
+                                <ResourceDictionary.ThemeDictionaries>
+                                    <ResourceDictionary x:Key="Dark">
+                                        <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent"/>
+                                        <SolidColorBrush x:Key="ButtonBorderBrushPointerPressed" Color="Transparent"/>
+                                    </ResourceDictionary>
+                                    <ResourceDictionary x:Key="Light">
+                                        <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent"/>
+                                        <SolidColorBrush x:Key="ButtonBorderBrushPointerPressed" Color="Transparent"/>
+                                    </ResourceDictionary>
+                                </ResourceDictionary.ThemeDictionaries>
+                            </ResourceDictionary>
+                        </Button.Resources>
+
+                    </Button>
+
+                    <Button x:ConnectionId='23'  Name="SignOutButton"                       Style="{StaticResource NarrowMenuButton}">
+                        <StackPanel Margin="10,0,0,0" Orientation="Horizontal">
+                            <TextBlock x:ConnectionId='24' 
+                              Name="SignOutCharacter"
+                              Style="{StaticResource NarrowCharacter}"
+                              Text="&#xE111;" 
+                                            />
+
+                            <TextBlock x:ConnectionId='25' 
+                                Name="SignOutTextBlock"
+                                Text="SignOut" 
+                                Style="{StaticResource NarrowMenuText}" />
+
+                        </StackPanel>
+
+                        <Button.KeyboardAccelerators>
+                            <KeyboardAccelerator  Key="S" Modifiers="Shift"   />
+                        </Button.KeyboardAccelerators>
+
+
+                        <Button.Resources>
+                            <ResourceDictionary>
+                                <ResourceDictionary.ThemeDictionaries>
+                                    <ResourceDictionary x:Key="Dark">
+                                        <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent"/>
+                                        <SolidColorBrush x:Key="ButtonBorderBrushPointerPressed" Color="Transparent"/>
+                                    </ResourceDictionary>
+                                    <ResourceDictionary x:Key="Light">
+                                        <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent"/>
+                                        <SolidColorBrush x:Key="ButtonBorderBrushPointerPressed" Color="Transparent"/>
+                                    </ResourceDictionary>
+                                </ResourceDictionary.ThemeDictionaries>
+                            </ResourceDictionary>
+                        </Button.Resources>
+                    </Button>
+
+                </StackPanel>
+            </ScrollViewer>
+
+        </Grid>
+ 
+        
+        <Grid Grid.Column="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <RelativePanel Background="DeepSkyBlue" >
+                <Image x:ConnectionId='8' 
+                Name="LogoImage"
+                Source="Assets/zb1.png"
+                Height="30" 
+                Width="90" 
+                Grid.Column="0" 
+                Margin="10"   
+                 RelativePanel.AlignLeftWithPanel="True"   ></Image>
+
+                <Grid Grid.Column="2" HorizontalAlignment="Center" Margin="0,10" RelativePanel.AlignHorizontalCenterWithPanel="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+                        <TextBlock x:ConnectionId='13' Name="WelcomeTextBlock" Text="Welcome" FontWeight="Bold" Style="{StaticResource NarrowMenuText}"/>
+                        <TextBlock x:ConnectionId='14' Name="UserNameTextBlock"                               Margin="5,0,0,0" Style="{StaticResource NarrowMenuText}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1" Visibility="Collapsed">
+                        <TextBlock x:ConnectionId='11' Name="LastLoginTextBlock" Text="Last Login : " Style="{StaticResource NarrowMenuText}" />
+                        <TextBlock x:ConnectionId='12' Name="LastLoginContentTextBlock" Text="10.00 AM" Style="{StaticResource NarrowMenuText}" />
+                    </StackPanel>
+
+                </Grid>
+
+                <Button x:ConnectionId='9' 
+                    Name="ForwardButton"
+                    Grid.Column="5" 
+                    Style="{StaticResource NarrowButton}"
+                                               
+                    Content="&#xE00F;" 
+                    FontFamily="Segoe MDL2 Assets"
+                    RelativePanel.AlignRightWithPanel="True"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
+                    Margin="10"
+                    >
+                    <Button.Resources>
+                        <ResourceDictionary>
+                            <ResourceDictionary.ThemeDictionaries>
+                                <ResourceDictionary x:Key="Dark">
+                                    <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent"/>
+                                    <SolidColorBrush x:Key="ButtonBorderBrushPointerPressed" Color="Transparent"/>
+                                    <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White"/>
+                                </ResourceDictionary>
+                                <ResourceDictionary x:Key="Light">
+                                    <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent"/>
+                                    <SolidColorBrush x:Key="ButtonBorderBrushPointerPressed" Color="Transparent"/>
+                                    <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White"/>
+                                </ResourceDictionary>
+                            </ResourceDictionary.ThemeDictionaries>
+                        </ResourceDictionary>
+                    </Button.Resources>
+                </Button>
+
+                <Button x:ConnectionId='10' 
+                    Name="BackwardButton" 
+                    Grid.Column="4" 
+                    Style="{StaticResource NarrowButton}"
+                    FontFamily="Segoe MDL2 Assets"
+                                                 
+                    Content="&#xE00E;" 
+                    RelativePanel.LeftOf="ForwardButton"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
+                    >
+
+                    <Button.Resources>
+                        <ResourceDictionary>
+                            <ResourceDictionary.ThemeDictionaries>
+                                <ResourceDictionary x:Key="Dark">
+                                    <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent"/>
+                                    <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White"/>
+                                    <SolidColorBrush x:Key="ButtonBorderBrushPointerPressed" Color="Transparent"/>
+                                </ResourceDictionary>
+                                <ResourceDictionary x:Key="Light">
+                                    <SolidColorBrush x:Key="ButtonBorderBrushPointerOver" Color="Transparent"/>
+                                    <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White"/>
+                                    <SolidColorBrush x:Key="ButtonBorderBrushPointerPressed" Color="Transparent"/>
+                                </ResourceDictionary>
+                            </ResourceDictionary.ThemeDictionaries>
+                        </ResourceDictionary>
+                    </Button.Resources>
+
+                </Button>
+            </RelativePanel>
+        
+            <Frame x:ConnectionId='7' Grid.Row="2" Name="HomePageFrame"></Frame>
+
+        </Grid>
+
+        <Frame x:ConnectionId='6' Name="FullFrame" Grid.ColumnSpan="2"  ></Frame>
+       
+    </Grid>
+</Page>
+

@@ -1,0 +1,125 @@
+﻿<Page
+    x:Class="ZBMS.ViewTransactionsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ZBMS"
+    xmlns:data="using:DataModule"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <Style TargetType="TextBlock" x:Key="NarrowTextBlock">
+            <Setter Property="Margin" Value="3"></Setter>
+            <Setter Property="FontSize" Value="12"></Setter>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="WideTextBlock">
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="NarrowBoldTextBlock">
+            <Setter Property="Margin" Value="3"></Setter>
+            <!--<Setter Property="Foreground" Value="LightSkyBlue"></Setter>-->
+            <Setter Property="FontSize" Value="12"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="WideBoldTextBlock">
+            <Setter Property="Margin" Value="5"></Setter>
+            <!--<Setter Property="Foreground" Value="LightSkyBlue"></Setter>-->
+            <Setter Property="FontSize" Value="12"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+        </Style>
+
+    </Page.Resources>
+   
+    <Grid>
+        <!--<VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="500"></AdaptiveTrigger>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="TransactionDate.Style" Value="{StaticResource WideBoldTextBlock}"/>
+                        <Setter Target="BalanceTextBlock.Style" Value="{StaticResource WideBoldTextBlock}"/>
+                        <Setter Target="BalanceValueTextBlock.Style" Value="{StaticResource WideTextBlock}"/>
+                        <Setter Target="AmountValueTextBlock.Style" Value="{StaticResource WideBoldTextBlock}"/>
+                        <Setter Target="SenderIdTextBlock.Style" Value="{StaticResource WideBoldTextBlock}"/>
+                        <Setter Target="SenderIdValueTextBlock.Style" Value="{StaticResource WideTextBlock}"/>
+                        <Setter Target="ReceiverIdTextBlock.Style" Value="{StaticResource WideBoldTextBlock}"/>
+                        <Setter Target="ReceiverIdValueTextBlock.Style" Value="{StaticResource WideTextBlock}"/>
+                        <Setter Target="TransactionIdTextBlock.Style" Value="{StaticResource WideBoldTextBlock}"/>
+                        <Setter Target="TransactionIdValueTextBlock.Style" Value="{StaticResource WideTextBlock}"/>
+                        <Setter Target="RemarksTextBlock.Style" Value="{StaticResource WideBoldTextBlock}"/>
+                        <Setter Target="RemarksValueTextBlock.Style" Value="{StaticResource WideTextBlock}"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>-->
+        
+        <!--<TextBlock Text=" Under Development !! " FontSize="64"  HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Foreground="SkyBlue"></TextBlock>-->
+        <TextBlock Name="ErrorMessage" Visibility="Collapsed" Text="No Transactions Available" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="32"/>
+        <GridView ItemsSource="{x:Bind TransactionList}" Margin="10" >
+            <GridView.ItemTemplate  >
+                <DataTemplate x:DataType="data:TransactionDetails"  >
+
+                    <Grid  BorderBrush="DarkGray" Background="WhiteSmoke" BorderThickness="1" Height="140" Width="350">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"></RowDefinition>
+                            <RowDefinition Height="3*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Name="TransactionDate" Text="{x:Bind Time}"  Style="{StaticResource  NarrowBoldTextBlock}"  HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+
+                        <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Visibility="Collapsed" >
+                            <TextBlock Name="BalanceTextBlock" Text="Balance :" Style="{StaticResource  NarrowBoldTextBlock}" ></TextBlock>
+                            <TextBlock Name="BalanceValueTextBlock"  Style="{StaticResource  NarrowTextBlock}"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
+                            <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                                <TextBlock Name="AmountValueTextBlock" Text="{x:Bind Amount}" Style="{StaticResource  NarrowBoldTextBlock}"></TextBlock>
+                                <Image Name="TransactionTypeImage" Margin="5,5,5,5" Source="{x:Bind TypeImage}" Stretch="Uniform" Height="10"  ></Image>
+                            </StackPanel>
+                            <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0" Visibility="Collapsed"  >
+                                <TextBlock Name="RemarksTextBlock" Text="Remarks : " Style="{StaticResource  NarrowBoldTextBlock}"></TextBlock>
+                                <TextBlock Name="RemarksValueTextBlock" Style="{StaticResource  NarrowTextBlock}" TextWrapping="Wrap"></TextBlock>
+                               
+                            </StackPanel>
+                            
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5">
+
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBlock Name="SenderIdTextBlock" Text="Sender Id:" Style="{StaticResource  NarrowBoldTextBlock}"/>
+                                <TextBlock  Name="SenderIdValueTextBlock" Text="{x:Bind SenderId}" Style="{StaticResource  NarrowTextBlock}"></TextBlock>
+                               
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBlock Name="ReceiverIdTextBlock" Text="Receiver Id:" Style="{StaticResource  NarrowBoldTextBlock}" />
+                                <TextBlock Name="ReceiverIdValueTextBlock" Text="{x:Bind ReceiverId}" Style="{StaticResource  NarrowTextBlock}"></TextBlock>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBlock Name="TransactionIdTextBlock" Text="Transaction Id:" Style="{StaticResource  NarrowBoldTextBlock}" Margin="5,20,5,5"  />
+                                <TextBlock Name="TransactionIdValueTextBlock" Margin="5,20,5,5" Text="{x:Bind TransactionId}" Style="{StaticResource  NarrowTextBlock}" ></TextBlock>
+                            </StackPanel>
+
+                            
+                        </StackPanel>
+
+
+                    </Grid>
+
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView> 
+       
+    </Grid>
+</Page>
