@@ -13,48 +13,24 @@ namespace ZBMS
     {
         private CustomerLoginPageDBHandler dbHandler = new CustomerLoginPageDBHandler();
         private CustomerData SelectedCustomer = new CustomerData();
-        private  static CancellationTokenSource  tokenSource = new CancellationTokenSource();
-        private  CancellationToken token = tokenSource.Token;
+        //private  static CancellationTokenSource  tokenSource = new CancellationTokenSource();
+        //private  CancellationToken token = tokenSource.Token;
 
-        public void SignIn(string id)
+        public async Task<CustomerData> GetCustomerAsync(string id)
         {
-            SelectedCustomer = null;
-
-            SelectedCustomer = dbHandler.GetCustomer(id);
-
-        }
-
-        public async Task<CustomerData> GetCustomer(string id)
-        {
-            try
+            return await Task.Run(() => 
             {
-               
-                await Task.Run(() => 
-                {
-                   // Thread.Sleep(7000); 
-                    if(token.IsCancellationRequested)
-                    {
-                        return;
-                    }
-                    SignIn(id); 
-                }, token);
-
-            }catch (Exception)
-            {
-                return null;
-            }
-            if (SelectedCustomer == null)
-                return null;
-
-            else
-                return   SelectedCustomer;
+                return dbHandler.GetCustomer(id);
+            });
+   
         }
-
-        public void CancelCall()
+        public CustomerData GetCustomer(string id)
         {
-            tokenSource.Cancel();
-            
+           return dbHandler.GetCustomer(id);
+         
         }
+
+
 
         public  async Task<CustomerData> SignUp(CustomerData customer)
         {

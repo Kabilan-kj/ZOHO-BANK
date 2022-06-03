@@ -42,27 +42,23 @@ namespace ZBMS
         
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
         {
-            LoginPage.CancelCall();
-            LoginFailed();
-            MainFrame.Navigate(typeof(SignUpPage));
+           MainFrame.Navigate(typeof(SignUpPage));
         }
 
-        private async void LoginButton_Click(object sender, RoutedEventArgs e)
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             if (UserIdTextBox.Text !="")
             {
                 customer = null;
-                customer = await LoginPage.GetCustomer(UserIdTextBox.Text);
-                if (customer.Name==null)
+                customer = LoginPage.GetCustomer(UserIdTextBox.Text);
+                if (customer==null)
                 {
                     ErrorMessage.Foreground = new SolidColorBrush(Colors.Red);
                     ErrorMessage.Text = "Invalid UserID";
                 }
                 else 
                 {
-
                     Login(customer.Name);
-
                 }
               
             }
@@ -73,7 +69,6 @@ namespace ZBMS
             }
         }
 
-      
         public async void Login( string UserName)
         {
             MessageDialog showDialog = new MessageDialog("Welcome " +UserName + " !!..");
@@ -87,20 +82,6 @@ namespace ZBMS
 
 
         }
-        public async void LoginFailed()
-        {
-            MessageDialog showDialog = new MessageDialog("Login Failed");
-            showDialog.Commands.Add(new UICommand("Okay") { Id = 0 });
-            showDialog.DefaultCommandIndex = 0;
-            var result = await showDialog.ShowAsync();
-            if ((int)result.Id == 0)
-            {
-               // MainFrame.Navigate(typeof(MainPage));
-            }
-
-
-        }
-
 
     }
 }

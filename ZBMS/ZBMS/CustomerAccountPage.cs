@@ -43,9 +43,14 @@ namespace ZBMS
             return account;
         }
 
-        public  List<AccountData> GetUserAccounts(string id)
+        public async Task<List<AccountData>> GetUserAccounts(string id)
         {
-             return dbHandler.GetUserAccounts(id); 
+           
+            return await Task.Run( () =>
+            {
+                return dbHandler.GetUserAccounts(id);
+
+            });
         }
 
         public async Task<List<AccountData>> GetUserPaymentAccounts(string id)

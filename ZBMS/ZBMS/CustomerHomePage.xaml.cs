@@ -49,8 +49,8 @@ namespace ZBMS
             MoneyTransferMenuItems = ShortcutMenuItemManager.GetMoneyTransferMenuItems();
             customer = MainPage.GetCustomerData();
 
-            UserAccounts.Clear();
-            UserAccounts =  customerAccountPage.GetUserAccounts(customer.CustomerId);
+           // UserAccounts.Clear();
+            UserAccounts = await customerAccountPage.GetUserAccounts(customer.CustomerId);
             if (UserAccounts.Count > 0)
             {
                 ContentStackPanel.Visibility = Visibility.Visible;
@@ -70,10 +70,7 @@ namespace ZBMS
 
             foreach (AccountData account in UserAccounts)
                 AccountNumbers.Add(account.AccountNumber);
-            //AccountData useraccount = UserAccounts[0];  
-            //AccountTypeTextBlock.Text = useraccount.TypeofAccount;
-            //BalanceContentTextBlock.Text = useraccount.Balance.ToString();
-            //AccountNumberTextBlock.Text = useraccount.AccountNumber;
+           
 
        }
         public static List<AccountData> GetUserAccounts()

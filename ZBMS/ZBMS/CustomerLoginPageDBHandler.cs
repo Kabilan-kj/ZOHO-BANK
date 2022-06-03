@@ -35,7 +35,7 @@ namespace ZBMS
                     customer.Contact = reader.GetString(3);
                     customer.MailId = reader.GetString(4);
                     customer.CustomerId = reader.GetString(5);
-                    customer.ProfileImage = reader.GetString(6);
+                    //customer.ProfileImage = reader.GetString(6);
                 }
                 
               return customer;
