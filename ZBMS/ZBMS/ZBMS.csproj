@@ -153,6 +153,7 @@
     <Compile Include="OtherBankCustomerTransferPage.xaml.cs">
       <DependentUpon>OtherBankCustomerTransferPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PresentationLayer\PresenterCallBack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelfTransferPage.xaml.cs">
       <DependentUpon>SelfTransferPage.xaml</DependentUpon>
@@ -162,6 +163,12 @@
     <Compile Include="SignUpPage.xaml.cs">
       <DependentUpon>SignUpPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataLayer\TransactionDBAdapter.cs" />
+    <Compile Include="DataLayer\TransactionsDataManager.cs" />
+    <Compile Include="DataLayer\TransactionsDBHandler.cs" />
+    <Compile Include="DomainLayer\TransactionsUseCase.cs" />
+    <Compile Include="PresentationLayer\TransactionsVM.cs" />
+    <Compile Include="UseCaseBase.cs" />
     <Compile Include="ViewAccountDetails.xaml.cs">
       <DependentUpon>ViewAccountDetails.xaml</DependentUpon>
     </Compile>
@@ -338,6 +345,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ZBMS_Database.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Transactions\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

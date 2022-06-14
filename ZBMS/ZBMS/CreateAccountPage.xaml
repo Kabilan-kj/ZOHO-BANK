@@ -156,6 +156,7 @@
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
 
                     <Button Name="CreateButton" Content="Create" Grid.Column="1"  HorizontalAlignment="Center" Background="Blue" Foreground="White" VerticalAlignment="Center" Click="CreateButton_Click" Style="{StaticResource NarrowButton}" Margin="0,0,10,0" >
@@ -193,6 +194,26 @@
                             </ResourceDictionary>
                         </Button.Resources>
                     
+                    </Button>
+
+                    <Button Name="CloseButton" Grid.Column="3" Content="Close" HorizontalAlignment="Center" Background="White" Foreground="Blue"  Click="CloseButton_Click" VerticalAlignment="Center" Style="{StaticResource NarrowButton}" Margin="10,0,0,0" >
+                        <Button.Resources>
+                            <ResourceDictionary>
+                                <ResourceDictionary.ThemeDictionaries>
+                                    <ResourceDictionary x:Key="Dark">
+                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Blue"/>
+                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="White"/>
+                                        <SolidColorBrush x:Key="ButtonForegroundPointerPressed" Color="Blue"/>
+                                        <SolidColorBrush x:Key="ButtonBackgroundPointePressed" Color="White"/>
+                                    </ResourceDictionary>
+                                    <ResourceDictionary x:Key="Light">
+                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Blue"/>
+                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="White"/>
+                                    </ResourceDictionary>
+                                </ResourceDictionary.ThemeDictionaries>
+                            </ResourceDictionary>
+                        </Button.Resources>
+
                     </Button>
 
                 </Grid>

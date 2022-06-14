@@ -14,6 +14,9 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using DataModule.AccountDetails;
 using DataModule;
+using Windows.ApplicationModel.Core;
+using Windows.UI.Core;
+using Windows.UI.ViewManagement;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -134,9 +137,25 @@ namespace ZBMS
 
         }
 
-        private void CreateAccountButton_Click(object sender, RoutedEventArgs e)
+        private async void CreateAccountButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(CreateAccountPage));
+            // this.Frame.Navigate(typeof(CreateAccountPage));
+            int newAppViewId = 0;
+            var newAppView = CoreApplication.CreateNewView();
+            await newAppView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => 
+            {
+                var newWindow = Window.Current;
+                var newApplicationView = ApplicationView.GetForCurrentView();
+                newAppViewId=newApplicationView.Id;
+                newApplicationView.Title = "Create New Account";
+
+                var newFrame = new Frame();
+                newFrame.Navigate(typeof(CreateAccountPage),null);
+                newWindow.Content=newFrame;
+                newWindow.Activate();
+
+            });
+            await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newAppViewId);
         }
 
         private void MoneyTransferGrids_ItemClick(object sender, ItemClickEventArgs e)

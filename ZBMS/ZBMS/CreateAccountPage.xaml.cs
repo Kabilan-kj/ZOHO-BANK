@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -158,7 +159,12 @@ namespace ZBMS
             var result = await showDialog.ShowAsync();
             if ((int)result.Id == 0)
             {
-                this.Frame.Navigate(typeof(CustomerHomePage));
+                //this.Frame.Navigate(typeof(CustomerHomePage));
+                await Window.Current.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                {
+                    CoreWindow.GetForCurrentThread().Close();
+                });
+
             }
         }
 
@@ -230,6 +236,14 @@ namespace ZBMS
                 this.Frame.Navigate(typeof(CustomerHomePage));
                 return;
             }
+        }
+
+        private async void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            await Window.Current.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            { 
+                CoreWindow.GetForCurrentThread().Close();
+            });
         }
     }
 }
