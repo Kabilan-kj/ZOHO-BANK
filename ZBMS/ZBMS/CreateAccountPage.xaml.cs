@@ -149,8 +149,6 @@ namespace ZBMS
             }
         }
 
-
-
         private async void AccountCreated(AccountData account)
         {
             MessageDialog showDialog = new MessageDialog($" your have been created succesfully !! \n Your AccountNumber is {account.AccountNumber} ");

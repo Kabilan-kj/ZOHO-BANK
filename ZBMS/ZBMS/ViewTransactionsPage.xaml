@@ -62,8 +62,8 @@
         </VisualStateManager.VisualStateGroups>-->
         
         <!--<TextBlock Text=" Under Development !! " FontSize="64"  HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" Foreground="SkyBlue"></TextBlock>-->
-        <TextBlock Name="ErrorMessage" Visibility="Collapsed" Text="No Transactions Available" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="32"/>
-        <GridView ItemsSource="{x:Bind TransactionList}" Margin="10" >
+        <TextBlock Name="ErrorMessage"  Text="No Transactions Available" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="32"/>
+        <GridView ItemsSource="{x:Bind viewModel.TransactionsList}" Margin="10" >
             <GridView.ItemTemplate  >
                 <DataTemplate x:DataType="data:TransactionDetails"  >
 
@@ -86,7 +86,7 @@
                         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
                             <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
                                 <TextBlock Name="AmountValueTextBlock" Text="{x:Bind Amount}" Style="{StaticResource  NarrowBoldTextBlock}"></TextBlock>
-                                <Image Name="TransactionTypeImage" Margin="5,5,5,5" Source="{x:Bind TypeImage}" Stretch="Uniform" Height="10"  ></Image>
+                                <!--<Image Name="TransactionTypeImage" Margin="5,5,5,5" Source="{x:Bind TypeImage}" Stretch="Uniform" Height="10"  ></Image>-->
                             </StackPanel>
                             <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0" Visibility="Collapsed"  >
                                 <TextBlock Name="RemarksTextBlock" Text="Remarks : " Style="{StaticResource  NarrowBoldTextBlock}"></TextBlock>

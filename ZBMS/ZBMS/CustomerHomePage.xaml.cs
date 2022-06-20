@@ -17,6 +17,7 @@ using DataModule;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
+using ZBMS.PresentationLayer;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -37,7 +38,7 @@ namespace ZBMS
         private CustomerTransactionsPage customerTransaction= new CustomerTransactionsPage();
         private CustomerData customer = new CustomerData();
         private static List<AccountData>  UserAccounts = new List<AccountData>();
-
+        private GetTransactionsViewModel viewModel = new GetTransactionsViewModel();
         public CustomerHomePage()
         {
 
@@ -127,11 +128,13 @@ namespace ZBMS
 
         }
         
-        private async void TransactionButton_Click(object sender, RoutedEventArgs e)
+        private void TransactionButton_Click(object sender, RoutedEventArgs e)
         {
             if (SelectAccountComboBox.SelectedItem!=null)
-            { 
-                ViewTransactionsPage.SetTransactionDetails(await customerTransaction.GetTransactions(SelectAccountComboBox.SelectedItem.ToString()));
+            {
+                //ViewTransactionsPage.SetTransactionDetails(await customerTransaction.GetTransactions(SelectAccountComboBox.SelectedItem.ToString()));
+                //viewModel.GetTransactions(SelectAccountComboBox.SelectedItem.ToString());
+                ViewTransactionsPage.SetSenderId(SelectAccountComboBox.SelectedItem.ToString());
                 this.Frame.Navigate(typeof(ViewTransactionsPage));
             }
 

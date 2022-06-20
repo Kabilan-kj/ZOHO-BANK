@@ -55,7 +55,7 @@
     </Page.Resources>
 
     <ScrollViewer>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+       
             <Grid  >
                 <VisualStateManager.VisualStateGroups>
                     <VisualStateGroup>
@@ -198,12 +198,13 @@
                             </Button>
                         </StackPanel>
 
+                       
                     </Grid>
 
                 </StackPanel>
-                <Frame Name="ViewProfilePageFrame" Grid.RowSpan="6" ></Frame>
 
-            </Grid>
-        </StackPanel>
+            <Frame Name="ViewProfilePageFrame"  ></Frame> 
+        </Grid>
+
     </ScrollViewer>
 </Page>

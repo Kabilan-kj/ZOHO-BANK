@@ -122,7 +122,7 @@ namespace ZBMS
             var results = await showDialog.ShowAsync();
             if ((int)results.Id == 0)
             {
-                ViewProfilePageFrame.Navigate(typeof(EditProfilePage));
+                this.Frame.Navigate(typeof(EditProfilePage));
             }
         }
 
