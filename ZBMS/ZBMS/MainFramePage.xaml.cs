@@ -262,6 +262,7 @@ namespace ZBMS
         private void AboutUsButton_Click(object sender, RoutedEventArgs e)
         {
             ChangeListVisibility();
+            HomePageFrame.Navigate(typeof(AboutUsPage));
         }
     }
 }

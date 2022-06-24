@@ -47,7 +47,7 @@ namespace ZBMS
 
         public async Task<int> UpdateCustomerData(CustomerData customer)
         {
-            return await Task.Run(async () =>
+            return await Task.Run( () =>
             {
                 return dbHandler.UpdateCustomer(customer);
                 

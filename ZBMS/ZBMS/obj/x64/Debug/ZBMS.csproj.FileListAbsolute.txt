@@ -250,3 +250,8 @@ C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\obj\x64\Debug\resources.en.res
 C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\obj\x64\Debug\resources.en.resfiles.intermediate
 C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\obj\x64\Debug\ProjectArchitectures.txt
 C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\obj\x64\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637424617200000000.json
+C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\AboutUsPage.xbf
+C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\obj\x64\Debug\AboutUsPage.g.i.cs
+C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\obj\x64\Debug\AboutUsPage.g.cs
+C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\obj\x64\Debug\AboutUsPage.xaml
+C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\obj\x64\Debug\AboutUsPage.xbf

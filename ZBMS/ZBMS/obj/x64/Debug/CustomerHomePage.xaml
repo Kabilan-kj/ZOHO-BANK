@@ -113,13 +113,13 @@
 
             <StackPanel x:ConnectionId='5' Name="ContentStackPanel" Background="White" Margin="10" CornerRadius="15">
 
-                <ComboBox x:ConnectionId='21' Margin="20"                                       Name="SelectAccountComboBox" Style="{StaticResource NarrowComboBox}" Header="Account Number" PlaceholderText="Select another account" PlaceholderForeground="Gray" SelectedIndex="0"                                                           >
+                <ComboBox x:ConnectionId='21' Margin="20"                                       Name="SelectAccountComboBox" Style="{StaticResource NarrowComboBox}" Header="Account Number" PlaceholderText="Select another account" PlaceholderForeground="Gray"                                                           >
 
                 </ComboBox>
 
                 <StackPanel Orientation="Vertical" Margin="20,0,0,10">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock x:ConnectionId='25' Name="BalanceTextBlock"  Text="Available Balance = " Style="{StaticResource NarrowHeaderText}"></TextBlock>
+                        <TextBlock x:ConnectionId='25' Name="BalanceTextBlock" Visibility="Collapsed"  Text="Available Balance = " Style="{StaticResource NarrowHeaderText}"></TextBlock>
                         <TextBlock x:ConnectionId='26' Name="BalanceContentTextBlock"  Style="{StaticResource NarrowHeaderText}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                     </StackPanel>
                     <RelativePanel>

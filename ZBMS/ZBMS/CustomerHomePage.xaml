@@ -113,13 +113,13 @@
 
             <StackPanel Name="ContentStackPanel" Background="White" Margin="10" CornerRadius="15">
 
-                <ComboBox Margin="20" ItemsSource="{x:Bind AccountNumbers}" Name="SelectAccountComboBox" Style="{StaticResource NarrowComboBox}" Header="Account Number" PlaceholderText="Select another account" PlaceholderForeground="Gray" SelectedIndex="0" SelectionChanged="SelectAccountComboBox_SelectionChanged" >
+                <ComboBox Margin="20" ItemsSource="{x:Bind AccountNumbers}" Name="SelectAccountComboBox" Style="{StaticResource NarrowComboBox}" Header="Account Number" PlaceholderText="Select another account" PlaceholderForeground="Gray" SelectionChanged="SelectAccountComboBox_SelectionChanged" >
 
                 </ComboBox>
 
                 <StackPanel Orientation="Vertical" Margin="20,0,0,10">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Name="BalanceTextBlock"  Text="Available Balance = " Style="{StaticResource NarrowHeaderText}"></TextBlock>
+                        <TextBlock Name="BalanceTextBlock" Visibility="Collapsed"  Text="Available Balance = " Style="{StaticResource NarrowHeaderText}"></TextBlock>
                         <TextBlock Name="BalanceContentTextBlock"  Style="{StaticResource NarrowHeaderText}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                     </StackPanel>
                     <RelativePanel>

@@ -1,0 +1,34 @@
+<html>
+    <head>
+       <title>
+
+       </title>
+       <script>
+        function updateresult(result)
+        {
+            document.getElementById("resultlabel").innerText=result;
+        }
+       </script>
+    </head>
+    <body>
+      <h1  style="text-align: center;">
+        ZOHO BANK
+      </h1>
+      <hr>
+      <hr>
+      <p> ZOHO Bank offers a diverse range of financial products and banking services to customers through a growing branch and ATM network and digital channels such as Netbanking, Phonebanking and MobileBanking. ZOHO Bank offers a wide gamut of commercial and transactional banking services to businesses and organizations of all sizes. Our services include working capital finance, trade services, transactional services and cash management.</p>
+      <hr>
+      <p>Under our treasury services, we help businesses generate better returns on their funds and manage financial risk. We focus on three main product areas: foreign exchange and derivatives, local currency money market and debt securities, and equities.</p>
+      <hr>
+      <hr>
+      <div style="text-align: center;">
+        <h2> Make an Enquiry</h2>
+        <h4>Name</h3>
+        <input id="namebox">
+        <h4>Mail Id</h4>
+        <input id="mailidbox"><br><br> <label id="resultlabel"></label><br>
+        
+        <button id="contactbutton" onclick="window.external.notify(namebox.value)">Enquiry</button>
+      </div>
+    </body>
+</html>

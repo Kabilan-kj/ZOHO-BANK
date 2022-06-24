@@ -9,5 +9,6 @@
     <AppIconSource>C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\BankIcon2.png</AppIconSource>
     <SplashScreenSource>C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\BankIcon2.png</SplashScreenSource>
     <PackageLogoSource>C:\Users\kabilan-13333\Desktop\Windows Apps\ZBMS\ZBMS\Assets\BankIcon2.png</PackageLogoSource>
+    <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>
 </Project>

@@ -8,12 +8,13 @@ namespace ZBMS.DomainLayer
 {
     public abstract class UseCaseBase
     {
+        public abstract void Action();
+
         public void Execute()
         {
             Task.Run(() =>
-            Action()
+                Action()
             );
         }
-        public abstract void Action();
     }
 }

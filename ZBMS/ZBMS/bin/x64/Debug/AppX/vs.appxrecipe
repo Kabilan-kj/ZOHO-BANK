@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-06-20T16:07:14.957</Modified>
+      <Modified>2022-06-24T06:19:09.796</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\ZBMS.exe">
       <PackagePath>entrypoint\ZBMS.exe</PackagePath>
-      <Modified>2022-06-20T16:07:14.054</Modified>
+      <Modified>2022-06-24T06:19:06.201</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\microsoft.data.sqlite.core\6.0.5\lib\netstandard2.0\Microsoft.Data.Sqlite.dll">
       <PackagePath>Microsoft.Data.Sqlite.dll</PackagePath>
@@ -448,69 +448,77 @@
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2022-04-19T05:14:22.125</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Webpages\AboutUsPage.Html">
+      <PackagePath>Webpages\AboutUsPage.Html</PackagePath>
+      <Modified>2022-06-24T04:48:06.595</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\ZBMS.xr.xml">
       <PackagePath>ZBMS.xr.xml</PackagePath>
-      <Modified>2022-06-20T15:57:43.736</Modified>
+      <Modified>2022-06-24T06:19:05.545</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2022-06-20T16:07:13.875</Modified>
+      <Modified>2022-06-24T06:19:05.784</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\AboutUsPage.xbf">
+      <PackagePath>AboutUsPage.xbf</PackagePath>
+      <Modified>2022-06-24T06:19:05.793</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\LoanPaymentPage.xbf">
       <PackagePath>LoanPaymentPage.xbf</PackagePath>
-      <Modified>2022-06-20T16:07:13.826</Modified>
+      <Modified>2022-06-24T06:19:05.730</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\OtherCustomerTransferPage.xbf">
       <PackagePath>OtherCustomerTransferPage.xbf</PackagePath>
-      <Modified>2022-06-20T16:07:13.829</Modified>
+      <Modified>2022-06-24T06:19:05.733</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\CreateAccountPage.xbf">
       <PackagePath>CreateAccountPage.xbf</PackagePath>
-      <Modified>2022-06-20T16:07:13.834</Modified>
+      <Modified>2022-06-24T06:19:05.738</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\CustomerHomePage.xbf">
       <PackagePath>CustomerHomePage.xbf</PackagePath>
-      <Modified>2022-06-20T16:07:13.839</Modified>
+      <Modified>2022-06-24T06:19:05.742</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\DepositPage.xbf">
       <PackagePath>DepositPage.xbf</PackagePath>
-      <Modified>2022-06-20T16:07:13.893</Modified>
+      <Modified>2022-06-24T06:19:05.832</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\EditProfilePage.xbf">
       <PackagePath>EditProfilePage.xbf</PackagePath>
-      <Modified>2022-06-20T16:07:13.843</Modified>
+      <Modified>2022-06-24T06:19:05.746</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\MainFramePage.xbf">
       <PackagePath>MainFramePage.xbf</PackagePath>
-      <Modified>2022-06-20T16:07:13.854</Modified>
+      <Modified>2022-06-24T06:19:05.759</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2022-06-20T16:07:13.858</Modified>
+      <Modified>2022-06-24T06:19:05.763</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\OtherBankCustomerTransferPage.xbf">
       <PackagePath>OtherBankCustomerTransferPage.xbf</PackagePath>
-      <Modified>2022-06-20T16:07:13.861</Modified>
+      <Modified>2022-06-24T06:19:05.767</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\SelfTransferPage.xbf">
       <PackagePath>SelfTransferPage.xbf</PackagePath>
-      <Modified>2022-06-20T16:07:13.863</Modified>
+      <Modified>2022-06-24T06:19:05.770</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\SignUpPage.xbf">
       <PackagePath>SignUpPage.xbf</PackagePath>
-      <Modified>2022-06-20T16:07:13.867</Modified>
+      <Modified>2022-06-24T06:19:05.775</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\ViewAccountDetails.xbf">
       <PackagePath>ViewAccountDetails.xbf</PackagePath>
-      <Modified>2022-06-20T16:07:13.870</Modified>
+      <Modified>2022-06-24T06:19:05.779</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\ViewProfilePage.xbf">
       <PackagePath>ViewProfilePage.xbf</PackagePath>
-      <Modified>2022-06-20T16:07:13.872</Modified>
+      <Modified>2022-06-24T06:19:05.781</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\ViewTransactionsPage.xbf">
       <PackagePath>ViewTransactionsPage.xbf</PackagePath>
-      <Modified>2022-06-20T16:07:13.924</Modified>
+      <Modified>2022-06-24T06:19:05.912</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.19041.0\\redist\Debug\X64\ucrtbased.dll">
       <PackagePath>ucrtbased.dll</PackagePath>
@@ -526,11 +534,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2022-06-20T12:07:53.455</Modified>
+      <Modified>2022-06-24T04:22:51.263</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\Core\ZBMS.exe">
       <PackagePath>ZBMS.exe</PackagePath>
-      <Modified>2022-06-20T16:07:14.943</Modified>
+      <Modified>2022-06-24T06:19:09.772</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

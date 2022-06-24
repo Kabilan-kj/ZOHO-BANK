@@ -348,11 +348,17 @@
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Webpages\AboutUsPage.Html">
+      <PackagePath>Webpages\AboutUsPage.Html</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\ZBMS.xr.xml">
       <PackagePath>ZBMS.xr.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\AboutUsPage.xbf">
+      <PackagePath>AboutUsPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\LoanPaymentPage.xbf">
       <PackagePath>LoanPaymentPage.xbf</PackagePath>

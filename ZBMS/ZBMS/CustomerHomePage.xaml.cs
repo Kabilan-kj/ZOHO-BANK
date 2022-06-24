@@ -32,6 +32,7 @@ namespace ZBMS
         private List<ShortcutMenuItems> ShortcutMenuItems = new List<ShortcutMenuItems>();
         private List<ShortcutMenuItems> MoneyTransferMenuItems = new List<ShortcutMenuItems>();
         private List<string> AccountNumbers = new List<string>();
+       
   
         private CustomerLoginPage customerLoginPage= new CustomerLoginPage();
         private CustomerAccountPage customerAccountPage= new CustomerAccountPage();
@@ -54,12 +55,13 @@ namespace ZBMS
             customer = MainPage.GetCustomerData();
 
            // UserAccounts.Clear();
-            UserAccounts = await customerAccountPage.GetUserAccounts(customer.CustomerId);
+            UserAccounts = await  customerAccountPage.GetUserAccounts(customer.CustomerId);
             if (UserAccounts.Count > 0)
             {
+                GetAccountNumbers();
                 ContentStackPanel.Visibility = Visibility.Visible;
                 ErrorStackPanel.Visibility = Visibility.Collapsed;
-                GetAccountNumbers();
+                
             }
             else
             {
@@ -89,9 +91,9 @@ namespace ZBMS
             switch(shortcutItems.ItemId)
             {
                 case 1:
-                    
-                    this.Frame.Navigate(typeof(CreateAccountPage));
-                   
+
+                    //this.Frame.Navigate(typeof(CreateAccountPage));
+                    CreateNewAccount();
                     break;
                
              
@@ -109,22 +111,43 @@ namespace ZBMS
             }
 
         }
+
+        private async void CreateNewAccount()
+        {
+            int newAppViewId = 0;
+            var newAppView = CoreApplication.CreateNewView();
+            await newAppView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                var newWindow = Window.Current;
+                var newApplicationView = ApplicationView.GetForCurrentView();
+                newAppViewId = newApplicationView.Id;
+                newApplicationView.Title = "Create New Account";
+
+                var newFrame = new Frame();
+                newFrame.Navigate(typeof(CreateAccountPage), null);
+                newWindow.Content = newFrame;
+                newWindow.Activate();
+
+            });
+            await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newAppViewId);
+        }
         
         private void SelectAccountComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             TransactionButton.Visibility = Visibility.Visible;
-           
+            BalanceTextBlock.Visibility = Visibility.Visible;
 
             foreach (AccountData useraccount in UserAccounts)
             {
-                if(useraccount.AccountNumber== e.AddedItems[0].ToString())
+                if (useraccount.AccountNumber == e.AddedItems[0].ToString())
                 {
                     AccountTypeTextBlock.Text = useraccount.TypeofAccount;
-                    BalanceContentTextBlock.Text =useraccount.Balance.ToString();
+                    BalanceContentTextBlock.Text = useraccount.Balance.ToString();
                     AccountNumberTextBlock.Text = useraccount.AccountNumber;
                 }
 
             }
+
 
         }
         
@@ -140,25 +163,26 @@ namespace ZBMS
 
         }
 
-        private async void CreateAccountButton_Click(object sender, RoutedEventArgs e)
+        private void CreateAccountButton_Click(object sender, RoutedEventArgs e)
         {
             // this.Frame.Navigate(typeof(CreateAccountPage));
-            int newAppViewId = 0;
-            var newAppView = CoreApplication.CreateNewView();
-            await newAppView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => 
-            {
-                var newWindow = Window.Current;
-                var newApplicationView = ApplicationView.GetForCurrentView();
-                newAppViewId=newApplicationView.Id;
-                newApplicationView.Title = "Create New Account";
+            //int newAppViewId = 0;
+            //var newAppView = CoreApplication.CreateNewView();
+            //await newAppView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => 
+            //{
+            //    var newWindow = Window.Current;
+            //    var newApplicationView = ApplicationView.GetForCurrentView();
+            //    newAppViewId=newApplicationView.Id;
+            //    newApplicationView.Title = "Create New Account";
 
-                var newFrame = new Frame();
-                newFrame.Navigate(typeof(CreateAccountPage),null);
-                newWindow.Content=newFrame;
-                newWindow.Activate();
+            //    var newFrame = new Frame();
+            //    newFrame.Navigate(typeof(CreateAccountPage),null);
+            //    newWindow.Content=newFrame;
+            //    newWindow.Activate();
 
-            });
-            await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newAppViewId);
+            //});
+            //await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newAppViewId);
+            CreateNewAccount();
         }
 
         private void MoneyTransferGrids_ItemClick(object sender, ItemClickEventArgs e)

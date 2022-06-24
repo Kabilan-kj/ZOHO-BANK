@@ -76,6 +76,7 @@ Assets\Wide310x150Logo.scale-200.png
 Assets\Wide310x150Logo.scale-400.png
 Assets\zb.png
 Assets\zb1.png
+AboutUsPage.xbf
 App.xbf
 CreateAccountPage.xbf
 CustomerHomePage.xbf
@@ -93,3 +94,4 @@ ViewProfilePage.xbf
 ViewTransactionsPage.xbf
 ZBMS.xr.xml
 Properties\Default.rd.xml
+Webpages\AboutUsPage.Html

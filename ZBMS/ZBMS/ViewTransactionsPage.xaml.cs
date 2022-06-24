@@ -1,6 +1,7 @@
 ﻿using DataModule;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -30,7 +31,10 @@ namespace ZBMS
         {
             
             this.InitializeComponent();
-            viewModel.GetTransactions(Id,this);
+            if (Id != null)
+            {
+                viewModel.GetTransactions(Id, this);
+            }
             ErrorMessage.Visibility = Visibility.Collapsed;
             //if (TransactionDetailList.Count != 0)
             //{
@@ -59,8 +63,11 @@ namespace ZBMS
             //    else
             //        transactionDetail.TypeImage = "Assets/Money2.png";
             //}
-        }
+            ObservableCollection<TransactionDetails> Tlist = new ObservableCollection<TransactionDetails>(transactionList);
+           // viewModel.TransactionsList = Tlist;
 
+        }
+      
         public static void SetSenderId(string id)
         {
             Id = id;

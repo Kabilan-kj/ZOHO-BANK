@@ -108,6 +108,7 @@
 
                         <Setter Target="CreateButton.Style" Value="{StaticResource WideButton}"/>
                         <Setter Target="CancelButton.Style" Value="{StaticResource WideButton}"/>
+                        <Setter Target="CloseButton.Style" Value="{StaticResource WideButton}"/>
 
                         <!--<Setter Target="MainGrid.Height" Value="500"/>-->
                         <Setter Target="MainGrid.Width" Value="400"/>
@@ -119,30 +120,32 @@
 
             <Grid Background="LightSkyBlue" CornerRadius="15">
                 <Grid.RowDefinitions>
+                    <RowDefinition  Height="50"></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
+                <TextBlock  Name="TitleTextBlock"  Text="Create New Account"  HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="ExtraBold" FontSize="16" Margin="10" ></TextBlock>
 
-                <StackPanel Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" >
                     <!--<TextBlock Text="AccountType" ></TextBlock>-->
                     <ComboBox  Name="AccountTypeComboBox" Header="AccountType" PlaceholderText="Select Account Type" Style="{StaticResource NarrowComboBox}" ItemsSource="{ x:Bind accountTypes}" SelectionChanged="AccountTypeComboBox_SelectionChanged"  ></ComboBox>
                 </StackPanel>
 
-                <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <!--<TextBlock Text="BranchCode"></TextBlock>-->
                     <ComboBox Name="BranchCodeComboBox" Header="BranchCode" PlaceholderText="Select Branch Code"  Style="{StaticResource NarrowComboBox}" ItemsSource="{x:Bind branchCode}" ></ComboBox>
                 </StackPanel>
         
-                <StackPanel Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <StackPanel Grid.Row="3" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" >
                     <TextBlock Name="AmountTextBlock" Text="Initial Amount"  Style="{StaticResource NarrowTextBlock}" HorizontalAlignment="Left"  ></TextBlock>
                     <TextBox Name="AmountTextBox" PlaceholderText="Enter Initial Amount" Style="{StaticResource NarrowTextBox}" HorizontalAlignment="Left" Background="White" ></TextBox>
 
                 </StackPanel>
 
-                <StackPanel Orientation="Vertical" Grid.Row="3"   HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <StackPanel Orientation="Vertical" Grid.Row="4"   HorizontalAlignment="Center" VerticalAlignment="Center" >
 
                     <ComboBox Name="TenureComboBox"  Style="{StaticResource NarrowComboBox}" Header="Tenure" Visibility="Collapsed" Margin="0,20,10,0" PlaceholderText="Select Tenure " ItemsSource="{x:Bind tenure}" ></ComboBox>
                     <ComboBox Name="SavingAccountComboBox" Style="{StaticResource NarrowComboBox}" Header="SavingsAccount" Visibility="Collapsed" Margin="0,20,0,10" PlaceholderText="Select SavingsAccount" ItemsSource="{x:Bind savingsAccount}" ></ComboBox>

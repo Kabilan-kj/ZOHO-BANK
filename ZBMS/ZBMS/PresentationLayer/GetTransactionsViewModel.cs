@@ -12,7 +12,7 @@ namespace ZBMS.PresentationLayer
     public class GetTransactionsViewModel
     {
         public ViewTransactionsPage page;
-        public ObservableCollection<TransactionDetails> TransactionsList = new ObservableCollection<TransactionDetails>();
+        public  ObservableCollection<TransactionDetails> TransactionsList = new ObservableCollection<TransactionDetails>();
         public void GetTransactions(string id, ViewTransactionsPage _page)
         {
             page = _page;
@@ -23,11 +23,16 @@ namespace ZBMS.PresentationLayer
         public void SetTransactions(IList<TransactionDetails> list)
         {
             TransactionsList.Clear();
-            ObservableCollection<TransactionDetails> Transactions = new ObservableCollection<TransactionDetails>(list);
-            foreach (var item in Transactions)
+            foreach(var item in list)
             {
                 TransactionsList.Add(item);
             }
+            //ObservableCollection<TransactionDetails> Transactions = new ObservableCollection<TransactionDetails>(list);
+            //foreach (var item in Transactions)
+            //{
+            //    TransactionsList.Add(item);
+            //}
         }
+       
     }
 }
