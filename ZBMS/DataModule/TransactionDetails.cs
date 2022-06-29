@@ -26,17 +26,13 @@ namespace DataModule
         public DateTime TransactionTime { get; set; }
         public double Amount { get; set; }
         public string Time { get; set; }    
-        public TransactionType TransactionType;
-        public TransactionStatus TransactionStatus;
-
-        public string TypeImage { get; set; }   
+          
         public string Type { get; set; }
         public string Status { get; set; }
-        public string CustomerId { get; set; }
-        public string AccountNumber { get; set; }
-        public string BranchCode { get; set; }
+     
+
         public TransactionDetails(double _amount, string _from, string _to, TransactionType _type,
-                                 TransactionStatus _status, string _customerId, string _branchCode, int _autoIncrement)
+                                 TransactionStatus _status, int _autoIncrement)
         {
             autoIncrement = _autoIncrement;
             TransactionId = "TID" + (1000 + ++autoIncrement);
@@ -44,12 +40,8 @@ namespace DataModule
             Amount = _amount;
             SenderId = _from;
             ReceiverId = _to;
-            TransactionType = _type;
             Type = _type.ToString();
             Status = _status.ToString();
-            TransactionStatus = _status;
-            CustomerId = _customerId;
-            BranchCode = _branchCode;
 
         }
         public TransactionDetails()

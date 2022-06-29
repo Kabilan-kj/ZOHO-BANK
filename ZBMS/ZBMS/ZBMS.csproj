@@ -140,6 +140,7 @@
     <Compile Include="LoanPaymentPage.xaml.cs">
       <DependentUpon>LoanPaymentPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\ExtendedTransactionDetails.cs" />
     <Compile Include="OtherCustomerTransferPage.xaml.cs">
       <DependentUpon>OtherCustomerTransferPage.xaml</DependentUpon>
     </Compile>

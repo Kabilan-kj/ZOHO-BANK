@@ -79,7 +79,7 @@ namespace ZBMS
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            SelfTransferFailed("DO you Want to abort Transaction");
+            SelfTransferFailed("Do you want to abort transaction");
         }
 
         private async void TransferButton_Click(object sender, RoutedEventArgs e)
@@ -105,13 +105,13 @@ namespace ZBMS
                                     dbHandler.UpdateAccount(account);
                                     string id = await customerTransaction.MakeTransaction(account, Convert.ToDouble(AmountTextBox.Text), ToTextBox.Text);
                                     if (id != null)
-
+                                    {
                                         TransferDone($"Transaction Succesfull \n Transaction Id : {id} ");
+                                    }                                      
                                     else
                                     {
                                         TransferDone("Transaction Failed ");
                                     }
-
                                 }
                                 else
                                 {

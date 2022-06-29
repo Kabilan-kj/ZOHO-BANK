@@ -9,6 +9,7 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Core;
 using Windows.UI.Popups;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -55,10 +56,14 @@ namespace ZBMS
             tenure.Add(18);
             tenure.Add(24);
 
-            if(accounts!=null)
+            accounts = CustomerHomePage.GetUserAccounts();
+            
             foreach (var account in accounts)
             {
-                savingsAccount.Add(account.AccountNumber);
+                if (account.TypeofAccount == "SAVINGS_ACCOUNT")
+                {
+                    savingsAccount.Add(account.AccountNumber);
+                }
             }
 
         }
@@ -185,6 +190,7 @@ namespace ZBMS
           
             if (data =="RECURRING_ACCOUNT")
             {
+
                 if (savingsAccount.Count == 0)
                 {
                     MessageDialog showDialog = new MessageDialog($"You does not have any Savings Account \n Create Savings Account and Try Again");

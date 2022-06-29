@@ -66,7 +66,7 @@
         </Style>
 
         <Style TargetType="Button" x:Key="NarrowButton">
-            <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
+            <!--<Setter Property="FontFamily" Value="Segoe MDL2 Assets" />-->
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontWeight" Value="Bold"/>
@@ -75,7 +75,7 @@
         </Style>
 
         <Style TargetType="Button" x:Key="WideButton">
-            <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
+            <!--<Setter Property="FontFamily" Value="Segoe MDL2 Assets" />-->
             <Setter Property="FontSize" Value="24"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontWeight" Value="Bold"/>
@@ -619,6 +619,8 @@
                     RelativePanel.AlignRightWithPanel="True"
                     RelativePanel.AlignVerticalCenterWithPanel="True"
                     Margin="10"
+                    
+                    Visibility="Collapsed"
                     >
                     <Button.Resources>
                         <ResourceDictionary>
@@ -637,14 +639,14 @@
                         </ResourceDictionary>
                     </Button.Resources>
                 </Button>
-
+                <!--FontFamily="Segoe MDL2 Assets"-->
                 <Button 
                     Name="BackwardButton" 
                     Grid.Column="4" 
                     Style="{StaticResource NarrowButton}"
-                    FontFamily="Segoe MDL2 Assets"
+                    
                     Click="BackWordButton_Click" 
-                    Content="&#xE00E;" 
+                    Content="Back" 
                     RelativePanel.LeftOf="ForwardButton"
                     RelativePanel.AlignVerticalCenterWithPanel="True"
                     >

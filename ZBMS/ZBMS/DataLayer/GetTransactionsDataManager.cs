@@ -14,11 +14,25 @@ namespace ZBMS.DataLayer
 
         public void GetData(IUseCaseCallBack callBack, GetTransactionsRequest request)
         {
-            response.transactions = dbHandler.GetTransactions(request.Id);
-            if (response.transactions.Count != 0)
+            if(request.transactionId==TransactionID.CustomerID)
             {
-                callBack.OnSuccess(response);
+               // response.transactions = dbHandler.GetTransactionsByCustomerID(request.Id);
+            }
+            else
+            {
+                response.transactions = dbHandler.GetTransactionsBySenderID(request.Id);
+            }
+            if (response.transactions != null)
+            {
+                if (response.transactions.Count != 0)
+                {
+                    callBack.OnSuccess(response);
 
+                }
+                else
+                {
+                    callBack.OnFailure();
+                }
             }
             else
             {

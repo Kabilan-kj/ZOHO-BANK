@@ -10,7 +10,7 @@ namespace ZBMS.DomainLayer
 {
     public  class GetTransactionsUseCase : UseCaseBase
     {
-        public GetTransactionsDataManager dataManager = new GetTransactionsDataManager();
+        public GetTransactionsDataManager dataManager; 
         private IPresenterCallBack callBack;
         private GetTransactionsRequest request;
         public GetTransactionsUseCase(IPresenterCallBack _callBack,GetTransactionsRequest _request)
@@ -21,6 +21,7 @@ namespace ZBMS.DomainLayer
 
         public override void Action()
         {
+            dataManager = new GetTransactionsDataManager();
             dataManager.GetData(new GetTransactionsCallBack(this),request);
         }
 

@@ -92,7 +92,7 @@
                 </VisualStateManager.VisualStateGroups>
 
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" CornerRadius="15"   >
-                    <Grid  Height="600" Background="LightSkyBlue"  >
+                    <Grid  Height="600" Width="300" Background="LightSkyBlue"  >
 
                         <Grid.RowDefinitions>
                             <RowDefinition Height="50"></RowDefinition>
@@ -118,7 +118,7 @@
 
                         </Image>
 
-                        <StackPanel x:ConnectionId='7' Name="NameStackPanel"  Grid.Row="2" Margin="10" >
+                    <StackPanel x:ConnectionId='7' Name="NameStackPanel"  Grid.Row="2" Margin="10" Orientation="Vertical" HorizontalAlignment="Center">
                             <TextBlock x:ConnectionId='19' Grid.Row="2" Grid.Column="0" Name="NameTextBlock" Margin="0,15,0,0" Text="Name :"  VerticalAlignment="Center"  Style="{StaticResource NarrowTextBlock}"></TextBlock>
                             <TextBox x:ConnectionId='20'  Name="NameTextBox" Padding="1" VerticalAlignment="Center"  PlaceholderForeground="DarkGray" Height="40" Width="200" Background="White"  ></TextBox>
                         </StackPanel>

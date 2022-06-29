@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using DataModule;
+using ZBMS.DomainLayer;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -190,11 +191,11 @@ namespace ZBMS
             SignOutFunction();
         }
 
-        private async void AccountSettingsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private  void AccountSettingsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(ViewTransaction.IsSelected)
             {
-                ViewTransactionsPage.SetTransactionDetails(await customerTransaction.GetTransactions());
+                ViewTransactionsPage.SetSenderId(customer.CustomerId, TransactionID.CustomerID);
                 HomePageFrame.Navigate(typeof(ViewTransactionsPage));
             }
          

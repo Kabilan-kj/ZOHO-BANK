@@ -56,14 +56,14 @@
             <Setter Property="FontSize" Value="10" ></Setter>
             <Setter Property="Height" Value="20"></Setter>
             <Setter Property="Width" Value="150"></Setter>
-            <Setter Property="Padding" Value="1"></Setter>
+            <Setter Property="Padding" Value="3"></Setter>
         </Style>
         
         <Style TargetType="TextBox" x:Key="WideTextBox">
             <Setter Property="FontSize" Value="16" ></Setter>
             <Setter Property="Height" Value="30"></Setter>
             <Setter Property="Width" Value="200"></Setter>
-            <Setter Property="Padding" Value="2"></Setter>
+            <Setter Property="Padding" Value="5"></Setter>
         </Style>
 
         <Style TargetType="PasswordBox" x:Key="NarrowPasswordBox">
@@ -112,38 +112,9 @@
                     </VisualState.Setters>
                 </VisualState>
 
-                <!--<VisualState x:Name="WideState1">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowHeight="600"></AdaptiveTrigger>
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="LoginTextBlock.Style" Value="{StaticResource WideTitleTextBlock}"></Setter>
-
-                        <Setter Target="UserIdTextBlock.Style" Value="{StaticResource WideTextBlock}"></Setter>
-                        <Setter Target="UserIdTextBox.Style" Value="{StaticResource WideTextBox}"></Setter>
-                        <Setter Target="UserIdPanel.Margin" Value="30,0,0,0"></Setter>
-
-                        <Setter Target="PasswordTextBlock.Style" Value="{StaticResource WideTextBlock}"></Setter>
-                        <Setter Target="PasswordTextBox.Style" Value="{StaticResource WidePasswordBox}"></Setter>
-                        <Setter Target="PasswordPanel.Margin" Value="30,0,0,0"></Setter>
-
-                        <Setter Target="ErrorMessage.Style" Value="{StaticResource WideTextBlock}"></Setter>
-                        <Setter Target="ErrorMessage.Margin" Value="30,0,0,20"></Setter>
-
-                        <Setter Target="LoginButton.Style" Value="{StaticResource WideButton}"></Setter>
-                        <Setter Target="LoginButton.Margin" Value="30,0,0,0"></Setter>
-
-                        <Setter Target="NewCustomerTextBlock.Style" Value="{StaticResource WideTextBlock}"></Setter>
-                        <Setter Target="SignUpHB.Style" Value="{StaticResource WideHyperLinkButton}"></Setter>
-                    </VisualState.Setters>
-                </VisualState>-->
-
-
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-
-        <!--<Image Source="Assets/BackGround2.jpg" Stretch="Fill"></Image>-->
         <Rectangle Fill="DeepSkyBlue" ></Rectangle>
         
             <Grid  MaxHeight="500" MaxWidth="1000" Background="White">

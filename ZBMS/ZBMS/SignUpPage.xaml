@@ -45,12 +45,14 @@
             <Setter Property="FontSize" Value="10" ></Setter>
             <Setter Property="Height" Value="30"></Setter>
             <Setter Property="Width" Value="150"></Setter>
+          
         </Style>
 
         <Style TargetType="TextBox" x:Key="WideTextBox">
             <Setter Property="FontSize" Value="16" ></Setter>
             <Setter Property="Height" Value="40"></Setter>
             <Setter Property="Width" Value="200"></Setter>
+          
         </Style>
 
 
@@ -96,48 +98,8 @@
                     </VisualState.Setters>
                 </VisualState>
 
-                <!--<VisualState x:Name="WideState1">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowHeight="600"></AdaptiveTrigger>
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="SignUpTextBlock.Style" Value="{StaticResource WideTitleTextBlock}"></Setter>
-                        <Setter Target="ContentGrid.Margin" Value="40"></Setter>
-
-                        <Setter Target="NameTextBlock.Style" Value="{StaticResource WideTextBlock}"></Setter>
-                        <Setter Target="NameTextBox.Style" Value="{StaticResource WideTextBox}"></Setter>
-                        <Setter Target="NamePanel.Margin" Value="30,0,0,0"></Setter>
-
-                        <Setter Target="ContactTextBlock.Style" Value="{StaticResource WideTextBlock}"></Setter>
-                        <Setter Target="ContactTextBox.Style" Value="{StaticResource WideTextBox}"></Setter>
-                        <Setter Target="ContactPanel.Margin" Value="30,0,0,0"></Setter>
-
-                        <Setter Target="MailIdTextBlock.Style" Value="{StaticResource WideTextBlock}"></Setter>
-                        <Setter Target="MailIdTextBox.Style" Value="{StaticResource WideTextBox}"></Setter>
-                        <Setter Target="MailIdPanel.Margin" Value="30,0,0,0"></Setter>
-
-                        <Setter Target="AddressTextBlock.Style" Value="{StaticResource WideTextBlock}"></Setter>
-                        <Setter Target="AddressTextBox.Style" Value="{StaticResource WideTextBox}"></Setter>
-                        <Setter Target="AddressPanel.Margin" Value="30,0,0,0"></Setter>
-
-                        <Setter Target="ErrorMessage.Style" Value="{StaticResource WideTextBlock}"></Setter>
-                        <Setter Target="ErrorMessage.Margin" Value="30,0,0,20"></Setter>
-
-                        <Setter Target="SignUpButton.Style" Value="{StaticResource WideButton}"></Setter>
-                        <Setter Target="SignUpButton.Margin" Value="30,0,0,0"></Setter>
-
-                        <Setter Target="ExistingCustomerTextBlock.Style" Value="{StaticResource WideTextBlock}"></Setter>
-                        <Setter Target="LoginHB.Style" Value="{StaticResource WideHyperLinkButton}"></Setter>
-                    </VisualState.Setters>
-                </VisualState>-->
-
-
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-
-
-        <!--<Image Source="Assets/BackGround2.jpg" Stretch="Fill"></Image>-->
-        
 
         <Grid  MaxHeight="700" MaxWidth="1200" Background="White">
             <Grid.ColumnDefinitions>
@@ -191,6 +153,7 @@
                             Style="{StaticResource NarrowTextBox}" 
                             VerticalContentAlignment="Center" 
                             Name="NameTextBox"  
+                            Padding="5" 
                             BorderThickness="1"
                             Background="White" />
 
@@ -215,7 +178,7 @@
                             HorizontalAlignment="Left"
                             Style="{StaticResource NarrowTextBox}" 
                             VerticalContentAlignment="Center"
-                            Padding="10,0,0,5" 
+                            Padding="5" 
                             Name="MailIdTextBox" 
                             BorderThickness="1"
                             
@@ -243,7 +206,7 @@
                         HorizontalAlignment="Left"
                         BorderThickness="1"
                         Background="White"
-                        Padding="10,0,0,5"
+                        Padding="5"
                         VerticalContentAlignment="Center"
                         />
 
@@ -268,7 +231,7 @@
                             HorizontalAlignment="Left"
                             Style="{StaticResource NarrowTextBox}" 
                             VerticalContentAlignment="Center"
-                            Padding="10,0,0,5" 
+                            Padding="5" 
                             Name="AddressTextBox" 
                             BorderThickness="1"
                             Background="White" />

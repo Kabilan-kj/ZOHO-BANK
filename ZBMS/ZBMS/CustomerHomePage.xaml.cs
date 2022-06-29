@@ -18,6 +18,7 @@ using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using ZBMS.PresentationLayer;
+using ZBMS.DomainLayer;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -28,18 +29,16 @@ namespace ZBMS
     /// </summary>
     public sealed partial class CustomerHomePage : Page
     {
-
         private List<ShortcutMenuItems> ShortcutMenuItems = new List<ShortcutMenuItems>();
         private List<ShortcutMenuItems> MoneyTransferMenuItems = new List<ShortcutMenuItems>();
         private List<string> AccountNumbers = new List<string>();
        
-  
         private CustomerLoginPage customerLoginPage= new CustomerLoginPage();
         private CustomerAccountPage customerAccountPage= new CustomerAccountPage();
         private CustomerTransactionsPage customerTransaction= new CustomerTransactionsPage();
         private CustomerData customer = new CustomerData();
         private static List<AccountData>  UserAccounts = new List<AccountData>();
-        private GetTransactionsViewModel viewModel = new GetTransactionsViewModel();
+
         public CustomerHomePage()
         {
 
@@ -84,7 +83,7 @@ namespace ZBMS
             return UserAccounts;
         }
 
-        private async void ShortcutGrids_ItemClick(object sender, ItemClickEventArgs e)
+        private  void ShortcutGrids_ItemClick(object sender, ItemClickEventArgs e)
         {
 
             ShortcutMenuItems shortcutItems = (ShortcutMenuItems)e.ClickedItem;
@@ -92,14 +91,13 @@ namespace ZBMS
             {
                 case 1:
 
-                    //this.Frame.Navigate(typeof(CreateAccountPage));
                     CreateNewAccount();
                     break;
                
              
                 case 2:
 
-                   ViewTransactionsPage.SetTransactionDetails(await customerTransaction.GetTransactions());
+                    ViewTransactionsPage.SetSenderId(customer.CustomerId, TransactionID.CustomerID);
                     this.Frame.Navigate(typeof(ViewTransactionsPage));
                    
                     break;
@@ -125,6 +123,7 @@ namespace ZBMS
 
                 var newFrame = new Frame();
                 newFrame.Navigate(typeof(CreateAccountPage), null);
+               
                 newWindow.Content = newFrame;
                 newWindow.Activate();
 
@@ -155,9 +154,7 @@ namespace ZBMS
         {
             if (SelectAccountComboBox.SelectedItem!=null)
             {
-                //ViewTransactionsPage.SetTransactionDetails(await customerTransaction.GetTransactions(SelectAccountComboBox.SelectedItem.ToString()));
-                //viewModel.GetTransactions(SelectAccountComboBox.SelectedItem.ToString());
-                ViewTransactionsPage.SetSenderId(SelectAccountComboBox.SelectedItem.ToString());
+                ViewTransactionsPage.SetSenderId(SelectAccountComboBox.SelectedItem.ToString(), TransactionID.SenderID);
                 this.Frame.Navigate(typeof(ViewTransactionsPage));
             }
 
@@ -165,24 +162,7 @@ namespace ZBMS
 
         private void CreateAccountButton_Click(object sender, RoutedEventArgs e)
         {
-            // this.Frame.Navigate(typeof(CreateAccountPage));
-            //int newAppViewId = 0;
-            //var newAppView = CoreApplication.CreateNewView();
-            //await newAppView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => 
-            //{
-            //    var newWindow = Window.Current;
-            //    var newApplicationView = ApplicationView.GetForCurrentView();
-            //    newAppViewId=newApplicationView.Id;
-            //    newApplicationView.Title = "Create New Account";
-
-            //    var newFrame = new Frame();
-            //    newFrame.Navigate(typeof(CreateAccountPage),null);
-            //    newWindow.Content=newFrame;
-            //    newWindow.Activate();
-
-            //});
-            //await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newAppViewId);
-            CreateNewAccount();
+             CreateNewAccount();
         }
 
         private void MoneyTransferGrids_ItemClick(object sender, ItemClickEventArgs e)

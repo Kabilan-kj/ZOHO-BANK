@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using ZBMS.DomainLayer;
 using ZBMS.PresentationLayer;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -25,52 +26,30 @@ namespace ZBMS
     /// </summary>
     public sealed partial class ViewTransactionsPage : Page
     {
-       public  GetTransactionsViewModel viewModel = new GetTransactionsViewModel();
-       public static  string Id;
+       private GetTransactionsViewModel viewModel;
+       private static  string Id;
+       private static TransactionID transactionId;
+
+
         public ViewTransactionsPage()
         {
             
             this.InitializeComponent();
+            viewModel = new GetTransactionsViewModel(this);
+
             if (Id != null)
             {
-                viewModel.GetTransactions(Id, this);
+                viewModel.GetTransactions(Id, transactionId);
             }
             ErrorMessage.Visibility = Visibility.Collapsed;
-            //if (TransactionDetailList.Count != 0)
-            //{
-            //    TransactionList = TransactionDetailList;
-            //    if (TransactionList.Count == 0)
-            //    {
-            //        DisplayErrorMessage();
-            //    }
-            //}
-            //else
-            //{
-            //    DisplayErrorMessage();
-            //}
+            
 
         }
 
-        public static void SetTransactionDetails(List<TransactionDetails> transactionList)
-        {
-            //TransactionDetailList = transactionList;
-            //foreach(TransactionDetails transactionDetail in transactionList)
-            //{
-            //    if(transactionDetail.Type==TransactionType.CREDITED.ToString())
-            //    {
-            //        transactionDetail.TypeImage = "Assets/Money1.png";
-            //    }
-            //    else
-            //        transactionDetail.TypeImage = "Assets/Money2.png";
-            //}
-            ObservableCollection<TransactionDetails> Tlist = new ObservableCollection<TransactionDetails>(transactionList);
-           // viewModel.TransactionsList = Tlist;
-
-        }
-      
-        public static void SetSenderId(string id)
+        public static void SetSenderId(string id, TransactionID _transactionId)
         {
             Id = id;
+            transactionId= _transactionId;
         }
 
         public void UpdateErrorMessage()
