@@ -15,7 +15,9 @@ namespace ZBMS.PresentationLayer
     {
         public ViewTransactionsPage page;
         public  ObservableCollection<ExtendedTransactionDetails> TransactionsList = new ObservableCollection<ExtendedTransactionDetails>();
-      
+
+        public ExtendedTransactionDetails SelectedTransaction = new ExtendedTransactionDetails();
+      //  public ObservableCollection<ExtendedTransactionDetails> SelectedTransaction = new ObservableCollection<ExtendedTransactionDetails>();
         private GetTransactionsRequest request;
 
         public GetTransactionsViewModel( ViewTransactionsPage _page)
@@ -26,8 +28,20 @@ namespace ZBMS.PresentationLayer
         public void GetTransactions(string id, TransactionID transactionId )
         {
             request = new GetTransactionsRequest(id, transactionId);
-            new GetTransactionsUseCase(new PresenterCallBack(this),request, new GetTransactionsDataManager()).Execute();
+            new GetTransactionsUseCase(new PresenterCallBack(this),request).Execute();
 
+        }
+
+        public void SetSelectedTransaction(string transactionId)
+        {
+            foreach(var transaction in TransactionsList)
+            {
+                if(transaction.TransactionId== transactionId)
+                {
+                    SelectedTransaction = transaction;
+                    break;
+                }
+            }
         }
 
         public void SetTransactions(IList<ExtendedTransactionDetails> list)
@@ -47,8 +61,6 @@ namespace ZBMS.PresentationLayer
                 }
                 TransactionsList.Add(item);
             }
-           
-
         }
        
     }

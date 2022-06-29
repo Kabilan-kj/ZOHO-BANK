@@ -45,25 +45,80 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
 
-                <TextBlock  Name="TitleTextBlock"  Text="Other Customer Transfer"  HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="ExtraBold" FontSize="16" Margin="10" ></TextBlock>
+                <TextBlock  Name="TitleTextBlock"
+                            Text="Other Customer Transfer" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"
+                            FontWeight="ExtraBold"
+                            FontSize="16" 
+                            Margin="10" 
+                            ></TextBlock>
 
-                <ComboBox Grid.Row="1" Name="FromComboBox" Background="White" Header="From:" PlaceholderText="Select an Account"  ItemsSource="{x:Bind FromUserAccounts}"  FontSize="12"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="200"/>
+                <ComboBox Grid.Row="1"
+                          Name="FromComboBox"
+                          Background="White" 
+                          Header="From :" 
+                          PlaceholderText="Select an Account" 
+                          ItemsSource="{x:Bind FromUserAccounts}"  
+                          FontSize="12"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center"
+                          Width="200"/>
 
                 <StackPanel Grid.Row="2"  HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Name="ToTextBlock" Text="To :" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="12" ></TextBlock>
-                    <TextBox Name="ToTextBox" Height="40" Width="200" FontSize="12" Background="White" ></TextBox>
+                    <TextBlock Name="ToTextBlock"
+                               Text="To :" 
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+                               FontSize="12" 
+                               ></TextBlock>
+                    
+                    <TextBox Name="ToTextBox"
+                             Height="40" 
+                             Width="200"
+                             FontSize="12"
+                             Background="White" 
+                             ></TextBox>
                 </StackPanel>
                 
                 <StackPanel Grid.Row="3"  HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Name="AmountTextBlock" Text="Amount:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="12" ></TextBlock>
-                    <TextBox Name="AmountTextBox" Height="40" Width="200" FontSize="12" Background="White" ></TextBox>
+                    <TextBlock Name="AmountTextBlock"
+                               Text="Amount :" 
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+                               FontSize="12"
+                               ></TextBlock>
+                    
+                    <TextBox Name="AmountTextBox" 
+                             Height="40" 
+                             Width="200"
+                             FontSize="12" 
+                             Background="White" 
+                             ></TextBox>
                 </StackPanel>
                 
                 <StackPanel Grid.Row="4"  HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Name="RemarksTextBlock" Text="Remarks :" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="12" ></TextBlock>
-                    <TextBox Name="RemarksTextBox" Height="40" Width="200" FontSize="12" Background="White" ></TextBox>
+                    <TextBlock Name="RemarksTextBlock"
+                               Text="Remarks :"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+                               FontSize="12" 
+                               ></TextBlock>
+                    
+                    <TextBox Name="RemarksTextBox"
+                             Height="40"
+                             Width="200"
+                             FontSize="12"
+                             Background="White" 
+                             ></TextBox>
                 </StackPanel>
-                <TextBlock Name="ErrorBox" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red" FontWeight="Bold"></TextBlock>
+                <TextBlock Name="ErrorBox"
+                           Grid.Row="5" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center" 
+                           Foreground="Red"
+                           FontWeight="Bold"
+                           ></TextBlock>
 
                 <Grid Grid.Row="6">
                     <Grid.ColumnDefinitions>

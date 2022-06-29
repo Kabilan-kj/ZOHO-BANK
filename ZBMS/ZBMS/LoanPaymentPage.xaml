@@ -47,10 +47,31 @@
                     <RowDefinition Height="50"></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
+                
+                
                 <TextBlock  Name="TitleTextBlock"  Text="Loan Payment"  HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="ExtraBold" FontSize="16" Margin="10" ></TextBlock>
 
-                <ComboBox Name="FromComboBox" Grid.Row="1" HorizontalAlignment="Center" Header="From:" PlaceholderText="Select an Account" PlaceholderForeground="Gray" Background="White" ItemsSource="{x:Bind FromUserAccounts}" SelectionChanged="FromComboBox_SelectionChanged"  FontSize="12"  VerticalAlignment="Center" />
-                <ComboBox Name="ToComboBox" Grid.Row="2" Header="To:" PlaceholderText="Select an Account" HorizontalAlignment="Center" Background="White" PlaceholderForeground="Gray"   ItemsSource="{x:Bind ToUserAccounts}"  FontSize="12" />
+                <ComboBox Name="FromComboBox" 
+                          Grid.Row="1"
+                          HorizontalAlignment="Center"
+                          Header="From :" 
+                          PlaceholderText="select an account" 
+                          PlaceholderForeground="Gray"
+                          Background="White" 
+                          ItemsSource="{x:Bind FromUserAccounts}"
+                          SelectionChanged="FromComboBox_SelectionChanged" 
+                          FontSize="12"
+                          VerticalAlignment="Center" />
+                
+                <ComboBox Name="ToComboBox"
+                          Grid.Row="2"
+                          Header="To :" 
+                          PlaceholderText="select an account"
+                          HorizontalAlignment="Center"
+                          Background="White" 
+                          PlaceholderForeground="Gray"  
+                          ItemsSource="{x:Bind ToUserAccounts}" 
+                          FontSize="12" />
 
                 <Grid Grid.Row="3">
                     <Grid.ColumnDefinitions>
@@ -59,22 +80,62 @@
                     </Grid.ColumnDefinitions>
 
                     <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center"  >
-                        <RadioButton Name="PartialPayment" Content="Partial Payment" GroupName="LoanPayment" Checked="LoanPaymentRadioButton_Checked"  ></RadioButton>
-                        <RadioButton Name="FullPayment" Content="Full Payment" GroupName="LoanPayment"  Checked="LoanPaymentRadioButton_Checked"></RadioButton>
+                        <RadioButton Name="PartialPayment"
+                                     Content="Partial Payment"
+                                     GroupName="LoanPayment"
+                                     Checked="LoanPaymentRadioButton_Checked" 
+                                     ></RadioButton>
+                        
+                        <RadioButton Name="FullPayment"
+                                     Content="Full Payment"
+                                     GroupName="LoanPayment" 
+                                     Checked="LoanPaymentRadioButton_Checked"
+                                     ></RadioButton>
                         
                     </StackPanel>
                     <StackPanel Margin="10" Grid.Column="1"  Orientation="Horizontal"  >
-                        <TextBlock Name="AmountTextBlock" Text="Amount:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="12" ></TextBlock>
-                        <TextBlock Name="AmountTextBox"  HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="12" Margin="10" ></TextBlock>
+                        <TextBlock Name="AmountTextBlock"
+                                   Text="Amount :"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center" 
+                                   FontSize="12" 
+                                   ></TextBlock>
+                        
+                        <TextBlock Name="AmountTextBox" 
+                                   HorizontalAlignment="Left" 
+                                   VerticalAlignment="Center"
+                                   FontSize="12"
+                                   Margin="10"
+                                   ></TextBlock>
                     </StackPanel>
                     
                 </Grid>
                 
                 <StackPanel Grid.Row="4" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                    <TextBlock Name="RemarksTextBlock" Text="Remarks :" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="12" ></TextBlock>
-                    <TextBox Name="RemarksTextBox" Height="40" Width="200" FontSize="16" Background="White" PlaceholderForeground="Gray" PlaceholderText="Remarks" ></TextBox>
+                    <TextBlock Name="RemarksTextBlock"
+                               Text="Remarks :" 
+                               HorizontalAlignment="Left" 
+                               VerticalAlignment="Center"
+                               FontSize="12" 
+                               ></TextBlock>
+                    
+                    <TextBox Name="RemarksTextBox"
+                             Height="40"
+                             Width="200"
+                             FontSize="16"
+                             Background="White"
+                             PlaceholderForeground="Gray"
+                             PlaceholderText="Remarks"
+                             ></TextBox>
                 </StackPanel>
-                <TextBlock Name="ErrorBox" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red" FontWeight="Bold"></TextBlock>
+                
+                <TextBlock Name="ErrorBox"
+                           Grid.Row="5" 
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center" 
+                           Foreground="Red"
+                           FontWeight="Bold"
+                           ></TextBlock>
 
                 <Grid Grid.Row="6">
                     <Grid.ColumnDefinitions>

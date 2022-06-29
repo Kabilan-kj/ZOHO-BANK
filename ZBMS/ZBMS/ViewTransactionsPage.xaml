@@ -35,9 +35,14 @@
     </Page.Resources>
    
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
        
         <TextBlock Name="ErrorMessage"  Text="No Transactions Available" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="32"/>
-        <GridView ItemsSource="{x:Bind viewModel.TransactionsList}" Margin="10" >
+       
+        <GridView ItemsSource="{x:Bind viewModel.TransactionsList}" Margin="10" SelectionMode="Single" Name="TransactionGrids" SelectionChanged="TransactionGrids_SelectionChanged" >
             <GridView.ItemTemplate  >
                 <DataTemplate x:DataType="data:ExtendedTransactionDetails"  >
 
@@ -51,22 +56,46 @@
                             <ColumnDefinition Width="1*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Name="TransactionDate" Text="{x:Bind Time}"  Style="{StaticResource  NarrowBoldTextBlock}"  HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                        <TextBlock Name="TransactionDate" 
+                                   Text="{x:Bind Time}" 
+                                   Style="{StaticResource  NarrowBoldTextBlock}"  
+                                   HorizontalAlignment="Center" 
+                                   VerticalAlignment="Center"
+                                   ></TextBlock>
 
                         <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Visibility="Collapsed" >
-                            <TextBlock Name="BalanceTextBlock" Text="Balance :" Style="{StaticResource  NarrowBoldTextBlock}" ></TextBlock>
-                            <TextBlock Name="BalanceValueTextBlock"  Style="{StaticResource  NarrowTextBlock}"></TextBlock>
+                            <TextBlock Name="BalanceTextBlock"
+                                       Text="Balance :" 
+                                       Style="{StaticResource  NarrowBoldTextBlock}"
+                                       ></TextBlock>
+                            
+                            <TextBlock Name="BalanceValueTextBlock"
+                                       Style="{StaticResource  NarrowTextBlock}"
+                                       ></TextBlock>
                         </StackPanel>
                         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
                             <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                                <TextBlock Name="AmountValueTextBlock" Text="{x:Bind AmountString}" Style="{StaticResource  NarrowBoldTextBlock}"
+                                <TextBlock Name="AmountValueTextBlock"
+                                           Text="{x:Bind AmountString}" 
+                                           Style="{StaticResource  NarrowBoldTextBlock}"
                                            
                                 ></TextBlock>
-                                <Image Name="TransactionTypeImage" Margin="5,5,5,5" Source="{x:Bind TypeImage}" Stretch="Uniform" Height="10"  ></Image>
+                                <Image Name="TransactionTypeImage"
+                                       Margin="5,5,5,5"
+                                       Source="{x:Bind TypeImage}"
+                                       Stretch="Uniform"
+                                       Height="10" 
+                                       ></Image>
                             </StackPanel>
                             <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0" Visibility="Collapsed"  >
-                                <TextBlock Name="RemarksTextBlock" Text="Remarks : " Style="{StaticResource  NarrowBoldTextBlock}"></TextBlock>
-                                <TextBlock Name="RemarksValueTextBlock" Style="{StaticResource  NarrowTextBlock}" TextWrapping="Wrap"></TextBlock>
+                                <TextBlock Name="RemarksTextBlock" 
+                                           Text="Remarks : "
+                                           Style="{StaticResource  NarrowBoldTextBlock}"
+                                           ></TextBlock>
+                                <TextBlock Name="RemarksValueTextBlock" 
+                                           Style="{StaticResource  NarrowTextBlock}" 
+                                           TextWrapping="Wrap"
+                                           ></TextBlock>
                                
                             </StackPanel>
                             
@@ -74,17 +103,39 @@
                         <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5">
 
                             <StackPanel Orientation="Horizontal" >
-                                <TextBlock Name="SenderIdTextBlock" Text="Sender Id:" Style="{StaticResource  NarrowBoldTextBlock}"/>
-                                <TextBlock  Name="SenderIdValueTextBlock" Text="{x:Bind SenderId}" Style="{StaticResource  NarrowTextBlock}"></TextBlock>
+                                <TextBlock Name="SenderIdTextBlock"
+                                           Text="Sender Id:"
+                                           Style="{StaticResource  NarrowBoldTextBlock}"/>
+                                
+                                <TextBlock  Name="SenderIdValueTextBlock" 
+                                            Text="{x:Bind SenderId}" 
+                                            Style="{StaticResource  NarrowTextBlock}"
+                                            ></TextBlock>
                                
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" >
-                                <TextBlock Name="ReceiverIdTextBlock" Text="Receiver Id:" Style="{StaticResource  NarrowBoldTextBlock}" />
-                                <TextBlock Name="ReceiverIdValueTextBlock" Text="{x:Bind ReceiverId}" Style="{StaticResource  NarrowTextBlock}"></TextBlock>
+                                <TextBlock Name="ReceiverIdTextBlock"
+                                           Text="Receiver Id:"
+                                           Style="{StaticResource  NarrowBoldTextBlock}" />
+                                
+                                <TextBlock Name="ReceiverIdValueTextBlock"
+                                           Text="{x:Bind ReceiverId}"
+                                           Style="{StaticResource  NarrowTextBlock}">
+                                    
+                                </TextBlock>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" >
-                                <TextBlock Name="TransactionIdTextBlock" Text="Transaction Id:" Style="{StaticResource  NarrowBoldTextBlock}" Margin="5,20,5,5"  />
-                                <TextBlock Name="TransactionIdValueTextBlock" Margin="5,20,5,5" Text="{x:Bind TransactionId}" Style="{StaticResource  NarrowTextBlock}" ></TextBlock>
+                                <TextBlock Name="TransactionIdTextBlock"
+                                           Text="Transaction Id:" 
+                                           Style="{StaticResource  NarrowBoldTextBlock}"
+                                           Margin="5,20,5,5"  />
+                                
+                                <TextBlock Name="TransactionIdValueTextBlock"
+                                           Margin="5,20,5,5" 
+                                           Text="{x:Bind TransactionId}"
+                                           Style="{StaticResource  NarrowTextBlock}" >
+                                    
+                                </TextBlock>
                             </StackPanel>
 
                             
@@ -95,7 +146,59 @@
 
                 </DataTemplate>
             </GridView.ItemTemplate>
-        </GridView> 
-       
+        </GridView>
+
+        <Grid Name="ExpandedGrid" Margin="40" Visibility="Collapsed" BorderBrush="DarkGray" Background="Cornsilk" Grid.Column="1"  BorderThickness="1" Height="700" Width="400">
+            <!--<Grid.RowDefinitions>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+            </Grid.ColumnDefinitions>-->
+             <!--Text="{x:Bind viewModel.SelectedTransaction.Time}";-->
+            <RelativePanel Grid.Row="0" Grid.ColumnSpan="2" >
+            <Button  Name="CloseButton" Click="CloseButton_Click" FontFamily="Segoe MDL2 Assets" Content="&#xE10A;" FontWeight="Bold" Foreground="Red" Background="Transparent"  RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignTopWithPanel="True" ></Button>
+                <TextBlock Name="TransactionDate1" Text="{x:Bind viewModel.SelectedTransaction.Time , Mode=OneWay}" Style="{StaticResource  NarrowBoldTextBlock}"  HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+            </RelativePanel>
+            <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Visibility="Collapsed" >
+                <TextBlock Name="BalanceTextBlock1" Text="Balance :" Style="{StaticResource  NarrowBoldTextBlock}" ></TextBlock>
+                <TextBlock Name="BalanceValueTextBlock1"  Style="{StaticResource  NarrowTextBlock}"></TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
+                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    <TextBlock Name="AmountValueTextBlock1" Text="{x:Bind viewModel.SelectedTransaction.AmountString , Mode=OneWay}" Style="{StaticResource  NarrowBoldTextBlock}"
+                                           
+                    ></TextBlock>
+                    <!--<Image Name="TransactionTypeImage" Margin="5,5,5,5" Source="{x:Bind viewModel.SelectedTransaction.TypeImage}" Stretch="Uniform" Height="10"  ></Image>-->
+                </StackPanel>
+                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,10,0,0" Visibility="Collapsed"  >
+                    <TextBlock Name="RemarksTextBlock1" Text="Remarks : " Style="{StaticResource  NarrowBoldTextBlock}"></TextBlock>
+                    <TextBlock Name="RemarksValueTextBlock1" Style="{StaticResource  NarrowTextBlock}" TextWrapping="Wrap"></TextBlock>
+
+                </StackPanel>
+
+            </StackPanel>
+            <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5">
+
+                <StackPanel Orientation="Horizontal" >
+                    <TextBlock Name="SenderIdTextBlock1" Text="Sender Id:" Style="{StaticResource  NarrowBoldTextBlock}"/>
+                    <TextBlock  Name="SenderIdValueTextBlock1" Text="{x:Bind viewModel.SelectedTransaction.SenderId , Mode=OneWay}" Style="{StaticResource  NarrowTextBlock}"></TextBlock>
+
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" >
+                    <TextBlock Name="ReceiverIdTextBlock1" Text="Receiver Id:" Style="{StaticResource  NarrowBoldTextBlock}" />
+                    <TextBlock Name="ReceiverIdValueTextBlock1" Text="{x:Bind viewModel.SelectedTransaction.ReceiverId , Mode=OneWay}" Style="{StaticResource  NarrowTextBlock}"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" >
+                    <TextBlock Name="TransactionIdTextBlock1" Text="Transaction Id:" Style="{StaticResource  NarrowBoldTextBlock}" Margin="5,20,5,5"  />
+                    <TextBlock Name="TransactionIdValueTextBlock1" Margin="5,20,5,5" Text="{x:Bind viewModel.SelectedTransaction.TransactionId , Mode=OneWay}" Style="{StaticResource  NarrowTextBlock}" ></TextBlock>
+                </StackPanel>
+
+            </StackPanel>
+
+        </Grid>
+
     </Grid>
 </Page>

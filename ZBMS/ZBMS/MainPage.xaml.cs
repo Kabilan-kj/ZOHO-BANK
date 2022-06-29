@@ -33,7 +33,8 @@ namespace ZBMS
         public MainPage()
         {
             this.InitializeComponent();
-         
+            LoginAction("UID107");
+
         }
         public static CustomerData GetCustomerData()
         {
@@ -67,6 +68,14 @@ namespace ZBMS
                 ErrorMessage.Foreground = new SolidColorBrush(Colors.Red);
                 ErrorMessage.Text = "UserId must not be empty";
             }
+        }
+
+        public void LoginAction(string id)
+        {
+            customer = null;
+            customer = LoginPage.GetCustomer(id);
+            MainFrame.Navigate(typeof(MainFramePage));
+
         }
 
         public async void Login( string UserName)

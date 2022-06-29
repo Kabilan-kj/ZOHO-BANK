@@ -113,8 +113,8 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Width" />
       <RootProperty Name="Style" />
-      <RootProperty Name="Visibility" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="RenderTransformOrigin" />
       <RootProperty Name="Height" />
       <RootEvent Name="SelectionChanged" />
     </RootType>
@@ -171,7 +171,9 @@
       <RootProperty Name="GroupName" />
       <RootEvent Name="Checked" />
     </RootType>
-    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.BindExtension" />
+    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.BindExtension">
+      <RootProperty Name="Mode" />
+    </RootType>
     <RootType FullName="ZBMS.LoanPaymentPage" />
     <RootType FullName="ZBMS.OtherCustomerTransferPage" />
     <RootType FullName="Windows.UI.Xaml.FrameworkElement">
@@ -198,7 +200,9 @@
       <RootProperty Name="IsItemClickEnabled" />
       <RootProperty Name="ItemTemplate" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="SelectionMode" />
       <RootEvent Name="ItemClick" />
+      <RootEvent Name="SelectionChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.DataTemplate">
       <RootProperty Name="Template" />
@@ -226,6 +230,8 @@
       <RootMethod Name="SetAlignVerticalCenterWithPanel" />
       <RootMethod Name="GetLeftOf" />
       <RootMethod Name="SetLeftOf" />
+      <RootMethod Name="GetAlignTopWithPanel" />
+      <RootMethod Name="SetAlignTopWithPanel" />
     </RootType>
     <RootType FullName="ZBMS.CustomerHomePage" />
     <RootType FullName="ZBMS.DepositPage" />

@@ -74,7 +74,14 @@
                         <RowDefinition ></RowDefinition>
                     </Grid.RowDefinitions>
 
-                    <TextBlock  Name="TitleTextBlock"  Text="Profile Page"  HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="ExtraBold" FontSize="16" Margin="10" ></TextBlock>
+                    <TextBlock  Name="TitleTextBlock" 
+                                Text="Profile Page" 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontWeight="ExtraBold"
+                                FontSize="16" 
+                                Margin="10" 
+                                ></TextBlock>
 
                     <Image 
                         Name="ProfileImage"
@@ -89,18 +96,39 @@
                     </Image>
 
                     <StackPanel   Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="30" >
-                        <TextBlock Name="NameTextBlock" Text="Name :" Style="{StaticResource NarrowTextBlock}" ></TextBlock>
-                        <TextBlock Name="NameTextBox" Margin="10,0,0,0" FontWeight="Normal"  Style="{StaticResource NarrowTextBlock}"></TextBlock>
+                        <TextBlock Name="NameTextBlock" 
+                                   Text="Name :" 
+                                   Style="{StaticResource NarrowTextBlock}" 
+                                   ></TextBlock>
+                        <TextBlock Name="NameTextBox"
+                                   Margin="10,0,0,0"
+                                   FontWeight="Normal"
+                                   Style="{StaticResource NarrowTextBlock}"
+                                   ></TextBlock>
                     </StackPanel>
 
                     <StackPanel   Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Left" Margin="30" >
-                        <TextBlock Name="ContactTextBlock" Text="Contact:" Style="{StaticResource NarrowTextBlock}"></TextBlock>
-                        <TextBlock Name="ContactTextBox" FontWeight="Normal" Margin="10,0,0,0" Style="{StaticResource NarrowTextBlock}"></TextBlock>
+                        <TextBlock Name="ContactTextBlock"
+                                   Text="Contact:"
+                                   Style="{StaticResource NarrowTextBlock}"
+                                   ></TextBlock>
+                        <TextBlock Name="ContactTextBox"
+                                   FontWeight="Normal"
+                                   Margin="10,0,0,0" 
+                                   Style="{StaticResource NarrowTextBlock}"
+                                   ></TextBlock>
                     </StackPanel>
 
                     <StackPanel  Grid.Row="4"  Orientation="Horizontal" HorizontalAlignment="Left" Margin="30">
-                        <TextBlock Name="MailIdTextBlock" Text="MailId:" Style="{StaticResource NarrowTextBlock}" ></TextBlock>
-                        <TextBlock Name="MailIdTextBox" FontWeight="Normal" Margin="10,0,0,0" Style="{StaticResource NarrowTextBlock}" ></TextBlock>
+                        <TextBlock Name="MailIdTextBlock" 
+                                   Text="MailId:" 
+                                   Style="{StaticResource NarrowTextBlock}" 
+                                   ></TextBlock>
+                        <TextBlock Name="MailIdTextBox"
+                                   FontWeight="Normal"
+                                   Margin="10,0,0,0" 
+                                   Style="{StaticResource NarrowTextBlock}" 
+                                   ></TextBlock>
                     </StackPanel>
 
                     <StackPanel  Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Left" Margin="30" >
