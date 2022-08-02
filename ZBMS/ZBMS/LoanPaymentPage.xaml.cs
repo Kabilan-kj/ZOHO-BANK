@@ -85,7 +85,7 @@ namespace ZBMS
             var result = await showDialog.ShowAsync();
             if ((int)result.Id == 0)
             {
-                this.Frame.Navigate(typeof(CustomerHomePage));
+                this.Frame.Navigate(typeof(CustomerDashboard));
             }
 
         }
@@ -114,14 +114,14 @@ namespace ZBMS
                 {
                     if (FromComboBox.SelectedItem.ToString() == account.AccountNumber)
                     {
-                        if (account.Balance > Convert.ToDouble(AmountTextBox.Text))
+                        if (account.Balance > Convert.ToDouble(AmountTextBlock.Text))
                         {
                             foreach (var receiverAccount in UserLoanAccounts)
                             {
                                 if (ToComboBox.SelectedItem.ToString() == receiverAccount.AccountNumber)
                                 {
                                     LoanAccountData loanAccount = (LoanAccountData)receiverAccount;
-                                    loanAccount.Balance = loanAccount.Balance - Convert.ToDouble(AmountTextBox.Text);
+                                    loanAccount.Balance = loanAccount.Balance - Convert.ToDouble(AmountTextBlock.Text);
 
                                     if (FullPayment.IsChecked == true)
                                     {
@@ -136,9 +136,9 @@ namespace ZBMS
                                     await customerAccountPage.UpdateLoanAccount(loanAccount);
                                 }
                             }
-                            account.Balance = account.Balance - Convert.ToDouble(AmountTextBox.Text);
+                            account.Balance = account.Balance - Convert.ToDouble(AmountTextBlock.Text);
                             await customerAccountPage.UpdateAccount(account);
-                            string id = await customerTransaction.MakeTransaction(account, Convert.ToDouble(AmountTextBox.Text), ToComboBox.SelectedItem.ToString());
+                            string id = await customerTransaction.MakeTransaction(account, Convert.ToDouble(AmountTextBlock.Text), ToComboBox.SelectedItem.ToString());
                             if (id != null)
                                 TransferDone($"Transaction Succesfull \n Transaction Id : {id} ");
                             else
@@ -161,7 +161,8 @@ namespace ZBMS
         {
             if(FromComboBox.SelectedItem!=null)
             {
-                if(ToComboBox.SelectedItem!=null)
+                ErrorBox.Visibility = Visibility.Collapsed;
+                if (ToComboBox.SelectedItem!=null)
                 {
                     if(AmountTextBlock.Text!=null)
                         return true;
@@ -199,26 +200,35 @@ namespace ZBMS
 
         private void LoanPaymentRadioButton_Checked(object sender, RoutedEventArgs e)
         {
-            foreach (var receiverAccount in UserLoanAccounts)
+            if (ToComboBox.SelectedItem != null)
             {
-                if (ToComboBox.SelectedItem.ToString() == receiverAccount.AccountNumber)
+                ErrorBox.Visibility = Visibility.Collapsed;
+                foreach (var receiverAccount in UserLoanAccounts)
                 {
-                    LoanAccountData loanAccount = (LoanAccountData)receiverAccount;
-                   
-                    if (FullPayment.IsChecked == true)
+                    if (ToComboBox.SelectedItem.ToString() == receiverAccount.AccountNumber)
                     {
-                        
-                        AmountTextBox.Text= loanAccount.Balance.ToString();
+                        LoanAccountData loanAccount = (LoanAccountData)receiverAccount;
+
+                        if (FullPayment.IsChecked == true)
+                        {
+                            AmountStackPanel.Visibility = Visibility.Visible;
+                            AmountTextBlock.Text = loanAccount.Balance.ToString();
+                        }
+                        else if (PartialPayment.IsChecked == true)
+                        {
+                            AmountStackPanel.Visibility = Visibility.Visible;
+                            double balance = ((loanAccount.Tenure * loanAccount.PrincipalAmount * (loanAccount.InterestRate / 12)) + loanAccount.PrincipalAmount) / loanAccount.Tenure;
+                            AmountTextBlock.Text = balance.ToString();
+
+                        }
+
                     }
-                    else if (PartialPayment.IsChecked == true)
-                    {
-
-                        double balance = ((loanAccount.Tenure * loanAccount.PrincipalAmount * (loanAccount.InterestRate / 12)) + loanAccount.PrincipalAmount) / loanAccount.Tenure;
-                        AmountTextBox.Text = balance.ToString();
-
-                    }
-
                 }
+            }
+            else
+            {
+                ErrorBox.Visibility = Visibility.Visible;
+                ErrorBox.Text = "Select Loan Account";
             }
         }
     }

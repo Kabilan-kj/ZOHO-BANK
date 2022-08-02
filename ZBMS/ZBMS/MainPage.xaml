@@ -54,30 +54,30 @@
 
         <Style TargetType="TextBox" x:Key="NarrowTextBox">
             <Setter Property="FontSize" Value="10" ></Setter>
-            <Setter Property="Height" Value="20"></Setter>
+            <Setter Property="Height" Value="30"></Setter>
             <Setter Property="Width" Value="150"></Setter>
             <Setter Property="Padding" Value="3"></Setter>
         </Style>
         
         <Style TargetType="TextBox" x:Key="WideTextBox">
             <Setter Property="FontSize" Value="16" ></Setter>
-            <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="Height" Value="40"></Setter>
             <Setter Property="Width" Value="200"></Setter>
             <Setter Property="Padding" Value="5"></Setter>
         </Style>
 
         <Style TargetType="PasswordBox" x:Key="NarrowPasswordBox">
-            <Setter Property="FontSize" Value="10" ></Setter>
-            <Setter Property="Height" Value="20"></Setter>
+            <Setter Property="FontSize" Value="12" ></Setter>
+            <Setter Property="Height" Value="30"></Setter>
             <Setter Property="Width" Value="150"></Setter>
-            <Setter Property="Padding" Value="1"></Setter>
+            <Setter Property="Padding" Value="3"></Setter>
         </Style>
 
         <Style TargetType="PasswordBox" x:Key="WidePasswordBox">
             <Setter Property="FontSize" Value="16" ></Setter>
-            <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="Height" Value="40"></Setter>
             <Setter Property="Width" Value="200"></Setter>
-            <Setter Property="Padding" Value="2"></Setter>
+            <Setter Property="Padding" Value="5"></Setter>
         </Style>
 
     </Page.Resources>
@@ -115,7 +115,7 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-        <Rectangle Fill="DeepSkyBlue" ></Rectangle>
+        <Rectangle Fill="White" ></Rectangle>
         
             <Grid  MaxHeight="500" MaxWidth="1000" Background="White">
                 <Grid.ColumnDefinitions>
@@ -168,7 +168,9 @@
                             VerticalContentAlignment="Center" 
                             Name="UserIdTextBox"  
                             BorderThickness="1"
-                            Background="White" />
+                            Background="White"
+                            PlaceholderForeground="Gray"
+                            PlaceholderText="Enter user id"/>
                        
                    </StackPanel>
 
@@ -184,7 +186,8 @@
                             Text="Password" Style="{StaticResource NarrowTextBlock}"
                             Foreground="White" 
                             FontFamily="ArialBold"
-                            VerticalAlignment="Center" />
+                            VerticalAlignment="Center"
+                            />
 
                         <!--<TextBox 
                             HorizontalAlignment="Left"

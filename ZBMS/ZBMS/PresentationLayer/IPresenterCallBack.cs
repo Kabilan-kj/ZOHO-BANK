@@ -9,7 +9,7 @@ namespace ZBMS.PresentationLayer
 {
     public interface IPresenterCallBack
     {
-        Task OnSuccess(GetTransactionsResponse response);
+        Task OnSuccess<T>(T response);
         Task OnFailure();
     }
 }

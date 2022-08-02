@@ -8,7 +8,7 @@ using ZBMS.Models;
 
 namespace ZBMS.PresentationLayer
 {
-    public class PresenterCallBack : IPresenterCallBack
+    public class PresenterCallBack : ICallBack<GetTransactionsResponse>
     {
         private GetTransactionsViewModel viewModel;
 
@@ -17,23 +17,29 @@ namespace ZBMS.PresentationLayer
             viewModel = _viewModel; 
         }
 
-
-        public async Task OnFailure()
+        public void OnError()
         {
-            await viewModel.page.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            throw new NotImplementedException();
+        }
+
+        public async void OnFailure()
+        {
+            await viewModel.dashboardPage.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
               
-                viewModel.page.UpdateErrorMessage();
+                viewModel.dashboardPage.UpdateErrorMessage();
             });
         }
 
-        public async Task OnSuccess(GetTransactionsResponse response)
+        public async void OnSuccess(GetTransactionsResponse response)
         {
-            await viewModel.page.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            await viewModel.dashboardPage.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
-                viewModel.SetTransactions(response.transactions);
+                viewModel.SetRecentTransactions(response.transactions);
                
             });
         }
+
+        
     }
 }

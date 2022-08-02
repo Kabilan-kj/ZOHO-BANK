@@ -10,6 +10,14 @@ namespace ZBMS.DomainLayer
     {
         public string Id { get; set; }
         public TransactionID transactionId { get; set; }
+        public RecentTransactionFilterOption filterOption { get; set; }
+
+        public GetTransactionsRequest(string id,RecentTransactionFilterOption _filterOption)
+        {
+            Id = id;
+            transactionId = TransactionID.CustomerID;
+            filterOption = _filterOption;   
+        }
 
         public GetTransactionsRequest(string id, TransactionID _transactionId)
         {
@@ -29,5 +37,10 @@ namespace ZBMS.DomainLayer
     public enum TransactionID
     {
         CustomerID, SenderID
+    }
+
+    public enum RecentTransactionFilterOption
+    {
+        Today,LastTwoDays,LastSevenDays
     }
 }

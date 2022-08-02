@@ -7,7 +7,17 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///ZBankResource.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
+        
+        
+    </Page.Resources>
+    
     <ScrollViewer Margin="20" >
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
@@ -17,15 +27,26 @@
                     </VisualState.StateTriggers>
 
                     <VisualState.Setters>
-                        <Setter Target="FromComboBox.FontSize" Value="16"/>
-                        <Setter Target="ToComboBox.FontSize" Value="16"/>
-                        <Setter Target="AmountTextBlock.FontSize" Value="16"/>
-                        <Setter Target="AmountTextBox.FontSize" Value="16"/>
-                        <Setter Target="RemarksTextBox.FontSize" Value="16"/>
-                        <Setter Target="RemarksTextBlock.FontSize" Value="16"/>
-                        <Setter Target="TransferButton.FontSize" Value="16"/>
-                        <Setter Target="CancelButton.FontSize" Value="16"/>
-                        <Setter Target="ContentGrid.Width" Value="400"/>
+                        <Setter Target="FromComboBox.Style" Value="{StaticResource WideStyleComboBox}"/>
+                        <Setter Target="ToComboBox.Style" Value="{StaticResource WideStyleComboBox}"/>
+
+                        <Setter Target="FromTextBlock.Style" Value="{StaticResource WideStyleTextBlock}"/>
+                        <Setter Target="ToTextBlock.Style" Value="{StaticResource WideStyleTextBlock}"/>
+                        <Setter Target="AmountTextBlock.Style" Value="{StaticResource WideStyleTextBlock}"/>
+                        <Setter Target="AmountContentTextBlock.Style" Value="{StaticResource WideStyleTextBlock}"/>
+                        <Setter Target="RemarksTextBlock.Style" Value="{StaticResource WideStyleTextBlock}"/>
+                        <Setter Target="RemarksTextBox.Style" Value="{StaticResource WideStyleTextBox}"/>
+
+                        <Setter Target="FullPayment.FontSize" Value="16"/>
+                        <Setter Target="PartialPayment.FontSize" Value="16"/>
+                        
+                        <Setter Target="TransferButton.Style" Value="{StaticResource WideStyleButton}"/>
+                        <Setter Target="CancelButton.Style" Value="{StaticResource WideStyleButton}"/>
+                        <Setter Target="TransferButton.Width" Value="100"/>
+                        <Setter Target="CancelButton.Width" Value="100"/>
+                        
+                        <Setter Target="ContentGrid.Width" Value="350"/>
+                        <Setter Target="ContentGrid.Height" Value="600"/>
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -33,59 +54,142 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
 
 
-            <TextBlock x:ConnectionId='2' Name="NoAccountText" Visibility="Collapsed"  Text="No Loan Account Available" FontSize="36" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"  Foreground="Black"></TextBlock>
+            <TextBlock x:ConnectionId='2' Name="NoAccountText" Visibility="Collapsed"  Text="No Loan Account Available" FontSize="36" Style="{StaticResource TitleStyleTextBlock}"  ></TextBlock>
 
 
-            <Grid x:ConnectionId='3'  Name="ContentGrid" Height="600" Width="300" Background="LightSkyBlue" CornerRadius="15">
+            <Grid x:ConnectionId='3'  Name="ContentGrid"  Height="400" Width="250" Background="{ThemeResource PrimaryBackground}" CornerRadius="15">
+
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition ></RowDefinition>
-                    <RowDefinition ></RowDefinition>
-                    <RowDefinition Height="50"></RowDefinition>
-                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="3*"></RowDefinition>
+                    <RowDefinition Height="2*" ></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
                 </Grid.RowDefinitions>
-                <TextBlock x:ConnectionId='4'  Name="TitleTextBlock"  Text="Loan Payment"  HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="ExtraBold" FontSize="16" Margin="10" ></TextBlock>
 
-                <ComboBox x:ConnectionId='5' Name="FromComboBox" Grid.Row="1" HorizontalAlignment="Center" Header="From:" PlaceholderText="Select an Account" PlaceholderForeground="Gray" Background="White"                                                                                           FontSize="12"  VerticalAlignment="Center" />
-                <ComboBox x:ConnectionId='6' Name="ToComboBox" Grid.Row="2" Header="To:" PlaceholderText="Select an Account" HorizontalAlignment="Center" Background="White" PlaceholderForeground="Gray"                                          FontSize="12" />
 
+                <TextBlock x:ConnectionId='4'  Name="TitleTextBlock"  Text="Loan Payment Page"  Style="{StaticResource TitleStyleTextBlock}" ></TextBlock>
+
+                <StackPanel  Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Left"  VerticalAlignment="Center"  Margin="40,0,0,0" >
+                    <TextBlock x:ConnectionId='17' Name="FromTextBlock" 
+                               Text="Source Account :"
+                               
+                               Style="{StaticResource NarrowStyleTextBlock}"
+                     />
+
+                    <ComboBox x:ConnectionId='18' Name="FromComboBox" 
+                              Grid.Row="1"
+                              PlaceholderText="select source account" 
+                              Margin="0,10,0,0"
+                                                                     
+                                                                               
+                              Style="{StaticResource NarrowStyleComboBox}" />
+                </StackPanel>
+
+
+                <StackPanel  Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Left"  VerticalAlignment="Center"  Margin="40,0,0,0" >
+                    <TextBlock x:ConnectionId='15' Name="ToTextBlock" 
+                               Text="Loan Account :"
+                              
+                               Style="{StaticResource NarrowStyleTextBlock}"
+                     />
+
+                    <ComboBox x:ConnectionId='16' Name="ToComboBox"
+                              PlaceholderText="select loan account"
+                                                                    
+                              Margin="0,10,0,0"
+                              Style="{StaticResource NarrowStyleComboBox}"
+                />
+
+                </StackPanel>
+
+               
                 <Grid Grid.Row="3">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition ></ColumnDefinition>
+                        <ColumnDefinition Width="Auto" ></ColumnDefinition>
                     </Grid.ColumnDefinitions>
 
-                    <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center"  >
-                        <RadioButton x:ConnectionId='14' Name="PartialPayment" Content="Partial Payment" GroupName="LoanPayment"                                           ></RadioButton>
-                        <RadioButton x:ConnectionId='15' Name="FullPayment" Content="Full Payment" GroupName="LoanPayment"                                          ></RadioButton>
+                    <StackPanel  HorizontalAlignment="Left"  VerticalAlignment="Center"  Margin="40,0,0,0"  >
+                        <RadioButton x:ConnectionId='13' Name="PartialPayment"
+                                     FontSize="12"
+                                     
+                                     Content="Partial Payment"
+                                     GroupName="LoanPayment"
+                                                                              
+                                     ></RadioButton>
+                        
+                        <RadioButton x:ConnectionId='14' Name="FullPayment"
+                                     FontSize="12"
+                                      
+                                     Content="Full Payment"
+                                     GroupName="LoanPayment" 
+                                                                             
+                                     ></RadioButton>
                         
                     </StackPanel>
-                    <StackPanel Margin="10" Grid.Column="1"  Orientation="Horizontal"  >
-                        <TextBlock x:ConnectionId='12' Name="AmountTextBlock" Text="Amount:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="12" ></TextBlock>
-                        <TextBlock x:ConnectionId='13' Name="AmountTextBox"  HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="12" Margin="10" ></TextBlock>
+                    <StackPanel x:ConnectionId='10' Name="AmountStackPanel" Visibility="Collapsed" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="40,0,40,0" >
+                        
+                        <TextBlock x:ConnectionId='11' Name="AmountContentTextBlock"
+                                   Text="Amount :"
+                                    
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Center" 
+                                   Style="{StaticResource NarrowStyleTextBlock}"
+                                   ></TextBlock>
+                        
+                        <TextBlock x:ConnectionId='12' Name="AmountTextBlock" 
+                                   HorizontalAlignment="Left" 
+                                   VerticalAlignment="Center"
+                                   
+                                   Style="{StaticResource NarrowStyleTextBlock}"
+                                   Margin="10"
+                                   ></TextBlock>
                     </StackPanel>
                     
                 </Grid>
-                
-                <StackPanel Grid.Row="4" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                    <TextBlock x:ConnectionId='10' Name="RemarksTextBlock" Text="Remarks :" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="12" ></TextBlock>
-                    <TextBox x:ConnectionId='11' Name="RemarksTextBox" Height="40" Width="200" FontSize="16" Background="White" PlaceholderForeground="Gray" PlaceholderText="Remarks" ></TextBox>
+
+                <StackPanel Grid.Row="4"  Orientation="Vertical" HorizontalAlignment="Left"  VerticalAlignment="Center"  Margin="40,0,0,0" >
+                    <TextBlock x:ConnectionId='8' Name="RemarksTextBlock"
+                               Text="Remarks :" 
+                              
+                               Style="{StaticResource NarrowStyleTextBlock}" 
+                               ></TextBlock>
+                    
+                    <TextBox x:ConnectionId='9' Name="RemarksTextBox"
+                             Style="{StaticResource NarrowStyleTextBox}"
+                             PlaceholderText="short message"
+                             ></TextBox>
                 </StackPanel>
-                <TextBlock x:ConnectionId='7' Name="ErrorBox" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red" FontWeight="Bold"></TextBlock>
+                
+                <TextBlock x:ConnectionId='5' Name="ErrorBox"
+                           Grid.Row="5" 
+                           Margin="10"
+                           HorizontalAlignment="Center"
+                           Style="{StaticResource ErrorMessageStyle}"
+                           ></TextBlock>
 
                 <Grid Grid.Row="6">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
+                       
                     </Grid.ColumnDefinitions>
-                    <Button x:ConnectionId='8' Name="TransferButton" FontSize="12" Content="Transfer" Background="Blue" Foreground="White"                              Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button x:ConnectionId='6' Name="TransferButton"
+                            Style="{StaticResource NarrowStyleButton}"
+                            Foreground="{ThemeResource SecondaryThemeColor}"
+                            Background="{ThemeResource PrimaryThemeColor}"
+                            Content="Transfer"
+                            Width="75"
+                                                        
+                            Grid.Column="0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
 
-                        <Button.Resources>
+                        <!--<Button.Resources>
                             <ResourceDictionary>
                                 <ResourceDictionary.ThemeDictionaries>
                                     <ResourceDictionary x:Key="Dark">
@@ -98,11 +202,20 @@
                                     </ResourceDictionary>
                                 </ResourceDictionary.ThemeDictionaries>
                             </ResourceDictionary>
-                        </Button.Resources>
+                        </Button.Resources>-->
 
                     </Button>
-                    <Button x:ConnectionId='9' Name="CancelButton" FontSize="12" Content="Cancel"                            Foreground="Blue" Background="White" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Button.Resources>
+                    <Button x:ConnectionId='7' Name="CancelButton" 
+                            Background="{ThemeResource SecondaryThemeColor}"
+                            Foreground="{ThemeResource PrimaryThemeColor}"
+                            Content="Cancel" 
+                                                       
+                            Style="{ThemeResource NarrowStyleButton}"
+                            Grid.Column="1"
+                            Width="75"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                        <!--<Button.Resources>
                             <ResourceDictionary>
                                 <ResourceDictionary.ThemeDictionaries>
                                     <ResourceDictionary x:Key="Dark">
@@ -117,7 +230,7 @@
                                     </ResourceDictionary>
                                 </ResourceDictionary.ThemeDictionaries>
                             </ResourceDictionary>
-                        </Button.Resources>
+                        </Button.Resources>-->
                     </Button>
                 </Grid>
 

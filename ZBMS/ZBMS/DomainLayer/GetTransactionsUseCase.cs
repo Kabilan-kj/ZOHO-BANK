@@ -11,9 +11,11 @@ namespace ZBMS.DomainLayer
     public  class GetTransactionsUseCase : UseCaseBase
     {
         public GetTransactionsDataManager dataManager; 
-        private IPresenterCallBack callBack;
+        private ICallBack<GetTransactionsResponse> callBack;
         private GetTransactionsRequest request;
-        public GetTransactionsUseCase(IPresenterCallBack _callBack,GetTransactionsRequest _request)
+
+
+        public GetTransactionsUseCase(ICallBack<GetTransactionsResponse> _callBack,GetTransactionsRequest _request)
         {
             callBack = _callBack;
             request = _request;
@@ -25,7 +27,9 @@ namespace ZBMS.DomainLayer
             dataManager.GetData(new GetTransactionsCallBack(this),request);
         }
 
-        private class GetTransactionsCallBack : IUseCaseCallBack
+
+
+        private class GetTransactionsCallBack : ICallBack<GetTransactionsResponse>
         {
             GetTransactionsUseCase useCase;
             public GetTransactionsCallBack(GetTransactionsUseCase _useCase)
@@ -39,6 +43,11 @@ namespace ZBMS.DomainLayer
             public void OnFailure()
             {
                 useCase.callBack.OnFailure();
+            }
+
+            public void OnError()
+            {
+                throw new NotImplementedException();
             }
         }
 

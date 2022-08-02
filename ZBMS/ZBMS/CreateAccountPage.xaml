@@ -9,85 +9,54 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.Resources>
-     
-        <Style TargetType="ComboBox" x:Key="NarrowComboBox">
-            
-            <Setter Property="Height" Value="40"></Setter>
-            <Setter Property="Width" Value="200"></Setter>
-            <Setter Property="FontSize" Value="12"></Setter>
-            <Setter Property="PlaceholderForeground" Value="Gray"></Setter>
-            <Setter Property="Background" Value="White"></Setter>
-            <Setter Property="BorderThickness" Value="0.5"></Setter>
-            <Setter Property="Padding" Value="2"></Setter>
 
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///ZBankResource.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
 
-        <Style TargetType="ComboBox" x:Key="WideComboBox">
-            <Setter Property="Height" Value="60"></Setter>
-            <Setter Property="Width" Value="300"></Setter>
-            <Setter Property="FontSize" Value="16"></Setter>
-            <Setter Property="Background" Value="White"></Setter>
-            <Setter Property="PlaceholderForeground" Value="Gray"></Setter>
-            <Setter Property="BorderThickness" Value="1"></Setter>
-            <Setter Property="Padding" Value="5"></Setter>
+            <Style TargetType="ComboBox" x:Key="NarrowComboBox" BasedOn="{StaticResource NarrowStyleComboBox}">
+                <Setter Property="Margin" Value="0,10,0,0"/>
+            </Style>
 
-        </Style>
+            <Style TargetType="ComboBox" x:Key="WideComboBox" BasedOn="{StaticResource WideStyleComboBox}">
 
-        <Style TargetType="TextBox" x:Key="NarrowTextBox">
-            <Setter Property="Height" Value="20"></Setter>
-            <Setter Property="Width" Value="160"></Setter>
-            <Setter Property="FontSize" Value="12"></Setter>
-            <Setter Property="Background" Value="White"></Setter>
-            <Setter Property="PlaceholderForeground" Value="Gray"></Setter>
-            <Setter Property="BorderThickness" Value="0.5"></Setter>
-            <Setter Property="Padding" Value="2"></Setter>
+                <Setter Property="Margin" Value="0,10,0,0"/>
+            </Style>
 
-        </Style>
+            <Style TargetType="TextBox" x:Key="NarrowTextBox" BasedOn="{StaticResource NarrowStyleTextBox}">
+                <Setter Property="Margin" Value="0,10,0,0"/>
+            </Style>
+        
+            <Style TargetType="TextBox" x:Key="WideTextBox" BasedOn="{StaticResource WideStyleTextBox}">
+                <Setter Property="Margin" Value="0,10,0,0"/>
+            </Style>
 
-        <Style TargetType="TextBox" x:Key="WideTextBox">
-            <Setter Property="Height" Value="40"></Setter>
-            <Setter Property="Width" Value="320"></Setter>
-            <Setter Property="FontSize" Value="16"></Setter>
-            <Setter Property="PlaceholderForeground" Value="Gray"></Setter>
-            <Setter Property="BorderThickness" Value="1"></Setter>
-            <Setter Property="Padding" Value="5"></Setter>
+            <Style TargetType="TextBlock" x:Key="NarrowTextBlock" BasedOn="{StaticResource NarrowStyleTextBlock}" >
+                <Setter Property="Margin" Value="0,10,0,0"/>
+            </Style>
 
-        </Style>
+            <Style TargetType="TextBlock" x:Key="WideTextBlock" BasedOn="{StaticResource WideStyleTextBlock}">
+                <Setter Property="Margin" Value="0,10,0,0"/>
 
-        <Style TargetType="TextBlock" x:Key="NarrowTextBlock">
-            <Setter Property="Height" Value="20"></Setter>
-            <Setter Property="Width" Value="200"></Setter>
-            <Setter Property="FontSize" Value="12"></Setter>
-            <Setter Property="Padding" Value="2"></Setter>
+            </Style>
+            <Style TargetType="Button" x:Key="NarrowButton" BasedOn="{StaticResource NarrowStyleButton}">
+               
+                <Setter Property="Width" Value="75"></Setter>
+               
 
-        </Style>
+            </Style>
 
-        <Style TargetType="TextBlock" x:Key="WideTextBlock">
-            <Setter Property="Height" Value="40"></Setter>
-            <Setter Property="Width" Value="240"></Setter>
-            <Setter Property="FontSize" Value="16"></Setter>
-            <Setter Property="Padding" Value="5"></Setter>
-
-        </Style>
-        <Style TargetType="Button" x:Key="NarrowButton">
-            <Setter Property="Height" Value="30"></Setter>
-            <Setter Property="Width" Value="150"></Setter>
-            <Setter Property="FontSize" Value="12"></Setter>
-            <Setter Property="Padding" Value="2"></Setter>
-
-        </Style>
-
-        <Style TargetType="Button" x:Key="WideButton">
-            <Setter Property="Height" Value="50"></Setter>
-            <Setter Property="Width" Value="200"></Setter>
-            <Setter Property="FontSize" Value="16"></Setter>
-            <Setter Property="Padding" Value="5"></Setter>
-
-        </Style>
-       
+            <Style TargetType="Button" x:Key="WideButton" BasedOn="{StaticResource WideStyleButton}">
+               
+                <Setter Property="Width" Value="100"></Setter>
+               
+            </Style>
+        </ResourceDictionary>
+        
     </Page.Resources>
 
-    <StackPanel VerticalAlignment="Center"  Margin="10">
+    <ScrollViewer>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState>
@@ -99,107 +68,142 @@
 
                         <Setter Target="BranchCodeComboBox.Style" Value="{StaticResource WideComboBox}"/>
 
+                        <Setter Target="AccountTypeTextBlock.Style" Value="{StaticResource WideTextBlock}"/>
+                        <Setter Target="BranchCodeTextBlock.Style" Value="{StaticResource WideTextBlock}"/>
                         <Setter Target="AmountTextBlock.Style" Value="{StaticResource WideTextBlock}"/>
+                        <Setter Target="TenureTextBlock.Style" Value="{StaticResource WideTextBlock}"/>
+                        <Setter Target="SavingsAccountTextBlock.Style" Value="{StaticResource WideTextBlock}"/>
                         <Setter Target="AmountTextBox.Style" Value="{StaticResource WideTextBox}"/>
 
                         <Setter Target="TenureComboBox.Style" Value="{StaticResource WideComboBox}"/>
                         <Setter Target="SavingAccountComboBox.Style" Value="{StaticResource WideComboBox}"/>
 
-                        <Setter Target="ErrorMessage.Style" Value="{StaticResource WideTextBlock}"/>
+                        
 
                         <Setter Target="CreateButton.Style" Value="{StaticResource WideButton}"/>
                         <Setter Target="CancelButton.Style" Value="{StaticResource WideButton}"/>
-                        <Setter Target="CloseButton.Style" Value="{StaticResource WideButton}"/>
+                        <!--<Setter Target="CloseButton.Style" Value="{StaticResource WideButton}"/>-->
 
                         
-                        <Setter Target="MainGrid.Width" Value="400"/>
+                        <Setter Target="MainGrid.Width" Value="450"/>
+                        <Setter Target="MainGrid.Height" Value="700"/>
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <Grid Name="MainGrid" Height="600" Width="300" Background="LightSkyBlue" CornerRadius="15">
+        <Grid Name="MainGrid" Height="500" Width="350" Background="LightSkyBlue" CornerRadius="15">
 
-            <Grid Background="LightSkyBlue" CornerRadius="15">
+            <Grid Background="{StaticResource PrimaryBackground}" CornerRadius="15">
                 <Grid.RowDefinitions>
                     <RowDefinition  Height="50"></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <TextBlock  Name="TitleTextBlock"  Text="Create New Account"  HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="ExtraBold" FontSize="16" Margin="10" ></TextBlock>
 
-                <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                    
+                <StackPanel  Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Left"  VerticalAlignment="Center"  Margin="60,0,0,0" >
+                    <TextBlock Name="AccountTypeTextBlock" 
+                               Text="Source Account :"
+                                Style="{StaticResource NarrowStyleTextBlock}"
+                     />
+
                     <ComboBox  Name="AccountTypeComboBox"
-                               Header="Account Type :"
-                               PlaceholderText="Select Account Type"
+                              
+                               PlaceholderText="select account type"
                                Style="{StaticResource NarrowComboBox}" 
                                ItemsSource="{ x:Bind accountTypes}" 
                                SelectionChanged="AccountTypeComboBox_SelectionChanged"  
-                               ></ComboBox>
+                    ></ComboBox>
                 </StackPanel>
 
-                <StackPanel Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Left"  VerticalAlignment="Center"  Margin="60,0,0,0" >
+                    <TextBlock Name="BranchCodeTextBlock" 
+                               Text="Branch Code :"
+                                Style="{StaticResource NarrowStyleTextBlock}"
+                     />
                    <ComboBox Name="BranchCodeComboBox"
-                             Header="Branch Code :"
-                             PlaceholderText="Select Branch Code" 
+                            
+                             PlaceholderText="select branch code" 
                              Style="{StaticResource NarrowComboBox}" 
                              ItemsSource="{x:Bind branchCode}" 
                              RenderTransformOrigin="0.488,0.445" 
                              ></ComboBox>
                 </StackPanel>
-        
-                <StackPanel Grid.Row="3" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" >
+
+                <StackPanel Grid.Row="3" Orientation="Vertical" HorizontalAlignment="Left"  VerticalAlignment="Center"  Margin="60,0,0,0" >
                     <TextBlock Name="AmountTextBlock"
                                Text="Initial Amount :"
                                Style="{StaticResource NarrowTextBlock}"
-                               HorizontalAlignment="Left"  
+                               
                                ></TextBlock>
                     <TextBox Name="AmountTextBox" PlaceholderText="Enter Initial Amount" Style="{StaticResource NarrowTextBox}" HorizontalAlignment="Left" Background="White" ></TextBox>
 
                 </StackPanel>
 
-               
-                <StackPanel Orientation="Vertical" Grid.Row="4"   HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <StackPanel Name="TenurePanel" Grid.Row="4" Visibility="Collapsed"  Orientation="Vertical" HorizontalAlignment="Left"  VerticalAlignment="Center"  Margin="60,0,0,0" >
+
+                    <TextBlock Name="TenureTextBlock" 
+                               Text="Tenure :"
+                                Style="{StaticResource NarrowStyleTextBlock}"
+                     />
 
                     <ComboBox Name="TenureComboBox"
+                              Margin="0,10,0,0"
                               Style="{StaticResource NarrowComboBox}" 
-                              Header="Tenure :"
-                              Margin="0,20,10,0"
                               PlaceholderText="Select Tenure "
                               ItemsSource="{x:Bind tenure}"
-                              ></ComboBox>
+                    ></ComboBox>
                     
+                </StackPanel>
+
+                <StackPanel Name="SavingsAccountPanel" Grid.Row="5" Visibility="Collapsed"  Orientation="Vertical" HorizontalAlignment="Left"  VerticalAlignment="Center" Margin="60,20,0,0" >
+
+                    <TextBlock Name="SavingsAccountTextBlock" 
+                               Text="Savings Account :"
+                                Style="{StaticResource NarrowStyleTextBlock}"
+                     />
+
                     <ComboBox Name="SavingAccountComboBox"
+                              Margin="0,10,0,0"
                               Style="{StaticResource NarrowComboBox}"
-                              Header="SavingsAccount" 
-                              Margin="0,20,0,10"
                               PlaceholderText="Select SavingsAccount"
                               ItemsSource="{x:Bind savingsAccount}" 
                               ></ComboBox>
-                    <TextBlock Name="ErrorMessage" 
-                               Grid.Row="4" 
-                               Foreground="Red" 
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center" 
-                               Text="Sample Text"
-                               FontSize="16" ></TextBlock>
 
                 </StackPanel>
+                
+                <TextBlock Name="ErrorMessage" 
+                           Grid.Row="6"
+                           Margin="60,20"
+                           Style="{StaticResource ErrorMessageStyle}"
+                ></TextBlock>
 
-                <Grid Grid.Row="5" >
+                
+
+                <Grid Grid.Row="7" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
+                      
+                        
                     </Grid.ColumnDefinitions>
 
-                    <Button Name="CreateButton" Content="Create" Grid.Column="1"  HorizontalAlignment="Center" Background="Blue" Foreground="White" VerticalAlignment="Center" Click="CreateButton_Click" Style="{StaticResource NarrowButton}" Margin="0,0,10,0" >
-                        <Button.Resources>
+                    <Button Name="CreateButton"
+                            Content="Create"
+                            HorizontalAlignment="Center"
+                            Background="{StaticResource PrimaryThemeColor}"
+                            Foreground="{StaticResource SecondaryThemeColor}"
+                            Width="100"
+                            VerticalAlignment="Center"
+                            Click="CreateButton_Click" 
+                            Style="{StaticResource NarrowButton}"
+                            Margin="0,0,10,0" >
+                        <!--<Button.Resources>
                             <ResourceDictionary>
                                 <ResourceDictionary.ThemeDictionaries>
                                     <ResourceDictionary x:Key="Dark">
@@ -212,10 +216,39 @@
                                     </ResourceDictionary>
                                 </ResourceDictionary.ThemeDictionaries>
                             </ResourceDictionary>
-                        </Button.Resources>
+                        </Button.Resources>-->
                     </Button>
                     
-                    <Button Name="CancelButton" Grid.Column="2" Content="Cancel" HorizontalAlignment="Center" Background="White" Foreground="Blue"  Click="CancelButton_Click" VerticalAlignment="Center" Style="{StaticResource NarrowButton}" Margin="0,0,10,0" >
+                    <Button Name="CancelButton"
+                            Grid.Column="1"
+                            Content="Cancel" 
+                            HorizontalAlignment="Center"
+                            Background="{StaticResource SecondaryThemeColor}"
+                            Foreground="{StaticResource PrimaryThemeColor}" 
+                            Click="CancelButton_Click"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource NarrowButton}"
+                            Margin="0,0,10,0" >
+                        <!--<Button.Resources>
+                            <ResourceDictionary>
+                                <ResourceDictionary.ThemeDictionaries>
+                                    <ResourceDictionary x:Key="Dark">
+                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Blue"/>
+                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="White"/>
+                                        <SolidColorBrush x:Key="ButtonForegroundPointerPressed" Color="Blue"/>
+                                        <SolidColorBrush x:Key="ButtonBackgroundPointePressed" Color="White"/>
+                                    </ResourceDictionary>
+                                    <ResourceDictionary x:Key="Light">
+                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Blue"/>
+                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="White"/>
+                                    </ResourceDictionary>
+                                </ResourceDictionary.ThemeDictionaries>
+                            </ResourceDictionary>
+                        </Button.Resources>-->
+                    
+                    </Button>
+
+                    <!--<Button Name="CloseButton" Grid.Column="3" Content="Close" HorizontalAlignment="Center" Background="White" Foreground="Blue"  Click="CloseButton_Click" VerticalAlignment="Center" Style="{StaticResource NarrowButton}" Margin="0,0,10,0" >
                         <Button.Resources>
                             <ResourceDictionary>
                                 <ResourceDictionary.ThemeDictionaries>
@@ -232,32 +265,12 @@
                                 </ResourceDictionary.ThemeDictionaries>
                             </ResourceDictionary>
                         </Button.Resources>
-                    
-                    </Button>
 
-                    <Button Name="CloseButton" Grid.Column="3" Content="Close" HorizontalAlignment="Center" Background="White" Foreground="Blue"  Click="CloseButton_Click" VerticalAlignment="Center" Style="{StaticResource NarrowButton}" Margin="0,0,10,0" >
-                        <Button.Resources>
-                            <ResourceDictionary>
-                                <ResourceDictionary.ThemeDictionaries>
-                                    <ResourceDictionary x:Key="Dark">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Blue"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="White"/>
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerPressed" Color="Blue"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointePressed" Color="White"/>
-                                    </ResourceDictionary>
-                                    <ResourceDictionary x:Key="Light">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Blue"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="White"/>
-                                    </ResourceDictionary>
-                                </ResourceDictionary.ThemeDictionaries>
-                            </ResourceDictionary>
-                        </Button.Resources>
-
-                    </Button>
+                    </Button>-->
 
                 </Grid>
 
             </Grid>
         </Grid>
-    </StackPanel>
+    </ScrollViewer>
 </Page>

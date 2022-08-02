@@ -54,7 +54,7 @@ namespace ZBMS
             var result = await showDialog.ShowAsync();
             if ((int)result.Id == 0)
             {
-                this.Frame.Navigate(typeof(CustomerHomePage));
+                this.Frame.Navigate(typeof(CustomerDashboard));
             }
 
         }

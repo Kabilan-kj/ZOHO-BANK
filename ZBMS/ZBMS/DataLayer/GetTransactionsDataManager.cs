@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ZBMS.DomainLayer;
+using ZBMS.GetDetailedTransactionsDomainLayer;
 
 namespace ZBMS.DataLayer
 {
@@ -11,12 +12,13 @@ namespace ZBMS.DataLayer
     {
         private GetTransactionsDBHandler dbHandler = new GetTransactionsDBHandler();
         private GetTransactionsResponse response = new GetTransactionsResponse();
+        private GetDetailedTransactionsResponse detailedTransactionsresponse = new GetDetailedTransactionsResponse();
 
-        public void GetData(IUseCaseCallBack callBack, GetTransactionsRequest request)
+        public void GetData(ICallBack<GetTransactionsResponse> callBack, GetTransactionsRequest request)
         {
             if(request.transactionId==TransactionID.CustomerID)
             {
-               // response.transactions = dbHandler.GetTransactionsByCustomerID(request.Id);
+               response.transactions = dbHandler.GetTransactionsByCustomerID(request.Id);
             }
             else
             {
@@ -33,6 +35,22 @@ namespace ZBMS.DataLayer
                 {
                     callBack.OnFailure();
                 }
+            }
+            else
+            {
+                callBack.OnFailure();
+            }
+        }
+
+        public void GetDetailedTransaction (GetDetailedTransactionsRequest request ,ICallBack<GetDetailedTransactionsResponse> callBack )
+        {
+
+            detailedTransactionsresponse.Transaction = dbHandler.GetDetailedTransaction(request.TransactionId);
+           
+            if (detailedTransactionsresponse.Transaction != null)
+            {
+              callBack.OnSuccess(detailedTransactionsresponse);
+
             }
             else
             {

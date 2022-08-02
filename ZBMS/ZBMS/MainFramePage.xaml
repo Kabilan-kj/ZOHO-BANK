@@ -32,6 +32,7 @@
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="VerticalAlignment" Value="Bottom"/>
         </Style>
+        
         <Style TargetType="TextBlock" x:Name="NarrowExpandCharacter">
             <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
             <Setter Property="FontSize" Value="10"/>

@@ -45,25 +45,80 @@
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
 
-                <TextBlock x:ConnectionId='3'  Name="TitleTextBlock"  Text="Other Customer Transfer"  HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="ExtraBold" FontSize="16" Margin="10" ></TextBlock>
+                <TextBlock x:ConnectionId='3'  Name="TitleTextBlock"
+                            Text="Other Customer Transfer" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"
+                            FontWeight="ExtraBold"
+                            FontSize="16" 
+                            Margin="10" 
+                            ></TextBlock>
 
-                <ComboBox x:ConnectionId='4' Grid.Row="1" Name="FromComboBox" Background="White" Header="From:" PlaceholderText="Select an Account"                                           FontSize="12"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="200"/>
+                <ComboBox x:ConnectionId='4' Grid.Row="1"
+                          Name="FromComboBox"
+                          Background="White" 
+                          Header="From :" 
+                          PlaceholderText="Select an Account" 
+                                                                   
+                          FontSize="12"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center"
+                          Width="200"/>
 
                 <StackPanel Grid.Row="2"  HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock x:ConnectionId='12' Name="ToTextBlock" Text="To :" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="12" ></TextBlock>
-                    <TextBox x:ConnectionId='13' Name="ToTextBox" Height="40" Width="200" FontSize="12" Background="White" ></TextBox>
+                    <TextBlock x:ConnectionId='12' Name="ToTextBlock"
+                               Text="To :" 
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+                               FontSize="12" 
+                               ></TextBlock>
+                    
+                    <TextBox x:ConnectionId='13' Name="ToTextBox"
+                             Height="40" 
+                             Width="200"
+                             FontSize="12"
+                             Background="White" 
+                             ></TextBox>
                 </StackPanel>
                 
                 <StackPanel Grid.Row="3"  HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock x:ConnectionId='10' Name="AmountTextBlock" Text="Amount:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="12" ></TextBlock>
-                    <TextBox x:ConnectionId='11' Name="AmountTextBox" Height="40" Width="200" FontSize="12" Background="White" ></TextBox>
+                    <TextBlock x:ConnectionId='10' Name="AmountTextBlock"
+                               Text="Amount :" 
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+                               FontSize="12"
+                               ></TextBlock>
+                    
+                    <TextBox x:ConnectionId='11' Name="AmountTextBox" 
+                             Height="40" 
+                             Width="200"
+                             FontSize="12" 
+                             Background="White" 
+                             ></TextBox>
                 </StackPanel>
                 
                 <StackPanel Grid.Row="4"  HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock x:ConnectionId='8' Name="RemarksTextBlock" Text="Remarks :" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="12" ></TextBlock>
-                    <TextBox x:ConnectionId='9' Name="RemarksTextBox" Height="40" Width="200" FontSize="12" Background="White" ></TextBox>
+                    <TextBlock x:ConnectionId='8' Name="RemarksTextBlock"
+                               Text="Remarks :"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+                               FontSize="12" 
+                               ></TextBlock>
+                    
+                    <TextBox x:ConnectionId='9' Name="RemarksTextBox"
+                             Height="40"
+                             Width="200"
+                             FontSize="12"
+                             Background="White" 
+                             ></TextBox>
                 </StackPanel>
-                <TextBlock x:ConnectionId='5' Name="ErrorBox" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red" FontWeight="Bold"></TextBlock>
+                <TextBlock x:ConnectionId='5' Name="ErrorBox"
+                           Grid.Row="5" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center" 
+                           Foreground="Red"
+                           FontWeight="Bold"
+                           ></TextBlock>
 
                 <Grid Grid.Row="6">
                     <Grid.ColumnDefinitions>

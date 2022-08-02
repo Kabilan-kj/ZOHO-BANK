@@ -14,9 +14,46 @@ namespace ZBMS.DataLayer
         private SqliteConnection connection;
         private DBAdapter dbAdapter= new DBAdapter();
 
-        public List<TransactionDetails> GetTransactionsByCustomerID(string id)
+        public ExtendedTransactionDetails GetDetailedTransaction(string transactionId)
         {
-            List<TransactionDetails> Transactions = new List<TransactionDetails>();
+            ExtendedTransactionDetails transaction = new ExtendedTransactionDetails();
+            try
+            {
+                connection = dbAdapter.GetConnection();
+                connection.Open();
+                string cmd = $"Select s.transactiontime,s.senderid,c.name,s.receiverid,d.name,s.amount,s.transactionid from transactiondetails s join AccountData a on a.accountnumber = s.senderid join customerdata c on  a.accountnumber = s.senderid and a.customerid = c.customerid join AccountData a1 on a1.accountnumber = s.receiverid join customerdata d on  a1.accountnumber = s.receiverid and a1.customerid = d.customerid where s.transactionid = '{transactionId}'; ";
+                SqliteCommand GetRecord = new SqliteCommand(cmd, connection);
+                SqliteDataReader reader = GetRecord.ExecuteReader();
+
+                while (reader.Read())
+                {
+                   transaction.Time= reader.GetString(0);
+                   transaction.SenderId= reader.GetString(1);
+                   transaction.SenderName= reader.GetString(2);
+                   transaction.ReceiverId= reader.GetString(3);
+                   transaction.ReceiverName= reader.GetString(4);
+                   transaction.Amount=reader.GetDouble(5);
+                   transaction.TransactionId= reader.GetString(6); 
+                   
+                }
+
+                return transaction;
+
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+
+        public List<ExtendedTransactionDetails> GetTransactionsByCustomerID(string id)
+        {
+            List<ExtendedTransactionDetails> Transactions = new List<ExtendedTransactionDetails>();
             try
             {
                 connection = dbAdapter.GetConnection();
@@ -27,7 +64,7 @@ namespace ZBMS.DataLayer
 
                 while (reader.Read())
                 {
-                    TransactionDetails transaction = new TransactionDetails();
+                    ExtendedTransactionDetails transaction = new ExtendedTransactionDetails();
                     transaction.TransactionId = reader.GetString(1);
                     transaction.SenderId = reader.GetString(2);
                     transaction.ReceiverId = reader.GetString(3);

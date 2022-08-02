@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZBMS.DomainLayer
+namespace ZBMS
 {
-    public interface IUseCaseCallBack
+    public interface ICallBack<T>
     {
-        void OnSuccess(GetTransactionsResponse response);
+        void OnSuccess(T response);
+        void OnError();
         void OnFailure();
 
     }

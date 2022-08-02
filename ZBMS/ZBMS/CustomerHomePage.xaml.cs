@@ -29,7 +29,7 @@ namespace ZBMS
     /// </summary>
     public sealed partial class CustomerHomePage : Page
     {
-        private List<ShortcutMenuItems> ShortcutMenuItems = new List<ShortcutMenuItems>();
+        private List<ShortcutMenuItems> ShortcutMenuItems = new List<ShortcutMenuItems>(); 
         private List<ShortcutMenuItems> MoneyTransferMenuItems = new List<ShortcutMenuItems>();
         private List<string> AccountNumbers = new List<string>();
        
@@ -44,6 +44,7 @@ namespace ZBMS
 
             this.InitializeComponent();
             GetValues();
+          
 
         }
 

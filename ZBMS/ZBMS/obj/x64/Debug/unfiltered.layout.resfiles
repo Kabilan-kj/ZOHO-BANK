@@ -79,12 +79,14 @@ Assets\zb1.png
 AboutUsPage.xbf
 App.xbf
 CreateAccountPage.xbf
+CustomerDashboard.xbf
 CustomerHomePage.xbf
 DepositPage.xbf
 EditProfilePage.xbf
 LoanPaymentPage.xbf
 MainFramePage.xbf
 MainPage.xbf
+MenuPage.xbf
 OtherBankCustomerTransferPage.xbf
 OtherCustomerTransferPage.xbf
 SelfTransferPage.xbf
@@ -92,6 +94,7 @@ SignUpPage.xbf
 ViewAccountDetails.xbf
 ViewProfilePage.xbf
 ViewTransactionsPage.xbf
+ZBankResource.xbf
 ZBMS.xr.xml
 Properties\Default.rd.xml
 Webpages\AboutUsPage.Html

@@ -34,6 +34,7 @@ namespace ZBMS
        private List<AccountData> accounts = new List<AccountData>();
        private CustomerAccountPage customerAccountPage = new CustomerAccountPage();
        private CustomerTransactionsPage customerTransaction = new CustomerTransactionsPage();
+       private Dictionary<string, AccountType> AccountTypeList = new Dictionary<string, AccountType>();
 
         public CreateAccountPage()
         {
@@ -43,13 +44,19 @@ namespace ZBMS
 
         public async  void GetValues()
         {
-            accountTypes.Add("SAVINGS_ACCOUNT");
-            accountTypes.Add("CURRENT_ACCOUNT");
-            accountTypes.Add("RECURRING_ACCOUNT");
-            accountTypes.Add("FIXED_DEPOSIT_ACCOUNT");
-            accountTypes.Add("LOAN_ACCOUNT");
+            accountTypes.Add("Savings account");
+            accountTypes.Add("Current account");
+            accountTypes.Add("Recurring account");
+            accountTypes.Add("Fixed deposit account");
+            accountTypes.Add("Loan account");
 
-            branchCode= await customerAccountPage.GetBranchCode();
+            AccountTypeList.Add( "Current account", AccountType.CURRENT_ACCOUNT);
+            AccountTypeList.Add("Savings account" , AccountType.SAVINGS_ACCOUNT);
+            AccountTypeList.Add("Fixed deposit account" , AccountType.FIXED_DEPOSIT_ACCOUNT);
+            AccountTypeList.Add( "Recurring account" , AccountType.RECURRING_ACCOUNT);
+            AccountTypeList.Add("Loan account", AccountType.LOAN_ACCOUNT);
+
+            branchCode = await customerAccountPage.GetBranchCode();
 
             tenure.Add(6);
             tenure.Add(12);
@@ -70,56 +77,123 @@ namespace ZBMS
 
         private async void CreateButton_Click(object sender, RoutedEventArgs e)
         {
-
-            DBAccountData dbAccount = new DBAccountData();
-            dbAccount.TypeofAccount=AccountTypeComboBox.SelectedItem.ToString();
-            dbAccount.Balance =Convert.ToDouble(AmountTextBox.Text);
-            dbAccount.BranchCode=BranchCodeComboBox.SelectedItem.ToString();
-            dbAccount.CustomerId= MainPage.GetCustomerData().CustomerId;
-            if (TenureComboBox.SelectedItem != null)
+            if (VerifyAccountCreation())
             {
-                dbAccount.Tenure = Convert.ToInt32(TenureComboBox.SelectedItem.ToString());
-            }
-
-            if (SavingAccountComboBox.SelectedItem != null)
-            {
-                dbAccount.SourceAccountNumber = SavingAccountComboBox.SelectedItem.ToString();
-            }
-
-            if (AccountTypeComboBox.SelectedItem.ToString()== "RECURRING_ACCOUNT")
-            {
-               
-                foreach (var savingsaccount in accounts)
+                DBAccountData dbAccount = new DBAccountData();
+                dbAccount.TypeofAccount = AccountTypeList[AccountTypeComboBox.SelectedItem.ToString()].ToString();// AccountTypeComboBox.SelectedItem.ToString();
+                dbAccount.Balance = Convert.ToDouble(AmountTextBox.Text);
+                dbAccount.BranchCode = BranchCodeComboBox.SelectedItem.ToString();
+                dbAccount.CustomerId = MainPage.GetCustomerData().CustomerId;
+                if (TenureComboBox.SelectedItem != null)
                 {
-                    if( savingsaccount.AccountNumber == SavingAccountComboBox.SelectedItem.ToString())
+                    dbAccount.Tenure = Convert.ToInt32(TenureComboBox.SelectedItem.ToString());
+                }
+
+                if (SavingAccountComboBox.SelectedItem != null)
+                {
+                    dbAccount.SourceAccountNumber = SavingAccountComboBox.SelectedItem.ToString();
+                }
+
+                if (AccountTypeComboBox.SelectedItem.ToString() == "Recurring account")
+                {
+
+                    foreach (var savingsaccount in accounts)
                     {
-                        if(savingsaccount.Balance < Convert.ToDouble(AmountTextBox.Text))
+                        if (savingsaccount.AccountNumber == SavingAccountComboBox.SelectedItem.ToString())
                         {
-                            MessageDialog showDialog = new MessageDialog($"Selected Savings Account does not contain required Initial Balance ");
-                            showDialog.Commands.Add(new UICommand("Okay") { Id = 0 });
-                            showDialog.DefaultCommandIndex = 0;
-                            var result = await showDialog.ShowAsync();
-                            if ((int)result.Id == 0)
+                            if (savingsaccount.Balance < Convert.ToDouble(AmountTextBox.Text))
                             {
-                                this.Frame.Navigate(typeof(CreateAccountPage));
-                                return;
+                                MessageDialog showDialog = new MessageDialog($"Selected Savings Account does not contain required Initial Balance ");
+                                showDialog.Commands.Add(new UICommand("Okay") { Id = 0 });
+                                showDialog.DefaultCommandIndex = 0;
+                                var result = await showDialog.ShowAsync();
+                                if ((int)result.Id == 0)
+                                {
+                                    this.Frame.Navigate(typeof(CreateAccountPage));
+                                    return;
+                                }
+                            }
+                            else
+                            {
+                                CreateAccount(dbAccount, savingsaccount);
+                                break;
+                            }
+
+                        }
+                    }
+
+                }
+                else
+                {
+                    CreateAccount(dbAccount);
+                }
+            }
+          
+
+        }
+
+        //dbAccount.TypeofAccount=AccountTypeComboBox.SelectedItem.ToString();
+        //    dbAccount.Balance =Convert.ToDouble(AmountTextBox.Text);
+        //    dbAccount.BranchCode=BranchCodeComboBox.SelectedItem.ToString();
+      
+        private bool VerifyAccountCreation()
+        {
+            if(AccountTypeComboBox.SelectedItem!=null)
+            {
+                if(BranchCodeComboBox.SelectedItem!=null)
+                {
+                    if(AccountTypeComboBox.SelectedItem.ToString() == "Recurring account" || AccountTypeComboBox.SelectedItem.ToString() == "Fixed deposit account" || AccountTypeComboBox.SelectedItem.ToString() == "Loan account")
+                    {
+                        if (TenureComboBox.SelectedItem != null)
+                        {
+                            if (AccountTypeComboBox.SelectedItem.ToString() == "Recurring account")
+                            {
+                                if (AmountTextBox.Text !="")
+                                { 
+                                    if (SavingAccountComboBox.SelectedItem != null)
+                                    {
+
+                                        return true;
+                                    }
+                                    else
+                                    {
+                                        ErrorMessage.Text = "Select Savings Account";
+                                        return false;
+                                    }
+                                }
+                                else
+                                {
+                                    ErrorMessage.Text = "Enter initial deposit amount";
+                                    return false;
+                                }
+                            }
+                            else
+                            {
+                                return true; 
                             }
                         }
                         else
                         {
-                            CreateAccount(dbAccount, savingsaccount);
+                            ErrorMessage.Text = "Select Tenure";
+                            return false;
                         }
-
+                    }
+                    else
+                    {
+                        return true;
                     }
                 }
-
+                else
+                {
+                    ErrorMessage.Text = "Select Branch Code";
+                    return false;
+                }
             }
             else
             {
-                CreateAccount(dbAccount);
+                ErrorMessage.Text = "Select account type";
+                return false;
             }
-          
-
         }
 
         private async void CreateAccount(DBAccountData dbAccount,AccountData savingsaccount)
@@ -188,7 +262,7 @@ namespace ZBMS
         {
             var data = e.AddedItems[0].ToString();
           
-            if (data =="RECURRING_ACCOUNT")
+            if (data =="Recurring account")
             {
 
                 if (savingsAccount.Count == 0)
@@ -203,28 +277,28 @@ namespace ZBMS
                     }
 
                 }
-                TenureComboBox.Visibility = Visibility.Visible;
-                SavingAccountComboBox.Visibility = Visibility.Visible;
+                TenurePanel.Visibility = Visibility.Visible;
+                SavingsAccountPanel.Visibility = Visibility.Visible;
             }
-            if (data == "CURRENT_ACCOUNT")
+            if (data == "Current account")
             {
-                TenureComboBox.Visibility = Visibility.Collapsed;
-                SavingAccountComboBox.Visibility = Visibility.Collapsed;    
+                TenurePanel.Visibility = Visibility.Collapsed;
+                SavingsAccountPanel.Visibility = Visibility.Collapsed;    
             }
-            if (data == "LOAN_ACCOUNT")
+            if (data == "Loan account")
             {
-                TenureComboBox.Visibility = Visibility.Visible;
-                SavingAccountComboBox.Visibility = Visibility.Collapsed;
+                TenurePanel.Visibility = Visibility.Visible;
+                SavingsAccountPanel.Visibility = Visibility.Collapsed;
             }
-            if (data == "FIXED_DEPOSIT_ACCOUNT")
+            if (data == "Fixed deposit account")
             {
-                TenureComboBox.Visibility = Visibility.Visible;
-                SavingAccountComboBox.Visibility = Visibility.Collapsed;
+                TenurePanel.Visibility = Visibility.Visible;
+                SavingsAccountPanel.Visibility = Visibility.Collapsed;
             }
-            if (data == "SAVINGS_ACCOUNT")
+            if (data == "Savings account")
             {
-                TenureComboBox.Visibility = Visibility.Collapsed;
-                SavingAccountComboBox.Visibility = Visibility.Collapsed;
+                TenurePanel.Visibility = Visibility.Collapsed;
+                SavingsAccountPanel.Visibility = Visibility.Collapsed;
             }
 
         }
@@ -237,17 +311,17 @@ namespace ZBMS
             var result = await showDialog.ShowAsync();
             if ((int)result.Id == 0)
             {
-                this.Frame.Navigate(typeof(CustomerHomePage));
+                this.Frame.Navigate(typeof(CreateAccountPage));
                 return;
             }
         }
 
-        private async void CloseButton_Click(object sender, RoutedEventArgs e)
-        {
-            await Window.Current.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
-            { 
-                CoreWindow.GetForCurrentThread().Close();
-            });
-        }
+        //private async void CloseButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    await Window.Current.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+        //    { 
+        //        CoreWindow.GetForCurrentThread().Close();
+        //    });
+        //}
     }
 }

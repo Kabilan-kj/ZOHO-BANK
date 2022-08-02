@@ -90,6 +90,7 @@
 
                         <Setter Target="MoneyTransferTextBlock.Style" Value="{StaticResource WideHeaderText}"/>
                         <Setter Target="ShortcutsTextBlock.Style" Value="{StaticResource WideHeaderText}"/>
+                        <Setter Target="AccountsTitleTextBlock.Style" Value="{StaticResource WideHeaderText}"/>
 
                         <Setter Target="ErrorMessage.Style" Value="{StaticResource WideHeaderText}"/>
                         <Setter Target="CreateAccountButton.Style" Value="{StaticResource WideButton}"/>
@@ -112,23 +113,40 @@
             </Grid.RowDefinitions>
 
             <StackPanel x:ConnectionId='5' Name="ContentStackPanel" Background="White" Margin="10" CornerRadius="15">
+                
+                <TextBlock x:ConnectionId='21' Name="AccountsTitleTextBlock" Text="Accounts :" Foreground="Black" Padding="5,0,0,0" Margin="10,10,0,0"  Style="{StaticResource NarrowHeaderText}"  ></TextBlock>
 
-                <ComboBox x:ConnectionId='21' Margin="20"                                       Name="SelectAccountComboBox" Style="{StaticResource NarrowComboBox}" Header="Account Number" PlaceholderText="Select another account" PlaceholderForeground="Gray"                                                           >
+                <ComboBox x:ConnectionId='22' Margin="20"
+                                                               
+                          Name="SelectAccountComboBox" Style="{StaticResource NarrowComboBox}"
+                          Header="Account Number" 
+                          PlaceholderText="Select another account"
+                          PlaceholderForeground="Gray"
+                                                                                    >
 
                 </ComboBox>
 
                 <StackPanel Orientation="Vertical" Margin="20,0,0,10">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock x:ConnectionId='25' Name="BalanceTextBlock" Visibility="Collapsed"  Text="Available Balance = " Style="{StaticResource NarrowHeaderText}"></TextBlock>
-                        <TextBlock x:ConnectionId='26' Name="BalanceContentTextBlock"  Style="{StaticResource NarrowHeaderText}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock x:ConnectionId='26' Name="BalanceTextBlock"
+                                   Visibility="Collapsed" 
+                                   Text="Available Balance = " 
+                                   Style="{StaticResource NarrowHeaderText}"
+                                   ></TextBlock>
+                        
+                        <TextBlock x:ConnectionId='27' Name="BalanceContentTextBlock" 
+                                   Style="{StaticResource NarrowHeaderText}"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   ></TextBlock>
                     </StackPanel>
                     <RelativePanel>
 
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock x:ConnectionId='23' Name="AccountTypeTextBlock" Style="{StaticResource NarrowText}"  ></TextBlock>
-                            <TextBlock x:ConnectionId='24' Margin="20,0,0,0" Name="AccountNumberTextBlock"  Style="{StaticResource NarrowText}" ></TextBlock>
+                            <TextBlock x:ConnectionId='24' Name="AccountTypeTextBlock" Style="{StaticResource NarrowText}"  ></TextBlock>
+                            <TextBlock x:ConnectionId='25' Margin="20,0,0,0" Name="AccountNumberTextBlock"  Style="{StaticResource NarrowText}" ></TextBlock>
                         </StackPanel>
-                        <Button x:ConnectionId='22' Margin="10,40,10,10" Name="TransactionButton"  RelativePanel.AlignRightWithPanel="True"                                 Content="ViewTransaction" Style="{StaticResource NarrowButton}" >
+                        <Button x:ConnectionId='23' Margin="10,40,10,10" Name="TransactionButton"  RelativePanel.AlignRightWithPanel="True"                                 Content="View Transaction" Style="{StaticResource NarrowButton}" >
                             <Button.Resources>
                                 <ResourceDictionary>
                                     <ResourceDictionary.ThemeDictionaries>
@@ -150,7 +168,11 @@
 
             <StackPanel x:ConnectionId='6' Name="ErrorStackPanel" Visibility="Collapsed" Background="White" Margin="10" CornerRadius="15">
 
-                <TextBlock x:ConnectionId='19' Name="ErrorMessage" Text="No Accounts Available" Style="{StaticResource NarrowHeaderText}" Margin="10" ></TextBlock>
+                <TextBlock x:ConnectionId='19' Name="ErrorMessage" 
+                           Text="No Accounts Available"
+                           Style="{StaticResource NarrowHeaderText}" 
+                           Margin="10" 
+                           ></TextBlock>
                 <Button x:ConnectionId='20' Name="CreateAccountButton" Content="Create Account" Style="{StaticResource NarrowButton}"                                    Margin="10,40,10,10" >
                     <Button.Resources>
                         <ResourceDictionary>
@@ -170,7 +192,13 @@
             </StackPanel>
 
             <StackPanel Grid.Row="1"  Margin="10"  Background="White" CornerRadius="15" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollMode="Enabled" >
-                <TextBlock x:ConnectionId='18' Name="MoneyTransferTextBlock" Text="MoneyTransfer :" Foreground="Black" Padding="5,0,0,0" Margin="10,10,0,0"  Style="{StaticResource NarrowHeaderText}"  ></TextBlock>
+                <TextBlock x:ConnectionId='18' Name="MoneyTransferTextBlock"
+                           Text="Money Transfer :" 
+                           Foreground="Black" 
+                           Padding="5,0,0,0" 
+                           Margin="10,10,0,0" 
+                           Style="{StaticResource NarrowHeaderText}" 
+                           ></TextBlock>
             </StackPanel>
             <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" Margin="20,50,20,15" CanContentRenderOutsideBounds="False">
                 <GridView x:ConnectionId='13'  Name="MoneyTransferGrids"                                                IsItemClickEnabled="True"                                           >
@@ -200,7 +228,14 @@
             </ScrollViewer>
 
             <StackPanel Grid.Row="2"  Margin="10"  Background="White" CornerRadius="15">
-                <TextBlock x:ConnectionId='12' Name="ShortcutsTextBlock" Text="Shortcuts :" Grid.Row="3" Foreground="Black" Padding="5,0,0,0" Margin="10,10,0,0"  Style="{StaticResource NarrowHeaderText}"></TextBlock>
+                <TextBlock x:ConnectionId='12' Name="ShortcutsTextBlock" 
+                           Text="Shortcuts :"
+                           Grid.Row="3" 
+                           Foreground="Black" 
+                           Padding="5,0,0,0" 
+                           Margin="10,10,0,0" 
+                           Style="{StaticResource NarrowHeaderText}"
+                           ></TextBlock>
             </StackPanel>
             <ScrollViewer HorizontalScrollBarVisibility="Auto" Grid.Row="2" Margin="20,50,20,15">
                 <GridView x:ConnectionId='7'  Grid.Row="2" Name="ShortcutGrids"                                          IsItemClickEnabled="True"                                      >

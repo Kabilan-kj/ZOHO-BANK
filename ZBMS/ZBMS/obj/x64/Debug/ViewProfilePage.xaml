@@ -8,61 +8,73 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.Resources>
-        <Style x:ConnectionId='2' TargetType="TextBlock" x:Name="NarrowTextBlock">
-            <Setter Property="FontSize" Value="14"></Setter>
-            <Setter Property="FontWeight" Value="Bold"></Setter>
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///ZBankResource.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
 
-        <Style TargetType="TextBlock" x:Key="WideTextBlock">
-            <Setter Property="FontSize" Value="20"></Setter>
-            <Setter Property="FontWeight" Value="Bold"></Setter>
-        </Style>
+            <Style x:ConnectionId='2' TargetType="TextBlock" x:Name="NarrowTextBlock" BasedOn="{StaticResource NarrowStyleTextBlock}">
+                <Setter Property="FontWeight" Value="Bold"></Setter>
+                <Setter Property="Margin" Value="10,0,0,0"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+            </Style>
 
-        <Style TargetType="Button" x:Key="NarrowButton">
-            <Setter Property="Margin" Value="15"></Setter>
-            <Setter Property="FontSize" Value="14"></Setter>
-            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-          </Style>
+            <Style TargetType="TextBlock" x:Key="WideTextBlock" BasedOn="{StaticResource WideStyleTextBlock}">
+                <Setter Property="FontWeight" Value="Bold"></Setter>
+                <Setter Property="Margin" Value="15,0,0,0"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+            </Style>
 
-        <Style TargetType="Button" x:Key="WideButton">
-            <Setter Property="Foreground" Value="White"></Setter>
-            <Setter Property="Margin" Value="30"></Setter>
-            <Setter Property="FontSize" Value="20"></Setter>
-            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-        </Style>
+            <Style TargetType="Button" x:Key="NarrowButton" BasedOn="{StaticResource NarrowStyleButton}">
+                <Setter Property="Margin" Value="5"></Setter>
+                <Setter Property="Width" Value="75"/>
+                <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            </Style>
 
+            <Style TargetType="Button" x:Key="WideButton" BasedOn="{StaticResource WideStyleButton}">
+                 <Setter Property="Margin" Value="10"></Setter>
+                <Setter Property="Width" Value="100"/>
+                 <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            </Style>
 
+        </ResourceDictionary>
+        
     </Page.Resources>
+    
     <ScrollViewer>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Grid>
-                <VisualStateManager.VisualStateGroups>
-                    <VisualStateGroup >
-                        <VisualState x:ConnectionId='3' x:Name="WideState1">
-                            <VisualState.StateTriggers>
-                                <AdaptiveTrigger MinWindowWidth="700"></AdaptiveTrigger>
-                            </VisualState.StateTriggers>
-                            <VisualState.Setters>
+         <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup >
+                    <VisualState x:ConnectionId='3' x:Name="WideState1">
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="700"></AdaptiveTrigger>
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
 
-                                <Setter Target="NameTextBlock.Style" Value="{StaticResource WideTextBlock}"/>
-                                <Setter Target="ContactTextBlock.Style" Value="{StaticResource WideTextBlock}"/>
-                                <Setter Target="MailIdTextBlock.Style" Value="{StaticResource WideTextBlock}"/>
-                                <Setter Target="AddressTextBlock.Style" Value="{StaticResource WideTextBlock}" />
+                            <Setter Target="NameTextBlock.Style" Value="{StaticResource WideTextBlock}"/>
+                            <Setter Target="ContactTextBlock.Style" Value="{StaticResource WideTextBlock}"/>
+                            <Setter Target="MailIdTextBlock.Style" Value="{StaticResource WideTextBlock}"/>
+                            <Setter Target="AddressTextBlock.Style" Value="{StaticResource WideTextBlock}" />
 
-                                <Setter Target="NameTextBox.Style" Value="{StaticResource WideTextBlock}"/>
-                                <Setter Target="ContactTextBox.Style" Value="{StaticResource WideTextBlock}"/>
-                                <Setter Target="MailIdTextBox.Style" Value="{StaticResource WideTextBlock}"/>
-                                <Setter Target="AddressTextBox.Style" Value="{StaticResource WideTextBlock}" />
+                            <Setter Target="NameTextBox.Style" Value="{StaticResource WideTextBlock}"/>
+                            <Setter Target="ContactTextBox.Style" Value="{StaticResource WideTextBlock}"/>
+                            <Setter Target="MailIdTextBox.Style" Value="{StaticResource WideTextBlock}"/>
+                            <Setter Target="AddressTextBox.Style" Value="{StaticResource WideTextBlock}" />
 
-                                <Setter Target="BackButton.Style" Value="{StaticResource WideButton}"/>
-                                <Setter Target="ProfileImage.Width" Value="100"/>
+                            <Setter Target="EditButton.Style" Value="{StaticResource WideButton}"/>
 
-                            </VisualState.Setters>
-                        </VisualState>
+                            <Setter Target="ContentGrid.Height" Value="600"/>
+                            <Setter Target="ContentGrid.Width" Value="350"/>
+                            <Setter Target="ProfileImage.Width" Value="210"/>
+                        <Setter Target="ProfileImage.Height" Value="70"/>
 
-                    </VisualStateGroup>
-                </VisualStateManager.VisualStateGroups>
-                <Grid  Background="LightSkyBlue" CornerRadius="15" Height="600" Width="300" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    </VisualState.Setters>
+                    </VisualState>
+
+                </VisualStateGroup>
+         </VisualStateManager.VisualStateGroups>
+       
+         
+                 <Grid x:ConnectionId='4'  Name="ContentGrid" Background="{StaticResource PrimaryBackground}" CornerRadius="15" Height="400" Width="250" HorizontalAlignment="Center" VerticalAlignment="Center">
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="50"></RowDefinition>
@@ -74,53 +86,84 @@
                         <RowDefinition ></RowDefinition>
                     </Grid.RowDefinitions>
 
-                    <TextBlock x:ConnectionId='5'  Name="TitleTextBlock"  Text="Profile Page"  HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="ExtraBold" FontSize="16" Margin="10" ></TextBlock>
+                       
+                     
+                    <TextBlock x:ConnectionId='5'  Name="TitleTextBlock" 
+                        Text="Profile Page" 
+                        Style="{StaticResource TitleTextBlock}"
+                    ></TextBlock>
 
                     <Image x:ConnectionId='6' 
                         Name="ProfileImage"
                         Grid.Row="1"  
-                        Margin="10"
+                        
                         Source="Assets/ProfileImage1.jpg" 
-                        Width="100"
+                        Width="150"
+                        Height="50"
                         Stretch="Uniform" 
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center">
 
                     </Image>
 
-                    <StackPanel   Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="30" >
-                        <TextBlock x:ConnectionId='14' Name="NameTextBlock" Text="Name :" Style="{StaticResource NarrowTextBlock}" ></TextBlock>
-                        <TextBlock x:ConnectionId='15' Name="NameTextBox" Margin="10,0,0,0" FontWeight="Normal"  Style="{StaticResource NarrowTextBlock}"></TextBlock>
+                    <StackPanel   Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left"  >
+                        <TextBlock x:ConnectionId='14' Name="NameTextBlock" 
+                                   Text="Name :" 
+                                   Style="{StaticResource NarrowTextBlock}" 
+                                   ></TextBlock>
+                        <TextBlock x:ConnectionId='15' Name="NameTextBox"
+                                   Margin="10,0,0,0"
+                                   FontWeight="Normal"
+                                   Style="{StaticResource NarrowTextBlock}"
+                                   ></TextBlock>
                     </StackPanel>
 
-                    <StackPanel   Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Left" Margin="30" >
-                        <TextBlock x:ConnectionId='12' Name="ContactTextBlock" Text="Contact:" Style="{StaticResource NarrowTextBlock}"></TextBlock>
-                        <TextBlock x:ConnectionId='13' Name="ContactTextBox" FontWeight="Normal" Margin="10,0,0,0" Style="{StaticResource NarrowTextBlock}"></TextBlock>
+                    <StackPanel   Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Left"  >
+                        <TextBlock x:ConnectionId='12' Name="ContactTextBlock"
+                                   Text="Contact:"
+                                   Style="{StaticResource NarrowTextBlock}"
+                                   ></TextBlock>
+                        <TextBlock x:ConnectionId='13' Name="ContactTextBox"
+                                   FontWeight="Normal"
+                                   Margin="10,0,0,0" 
+                                   Style="{StaticResource NarrowTextBlock}"
+                                   ></TextBlock>
                     </StackPanel>
 
-                    <StackPanel  Grid.Row="4"  Orientation="Horizontal" HorizontalAlignment="Left" Margin="30">
-                        <TextBlock x:ConnectionId='10' Name="MailIdTextBlock" Text="MailId:" Style="{StaticResource NarrowTextBlock}" ></TextBlock>
-                        <TextBlock x:ConnectionId='11' Name="MailIdTextBox" FontWeight="Normal" Margin="10,0,0,0" Style="{StaticResource NarrowTextBlock}" ></TextBlock>
+                    <StackPanel  Grid.Row="4"  Orientation="Horizontal" HorizontalAlignment="Left" >
+                        <TextBlock x:ConnectionId='10' Name="MailIdTextBlock" 
+                                   Text="MailId:" 
+                                   Style="{StaticResource NarrowTextBlock}" 
+                                   ></TextBlock>
+                        <TextBlock x:ConnectionId='11' Name="MailIdTextBox"
+                                   FontWeight="Normal"
+                                   Margin="10,0,0,0" 
+                                   Style="{StaticResource NarrowTextBlock}" 
+                                   ></TextBlock>
                     </StackPanel>
 
-                    <StackPanel  Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Left" Margin="30" >
-                        <TextBlock x:ConnectionId='8' 
-                    Text="Address :" Name="AddressTextBlock"
-                    Style="{StaticResource NarrowTextBlock}"
-                    ></TextBlock>
-                        <TextBlock x:ConnectionId='9'  Name="AddressTextBox" FontWeight="Normal" Margin="10,0,0,0"  Style="{StaticResource NarrowTextBlock}" ></TextBlock>
+                    <StackPanel  Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Left"  >
+                      <TextBlock x:ConnectionId='8'  Name="AddressTextBlock"
+                            Text="Address :"
+                            Style="{StaticResource NarrowTextBlock}"
+                      ></TextBlock>
+                      <TextBlock x:ConnectionId='9'  Name="AddressTextBox"
+                                  FontWeight="Normal" 
+                                  Margin="10,0,0,0"  
+                                  Style="{StaticResource NarrowTextBlock}" 
+                      ></TextBlock>
                     </StackPanel>
 
                     <Button x:ConnectionId='7'  Grid.Row="6" 
-                     Name="BackButton"
+                     Name="EditButton"
                      Content="Edit Profile"
-                     Background="Blue"
-                     Foreground="White"
                      Style="{StaticResource NarrowButton}"
-                                             
-                 
-            >
-                        <Button.Resources>
+                                              
+                     Foreground="{StaticResource SecondaryThemeColor}"
+                     Background="{StaticResource PrimaryThemeColor}">
+                        
+                        
+                        <!--<Button.Resources>
                             <ResourceDictionary>
                                 <ResourceDictionary.ThemeDictionaries>
                                     <ResourceDictionary x:Key="Dark">
@@ -133,18 +176,13 @@
                                     </ResourceDictionary>
                                 </ResourceDictionary.ThemeDictionaries>
                             </ResourceDictionary>
-                        </Button.Resources>
-
+                        </Button.Resources>-->
 
                     </Button>
 
-
-
-
                 </Grid>
-                <Frame x:ConnectionId='4' Name="ViewProfilePageFrame" ></Frame>
-            </Grid>
-        </StackPanel>
+          
+ 
     </ScrollViewer>
 </Page>
 

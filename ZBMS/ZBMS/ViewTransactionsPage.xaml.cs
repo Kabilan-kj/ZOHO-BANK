@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using ZBMS.DomainLayer;
 using ZBMS.Models;
@@ -27,7 +28,7 @@ namespace ZBMS
     /// </summary>
     public sealed partial class ViewTransactionsPage : Page
     {
-       private GetTransactionsViewModel viewModel;
+       private TransactionsPageViewModel viewModel;
        private static  string Id;
        private static TransactionID transactionId;
 
@@ -36,13 +37,20 @@ namespace ZBMS
         {
             
             this.InitializeComponent();
-            viewModel = new GetTransactionsViewModel(this);
+            viewModel = new TransactionsPageViewModel(this);
 
             if (Id != null)
             {
                 viewModel.GetTransactions(Id, transactionId);
+                ErrorMessage.Visibility = Visibility.Collapsed;
+              
             }
-            ErrorMessage.Visibility = Visibility.Collapsed;
+            else
+            {
+                ErrorMessage.Visibility = Visibility.Visible;
+               
+            }
+            
            
         }
 
@@ -60,32 +68,35 @@ namespace ZBMS
         private void TransactionGrids_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-            //Grid selectedGrid = e.AddedItems[0]; //as Grid;
-            var selectedTransaction = TransactionGrids.SelectedItem as ExtendedTransactionDetails;
-
-            //TextBlock sampleTextBlock = selectedGrid1.FindName("TransactionIdValueTextBlock1") as TextBlock;
-            //TextBlock sampleTextBlock1 = selectedGrid.FindName("TransactionIdValueTextBlock1") as TextBlock;
-            // ((DataModule.TransactionDetails)TransactionGrids.SelectedItem).TransactionId
-
-            // viewModel.SetSelectedTransaction(selectedTransaction.TransactionId);
-
-            // viewModel.SetSelectedTransaction(sampleTextBlock1.Text);
-
-            TransactionDate1.Text = selectedTransaction.Time;
-            SenderIdValueTextBlock1.Text = selectedTransaction.SenderId;
-            ReceiverIdValueTextBlock1.Text = selectedTransaction.ReceiverId;
-            AmountValueTextBlock1.Text = selectedTransaction.AmountString;
-            TransactionIdValueTextBlock1.Text = selectedTransaction.TransactionId;
-
-            // BalanceValueTextBlock1.Text = selectedTransaction.AmountString;
-            //TransactionTypeImage.Source = new ImageSource(); selectedTransaction.TypeImage;
-
-            ExpandedGrid.Visibility = Visibility.Visible; 
+            if (TransactionGrids.SelectedItem != null)
+            {
+                var selectedTransaction = TransactionGrids.SelectedItem as ExtendedTransactionDetails;
+                this.FindName("DetailedTransactionGrid");
+                viewModel.GetSelectedTransaction(selectedTransaction.TransactionId);
+             
+            }
+            else
+            {
+                return;
+            }
         }
+
+        public void  UpdateSelectedTransaction(ExtendedTransactionDetails transaction)
+        {
+            DateTextBlock.Text = transaction.ModifiedDate;
+            TimeTextBlock.Text = transaction.ModifiedTime;
+            SenderNameTextBlock.Text = transaction.SenderName;  
+            ReceiverNameTextBlock.Text = transaction.ReceiverName;
+            TransactionAmountTextBlock.Text = transaction.Amount.ToString();
+            TransactionIdTextBlock.Text = transaction.TransactionId;  
+            TransactionStatusTextBlock.Text=transaction.Status; 
+        }
+
+
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            ExpandedGrid.Visibility = Visibility.Collapsed;
+           //S ExpandedGrid.Visibility = Visibility.Collapsed;
         }
     }
 }

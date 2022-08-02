@@ -42,7 +42,7 @@ namespace ZBMS
        
         public void SetCustomerDetails()
         {
-            UserNameTextBlock.Text = customer.Name; 
+          //  UserNameTextBlock.Text = customer.Name; 
         }
 
 

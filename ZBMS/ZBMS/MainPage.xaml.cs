@@ -33,8 +33,17 @@ namespace ZBMS
         public MainPage()
         {
             this.InitializeComponent();
-            LoginAction("UID107");
+            //  LoginAction("UID107");
+            SamplePageTesting("UID107");
 
+
+        }
+
+        private void SamplePageTesting(string id)
+        {
+            customer = null;
+            customer = LoginPage.GetCustomer(id);
+            MainFrame.Navigate(typeof(MenuPage));
         }
         public static CustomerData GetCustomerData()
         {

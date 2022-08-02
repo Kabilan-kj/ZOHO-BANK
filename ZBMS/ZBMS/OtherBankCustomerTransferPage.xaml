@@ -7,34 +7,49 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///ZBankResource.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    
+    <ScrollViewer Margin="20" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" ViewChanged="ScrollViewer_ViewChanged" >
 
-    <ScrollViewer Margin="20" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" >
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="700"></AdaptiveTrigger>
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <Setter Target="FromComboBox.FontSize" Value="16"/>
+                        <Setter Target="ToTextBlock.FontSize" Value="16"/>
+                        <Setter Target="AmountTextBlock.FontSize" Value="16"/>
+                        <Setter Target="RemarksTextBlock.FontSize" Value="16"/>
+                        <Setter Target="TransferButton.FontSize" Value="16"/>
+                        <Setter Target="CancelButton.FontSize" Value="16"/>
+                        <Setter Target="ContentGrid.Width" Value="400"/>
+                        <Setter Target="TitleTextBlock.FontSize" Value="20"/>
+
+                        <Setter Target="ToTextBox.Style" Value="{StaticResource WideStyleTextBox}" />
+                        <Setter Target="AmountTextBox.Style" Value="{StaticResource WideStyleTextBox}" />
+                        <Setter Target="RemarksTextBox.Style" Value="{StaticResource WideStyleTextBox}" />
+
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup>
-                    <VisualState>
-                        <VisualState.StateTriggers>
-                            <AdaptiveTrigger MinWindowWidth="700"></AdaptiveTrigger>
-                        </VisualState.StateTriggers>
-
-                        <VisualState.Setters>
-                            <Setter Target="FromComboBox.FontSize" Value="16"/>
-                            <Setter Target="ToTextBox.FontSize" Value="16"/>
-                            <Setter Target="AmountTextBlock.FontSize" Value="16"/>
-                            <Setter Target="AmountTextBox.FontSize" Value="16"/>
-                            <Setter Target="RemarksTextBox.FontSize" Value="16"/>
-                            <Setter Target="RemarksTextBlock.FontSize" Value="16"/>
-                            <Setter Target="TransferButton.FontSize" Value="16"/>
-                            <Setter Target="CancelButton.FontSize" Value="16"/>
-                            <Setter Target="ContentGrid.Width" Value="400"/>
-                            <Setter Target="TitleTextBlock.FontSize" Value="20"/>
-                        </VisualState.Setters>
-                    </VisualState>
-                </VisualStateGroup>
-            </VisualStateManager.VisualStateGroups>
-
+           
             <Grid Name="ContentGrid" Height="600" Width="300" Background="LightSkyBlue" CornerRadius="15">
 
+               
+                
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"></RowDefinition>
                     <RowDefinition></RowDefinition>
@@ -65,7 +80,10 @@
                                VerticalAlignment="Center"
                                FontSize="12" 
                                ></TextBlock>
-                    <TextBox Name="ToTextBox" Height="40" Width="200" FontSize="12" Background="White" ></TextBox>
+                    <TextBox Name="ToTextBox"
+                             Style="{StaticResource NarrowStyleTextBox}" 
+                              PlaceholderText="Enter receiver acc number"
+                             ></TextBox>
                 </StackPanel>
                 
                 <StackPanel Grid.Row="3"  HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -76,10 +94,8 @@
                                FontSize="12" 
                                ></TextBlock>
                     <TextBox Name="AmountTextBox"
-                             Height="40"
-                             Width="200"
-                             FontSize="12"
-                             Background="White" 
+                             Style="{StaticResource NarrowStyleTextBox}"
+                             PlaceholderText="Enter amount"
                              ></TextBox>
                 </StackPanel>
                 
@@ -92,10 +108,8 @@
                                ></TextBlock>
                     
                     <TextBox Name="RemarksTextBox"
-                             Height="40"
-                             Width="200"
-                             FontSize="12"
-                             Background="White"
+                             Style="{StaticResource NarrowStyleTextBox}"
+                             PlaceholderText="Short Message"
                              ></TextBox>
                 </StackPanel>
                 

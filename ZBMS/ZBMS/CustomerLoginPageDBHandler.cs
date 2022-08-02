@@ -24,9 +24,14 @@ namespace ZBMS
             {
                 db = new SqliteConnection($"FileName={dbpath}");
                 db.Open();
-                string cmd = $"select * from customerdata where customerid = '{id}' ; ";
-                SqliteCommand GetRecord = new SqliteCommand(cmd, db);
-                SqliteDataReader reader = GetRecord.ExecuteReader();
+                // string query = $"select * from customerdata where customerid = '{id}' ; ";
+                //SqliteCommand command = new SqliteCommand(cmd, db);
+                string query = "select * from customerdata where customerid = $sample ; ";
+                SqliteCommand command = new SqliteCommand(query,db);
+               // command.Connection = db;
+                command.Parameters.AddWithValue("$sample", id);
+                
+                SqliteDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     customer.autoIncrementId = reader.GetInt32(0);

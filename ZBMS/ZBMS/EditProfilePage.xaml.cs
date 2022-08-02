@@ -26,35 +26,43 @@ namespace ZBMS
     {
         private CustomerData customer;
         private CustomerLoginPage customerLogin= new CustomerLoginPage();
+        private bool IsTextModified=false;
         public EditProfilePage()
         {
             this.InitializeComponent();
             GetCustomerData();
 
         }
+
         public void GetCustomerData()
         {
             customer = MainPage.GetCustomerData();
-            NameTextBox.PlaceholderText = customer.Name;
-            AddressTextBox.PlaceholderText = customer.Address;
-            ContactTextBox.PlaceholderText = customer.Contact;
-            MailIdTextBox.PlaceholderText = customer.MailId;
-
+            NameTextBox.Text = customer.Name;
+            AddressTextBox.Text = customer.Address;
+            ContactTextBox.Text = customer.Contact;
+            MailIdTextBox.Text = customer.MailId;
         }
 
 
         private async void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageDialog showDialog = new MessageDialog("Do you want Discard the Changes");
-            showDialog.Commands.Add(new UICommand("Yes") { Id = 0 });
-            showDialog.Commands.Add(new UICommand("No") { Id = 1 });
-            
-            showDialog.DefaultCommandIndex = 0;
-            showDialog.CancelCommandIndex = 1;
-            var results = await showDialog.ShowAsync();
-            if ((int)results.Id == 0)
+            if ( IsTextModified && NameTextBox.Text != "" && ContactTextBox.Text != "" && MailIdTextBox.Text != "" && AddressTextBox.Text != "")
             {
-                ViewProfilePageFrame.Navigate(typeof(CustomerHomePage));
+                MessageDialog showDialog = new MessageDialog("Do you want discard the changes");
+                showDialog.Commands.Add(new UICommand("Yes") { Id = 0 });
+                showDialog.Commands.Add(new UICommand("No") { Id = 1 });
+
+                showDialog.DefaultCommandIndex = 0;
+                showDialog.CancelCommandIndex = 1;
+                var results = await showDialog.ShowAsync();
+                if ((int)results.Id == 0)
+                {
+                    ViewProfilePageFrame.Navigate(typeof(CustomerDashboard));
+                }
+            }
+            else
+            {
+                ViewProfilePageFrame.Navigate(typeof(CustomerDashboard));
             }
         
         }
@@ -109,7 +117,7 @@ namespace ZBMS
             var results = await showDialog.ShowAsync();
             if ((int)results.Id == 0)
             {
-                ViewProfilePageFrame.Navigate(typeof(CustomerHomePage));
+                ViewProfilePageFrame.Navigate(typeof(CustomerDashboard));
             }
         }
         private async void ProfileEditingFailed()
@@ -126,6 +134,11 @@ namespace ZBMS
             }
         }
 
-
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            IsTextModified = true;
+            CancelButton.Visibility = Visibility.Visible;
+            SaveButton.Visibility = Visibility.Visible; 
+        }
     }
 }
