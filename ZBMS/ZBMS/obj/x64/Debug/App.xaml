@@ -23,6 +23,8 @@
 
 
                     <SolidColorBrush x:Key="GridBackGroundColor" Color="White" />
+                    <SolidColorBrush x:Key="BorderColor" Color="Black" />
+                    
                     <SolidColorBrush x:Key="ColorBrush4" Color="Black"/>
                 </ResourceDictionary>
 
@@ -37,6 +39,8 @@
 
 
                     <SolidColorBrush x:Key="GridBackGroundColor" Color="Black" />
+                    <SolidColorBrush x:Key="BorderColor" Color="White" />
+                    
                     <SolidColorBrush x:Key="ColorBrush4" Color="Black"/> 
                     
                 </ResourceDictionary>

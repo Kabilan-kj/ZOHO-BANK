@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>13E981F11B862C3BEB02F586B6EC7E11A078E838967DB317D29053576C8DD1A2</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>7F6ED24A57B50A5DB132575687A32047FA91E2B8FB53C7F6C57454CC5E08D9CB</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>72086dab-08e7-4b38-83af-96d9f57287b4_1.0.0.0_x64__qw1tt99nqb7pj</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>72086dab-08e7-4b38-83af-96d9f57287b4_qw1tt99nqb7pj!App</RegisteredUserModeAppID>
     <RegisteredPackageID>72086dab-08e7-4b38-83af-96d9f57287b4</RegisteredPackageID>
@@ -30,17 +30,69 @@
     <AppXManifest Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-08-02T05:53:24.889</Modified>
+      <Modified>2022-08-05T02:32:18.263</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\ZBMS.exe">
       <PackagePath>entrypoint\ZBMS.exe</PackagePath>
-      <Modified>2022-08-02T05:53:23.499</Modified>
+      <Modified>2022-08-05T02:32:17.394</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\colorcode.core\2.0.6\lib\netstandard1.4\ColorCode.Core.dll">
+      <PackagePath>ColorCode.Core.dll</PackagePath>
+      <Modified>2018-10-05T23:30:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\colorcode.uwp\2.0.6\lib\uap10.0\ColorCode.UWP.dll">
+      <PackagePath>ColorCode.UWP.dll</PackagePath>
+      <Modified>2018-10-05T23:30:16.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\microsoft.bcl.asyncinterfaces\5.0.0\lib\netstandard2.0\Microsoft.Bcl.AsyncInterfaces.dll">
+      <PackagePath>Microsoft.Bcl.AsyncInterfaces.dll</PackagePath>
+      <Modified>2020-10-19T18:40:26.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\microsoft.data.sqlite.core\6.0.5\lib\netstandard2.0\Microsoft.Data.Sqlite.dll">
       <PackagePath>Microsoft.Data.Sqlite.dll</PackagePath>
       <Modified>2022-04-18T08:51:16.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\microsoft.toolkit\7.1.2\lib\netstandard2.0\Microsoft.Toolkit.dll">
+      <PackagePath>Microsoft.Toolkit.dll</PackagePath>
+      <Modified>2021-11-18T22:28:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\microsoft.toolkit.uwp\7.1.2\lib\uap10.0.17763\Microsoft.Toolkit.Uwp.dll">
+      <PackagePath>Microsoft.Toolkit.Uwp.dll</PackagePath>
+      <Modified>2021-11-18T22:29:02.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\microsoft.toolkit.uwp.ui\7.1.2\lib\uap10.0.17763\Microsoft.Toolkit.Uwp.UI.dll">
+      <PackagePath>Microsoft.Toolkit.Uwp.UI.dll</PackagePath>
+      <Modified>2021-11-18T22:29:18.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\microsoft.toolkit.uwp.ui.controls.core\7.1.2\lib\uap10.0.17763\Microsoft.Toolkit.Uwp.UI.Controls.Core.dll">
+      <PackagePath>Microsoft.Toolkit.Uwp.UI.Controls.Core.dll</PackagePath>
+      <Modified>2021-11-18T22:29:28.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\microsoft.toolkit.uwp.ui.controls.datagrid\7.1.2\lib\uap10.0.17763\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll">
+      <PackagePath>Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.dll</PackagePath>
+      <Modified>2021-11-18T22:29:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\microsoft.toolkit.uwp.ui.controls.input\7.1.2\lib\uap10.0.17763\Microsoft.Toolkit.Uwp.UI.Controls.Input.dll">
+      <PackagePath>Microsoft.Toolkit.Uwp.UI.Controls.Input.dll</PackagePath>
+      <Modified>2021-11-18T22:29:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\microsoft.toolkit.uwp.ui.controls.layout\7.1.2\lib\uap10.0.17763\Microsoft.Toolkit.Uwp.UI.Controls.Layout.dll">
+      <PackagePath>Microsoft.Toolkit.Uwp.UI.Controls.Layout.dll</PackagePath>
+      <Modified>2021-11-18T22:29:38.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\microsoft.toolkit.uwp.ui.controls.markdown\7.1.2\lib\uap10.0.17763\Microsoft.Toolkit.Uwp.UI.Controls.Markdown.dll">
+      <PackagePath>Microsoft.Toolkit.Uwp.UI.Controls.Markdown.dll</PackagePath>
+      <Modified>2021-11-18T22:29:40.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\microsoft.toolkit.uwp.ui.controls.media\7.1.2\lib\uap10.0.17763\Microsoft.Toolkit.Uwp.UI.Controls.Media.dll">
+      <PackagePath>Microsoft.Toolkit.Uwp.UI.Controls.Media.dll</PackagePath>
+      <Modified>2021-11-18T22:29:44.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\microsoft.toolkit.uwp.ui.controls.primitives\7.1.2\lib\uap10.0.17763\Microsoft.Toolkit.Uwp.UI.Controls.Primitives.dll">
+      <PackagePath>Microsoft.Toolkit.Uwp.UI.Controls.Primitives.dll</PackagePath>
+      <Modified>2021-11-18T22:29:46.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.netcore.universalwindowsplatform\6.2.13\runtimes\win10-x64\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -74,17 +126,57 @@
       <PackagePath>System.Data.SQLite.dll</PackagePath>
       <Modified>2021-11-02T17:48:14.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\system.runtime.compilerservices.unsafe\4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll">
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\system.runtime.compilerservices.unsafe\5.0.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll">
       <PackagePath>System.Runtime.CompilerServices.Unsafe.dll</PackagePath>
-      <Modified>2018-09-18T19:38:10.000</Modified>
+      <Modified>2020-10-19T18:46:44.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\system.text.encodings.web\5.0.1\lib\netstandard2.0\System.Text.Encodings.Web.dll">
+      <PackagePath>System.Text.Encodings.Web.dll</PackagePath>
+      <Modified>2021-02-16T21:53:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\system.text.json\5.0.2\lib\netstandard2.0\System.Text.Json.dll">
+      <PackagePath>System.Text.Json.dll</PackagePath>
+      <Modified>2021-03-16T22:34:16.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\win2d.uwp\1.25.0\runtimes\win10-x64\native\Microsoft.Graphics.Canvas.dll">
+      <PackagePath>Microsoft.Graphics.Canvas.dll</PackagePath>
+      <Modified>2020-04-02T19:46:32.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\DataModule\bin\Debug\netstandard2.0\DataModule.dll">
       <PackagePath>DataModule.dll</PackagePath>
-      <Modified>2022-07-13T15:22:00.566</Modified>
+      <Modified>2022-08-02T18:17:44.571</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\win2d.uwp\1.25.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd">
+      <PackagePath>Microsoft.Graphics.Canvas.winmd</PackagePath>
+      <Modified>2020-04-02T19:44:36.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.19041.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2020-12-01T23:22:00.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\microsoft.toolkit.uwp.ui.controls.core\7.1.2\lib\uap10.0.17763\Microsoft.Toolkit.Uwp.UI.Controls.Core\Microsoft.Toolkit.Uwp.UI.Controls.Core.xr.xml">
+      <PackagePath>Microsoft.Toolkit.Uwp.UI.Controls.Core\Microsoft.Toolkit.Uwp.UI.Controls.Core.xr.xml</PackagePath>
+      <Modified>2021-11-18T22:01:26.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\microsoft.toolkit.uwp.ui.controls.datagrid\7.1.2\lib\uap10.0.17763\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.xr.xml">
+      <PackagePath>Microsoft.Toolkit.Uwp.UI.Controls.DataGrid\Microsoft.Toolkit.Uwp.UI.Controls.DataGrid.xr.xml</PackagePath>
+      <Modified>2021-11-18T21:54:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\microsoft.toolkit.uwp.ui.controls.input\7.1.2\lib\uap10.0.17763\Microsoft.Toolkit.Uwp.UI.Controls.Input\Microsoft.Toolkit.Uwp.UI.Controls.Input.xr.xml">
+      <PackagePath>Microsoft.Toolkit.Uwp.UI.Controls.Input\Microsoft.Toolkit.Uwp.UI.Controls.Input.xr.xml</PackagePath>
+      <Modified>2021-11-18T22:01:06.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\microsoft.toolkit.uwp.ui.controls.layout\7.1.2\lib\uap10.0.17763\Microsoft.Toolkit.Uwp.UI.Controls.Layout\Microsoft.Toolkit.Uwp.UI.Controls.Layout.xr.xml">
+      <PackagePath>Microsoft.Toolkit.Uwp.UI.Controls.Layout\Microsoft.Toolkit.Uwp.UI.Controls.Layout.xr.xml</PackagePath>
+      <Modified>2021-11-18T22:00:30.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\microsoft.toolkit.uwp.ui.controls.markdown\7.1.2\lib\uap10.0.17763\Microsoft.Toolkit.Uwp.UI.Controls.Markdown\Microsoft.Toolkit.Uwp.UI.Controls.Markdown.xr.xml">
+      <PackagePath>Microsoft.Toolkit.Uwp.UI.Controls.Markdown\Microsoft.Toolkit.Uwp.UI.Controls.Markdown.xr.xml</PackagePath>
+      <Modified>2021-11-18T22:01:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\.nuget\packages\microsoft.toolkit.uwp.ui.controls.media\7.1.2\lib\uap10.0.17763\Microsoft.Toolkit.Uwp.UI.Controls.Media\Microsoft.Toolkit.Uwp.UI.Controls.Media.xr.xml">
+      <PackagePath>Microsoft.Toolkit.Uwp.UI.Controls.Media\Microsoft.Toolkit.Uwp.UI.Controls.Media.xr.xml</PackagePath>
+      <Modified>2021-11-18T21:55:34.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\BackGround.jpg">
       <PackagePath>Assets\BackGround.jpg</PackagePath>
@@ -454,83 +546,83 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\ZBMS.xr.xml">
       <PackagePath>ZBMS.xr.xml</PackagePath>
-      <Modified>2022-08-02T05:20:57.163</Modified>
+      <Modified>2022-08-04T09:48:30.893</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2022-08-02T05:53:23.181</Modified>
+      <Modified>2022-08-05T02:32:17.197</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\AboutUsPage.xbf">
-      <PackagePath>AboutUsPage.xbf</PackagePath>
-      <Modified>2022-08-02T05:53:23.186</Modified>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\View\AboutUsPage.xbf">
+      <PackagePath>View\AboutUsPage.xbf</PackagePath>
+      <Modified>2022-08-05T02:32:17.199</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\CustomerDashboard.xbf">
-      <PackagePath>CustomerDashboard.xbf</PackagePath>
-      <Modified>2022-08-02T05:53:23.123</Modified>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\View\CustomerDashboard.xbf">
+      <PackagePath>View\CustomerDashboard.xbf</PackagePath>
+      <Modified>2022-08-05T02:32:17.148</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\LoanPaymentPage.xbf">
-      <PackagePath>LoanPaymentPage.xbf</PackagePath>
-      <Modified>2022-08-02T05:53:23.125</Modified>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\View\LoanPaymentPage.xbf">
+      <PackagePath>View\LoanPaymentPage.xbf</PackagePath>
+      <Modified>2022-08-05T02:32:17.150</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\MenuPage.xbf">
-      <PackagePath>MenuPage.xbf</PackagePath>
-      <Modified>2022-08-02T05:53:23.130</Modified>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\View\MenuPage.xbf">
+      <PackagePath>View\MenuPage.xbf</PackagePath>
+      <Modified>2022-08-05T02:32:17.155</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\OtherCustomerTransferPage.xbf">
-      <PackagePath>OtherCustomerTransferPage.xbf</PackagePath>
-      <Modified>2022-08-02T05:53:23.132</Modified>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\View\OtherCustomerTransferPage.xbf">
+      <PackagePath>View\OtherCustomerTransferPage.xbf</PackagePath>
+      <Modified>2022-08-05T02:32:17.156</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\CreateAccountPage.xbf">
-      <PackagePath>CreateAccountPage.xbf</PackagePath>
-      <Modified>2022-08-02T05:53:23.135</Modified>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\View\CreateAccountPage.xbf">
+      <PackagePath>View\CreateAccountPage.xbf</PackagePath>
+      <Modified>2022-08-05T02:32:17.159</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\CustomerHomePage.xbf">
-      <PackagePath>CustomerHomePage.xbf</PackagePath>
-      <Modified>2022-08-02T05:53:23.138</Modified>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\View\CustomerHomePage.xbf">
+      <PackagePath>View\CustomerHomePage.xbf</PackagePath>
+      <Modified>2022-08-05T02:32:17.162</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\DepositPage.xbf">
-      <PackagePath>DepositPage.xbf</PackagePath>
-      <Modified>2022-08-02T05:53:23.226</Modified>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\View\DepositPage.xbf">
+      <PackagePath>View\DepositPage.xbf</PackagePath>
+      <Modified>2022-08-05T02:32:17.222</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\EditProfilePage.xbf">
-      <PackagePath>EditProfilePage.xbf</PackagePath>
-      <Modified>2022-08-02T05:53:23.142</Modified>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\View\EditProfilePage.xbf">
+      <PackagePath>View\EditProfilePage.xbf</PackagePath>
+      <Modified>2022-08-05T02:32:17.165</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\MainFramePage.xbf">
-      <PackagePath>MainFramePage.xbf</PackagePath>
-      <Modified>2022-08-02T05:53:23.152</Modified>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\View\MainFramePage.xbf">
+      <PackagePath>View\MainFramePage.xbf</PackagePath>
+      <Modified>2022-08-05T02:32:17.174</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2022-08-02T05:53:23.156</Modified>
+      <Modified>2022-08-05T02:32:17.177</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\OtherBankCustomerTransferPage.xbf">
-      <PackagePath>OtherBankCustomerTransferPage.xbf</PackagePath>
-      <Modified>2022-08-02T05:53:23.158</Modified>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\View\OtherBankCustomerTransferPage.xbf">
+      <PackagePath>View\OtherBankCustomerTransferPage.xbf</PackagePath>
+      <Modified>2022-08-05T02:32:17.179</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\SelfTransferPage.xbf">
-      <PackagePath>SelfTransferPage.xbf</PackagePath>
-      <Modified>2022-08-02T05:53:23.160</Modified>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\View\SelfTransferPage.xbf">
+      <PackagePath>View\SelfTransferPage.xbf</PackagePath>
+      <Modified>2022-08-05T02:32:17.180</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\SignUpPage.xbf">
-      <PackagePath>SignUpPage.xbf</PackagePath>
-      <Modified>2022-08-02T05:53:23.166</Modified>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\View\SignUpPage.xbf">
+      <PackagePath>View\SignUpPage.xbf</PackagePath>
+      <Modified>2022-08-05T02:32:17.183</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\ViewAccountDetails.xbf">
-      <PackagePath>ViewAccountDetails.xbf</PackagePath>
-      <Modified>2022-08-02T05:53:23.169</Modified>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\View\ViewAccountDetails.xbf">
+      <PackagePath>View\ViewAccountDetails.xbf</PackagePath>
+      <Modified>2022-08-05T02:32:17.186</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\ViewProfilePage.xbf">
-      <PackagePath>ViewProfilePage.xbf</PackagePath>
-      <Modified>2022-08-02T05:53:23.171</Modified>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\View\ViewProfilePage.xbf">
+      <PackagePath>View\ViewProfilePage.xbf</PackagePath>
+      <Modified>2022-08-05T02:32:17.188</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\ViewTransactionsPage.xbf">
-      <PackagePath>ViewTransactionsPage.xbf</PackagePath>
-      <Modified>2022-08-02T05:53:23.174</Modified>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\View\ViewTransactionsPage.xbf">
+      <PackagePath>View\ViewTransactionsPage.xbf</PackagePath>
+      <Modified>2022-08-05T02:32:17.193</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\ZBankResource.xbf">
-      <PackagePath>ZBankResource.xbf</PackagePath>
-      <Modified>2022-08-02T05:53:23.115</Modified>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\Resource\ZBankResource.xbf">
+      <PackagePath>Resource\ZBankResource.xbf</PackagePath>
+      <Modified>2022-08-05T02:32:17.140</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.19041.0\\redist\Debug\X64\ucrtbased.dll">
       <PackagePath>ucrtbased.dll</PackagePath>
@@ -546,11 +638,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2022-07-19T13:39:39.029</Modified>
+      <Modified>2022-08-04T16:50:49.953</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\Core\ZBMS.exe">
       <PackagePath>ZBMS.exe</PackagePath>
-      <Modified>2022-08-02T05:53:24.868</Modified>
+      <Modified>2022-08-05T02:32:18.252</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

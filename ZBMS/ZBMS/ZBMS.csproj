@@ -116,7 +116,7 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AboutUsPage.xaml.cs">
+    <Compile Include="View\AboutUsPage.xaml.cs">
       <DependentUpon>AboutUsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
@@ -124,7 +124,7 @@
     </Compile>
     <Compile Include="CustomerAccountPage.cs" />
     <Compile Include="CustomerAccountPageDBHandler.cs" />
-    <Compile Include="CustomerDashboard.xaml.cs">
+    <Compile Include="View\CustomerDashboard.xaml.cs">
       <DependentUpon>CustomerDashboard.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomerLoginPage.cs" />
@@ -132,69 +132,74 @@
     <Compile Include="CustomerTransactionsPage.cs" />
     <Compile Include="CustomerTransactionsPageDBHandler.cs" />
     <Compile Include="DatabaseHandler.cs" />
-    <Compile Include="DataLayer\DBAdapter.cs" />
-    <Compile Include="DataLayer\GetTransactionsDataManager.cs" />
-    <Compile Include="DataLayer\GetTransactionsDBHandler.cs" />
-    <Compile Include="DomainLayer\GetTransactionsRequest.cs" />
-    <Compile Include="DomainLayer\GetTransactionsResponse.cs" />
-    <Compile Include="DomainLayer\GetTransactionsUseCase.cs" />
-    <Compile Include="DomainLayer\UseCaseBase.cs" />
-    <Compile Include="GetDetailedTransactionsDomainLayer\GetDetailedTransactionsRequest.cs" />
-    <Compile Include="GetDetailedTransactionsDomainLayer\GetDetailedTransactionsResponse.cs" />
-    <Compile Include="GetDetailedTransactionsDomainLayer\GetDetailedTransactionsUseCase.cs" />
-    <Compile Include="ICallBack.cs" />
-    <Compile Include="LoanPaymentPage.xaml.cs">
+    <Compile Include="Data\DBAdapter.cs" />
+    <Compile Include="Data\GetTransactionsDataManager.cs" />
+    <Compile Include="Data\GetTransactionsDBHandler.cs" />
+    <Compile Include="Domain\GetTransactions\GetTransactionsRequest.cs" />
+    <Compile Include="Domain\GetTransactions\GetTransactionsResponse.cs" />
+    <Compile Include="Domain\GetTransactions\GetTransactionsUseCase.cs" />
+    <Compile Include="Contract\UseCaseBase.cs" />
+    <Compile Include="Data\FilterTransactionsDataManager.cs" />
+    <Compile Include="Contract\IFilterTransactionsDataManager.cs" />
+    <Compile Include="Domain\FilterTransactions\FilterTransactionsRequest.cs" />
+    <Compile Include="Domain\FilterTransactions\FilterTransactionsResponse.cs" />
+    <Compile Include="Domain\FilterTransactions\FilterTransactionUseCase.cs" />
+    <Compile Include="Domain\GetDetailedTransactions\GetDetailedTransactionsRequest.cs" />
+    <Compile Include="Domain\GetDetailedTransactions\GetDetailedTransactionsResponse.cs" />
+    <Compile Include="Domain\GetDetailedTransactions\GetDetailedTransactionsUseCase.cs" />
+    <Compile Include="Contract\ICallBack.cs" />
+    <Compile Include="View\LoanPaymentPage.xaml.cs">
       <DependentUpon>LoanPaymentPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MenuPage.xaml.cs">
+    <Compile Include="View\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\ExtendedTransactionDetails.cs" />
-    <Compile Include="OtherCustomerTransferPage.xaml.cs">
+    <Compile Include="View\OtherCustomerTransferPage.xaml.cs">
       <DependentUpon>OtherCustomerTransferPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CreateAccountPage.xaml.cs">
+    <Compile Include="View\CreateAccountPage.xaml.cs">
       <DependentUpon>CreateAccountPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CustomerHomePage.xaml.cs">
+    <Compile Include="View\CustomerHomePage.xaml.cs">
       <DependentUpon>CustomerHomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DepositPage.xaml.cs">
+    <Compile Include="View\DepositPage.xaml.cs">
       <DependentUpon>DepositPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EditProfilePage.xaml.cs">
+    <Compile Include="View\EditProfilePage.xaml.cs">
       <DependentUpon>EditProfilePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainFramePage.xaml.cs">
+    <Compile Include="View\MainFramePage.xaml.cs">
       <DependentUpon>MainFramePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OtherBankCustomerTransferPage.xaml.cs">
+    <Compile Include="View\OtherBankCustomerTransferPage.xaml.cs">
       <DependentUpon>OtherBankCustomerTransferPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PresentationLayer\GetTransactionsViewModel.cs" />
-    <Compile Include="PresentationLayer\IPresenterCallBack.cs" />
-    <Compile Include="PresentationLayer\PresenterCallBack.cs" />
-    <Compile Include="PresentationLayer\TransactionsPageViewModel.cs" />
+    <Compile Include="ViewModel\GetTransactionsViewModel.cs" />
+    <Compile Include="Contract\IPresenterCallBack.cs" />
+    <Compile Include="ViewModel\PresenterCallBack.cs" />
+    <Compile Include="ViewModel\TransactionsPageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SelfTransferPage.xaml.cs">
+    <Compile Include="View\SelfTransferPage.xaml.cs">
       <DependentUpon>SelfTransferPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ShortcutMenuItemManager.cs" />
     <Compile Include="ShortcutMenuItems.cs" />
-    <Compile Include="SignUpPage.xaml.cs">
+    <Compile Include="View\SignUpPage.xaml.cs">
       <DependentUpon>SignUpPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="SqliteDBAdapter.cs" />
-    <Compile Include="ViewAccountDetails.xaml.cs">
+    <Compile Include="View\ViewAccountDetails.xaml.cs">
       <DependentUpon>ViewAccountDetails.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewProfilePage.xaml.cs">
+    <Compile Include="View\ViewProfilePage.xaml.cs">
       <DependentUpon>ViewProfilePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewTransactionsPage.xaml.cs">
+    <Compile Include="View\ViewTransactionsPage.xaml.cs">
       <DependentUpon>ViewTransactionsPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -289,43 +294,43 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="AboutUsPage.xaml">
+    <Page Include="View\AboutUsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CustomerDashboard.xaml">
+    <Page Include="View\CustomerDashboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LoanPaymentPage.xaml">
+    <Page Include="View\LoanPaymentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MenuPage.xaml">
+    <Page Include="View\MenuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="OtherCustomerTransferPage.xaml">
+    <Page Include="View\OtherCustomerTransferPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CreateAccountPage.xaml">
+    <Page Include="View\CreateAccountPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CustomerHomePage.xaml">
+    <Page Include="View\CustomerHomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DepositPage.xaml">
+    <Page Include="View\DepositPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EditProfilePage.xaml">
+    <Page Include="View\EditProfilePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainFramePage.xaml">
+    <Page Include="View\MainFramePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -333,31 +338,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="OtherBankCustomerTransferPage.xaml">
+    <Page Include="View\OtherBankCustomerTransferPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SelfTransferPage.xaml">
+    <Page Include="View\SelfTransferPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SignUpPage.xaml">
+    <Page Include="View\SignUpPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ViewAccountDetails.xaml">
+    <Page Include="View\ViewAccountDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ViewProfilePage.xaml">
+    <Page Include="View\ViewProfilePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ViewTransactionsPage.xaml">
+    <Page Include="View\ViewTransactionsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ZBankResource.xaml">
+    <Page Include="Resource\ZBankResource.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -368,6 +373,9 @@
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.13</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
+      <Version>7.1.2</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.UI.Xaml">
       <Version>2.7.1</Version>

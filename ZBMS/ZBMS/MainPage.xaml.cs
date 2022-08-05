@@ -34,7 +34,7 @@ namespace ZBMS
         {
             this.InitializeComponent();
             //  LoginAction("UID107");
-            SamplePageTesting("UID107");
+           // SamplePageTesting("UID107");
 
 
         }
@@ -83,7 +83,7 @@ namespace ZBMS
         {
             customer = null;
             customer = LoginPage.GetCustomer(id);
-            MainFrame.Navigate(typeof(MainFramePage));
+            MainFrame.Navigate(typeof(MenuPage));
 
         }
 
@@ -95,7 +95,7 @@ namespace ZBMS
             var result = await showDialog.ShowAsync();
             if ((int)result.Id == 0)
             {
-                MainFrame.Navigate(typeof(MainFramePage));
+                MainFrame.Navigate(typeof(MenuPage));
             }
 
 

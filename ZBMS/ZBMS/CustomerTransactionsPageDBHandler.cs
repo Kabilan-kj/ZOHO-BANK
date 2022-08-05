@@ -49,9 +49,7 @@ namespace ZBMS
             {
                 db = new SqliteConnection($"FileName={dbpath}");
                 db.Open();
-                string cmd = "Insert into Transactiondetails (autoIncrementID,TransactionId,SenderId,receiverid,transactiontime,amount,type,status,)" +
-                 $" Values({transaction.autoIncrement},'{transaction.TransactionId}', '{transaction.SenderId}', '{transaction.ReceiverId}', '{transaction.TransactionTime}', {transaction.Amount}, '{transaction.Type}', " +
-                 $"'{transaction.Status}'); ";
+                string cmd = $"Insert into Transactiondetails (autoIncrementID,TransactionId,SenderId,receiverid,transactiontime,amount,type,status) Values('{transaction.autoIncrement}','{transaction.TransactionId}', '{transaction.SenderId}', '{transaction.ReceiverId}', '{transaction.TransactionTime}', {transaction.Amount}, '{transaction.Type}','{transaction.Status}'); ";
                 SqliteCommand GetRecord = new SqliteCommand(cmd, db);
 
                 int rows = GetRecord.ExecuteNonQuery();
