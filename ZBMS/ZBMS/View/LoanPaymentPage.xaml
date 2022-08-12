@@ -40,8 +40,7 @@
                         <Setter Target="FullPayment.FontSize" Value="16"/>
                         <Setter Target="PartialPayment.FontSize" Value="16"/>
                         
-                        <Setter Target="TransferButton.Style" Value="{StaticResource WideStyleButton}"/>
-                        <Setter Target="CancelButton.Style" Value="{StaticResource WideStyleButton}"/>
+                       
                         <Setter Target="TransferButton.Width" Value="100"/>
                         <Setter Target="CancelButton.Width" Value="100"/>
                         
@@ -82,7 +81,7 @@
 
                     <ComboBox Name="FromComboBox" 
                               Grid.Row="1"
-                              PlaceholderText="select source account" 
+                              PlaceholderText="Select source account" 
                               Margin="0,10,0,0"
                               ItemsSource="{x:Bind FromUserAccounts}"
                               SelectionChanged="FromComboBox_SelectionChanged" 
@@ -98,7 +97,7 @@
                      />
 
                     <ComboBox Name="ToComboBox"
-                              PlaceholderText="select loan account"
+                              PlaceholderText="Select loan account"
                               ItemsSource="{x:Bind ToUserAccounts}" 
                               Margin="0,10,0,0"
                               Style="{StaticResource NarrowStyleComboBox}"
@@ -161,7 +160,7 @@
                     
                     <TextBox Name="RemarksTextBox"
                              Style="{StaticResource NarrowStyleTextBox}"
-                             PlaceholderText="short message"
+                             PlaceholderText="Short message"
                              ></TextBox>
                 </StackPanel>
                 
@@ -179,9 +178,8 @@
                        
                     </Grid.ColumnDefinitions>
                     <Button Name="TransferButton"
-                            Style="{StaticResource NarrowStyleButton}"
-                            Foreground="{ThemeResource SecondaryThemeColor}"
-                            Background="{ThemeResource PrimaryThemeColor}"
+                            Style="{StaticResource PrimaryButtonStyle}"
+                            
                             Content="Transfer"
                             Width="75"
                             Click="TransferButton_Click"
@@ -189,48 +187,17 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center">
 
-                        <!--<Button.Resources>
-                            <ResourceDictionary>
-                                <ResourceDictionary.ThemeDictionaries>
-                                    <ResourceDictionary x:Key="Dark">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="DarkBlue"/>
-                                    </ResourceDictionary>
-                                    <ResourceDictionary x:Key="Light">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="DarkBlue"/>
-                                    </ResourceDictionary>
-                                </ResourceDictionary.ThemeDictionaries>
-                            </ResourceDictionary>
-                        </Button.Resources>-->
-
                     </Button>
                     <Button Name="CancelButton" 
-                            Background="{ThemeResource SecondaryThemeColor}"
-                            Foreground="{ThemeResource PrimaryThemeColor}"
+                            
                             Content="Cancel" 
                             Click="CancelButton_Click" 
-                            Style="{ThemeResource NarrowStyleButton}"
+                            Style="{ThemeResource SecondaryButtonStyle }"
                             Grid.Column="1"
                             Width="75"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center">
-                        <!--<Button.Resources>
-                            <ResourceDictionary>
-                                <ResourceDictionary.ThemeDictionaries>
-                                    <ResourceDictionary x:Key="Dark">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Blue"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="White"/>
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerPressed" Color="Blue"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointePressed" Color="White"/>
-                                    </ResourceDictionary>
-                                    <ResourceDictionary x:Key="Light">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Blue"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="White"/>
-                                    </ResourceDictionary>
-                                </ResourceDictionary.ThemeDictionaries>
-                            </ResourceDictionary>
-                        </Button.Resources>-->
+                       
                     </Button>
                 </Grid>
 

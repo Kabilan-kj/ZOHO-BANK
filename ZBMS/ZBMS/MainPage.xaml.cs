@@ -32,9 +32,9 @@ namespace ZBMS
 
         public MainPage()
         {
-            this.InitializeComponent();
-            //  LoginAction("UID107");
-           // SamplePageTesting("UID107");
+             this.InitializeComponent();
+            // LoginAction("UID107");
+            SamplePageTesting("UID107");
 
 
         }
@@ -100,6 +100,7 @@ namespace ZBMS
 
 
         }
+       
 
     }
 }

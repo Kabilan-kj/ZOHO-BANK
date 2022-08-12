@@ -7,6 +7,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Resource/ZBankResource.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
 
     <ScrollViewer Margin="20" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" >
         <VisualStateManager.VisualStateGroups>
@@ -33,7 +40,7 @@
         </VisualStateManager.VisualStateGroups>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
 
-            <Grid x:ConnectionId='2'  Name="ContentGrid" Height="600" Width="300" Background="LightSkyBlue" CornerRadius="15">
+            <Grid x:ConnectionId='2'  Name="ContentGrid" Height="600" Width="300" Background="{StaticResource PrimaryBackground}" CornerRadius="15">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"></RowDefinition>
@@ -117,41 +124,11 @@
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Button x:ConnectionId='7' Name="TransferButton" FontSize="12" Content="Transfer" Background="Blue" Foreground="White"                              Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-
-                        <Button.Resources>
-                            <ResourceDictionary>
-                                <ResourceDictionary.ThemeDictionaries>
-                                    <ResourceDictionary x:Key="Dark">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="DarkBlue"/>
-                                    </ResourceDictionary>
-                                    <ResourceDictionary x:Key="Light">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="DarkBlue"/>
-                                    </ResourceDictionary>
-                                </ResourceDictionary.ThemeDictionaries>
-                            </ResourceDictionary>
-                        </Button.Resources>
+                    <Button x:ConnectionId='7' Name="TransferButton" FontSize="12" Content="Transfer"                               Style="{StaticResource PrimaryButtonStyle}"  Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
 
                     </Button>
-                    <Button x:ConnectionId='8' Name="CancelButton" FontSize="12" Content="Cancel"                            Foreground="Blue" Background="White" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Button.Resources>
-                            <ResourceDictionary>
-                                <ResourceDictionary.ThemeDictionaries>
-                                    <ResourceDictionary x:Key="Dark">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Blue"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="White"/>
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerPressed" Color="Blue"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointePressed" Color="White"/>
-                                    </ResourceDictionary>
-                                    <ResourceDictionary x:Key="Light">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Blue"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="White"/>
-                                    </ResourceDictionary>
-                                </ResourceDictionary.ThemeDictionaries>
-                            </ResourceDictionary>
-                        </Button.Resources>
+                    <Button x:ConnectionId='8' Name="CancelButton" FontSize="12" Content="Cancel"                            Style="{StaticResource SecondaryButtonStyle}" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        
                     </Button>
                 </Grid>
 

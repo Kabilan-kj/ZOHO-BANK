@@ -21,8 +21,8 @@ namespace DataModule
         public int autoIncrement { get; set; }
 
         public string TransactionId { get; set; }
-        public string SenderId { get; set; }
-        public string ReceiverId { get; set; }
+        public string SenderAccountNumber { get; set; }
+        public string ReceiverAccountNumber { get; set; }
         public DateTime TransactionTime { get; set; }
         public double Amount { get; set; }
         public string Time { get; set; }    
@@ -38,8 +38,8 @@ namespace DataModule
             TransactionId = "TID" + (1000 + ++autoIncrement);
             TransactionTime = DateTime.Now;
             Amount = _amount;
-            SenderId = _from;
-            ReceiverId = _to;
+            SenderAccountNumber = _from;
+            ReceiverAccountNumber = _to;
             Type = _type.ToString();
             Status = _status.ToString();
 

@@ -32,6 +32,7 @@ namespace ZBMS
        private List<string> savingsAccount = new List<string>();
        private List<string> branchCode = new List<string>();
        private List<AccountData> accounts = new List<AccountData>();
+
        private CustomerAccountPage customerAccountPage = new CustomerAccountPage();
        private CustomerTransactionsPage customerTransaction = new CustomerTransactionsPage();
        private Dictionary<string, AccountType> AccountTypeList = new Dictionary<string, AccountType>();
@@ -230,32 +231,32 @@ namespace ZBMS
 
         private async void AccountCreated(AccountData account)
         {
-            MessageDialog showDialog = new MessageDialog($" your have been created succesfully !! \n Your AccountNumber is {account.AccountNumber} ");
-            showDialog.Commands.Add(new UICommand("Okay") { Id = 0 });
-            showDialog.DefaultCommandIndex = 0;
-            var result = await showDialog.ShowAsync();
-            if ((int)result.Id == 0)
-            {
+            //MessageDialog showDialog = new MessageDialog($" your have been created succesfully !! \n Your AccountNumber is {account.AccountNumber} ");
+            //showDialog.Commands.Add(new UICommand("Okay") { Id = 0 });
+            //showDialog.DefaultCommandIndex = 0;
+            //var result = await showDialog.ShowAsync();
+            //if ((int)result.Id == 0)
+            //{
                 //this.Frame.Navigate(typeof(CustomerHomePage));
                 await Window.Current.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                 {
                     CoreWindow.GetForCurrentThread().Close();
                 });
 
-            }
+           // }
         }
 
-        private async void AccountCreationFailed()
+        private  void AccountCreationFailed()
         {
-            MessageDialog showDialog = new MessageDialog(" Unable to Create Account");
-            showDialog.Commands.Add(new UICommand("Okay") { Id = 0 });
-            showDialog.DefaultCommandIndex = 0;
-            var result = await showDialog.ShowAsync();
-            if ((int)result.Id == 0)
-            {
+            //MessageDialog showDialog = new MessageDialog(" Unable to Create Account");
+            //showDialog.Commands.Add(new UICommand("Okay") { Id = 0 });
+            //showDialog.DefaultCommandIndex = 0;
+            //var result = await showDialog.ShowAsync();
+            //if ((int)result.Id == 0)
+            //{
                 this.Frame.Navigate(typeof(CreateAccountPage));
 
-            }
+            //}
         }
 
         private async void AccountTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

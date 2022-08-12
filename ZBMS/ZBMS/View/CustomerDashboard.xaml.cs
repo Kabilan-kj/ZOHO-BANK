@@ -34,13 +34,7 @@ namespace ZBMS
         private List<ShortcutMenuItems> ShortcutMenuItems = new List<ShortcutMenuItems>();
         private List<ShortcutMenuItems> MoneyTransferMenuItems = new List<ShortcutMenuItems>();
         private GetTransactionsViewModel viewmodel;
-        private string Title;
-
-        //private List<ShortcutMenuItems> ShortcutMenuItems = new List<ShortcutMenuItems>();
-        //private List<ShortcutMenuItems> MoneyTransferMenuItems = new List<ShortcutMenuItems>();
-        //private List<string> AccountNumbers = new List<string>();
-
-        private CustomerLoginPage customerLoginPage = new CustomerLoginPage();
+       private CustomerLoginPage customerLoginPage = new CustomerLoginPage();
         private CustomerAccountPage customerAccountPage = new CustomerAccountPage();
         private CustomerTransactionsPage customerTransaction = new CustomerTransactionsPage();
         private CustomerData customer = new CustomerData();
@@ -109,7 +103,7 @@ namespace ZBMS
         public void UpdateRecentTransactionErrorMessage()
         {
             RecentTransactionsErrorMessage.Visibility = Visibility.Visible;
-            //Filter.Visibility = Visibility.Collapsed;
+           
         }
 
         private void TransactionButton_Click(object sender, RoutedEventArgs e)
@@ -149,7 +143,6 @@ namespace ZBMS
                 if (useraccount.AccountNumber == e.AddedItems[0].ToString())
                 {
                     AccountTypeTextBlock.Text= AccountTypeList[useraccount.TypeofAccount];
-                    //AccountTypeTextBlock.Text = useraccount.TypeofAccount;
                     BalanceContentTextBlock.Text = useraccount.Balance.ToString();
                     AccountNumberTextBlock.Text = useraccount.AccountNumber;
                 }

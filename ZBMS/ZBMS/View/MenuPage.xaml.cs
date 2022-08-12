@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using ZBMS.DomainLayer;
+using ZBMS.ViewModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -27,8 +28,9 @@ namespace ZBMS
     public sealed partial class MenuPage : Page
     {
         private SolidColorBrush colorBrush = new SolidColorBrush(Colors.Yellow);
+       
         private CustomerData customer;
-        private string title;
+      
 
         public MenuPage()
         {
@@ -39,7 +41,7 @@ namespace ZBMS
        
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
-            colorBrush = new SolidColorBrush(Colors.Blue);
+            SignOutFunction();
         }
 
         private void InfoButton_Click(object sender, RoutedEventArgs e)
@@ -49,7 +51,9 @@ namespace ZBMS
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
+           
 
+            // MainPage.ChangeColor();
         }
 
         private void MoneyTransferButton_Click(object sender, RoutedEventArgs e)
@@ -141,9 +145,7 @@ namespace ZBMS
             ProfileList.Visibility = Visibility.Collapsed;
             Downarrow3.Text = char.ConvertFromUtf32(0xE972);
 
-
-
-            ViewTransactionsPage.SetSenderId(MainPage.GetCustomerData().CustomerId, DomainLayer.TransactionID.CustomerID);
+            ViewTransactionsPage.SetSenderId(MainPage.GetCustomerData().CustomerId,TransactionID.CustomerID);
             ContentFrame.Navigate(typeof(ViewTransactionsPage));
 
         }
@@ -237,6 +239,30 @@ namespace ZBMS
             }
 
 
+        }
+
+        private void ColorsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(Red.IsSelected)
+            {
+                (Application.Current.Resources["ZBMSAccentColorBrush"] as SolidColorBrush).Color = Colors.Red;
+            }
+            else if(Green.IsSelected)
+            {
+                (Application.Current.Resources["ZBMSAccentColorBrush"] as SolidColorBrush).Color = Colors.Green;
+            }
+            else if(Blue.IsSelected)
+            {
+                (Application.Current.Resources["ZBMSAccentColorBrush"] as SolidColorBrush).Color = Colors.Blue;
+            }
+            else if(Yellow.IsSelected)
+            {
+                (Application.Current.Resources["ZBMSAccentColorBrush"] as SolidColorBrush).Color = Colors.Yellow;
+            }
+            else if(Pink.IsSelected)
+            {
+                (Application.Current.Resources["ZBMSAccentColorBrush"] as SolidColorBrush).Color = Colors.HotPink;
+            }
         }
     }
 }

@@ -8,6 +8,14 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Resource/ZBankResource.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
     <ScrollViewer Margin="20" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" >
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
 
@@ -33,7 +41,7 @@
                 </VisualStateGroup>
             </VisualStateManager.VisualStateGroups>
 
-            <Grid  Name="ContentGrid" Height="700" Width="300" Background="LightSkyBlue" CornerRadius="15">
+            <Grid  Name="ContentGrid" Height="600" Width="350" Background="{StaticResource PrimaryBackground}" CornerRadius="15">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"></RowDefinition>
@@ -54,62 +62,64 @@
                             Margin="10" 
                             ></TextBlock>
 
-                <ComboBox Grid.Row="1"
+                <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                    <TextBlock Name="FromTextBox" Text="From :" Margin="5"
+                               FontWeight="SemiBold"
+                               Style="{StaticResource WideStyleTextBlock}" />
+                    
+                    <ComboBox 
                           Name="FromComboBox"
-                          Background="White" 
-                          Header="From :" 
-                          PlaceholderText="Select an Account" 
+                          Style="{StaticResource WideStyleComboBox}"
+                          PlaceholderText="Select sender acc number" 
                           ItemsSource="{x:Bind FromUserAccounts}"  
-                          FontSize="12"
+                          Margin="5"
                           VerticalAlignment="Center"
                           HorizontalAlignment="Center"
-                          Width="200"/>
+                          />
+                </StackPanel>
 
                 <StackPanel Grid.Row="2"  HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock Name="ToTextBlock"
                                Text="To :" 
-                               HorizontalAlignment="Left"
-                               VerticalAlignment="Center"
-                               FontSize="12" 
+                               Margin="5"
+                               FontWeight="SemiBold"
+                               Style="{StaticResource WideStyleTextBlock}"
                                ></TextBlock>
                     
                     <TextBox Name="ToTextBox"
-                             Height="40" 
-                             Width="200"
-                             FontSize="12"
-                             Background="White" 
+                             Margin="5"
+                             PlaceholderText="Enter receiver acc number"
+                             Style="{StaticResource WideStyleTextBox}"
                              ></TextBox>
                 </StackPanel>
                 
                 <StackPanel Grid.Row="3"  HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock Name="AmountTextBlock"
-                               Text="Amount :" 
-                               HorizontalAlignment="Left"
-                               VerticalAlignment="Center"
-                               FontSize="12"
+                               Text="Amount :"  Margin="5"
+                                 Style="{StaticResource WideStyleTextBlock}"
+                               FontWeight="SemiBold"
                                ></TextBlock>
                     
                     <TextBox Name="AmountTextBox" 
-                             Height="40" 
-                             Width="200"
-                             FontSize="12" 
-                             Background="White" 
+                             Margin="5"
+                             PlaceholderText="Enter amount"
+                             Style="{StaticResource WideStyleTextBox}"
                              ></TextBox>
                 </StackPanel>
                 
                 <StackPanel Grid.Row="4"  HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock Name="RemarksTextBlock"
                                Text="Remarks :"
-                               HorizontalAlignment="Left"
-                               VerticalAlignment="Center"
-                               FontSize="12" 
+                              Margin="5"
+                               Style="{StaticResource WideStyleTextBlock}"
+                               FontWeight="SemiBold"
                                ></TextBlock>
                     
                     <TextBox Name="RemarksTextBox"
-                             Height="40"
-                             Width="200"
-                             FontSize="12"
-                             Background="White" 
+                             Margin="5"
+                             PlaceholderText="Short message"
+                             Style="{StaticResource WideStyleTextBox}"
                              ></TextBox>
                 </StackPanel>
                 <TextBlock Name="ErrorBox"
@@ -124,45 +134,16 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
+                        
                     </Grid.ColumnDefinitions>
 
-                    <Button Name="TransferButton" FontSize="12" Content="Transfer" Background="Blue" Foreground="White" Click="TransferButton_Click" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Name="TransferButton" FontSize="16" Content="Transfer" Style="{StaticResource PrimaryButtonStyle}" Click="TransferButton_Click"  HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                        <Button.Resources>
-                            <ResourceDictionary>
-                                <ResourceDictionary.ThemeDictionaries>
-                                    <ResourceDictionary x:Key="Dark">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="DarkBlue"/>
-                                    </ResourceDictionary>
-                                    <ResourceDictionary x:Key="Light">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="DarkBlue"/>
-                                    </ResourceDictionary>
-                                </ResourceDictionary.ThemeDictionaries>
-                            </ResourceDictionary>
-                        </Button.Resources>
+
 
                     </Button>
-                    <Button Name="CancelButton" FontSize="12" Content="Cancel" Click="CancelButton_Click" Foreground="Blue" Background="White" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Button.Resources>
-                            <ResourceDictionary>
-                                <ResourceDictionary.ThemeDictionaries>
-                                    <ResourceDictionary x:Key="Dark">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Blue"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="White"/>
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerPressed" Color="Blue"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointePressed" Color="White"/>
-                                    </ResourceDictionary>
-                                    <ResourceDictionary x:Key="Light">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Blue"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="White"/>
-                                    </ResourceDictionary>
-                                </ResourceDictionary.ThemeDictionaries>
-                            </ResourceDictionary>
-                        </Button.Resources>
+                    <Button Name="CancelButton" FontSize="16" Content="Cancel" Click="CancelButton_Click" Style="{StaticResource SecondaryButtonStyle}" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+
                     </Button>
                 </Grid>
 

@@ -107,38 +107,38 @@ namespace ZBMS
 
         }
 
-        private async void ProfileEdited()
+        private  void ProfileEdited()
         {
-            MessageDialog showDialog = new MessageDialog("Profile Updated Successfully");
-            showDialog.Commands.Add(new UICommand("Okay") { Id = 0 });
+            //MessageDialog showDialog = new MessageDialog("Profile Updated Successfully");
+            //showDialog.Commands.Add(new UICommand("Okay") { Id = 0 });
            
-            showDialog.DefaultCommandIndex = 0;
-            showDialog.CancelCommandIndex = 1;
-            var results = await showDialog.ShowAsync();
-            if ((int)results.Id == 0)
-            {
+            //showDialog.DefaultCommandIndex = 0;
+            //showDialog.CancelCommandIndex = 1;
+            //var results = await showDialog.ShowAsync();
+            //if ((int)results.Id == 0)
+            //{
                 ViewProfilePageFrame.Navigate(typeof(CustomerDashboard));
-            }
+          //  }
         }
-        private async void ProfileEditingFailed()
+        private  void ProfileEditingFailed()
         {
-            MessageDialog showDialog = new MessageDialog("Unable to Update Values");
-            showDialog.Commands.Add(new UICommand("Okay") { Id = 0 });
+            //MessageDialog showDialog = new MessageDialog("Unable to Update Values");
+            //showDialog.Commands.Add(new UICommand("Okay") { Id = 0 });
          
-            showDialog.DefaultCommandIndex = 0;
+            //showDialog.DefaultCommandIndex = 0;
             
-            var results = await showDialog.ShowAsync();
-            if ((int)results.Id == 0)
-            {
+            //var results = await showDialog.ShowAsync();
+            //if ((int)results.Id == 0)
+            //{
                 this.Frame.Navigate(typeof(EditProfilePage));
-            }
+            //}
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             IsTextModified = true;
-            CancelButton.Visibility = Visibility.Visible;
-            SaveButton.Visibility = Visibility.Visible; 
+            ButtonPanel.Visibility = Visibility.Visible;
+            
         }
     }
 }

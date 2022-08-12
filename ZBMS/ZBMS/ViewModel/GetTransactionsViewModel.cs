@@ -14,6 +14,7 @@ namespace ZBMS.PresentationLayer
 {
     public class GetTransactionsViewModel
     {
+        public static List<string> AccountNumbers = new List<string>();
         public ViewTransactionsPage page;
         public CustomerDashboard dashboardPage;
         public  ObservableCollection<ExtendedTransactionDetails> TransactionsList = new ObservableCollection<ExtendedTransactionDetails>();
@@ -32,6 +33,7 @@ namespace ZBMS.PresentationLayer
         public GetTransactionsViewModel(CustomerDashboard _page)
         {
             dashboardPage = _page;
+            AccountNumbers=dashboardPage.AccountNumbers;    
         }
 
         public void GetTransactions(string id, TransactionID transactionId )
@@ -51,25 +53,6 @@ namespace ZBMS.PresentationLayer
                 }
             }
         }
-
-        //public void SetTransactions(IList<ExtendedTransactionDetails> list)
-        //{
-        //    TransactionsList.Clear();
-        //    foreach (var item in list)
-        //    {
-        //       if(item.SenderId==request.Id)
-        //       {
-        //            item.TypeImage = "Assets/Money2.png";
-        //            item.AmountString = $"-  ₹{item.Amount}";
-        //       }
-        //       if (item.ReceiverId == request.Id)
-        //       {
-        //            item.TypeImage = "Assets/Money1.png";
-        //            item.AmountString = $"+  ₹{item.Amount}";
-        //        }
-        //        TransactionsList.Add(item);
-        //    }
-        //}
 
         public void GetRecentTransactions(string customerId , RecentTransactionFilterOption filterOption)
         {
@@ -116,7 +99,7 @@ namespace ZBMS.PresentationLayer
 
                 if (request.transactionId==TransactionID.CustomerID)
                 {
-                    if (dashboardPage.AccountNumbers.Contains(item.SenderId) && dashboardPage.AccountNumbers.Contains(item.ReceiverId))
+                    if (dashboardPage.AccountNumbers.Contains(item.SenderAccountNumber) && dashboardPage.AccountNumbers.Contains(item.ReceiverAccountNumber))
                     {
                         item.TypeImage = "Assets/Money2.png";
                         item.AmountString = $"₹{item.Amount}";
@@ -124,7 +107,7 @@ namespace ZBMS.PresentationLayer
                         item.IconColor = new Windows.UI.Xaml.Media.SolidColorBrush(Windows.UI.Colors.Blue);
                         item.IconString = char.ConvertFromUtf32(0xE117);
                     }
-                    else if( dashboardPage.AccountNumbers.Contains(item.SenderId))
+                    else if( dashboardPage.AccountNumbers.Contains(item.SenderAccountNumber))
                     {
                         item.TypeImage = "Assets/Money2.png";
                         item.AmountString = $"-  ₹{item.Amount}";
@@ -132,7 +115,7 @@ namespace ZBMS.PresentationLayer
                         item.IconColor = new Windows.UI.Xaml.Media.SolidColorBrush(Windows.UI.Colors.Red);
                         item.IconString = char.ConvertFromUtf32(0xE936);
                     }
-                    else if(dashboardPage.AccountNumbers.Contains(item.ReceiverId))
+                    else if(dashboardPage.AccountNumbers.Contains(item.ReceiverAccountNumber))
                     {
                         item.TypeImage = "Assets/Money1.png";
                         item.AmountString = $"+  ₹{item.Amount}";
@@ -145,7 +128,7 @@ namespace ZBMS.PresentationLayer
                 }
                 else
                 {
-                    if (item.SenderId == request.Id)
+                    if (item.SenderAccountNumber == request.Id)
                     {
                         item.TypeImage = "Assets/Money2.png";
                         item.AmountString = $"-  ₹{item.Amount}";
@@ -154,7 +137,7 @@ namespace ZBMS.PresentationLayer
                         item.IconString = char.ConvertFromUtf32(0xE936);
 
                     }
-                    else if (item.ReceiverId == request.Id)
+                    else if (item.ReceiverAccountNumber == request.Id)
                     {
                         item.TypeImage = "Assets/Money1.png";
                         item.AmountString = $"+  ₹{item.Amount}";
@@ -187,10 +170,6 @@ namespace ZBMS.PresentationLayer
             {
                 await viewModel.dashboardPage.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                 {
-                    //foreach(var transaction in viewModel.RecentTransactions)
-                    //{
-                    //    viewModel.RecentTransactions.Remove(transaction);
-                    //}
                     viewModel.dashboardPage.UpdateRecentTransactionErrorMessage();
                 });
             }

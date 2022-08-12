@@ -10,6 +10,9 @@ namespace ZBMS.Models
 {
     public class ExtendedTransactionDetails : TransactionDetails
     {
+        public string SenderId { get; set; }
+
+        public string ReceiverId { get; set; }
 
         public string TypeImage { get; set; }
 

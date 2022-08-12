@@ -49,7 +49,7 @@ namespace ZBMS
             {
                 db = new SqliteConnection($"FileName={dbpath}");
                 db.Open();
-                string cmd = $"Insert into Transactiondetails (autoIncrementID,TransactionId,SenderId,receiverid,transactiontime,amount,type,status) Values('{transaction.autoIncrement}','{transaction.TransactionId}', '{transaction.SenderId}', '{transaction.ReceiverId}', '{transaction.TransactionTime}', {transaction.Amount}, '{transaction.Type}','{transaction.Status}'); ";
+                string cmd = $"Insert into Transactiondetails (autoIncrementID,TransactionId,SenderId,receiverid,transactiontime,amount,type,status) Values('{transaction.autoIncrement}','{transaction.TransactionId}', '{transaction.SenderAccountNumber}', '{transaction.ReceiverAccountNumber}', '{transaction.TransactionTime}', {transaction.Amount}, '{transaction.Type}','{transaction.Status}'); ";
                 SqliteCommand GetRecord = new SqliteCommand(cmd, db);
 
                 int rows = GetRecord.ExecuteNonQuery();
@@ -84,8 +84,8 @@ namespace ZBMS
                 {
                     TransactionDetails transaction = new TransactionDetails();
                     transaction.TransactionId = reader.GetString(1);
-                    transaction.SenderId = reader.GetString(2);
-                    transaction.ReceiverId = reader.GetString(3);
+                    transaction.SenderAccountNumber = reader.GetString(2);
+                    transaction.ReceiverAccountNumber = reader.GetString(3);
                     transaction.Time = reader.GetString(4);
                     transaction.Amount = reader.GetDouble(5);
                     transaction.Type = reader.GetString(6);
@@ -124,8 +124,8 @@ namespace ZBMS
                 {
                     TransactionDetails transaction = new TransactionDetails();
                     transaction.TransactionId = reader.GetString(1);
-                    transaction.SenderId = reader.GetString(2);
-                    transaction.ReceiverId = reader.GetString(3);
+                    transaction.SenderAccountNumber = reader.GetString(2);
+                    transaction.ReceiverAccountNumber = reader.GetString(3);
                     transaction.Time = reader.GetString(4);
                     transaction.Amount = reader.GetDouble(5);
                     transaction.Type = reader.GetString(6);

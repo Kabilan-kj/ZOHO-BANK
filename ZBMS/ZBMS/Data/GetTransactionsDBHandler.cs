@@ -21,21 +21,63 @@ namespace ZBMS.DataLayer
             {
                 connection = dbAdapter.GetConnection();
                 connection.Open();
-                string cmd = $"Select s.transactiontime,s.senderid,c.name,s.receiverid,d.name,s.amount,s.transactionid from transactiondetails s join AccountData a on a.accountnumber = s.senderid join customerdata c on  a.accountnumber = s.senderid and a.customerid = c.customerid join AccountData a1 on a1.accountnumber = s.receiverid join customerdata d on  a1.accountnumber = s.receiverid and a1.customerid = d.customerid where s.transactionid = '{transactionId}'; ";
+                string cmd = $"Select s.transactiontime,s.senderid,c.name,s.receiverid,d.name,s.amount,s.transactionid,c.customerid,d.customerid from transactiondetails s join AccountData a on a.accountnumber = s.senderid join customerdata c on  a.accountnumber = s.senderid and a.customerid = c.customerid join AccountData a1 on a1.accountnumber = s.receiverid join customerdata d on  a1.accountnumber = s.receiverid and a1.customerid = d.customerid where s.transactionid = '{transactionId}'; ";
                 SqliteCommand GetRecord = new SqliteCommand(cmd, connection);
                 SqliteDataReader reader = GetRecord.ExecuteReader();
 
                 while (reader.Read())
                 {
                    transaction.Time= reader.GetString(0);
-                   transaction.SenderId= reader.GetString(1);
+                   transaction.SenderAccountNumber = reader.GetString(1);
                    transaction.SenderName= reader.GetString(2);
-                   transaction.ReceiverId= reader.GetString(3);
+                   transaction.ReceiverAccountNumber = reader.GetString(3);
                    transaction.ReceiverName= reader.GetString(4);
                    transaction.Amount=reader.GetDouble(5);
                    transaction.TransactionId= reader.GetString(6); 
+                    transaction.SenderId= reader.GetString(7);
+                    transaction.ReceiverId= reader.GetString(8);
                    
                 }
+
+                if (transaction.TransactionId == null)
+                {
+                    transaction = GetDetailedTransactionOfOtherBankCustomer(transactionId);
+                }
+                return transaction;
+
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        private ExtendedTransactionDetails GetDetailedTransactionOfOtherBankCustomer(string transactionId)
+        {
+            ExtendedTransactionDetails transaction = new ExtendedTransactionDetails();
+            try
+            {
+                connection = dbAdapter.GetConnection();
+                connection.Open();
+                string cmd = $"Select s.transactiontime,s.senderid,c.name,s.receiverid,s.amount,s.transactionid from transactiondetails s join AccountData a on a.accountnumber = s.senderid join customerdata c on  a.customerid = c.customerid  where s.transactionid = '{transactionId}'; ";
+                SqliteCommand GetRecord = new SqliteCommand(cmd, connection);
+                SqliteDataReader reader = GetRecord.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    transaction.Time = reader.GetString(0);
+                    transaction.SenderAccountNumber = reader.GetString(1);
+                    transaction.SenderName = reader.GetString(2);
+                    transaction.ReceiverAccountNumber = reader.GetString(3);
+                    transaction.Amount = reader.GetDouble(4);
+                    transaction.TransactionId = reader.GetString(5);
+
+                }
+
 
                 return transaction;
 
@@ -66,8 +108,8 @@ namespace ZBMS.DataLayer
                 {
                     ExtendedTransactionDetails transaction = new ExtendedTransactionDetails();
                     transaction.TransactionId = reader.GetString(1);
-                    transaction.SenderId = reader.GetString(2);
-                    transaction.ReceiverId = reader.GetString(3);
+                    transaction.SenderAccountNumber = reader.GetString(2);
+                    transaction.ReceiverAccountNumber = reader.GetString(3);
                     transaction.Time = reader.GetString(4);
                     transaction.Amount = reader.GetDouble(5);
                     transaction.Status = reader.GetString(7);
@@ -112,8 +154,8 @@ namespace ZBMS.DataLayer
                 {
                     ExtendedTransactionDetails transaction = new ExtendedTransactionDetails();
                     transaction.TransactionId = reader.GetString(1);
-                    transaction.SenderId = reader.GetString(2);
-                    transaction.ReceiverId = reader.GetString(3);
+                    transaction.SenderAccountNumber = reader.GetString(2);
+                    transaction.ReceiverAccountNumber = reader.GetString(3);
                     transaction.Time = reader.GetString(4);
                     transaction.Amount = reader.GetDouble(5);
                     transaction.Status = reader.GetString(7);
@@ -154,8 +196,8 @@ namespace ZBMS.DataLayer
                 {
                     ExtendedTransactionDetails transaction = new ExtendedTransactionDetails();
                     transaction.TransactionId = reader.GetString(0);
-                    transaction.SenderId = reader.GetString(1);
-                    transaction.ReceiverId = reader.GetString(2);
+                    transaction.SenderAccountNumber = reader.GetString(1);
+                    transaction.ReceiverAccountNumber = reader.GetString(2);
                     transaction.Time = reader.GetString(3);
                     transaction.Amount = reader.GetDouble(4);
                     

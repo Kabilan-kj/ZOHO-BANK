@@ -42,12 +42,22 @@
 
             </Style>
 
-            <Style TargetType="Button" x:Key="NarrowButton" BasedOn="{StaticResource NarrowStyleButton}" >
+            <Style TargetType="Button" x:Key="NarrowPrimaryButton" BasedOn="{StaticResource PrimaryButtonStyle}" >
                 <Setter Property="Margin" Value="5"></Setter>
                 <Setter Property="Width" Value="75"/>
             </Style>
 
-            <Style TargetType="Button" x:Key="WideButton" BasedOn="{StaticResource WideStyleButton}">
+            <Style TargetType="Button" x:Key="WidePrimaryButton" BasedOn="{StaticResource PrimaryButtonStyle}">
+                <Setter Property="Margin" Value="10"></Setter>
+                <Setter Property="Width" Value="100"/>
+            </Style>
+
+            <Style TargetType="Button" x:Key="NarrowSecondaryButton" BasedOn="{StaticResource SecondaryButtonStyle}" >
+                <Setter Property="Margin" Value="5"></Setter>
+                <Setter Property="Width" Value="75"/>
+            </Style>
+
+            <Style TargetType="Button" x:Key="WideSecondaryButton" BasedOn="{StaticResource SecondaryButtonStyle }">
                 <Setter Property="Margin" Value="10"></Setter>
                 <Setter Property="Width" Value="100"/>
             </Style>
@@ -77,8 +87,8 @@
                         <Setter Target="MailIdTextBox.Style" Value="{StaticResource WideTextBox}"/>
                         <Setter Target="AddressTextBox.Style" Value="{StaticResource WideTextBox}"/>
 
-                        <Setter Target="SaveButton.Style" Value="{StaticResource WideButton}"/>
-                        <Setter Target="CancelButton.Style" Value="{StaticResource WideButton}"/>
+                        <Setter Target="SaveButton.Style" Value="{StaticResource WidePrimaryButton}"/>
+                        <Setter Target="CancelButton.Style" Value="{StaticResource WideSecondaryButton}"/>
 
                         <Setter Target="ProfileImage.Width" Value="150" />
                         <Setter Target="ContentPanel.Height" Value="600"/>
@@ -113,7 +123,7 @@
                     <Image 
                             Name="ProfileImage"
                             Grid.Row="1"  
-                            Source="Assets/ProfileImage1.jpg" 
+                            Source="ms-appx:///Assets/ProfileImage1.jpg" 
                             Width="100"
                             Stretch="Uniform" 
                             HorizontalAlignment="Center"
@@ -203,60 +213,26 @@
 
                     </Grid>
                 
-                    <StackPanel  Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel Name="ButtonPanel"  Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
                         <Button  
                             Name="SaveButton"
                             Content="Save"
-                            Style="{StaticResource NarrowButton}"
+                            Style="{StaticResource NarrowPrimaryButton}"
                             Click="SaveButton_Click"
-                            Background="{StaticResource PrimaryThemeColor }"
-                            Foreground="{StaticResource SecondaryThemeColor}"
+                          
                             HorizontalAlignment="Right" >
 
-
-                            <!--<Button.Resources>
-                                <ResourceDictionary>
-                                    <ResourceDictionary.ThemeDictionaries>
-                                        <ResourceDictionary x:Key="Dark">
-                                            <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White"/>
-                                            <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="DarkBlue"/>
-                                        </ResourceDictionary>
-                                        <ResourceDictionary x:Key="Light">
-                                            <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White"/>
-                                            <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="DarkBlue"/>
-                                        </ResourceDictionary>
-                                    </ResourceDictionary.ThemeDictionaries>
-                                </ResourceDictionary>
-                            </Button.Resources>-->
                         </Button>
 
                         <Button  
                                 Name="CancelButton"
                                 Content="Cancel"
-                                Style="{StaticResource NarrowButton}"
+                                Style="{StaticResource NarrowSecondaryButton}"
                                 Click="CancelButton_Click"
                                 HorizontalAlignment="Left"
-                                Background="{StaticResource SecondaryThemeColor}"
-                                Foreground="{StaticResource PrimaryThemeColor}"
+                              
                                 
                                  >
-                            <!--<Button.Resources>
-                                <ResourceDictionary>
-                                    <ResourceDictionary.ThemeDictionaries>
-                                        <ResourceDictionary x:Key="Dark">
-                                            <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Blue"/>
-                                            <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="White"/>
-                                            <SolidColorBrush x:Key="ButtonForegroundPointerPressed" Color="Blue"/>
-                                            <SolidColorBrush x:Key="ButtonBackgroundPointePressed" Color="White"/>
-                                        </ResourceDictionary>
-                                        <ResourceDictionary x:Key="Light">
-                                            <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Blue"/>
-                                            <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="White"/>
-                                        </ResourceDictionary>
-                                    </ResourceDictionary.ThemeDictionaries>
-                                </ResourceDictionary>
-                            </Button.Resources>-->
-
                         </Button>
                     </StackPanel>
 

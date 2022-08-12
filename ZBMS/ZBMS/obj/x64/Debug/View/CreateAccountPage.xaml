@@ -15,82 +15,41 @@
                 <ResourceDictionary Source="ms-appx:///Resource/ZBankResource.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
-            <Style TargetType="ComboBox" x:Key="NarrowComboBox" BasedOn="{StaticResource NarrowStyleComboBox}">
-                <Setter Property="Margin" Value="0,10,0,0"/>
-            </Style>
-
-            <Style TargetType="ComboBox" x:Key="WideComboBox" BasedOn="{StaticResource WideStyleComboBox}">
+            <Style TargetType="ComboBox" x:Key="NarrowComboBox" BasedOn="{StaticResource WideStyleComboBox}">
 
                 <Setter Property="Margin" Value="0,10,0,0"/>
             </Style>
 
-            <Style TargetType="TextBox" x:Key="NarrowTextBox" BasedOn="{StaticResource NarrowStyleTextBox}">
-                <Setter Property="Margin" Value="0,10,0,0"/>
-            </Style>
-        
-            <Style TargetType="TextBox" x:Key="WideTextBox" BasedOn="{StaticResource WideStyleTextBox}">
+            <Style TargetType="TextBox" x:Key="NarrowTextBox" BasedOn="{StaticResource WideStyleTextBox}">
                 <Setter Property="Margin" Value="0,10,0,0"/>
             </Style>
 
-            <Style TargetType="TextBlock" x:Key="NarrowTextBlock" BasedOn="{StaticResource NarrowStyleTextBlock}" >
-                <Setter Property="Margin" Value="0,10,0,0"/>
-            </Style>
-
-            <Style TargetType="TextBlock" x:Key="WideTextBlock" BasedOn="{StaticResource WideStyleTextBlock}">
+            <Style TargetType="TextBlock" x:Key="NarrowTextBlock" BasedOn="{StaticResource WideStyleTextBlock}">
                 <Setter Property="Margin" Value="0,10,0,0"/>
 
             </Style>
-            <Style TargetType="Button" x:Key="NarrowButton" BasedOn="{StaticResource NarrowStyleButton}">
-               
-                <Setter Property="Width" Value="75"></Setter>
-               
-
-            </Style>
-
-            <Style TargetType="Button" x:Key="WideButton" BasedOn="{StaticResource WideStyleButton}">
-               
+            
+            <Style TargetType="Button" x:Key="NarrowPrimaryButton" BasedOn="{StaticResource PrimaryButtonStyle}">
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Margin" Value="10"/>
                 <Setter Property="Width" Value="100"></Setter>
-               
+           </Style>
+            
+            <Style TargetType="Button" x:Key="NarrowSecondaryButton" BasedOn="{StaticResource SecondaryButtonStyle}">
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="Width" Value="100"></Setter>
             </Style>
+
+          
         </ResourceDictionary>
         
     </Page.Resources>
 
     <ScrollViewer>
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="700"></AdaptiveTrigger>
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="AccountTypeComboBox.Style" Value="{StaticResource WideComboBox}"/>
-
-                        <Setter Target="BranchCodeComboBox.Style" Value="{StaticResource WideComboBox}"/>
-
-                        <Setter Target="AccountTypeTextBlock.Style" Value="{StaticResource WideTextBlock}"/>
-                        <Setter Target="BranchCodeTextBlock.Style" Value="{StaticResource WideTextBlock}"/>
-                        <Setter Target="AmountTextBlock.Style" Value="{StaticResource WideTextBlock}"/>
-                        <Setter Target="TenureTextBlock.Style" Value="{StaticResource WideTextBlock}"/>
-                        <Setter Target="SavingsAccountTextBlock.Style" Value="{StaticResource WideTextBlock}"/>
-                        <Setter Target="AmountTextBox.Style" Value="{StaticResource WideTextBox}"/>
-
-                        <Setter Target="TenureComboBox.Style" Value="{StaticResource WideComboBox}"/>
-                        <Setter Target="SavingAccountComboBox.Style" Value="{StaticResource WideComboBox}"/>
-
-                        
-
-                        <Setter Target="CreateButton.Style" Value="{StaticResource WideButton}"/>
-                        <Setter Target="CancelButton.Style" Value="{StaticResource WideButton}"/>
-                        <!--<Setter Target="CloseButton.Style" Value="{StaticResource WideButton}"/>-->
-
-                        
-                        <Setter Target="MainGrid.Width" Value="450"/>
-                        <Setter Target="MainGrid.Height" Value="700"/>
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
+        
         <Grid x:ConnectionId='2' Name="MainGrid" Height="500" Width="350" Background="LightSkyBlue" CornerRadius="15">
 
             <Grid Background="{StaticResource PrimaryBackground}" CornerRadius="15">
@@ -109,12 +68,12 @@
                 <StackPanel  Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Left"  VerticalAlignment="Center"  Margin="60,0,0,0" >
                     <TextBlock x:ConnectionId='17' Name="AccountTypeTextBlock" 
                                Text="Source Account :"
-                                Style="{StaticResource NarrowStyleTextBlock}"
+                                Style="{StaticResource NarrowStyleBoldTextBlock}"
                      />
 
                     <ComboBox x:ConnectionId='18'  Name="AccountTypeComboBox"
                               
-                               PlaceholderText="select account type"
+                               PlaceholderText="Select account type"
                                Style="{StaticResource NarrowComboBox}" 
                                                                     
                                                                                         
@@ -124,11 +83,11 @@
                 <StackPanel Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Left"  VerticalAlignment="Center"  Margin="60,0,0,0" >
                     <TextBlock x:ConnectionId='15' Name="BranchCodeTextBlock" 
                                Text="Branch Code :"
-                                Style="{StaticResource NarrowStyleTextBlock}"
+                                Style="{StaticResource NarrowStyleBoldTextBlock}"
                      />
                    <ComboBox x:ConnectionId='16' Name="BranchCodeComboBox"
                             
-                             PlaceholderText="select branch code" 
+                             PlaceholderText="Select branch code" 
                              Style="{StaticResource NarrowComboBox}" 
                                                                
                              RenderTransformOrigin="0.488,0.445" 
@@ -138,10 +97,10 @@
                 <StackPanel Grid.Row="3" Orientation="Vertical" HorizontalAlignment="Left"  VerticalAlignment="Center"  Margin="60,0,0,0" >
                     <TextBlock x:ConnectionId='13' Name="AmountTextBlock"
                                Text="Initial Amount :"
-                               Style="{StaticResource NarrowTextBlock}"
+                              Style="{StaticResource NarrowStyleBoldTextBlock}"
                                
                                ></TextBlock>
-                    <TextBox x:ConnectionId='14' Name="AmountTextBox" PlaceholderText="Enter Initial Amount" Style="{StaticResource NarrowTextBox}" HorizontalAlignment="Left" Background="White" ></TextBox>
+                    <TextBox x:ConnectionId='14' Name="AmountTextBox" PlaceholderText="Enter initial amount" Style="{StaticResource NarrowTextBox}" HorizontalAlignment="Left" Background="White" ></TextBox>
 
                 </StackPanel>
 
@@ -195,79 +154,23 @@
 
                     <Button x:ConnectionId='7' Name="CreateButton"
                             Content="Create"
-                            HorizontalAlignment="Center"
-                            Background="{StaticResource PrimaryThemeColor}"
-                            Foreground="{StaticResource SecondaryThemeColor}"
-                            Width="100"
-                            VerticalAlignment="Center"
                                                        
-                            Style="{StaticResource NarrowButton}"
-                            Margin="0,0,10,0" >
-                        <!--<Button.Resources>
-                            <ResourceDictionary>
-                                <ResourceDictionary.ThemeDictionaries>
-                                    <ResourceDictionary x:Key="Dark">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="DarkBlue"/>
-                                    </ResourceDictionary>
-                                    <ResourceDictionary x:Key="Light">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="DarkBlue"/>
-                                    </ResourceDictionary>
-                                </ResourceDictionary.ThemeDictionaries>
-                            </ResourceDictionary>
-                        </Button.Resources>-->
+                            Style="{StaticResource NarrowPrimaryButton}"
+                           >
+                       
                     </Button>
                     
                     <Button x:ConnectionId='8' Name="CancelButton"
                             Grid.Column="1"
                             Content="Cancel" 
-                            HorizontalAlignment="Center"
-                            Background="{StaticResource SecondaryThemeColor}"
-                            Foreground="{StaticResource PrimaryThemeColor}" 
                                                       
-                            VerticalAlignment="Center"
-                            Style="{StaticResource NarrowButton}"
-                            Margin="0,0,10,0" >
-                        <!--<Button.Resources>
-                            <ResourceDictionary>
-                                <ResourceDictionary.ThemeDictionaries>
-                                    <ResourceDictionary x:Key="Dark">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Blue"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="White"/>
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerPressed" Color="Blue"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointePressed" Color="White"/>
-                                    </ResourceDictionary>
-                                    <ResourceDictionary x:Key="Light">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Blue"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="White"/>
-                                    </ResourceDictionary>
-                                </ResourceDictionary.ThemeDictionaries>
-                            </ResourceDictionary>
-                        </Button.Resources>-->
-                    
+                            Width="100"
+                            Style="{StaticResource NarrowSecondaryButton}"
+                            >
+                        
                     </Button>
 
-                    <!--<Button Name="CloseButton" Grid.Column="3" Content="Close" HorizontalAlignment="Center" Background="White" Foreground="Blue"  Click="CloseButton_Click" VerticalAlignment="Center" Style="{StaticResource NarrowButton}" Margin="0,0,10,0" >
-                        <Button.Resources>
-                            <ResourceDictionary>
-                                <ResourceDictionary.ThemeDictionaries>
-                                    <ResourceDictionary x:Key="Dark">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Blue"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="White"/>
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerPressed" Color="Blue"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointePressed" Color="White"/>
-                                    </ResourceDictionary>
-                                    <ResourceDictionary x:Key="Light">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Blue"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="White"/>
-                                    </ResourceDictionary>
-                                </ResourceDictionary.ThemeDictionaries>
-                            </ResourceDictionary>
-                        </Button.Resources>
-
-                    </Button>-->
-
+                    
                 </Grid>
 
             </Grid>

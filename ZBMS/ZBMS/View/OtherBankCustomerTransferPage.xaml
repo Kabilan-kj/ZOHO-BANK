@@ -28,6 +28,7 @@
                     <VisualState.Setters>
                         <Setter Target="FromComboBox.FontSize" Value="16"/>
                         <Setter Target="ToTextBlock.FontSize" Value="16"/>
+                        <Setter Target="FromTextBox.FontSize" Value="16"/>
                         <Setter Target="AmountTextBlock.FontSize" Value="16"/>
                         <Setter Target="RemarksTextBlock.FontSize" Value="16"/>
                         <Setter Target="TransferButton.FontSize" Value="16"/>
@@ -44,9 +45,9 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
            
-            <Grid Name="ContentGrid" Height="600" Width="300" Background="LightSkyBlue" CornerRadius="15">
+            <Grid Name="ContentGrid" Height="600" Width="350" Background="{ThemeResource PrimaryBackground}" CornerRadius="15">
 
                
                 
@@ -62,16 +63,22 @@
 
                 <TextBlock  Name="TitleTextBlock"  Text="Other Bank Transfer"  HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="ExtraBold" FontSize="16" Margin="10" ></TextBlock>
 
-                <ComboBox Grid.Row="1"
+                <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                    <TextBlock Name="FromTextBox" Text="From :" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <ComboBox 
                           Name="FromComboBox"
                           Background="White"
-                          Header="From:"
+                         
                           PlaceholderText="Select an Account"
                           ItemsSource="{x:Bind FromUserAccounts}" 
                           FontSize="12"  
+                          Style="{StaticResource NarrowStyleComboBox}"
                           HorizontalAlignment="Center" 
                           VerticalAlignment="Center"
                           Width="200" />
+                </StackPanel>
+               
 
                 <StackPanel Grid.Row="2"  HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock Name="ToTextBlock"
@@ -109,7 +116,7 @@
                     
                     <TextBox Name="RemarksTextBox"
                              Style="{StaticResource NarrowStyleTextBox}"
-                             PlaceholderText="Short Message"
+                             PlaceholderText="Short message"
                              ></TextBox>
                 </StackPanel>
                 
@@ -125,45 +132,16 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
+                       
                     </Grid.ColumnDefinitions>
 
-                    <Button Name="TransferButton" FontSize="12" Content="Transfer" Background="Blue" Foreground="White" Click="TransferButton_Click" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Name="TransferButton" FontSize="16" Content="Transfer" Style="{StaticResource PrimaryButtonStyle}" Click="TransferButton_Click" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                        <Button.Resources>
-                            <ResourceDictionary>
-                                <ResourceDictionary.ThemeDictionaries>
-                                    <ResourceDictionary x:Key="Dark">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="DarkBlue"/>
-                                    </ResourceDictionary>
-                                    <ResourceDictionary x:Key="Light">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="White"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="DarkBlue"/>
-                                    </ResourceDictionary>
-                                </ResourceDictionary.ThemeDictionaries>
-                            </ResourceDictionary>
-                        </Button.Resources>
+                        
 
                     </Button>
-                    <Button Name="CancelButton" FontSize="12" Content="Cancel" Click="CancelButton_Click" Foreground="Blue" Background="White" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Button.Resources>
-                            <ResourceDictionary>
-                                <ResourceDictionary.ThemeDictionaries>
-                                    <ResourceDictionary x:Key="Dark">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Blue"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="White"/>
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerPressed" Color="Blue"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointePressed" Color="White"/>
-                                    </ResourceDictionary>
-                                    <ResourceDictionary x:Key="Light">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Blue"/>
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="White"/>
-                                    </ResourceDictionary>
-                                </ResourceDictionary.ThemeDictionaries>
-                            </ResourceDictionary>
-                        </Button.Resources>
+                    <Button Name="CancelButton" FontSize="16" Content="Cancel" Click="CancelButton_Click" Style="{StaticResource SecondaryButtonStyle}" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                       
                     </Button>
                 </Grid>
 
