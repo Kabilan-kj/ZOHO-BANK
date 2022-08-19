@@ -15,7 +15,6 @@ namespace ZBMS
     public  class CustomerAccountPageDBHandler : DatabaseHandler
     {
    
-
         public int CreateAccount(AccountData account)
         {
             DBAccountData dbaccount = GetDBAccount(account);  

@@ -116,7 +116,17 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Contract\DependencyContainersClass.cs" />
+    <Compile Include="Contract\DataManagerContracts\IGetDetailedTransactionDataManager.cs" />
+    <Compile Include="Contract\DataManagerContracts\IGetTransactionsDataManager.cs" />
+    <Compile Include="Data\GetDetailedTransactionDataManager.cs" />
+    <Compile Include="ZBMSUtils\DependencyContainersClass.cs" />
+    <Compile Include="Contract\ICustomerDashBoardView.cs" />
+    <Compile Include="Contract\ITransactionsPageView.cs" />
+    <Compile Include="Contract\ViewModelBase\CustomerDashboardViewModelBase.cs" />
+    <Compile Include="Contract\ViewModelBase\TransactionsPageViewModelBase.cs" />
+    <Compile Include="Data\DefaultData.cs" />
+    <Compile Include="Events\SelectAccountEventClass.cs" />
+    <Compile Include="ViewModel\CustomerDashboardViewModel.cs" />
     <Compile Include="ViewModel\MenuPageViewModel.cs" />
     <Compile Include="View\AboutUsPage.xaml.cs">
       <DependentUpon>AboutUsPage.xaml</DependentUpon>
@@ -142,7 +152,7 @@
     <Compile Include="Domain\GetTransactions\GetTransactionsUseCase.cs" />
     <Compile Include="Contract\UseCaseBase.cs" />
     <Compile Include="Data\FilterTransactionsDataManager.cs" />
-    <Compile Include="Contract\IFilterTransactionsDataManager.cs" />
+    <Compile Include="Contract\DataManagerContracts\IFilterTransactionsDataManager.cs" />
     <Compile Include="Domain\FilterTransactions\FilterTransactionsRequest.cs" />
     <Compile Include="Domain\FilterTransactions\FilterTransactionsResponse.cs" />
     <Compile Include="Domain\FilterTransactions\FilterTransactionUseCase.cs" />
@@ -204,6 +214,8 @@
     <Compile Include="View\ViewTransactionsPage.xaml.cs">
       <DependentUpon>ViewTransactionsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ZBMSUtils\EventsUtilsClass.cs" />
+    <Compile Include="ZBMSUtils\UserDetails.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

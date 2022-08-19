@@ -48,14 +48,14 @@ namespace ZBMS
 
         }
 
-        public async void GetValues()
+        public  void GetValues()
         {
             ShortcutMenuItems = ShortcutMenuItemManager.GetShortcutMenuItems();
             MoneyTransferMenuItems = ShortcutMenuItemManager.GetMoneyTransferMenuItems();
-            customer = MainPage.GetCustomerData();
+            //customer = MainPage.GetCustomerData();
 
            // UserAccounts.Clear();
-            UserAccounts = await  customerAccountPage.GetUserAccounts(customer.CustomerId);
+            //UserAccounts = await  customerAccountPage.GetUserAccounts(customer.CustomerId);
             if (UserAccounts.Count > 0)
             {
                 GetAccountNumbers();

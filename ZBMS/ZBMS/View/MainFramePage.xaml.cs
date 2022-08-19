@@ -35,7 +35,7 @@ namespace ZBMS
         {
             this.InitializeComponent();
             HomePageFrame.Navigate(typeof(CustomerHomePage));
-            customer=MainPage.GetCustomerData();
+            //customer=MainPage.GetCustomerData();
             SetCustomerDetails();
             
         }

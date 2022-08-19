@@ -14,8 +14,6 @@
                 <ResourceDictionary Source="ms-appx:///Resource/ZBankResource.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <!--<SolidColorBrush x:Key="Brush1" Color="Green"  />-->
-
             <Style x:Key="MenuButtonStyle" TargetType="Button">
                 <Setter Property="Margin" Value="5" />
                 <Setter Property="Background" Value="Transparent" />
@@ -29,8 +27,9 @@
 
             <Style
                 x:Key="IconStyle"
-                BasedOn="{StaticResource NarrowStyleIcon}"
+                BasedOn="{StaticResource IconStyleSample}"
                 TargetType="Button">
+                <Setter Property="FontSize" Value="18" />
                 <Setter Property="FontWeight" Value="SemiBold" />
             </Style>
 
@@ -89,96 +88,274 @@
                         EF58 account settings , E971 Up arrow , E972 down arrow , E935 flick up ,E936 Flick down , E779 contact info , E77B contact
                     -->
                     <StackPanel>
-
-                        <Button
-                            Name="DashboardButton"
-                            HorizontalAlignment="Stretch"
-                            HorizontalContentAlignment="Left"
-                            Click="DashboardButton_Click"
-                            FontSize="16"
-                            Style="{ThemeResource MenuButtonStyle}">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    Margin="8"
-                                    FontFamily="Segoe MDL2 Assets"
-                                    FontWeight="Bold"
-                                    Text="&#xE10F;" />
-                                <TextBlock
-                                    Margin="5"
-                                    FontSize="16"
-                                    Text="Dashboard" />
-
-                            </StackPanel>
-                        </Button>
-
-
-                        <Button
-                            Name="MoneyTransferButton"
-                            Padding="5"
-                            HorizontalAlignment="Stretch"
-                            HorizontalContentAlignment="Stretch"
-                            Click="MoneyTransferButton_Click"
-                            FontSize="16"
-                            Style="{ThemeResource MenuButtonStyle}">
-
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition />
-                                    <ColumnDefinition Width="2*" />
-                                    <ColumnDefinition Width="2*" />
-                                    <ColumnDefinition />
-                                </Grid.ColumnDefinitions>
-
-                                <TextBlock
-                                    Margin="0,8"
-                                    HorizontalAlignment="Center"
-                                    FontFamily="Arial"
-                                    Text="&#x20B9;" />
-                                <TextBlock
-                                    Grid.Column="1"
-                                    Grid.ColumnSpan="2"
-                                    Margin="0,5"
-                                    Text="Money Transfer" />
-                                <TextBlock
-                                    Name="Downarrow1"
-                                    Grid.Column="3"
-                                    Margin="10"
-                                    FontFamily="Segoe MDL2 Assets"
-                                    Text="&#xE972;" />
-
-                            </Grid>
-
-                            <!--  Money Transfer  -->
-                        </Button>
-
                         <ListView
-                            Name="MoneyTransferList"
-                            Margin="0,0,0,10"
-                            Background="Transparent"
-                            SelectionChanged="MoneyTransferList_SelectionChanged"
-                            SelectionMode="Single"
-                            Visibility="Collapsed">
+                            Name="MenuOptionsListView"
+                            Margin="10"
+                            SelectionChanged="MenuOptionsListView_SelectionChanged">
 
-                            <ListViewItem Name="SelfTransfer">
-                                <TextBlock
-                                    Name="SelfTransferTextBlock"
-                                    Style="{StaticResource NarrowListText}"
-                                    Text="Self" />
+                            <ListViewItem Name="Dashboard">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                        Margin="8"
+                                        FontFamily="Segoe MDL2 Assets"
+                                        FontWeight="Bold"
+                                        Text="&#xE10F;" />
+                                    <TextBlock
+                                        Margin="5"
+                                        FontSize="16"
+                                        Text="Dashboard" />
+
+                                </StackPanel>
                             </ListViewItem>
 
-                            <ListViewItem Name="OtherCustomer ">
-                                <TextBlock
-                                    Name="OtherCustomerTransferTextBlock"
-                                    Style="{StaticResource NarrowListText}"
-                                    Text="Other Customer " />
+                            <ListViewItem Name="MoneyTransfer">
+                                <StackPanel>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="2*" />
+                                            <ColumnDefinition Width="2*" />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock
+                                            Margin="10,8"
+                                            HorizontalAlignment="Center"
+                                            FontFamily="Arial"
+                                            Text="&#x20B9;" />
+
+                                        <TextBlock
+                                            Grid.Column="1"
+                                            Grid.ColumnSpan="2"
+                                            Margin="5"
+                                            FontSize="16"
+                                            Text="Money Transfer" />
+
+                                        <TextBlock
+                                            Name="Downarrow1"
+                                            Grid.Column="3"
+                                            Margin="10"
+                                            FontFamily="Segoe MDL2 Assets"
+                                            Text="&#xE971;" />
+
+                                    </Grid>
+
+                                    <ListView
+                                        Name="MoneyTransferList"
+                                        Margin="30,0,0,10"
+                                        Background="Transparent"
+                                        SelectionChanged="MoneyTransferList_SelectionChanged"
+                                        SelectionMode="Single">
+
+                                        <ListViewItem Name="SelfTransfer">
+                                            <TextBlock
+                                                Name="SelfTransferTextBlock"
+                                                Style="{StaticResource NarrowListText}"
+                                                Text="Self" />
+                                        </ListViewItem>
+
+                                        <ListViewItem Name="OtherCustomer">
+                                            <TextBlock
+                                                Name="OtherCustomerTransferTextBlock"
+                                                Style="{StaticResource NarrowListText}"
+                                                Text="Other Customer " />
+                                        </ListViewItem>
+
+                                        <ListViewItem Name="OtherBank">
+                                            <TextBlock
+                                                Name="OtherBankTransferTextBlock"
+                                                Style="{StaticResource NarrowListText}"
+                                                Text="Other Bank" />
+                                        </ListViewItem>
+                                        <ListView.ItemContainerStyle>
+                                            <Style TargetType="ListViewItem">
+                                                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="ListViewItem">
+                                                            <ListViewItemPresenter
+                                                                CornerRadius="10"
+                                                                PointerOverBackground="LightGray"
+                                                                PressedBackground="Green"
+                                                                SelectedPointerOverBackground="LightGreen"
+                                                                SelectedPressedBackground="Green" />
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </ListView.ItemContainerStyle>
+
+                                    </ListView>
+                                </StackPanel>
+
                             </ListViewItem>
 
-                            <ListViewItem Name="OtherBank">
-                                <TextBlock
-                                    Name="OtherBankTransferTextBlock"
-                                    Style="{StaticResource NarrowListText}"
-                                    Text="Other Bank" />
+
+                            <ListViewItem Name="Accounts">
+                                <StackPanel>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="2*" />
+                                            <ColumnDefinition Width="2*" />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock
+                                            Grid.Column="0"
+                                            Margin="10,8"
+                                            HorizontalAlignment="Center"
+                                            FontFamily="Segoe MDL2 Assets"
+                                            Text="&#xEC25;" />
+                                        <TextBlock
+                                            Grid.Column="1"
+                                            Grid.ColumnSpan="2"
+                                            Margin="5"
+                                            FontSize="16"
+                                            Text="Accounts" />
+                                        <TextBlock
+                                            Name="Downarrow2"
+                                            Grid.Column="3"
+                                            Margin="10"
+                                            FontFamily="Segoe MDL2 Assets"
+                                            Text="&#xE971;" />
+
+                                    </Grid>
+
+                                    <ListView
+                                        Name="AccountsList"
+                                        Margin="30,0,0,10"
+                                        Background="Transparent"
+                                        SelectionChanged="AccountsList_SelectionChanged"
+                                        SelectionMode="Single">
+
+                                        <ListViewItem Name="ViewAccount">
+                                            <TextBlock
+                                                Name="ViewAccountTextBlock"
+                                                Style="{StaticResource NarrowListText}"
+                                                Text="View Account Details" />
+                                        </ListViewItem>
+
+                                        <ListViewItem Name="ViewTransaction">
+                                            <TextBlock
+                                                Name="ViewTransactionTextBlock"
+                                                Style="{StaticResource NarrowListText}"
+                                                Text="View Transaction " />
+                                        </ListViewItem>
+                                        <ListView.ItemContainerStyle>
+                                            <Style TargetType="ListViewItem">
+                                                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="ListViewItem">
+                                                            <ListViewItemPresenter
+                                                                CornerRadius="10"
+                                                                PointerOverBackground="LightGray"
+                                                                PressedBackground="Green"
+                                                                SelectedPointerOverBackground="LightGreen"
+                                                                SelectedPressedBackground="Green" />
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </ListView.ItemContainerStyle>
+
+                                    </ListView>
+
+                                </StackPanel>
                             </ListViewItem>
+
+
+                            <ListViewItem Name="Profile">
+                                <StackPanel>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="2*" />
+                                            <ColumnDefinition Width="2*" />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock
+                                            Margin="10"
+                                            HorizontalAlignment="Center"
+                                            FontFamily="Segoe MDL2 Assets"
+                                            Text="&#xEA4A;" />
+                                        <TextBlock
+                                            Grid.Column="1"
+                                            Grid.ColumnSpan="2"
+                                            Margin="5"
+                                            FontSize="16"
+                                            Text="Profile" />
+                                        <TextBlock
+                                            Name="Downarrow3"
+                                            Grid.Column="3"
+                                            Margin="10"
+                                            FontFamily="Segoe MDL2 Assets"
+                                            Text="&#xE971;" />
+                                    </Grid>
+
+                                    <ListView
+                                        Name="ProfileList"
+                                        Margin="30,0,0,0"
+                                        Background="Transparent"
+                                        SelectionChanged="ProfileList_SelectionChanged"
+                                        SelectionMode="Single">
+
+                                        <ListViewItem Name="ViewProfile">
+                                            <TextBlock
+                                                Name="ViewProfileTextBlock"
+                                                Style="{StaticResource NarrowListText}"
+                                                Text="View Profile" />
+                                        </ListViewItem>
+
+                                        <ListViewItem Name="EditProfile">
+                                            <TextBlock
+                                                Name="EditProfileTextBlock"
+                                                Style="{StaticResource NarrowListText}"
+                                                Text="Edit Profile" />
+                                        </ListViewItem>
+                                        <ListView.ItemContainerStyle>
+                                            <Style TargetType="ListViewItem">
+                                                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="ListViewItem">
+                                                            <ListViewItemPresenter
+                                                                CornerRadius="10"
+                                                                PointerOverBackground="LightGray"
+                                                                PressedBackground="Green"
+                                                                SelectedPointerOverBackground="LightGreen"
+                                                                SelectedPressedBackground="Green" />
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </ListView.ItemContainerStyle>
+                                    </ListView>
+
+                                </StackPanel>
+
+                            </ListViewItem>
+
+                            <ListViewItem Name="Transactions">
+
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
+                                        Margin="10"
+                                        FontFamily="Segoe MDL2 Assets"
+                                        Text="&#xE8AB;" />
+                                    <TextBlock
+                                        Margin="5"
+                                        FontSize="16"
+                                        Text="Transactions" />
+
+                                </StackPanel>
+                            </ListViewItem>
+
                             <ListView.ItemContainerStyle>
                                 <Style TargetType="ListViewItem">
                                     <Setter Property="HorizontalAlignment" Value="Stretch" />
@@ -187,11 +364,13 @@
                                         <Setter.Value>
                                             <ControlTemplate TargetType="ListViewItem">
                                                 <ListViewItemPresenter
-                                                    PointerOverBackground="LightGray"
-                                                    PressedBackground="LightGray"
-                                                    SelectedBackground="{StaticResource ThemeColor}"
-                                                    SelectedPointerOverBackground="{StaticResource ThemeColor}"
-                                                    SelectedPressedBackground="{StaticResource ThemeColor}" />
+                                                    CornerRadius="10"
+                                                    PointerOverBackground="Transparent"
+                                                    PressedBackground="Transparent"
+                                                    SelectedBackground="Transparent"
+                                                    SelectedForeground="Green"
+                                                    SelectedPointerOverBackground="Transparent"
+                                                    SelectedPressedBackground="Transparent" />
                                             </ControlTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -199,188 +378,6 @@
                             </ListView.ItemContainerStyle>
 
                         </ListView>
-
-                        <Button
-                            Name="AccountsButton"
-                            Padding="5"
-                            HorizontalAlignment="Stretch"
-                            HorizontalContentAlignment="Stretch"
-                            Click="AccountsButton_Click"
-                            FontSize="16"
-                            Style="{ThemeResource MenuButtonStyle}">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition />
-                                    <ColumnDefinition Width="2*" />
-                                    <ColumnDefinition Width="2*" />
-                                    <ColumnDefinition />
-                                </Grid.ColumnDefinitions>
-
-                                <TextBlock
-                                    Grid.Column="0"
-                                    Margin="0,8"
-                                    HorizontalAlignment="Center"
-                                    FontFamily="Segoe MDL2 Assets"
-                                    Text="&#xEC25;" />
-                                <TextBlock
-                                    Grid.Column="1"
-                                    Grid.ColumnSpan="2"
-                                    Margin="0,5"
-                                    Text="Accounts" />
-                                <TextBlock
-                                    Name="Downarrow2"
-                                    Grid.Column="3"
-                                    Margin="10"
-                                    FontFamily="Segoe MDL2 Assets"
-                                    Text="&#xE972;" />
-
-                            </Grid>
-                        </Button>
-                        <ListView
-                            Name="AccountsList"
-                            Margin="0,0,0,10"
-                            Background="Transparent"
-                            SelectionChanged="AccountsList_SelectionChanged"
-                            SelectionMode="Single"
-                            Visibility="Collapsed">
-
-                            <ListViewItem Name="ViewAccount">
-                                <TextBlock
-                                    Name="ViewAccountTextBlock"
-                                    Style="{StaticResource NarrowListText}"
-                                    Text="View Account Details" />
-                            </ListViewItem>
-
-                            <ListViewItem Name="ViewTransaction">
-                                <TextBlock
-                                    Name="ViewTransactionTextBlock"
-                                    Style="{StaticResource NarrowListText}"
-                                    Text="View Transaction " />
-                            </ListViewItem>
-                            <ListView.ItemContainerStyle>
-                                <Style TargetType="ListViewItem">
-                                    <Setter Property="HorizontalAlignment" Value="Stretch" />
-                                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                                    <Setter Property="Template">
-                                        <Setter.Value>
-                                            <ControlTemplate TargetType="ListViewItem">
-                                                <ListViewItemPresenter
-                                                    PointerOverBackground="LightGray"
-                                                    PressedBackground="LightGray"
-                                                    SelectedBackground="{StaticResource ThemeColor}"
-                                                    SelectedPointerOverBackground="{StaticResource ThemeColor}"
-                                                    SelectedPressedBackground="{StaticResource ThemeColor}" />
-                                            </ControlTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Style>
-                            </ListView.ItemContainerStyle>
-
-                        </ListView>
-
-
-                        <Button
-                            Name="ProfileButton"
-                            Padding="5"
-                            HorizontalAlignment="Stretch"
-                            HorizontalContentAlignment="Stretch"
-                            Click="ProfileButton_Click"
-                            FontSize="16"
-                            Style="{ThemeResource MenuButtonStyle}">
-
-
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition />
-                                    <ColumnDefinition Width="2*" />
-                                    <ColumnDefinition Width="2*" />
-                                    <ColumnDefinition />
-                                </Grid.ColumnDefinitions>
-
-                                <TextBlock
-                                    Margin="0,10"
-                                    HorizontalAlignment="Center"
-                                    FontFamily="Segoe MDL2 Assets"
-                                    Text="&#xEA4A;" />
-                                <TextBlock
-                                    Grid.Column="1"
-                                    Grid.ColumnSpan="2"
-                                    Margin="0,5"
-                                    Text="Profile" />
-                                <TextBlock
-                                    Name="Downarrow3"
-                                    Grid.Column="3"
-                                    Margin="10"
-                                    FontFamily="Segoe MDL2 Assets"
-                                    Text="&#xE972;" />
-                            </Grid>
-
-                            <!--  Profile Settings  -->
-
-                        </Button>
-                        <ListView
-                            Name="ProfileList"
-                            Margin="0,0,0,10"
-                            Background="Transparent"
-                            SelectionChanged="ProfileList_SelectionChanged"
-                            SelectionMode="Single"
-                            Visibility="Collapsed">
-
-                            <ListViewItem Name="ViewProfile">
-                                <TextBlock
-                                    Name="ViewProfileTextBlock"
-                                    Style="{StaticResource NarrowListText}"
-                                    Text="View Profile" />
-                            </ListViewItem>
-
-                            <ListViewItem Name="EditProfile">
-                                <TextBlock
-                                    Name="EditProfileTextBlock"
-                                    Style="{StaticResource NarrowListText}"
-                                    Text="Edit Profile" />
-                            </ListViewItem>
-                            <ListView.ItemContainerStyle>
-                                <Style TargetType="ListViewItem">
-                                    <Setter Property="HorizontalAlignment" Value="Stretch" />
-                                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                                    <Setter Property="Template">
-                                        <Setter.Value>
-                                            <ControlTemplate TargetType="ListViewItem">
-                                                <ListViewItemPresenter
-                                                    PointerOverBackground="LightGray"
-                                                    PressedBackground="LightGray"
-                                                    SelectedBackground="{StaticResource ThemeColor}"
-                                                    SelectedPointerOverBackground="{StaticResource ThemeColor}"
-                                                    SelectedPressedBackground="{StaticResource ThemeColor}" />
-                                            </ControlTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Style>
-                            </ListView.ItemContainerStyle>
-                        </ListView>
-
-
-                        <Button
-                            Name="TransactionsButton"
-                            Padding="5"
-                            HorizontalAlignment="Stretch"
-                            HorizontalContentAlignment="Left"
-                            Click="TransactionsButton_Click"
-                            FontSize="16"
-                            Style="{ThemeResource MenuButtonStyle}">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    Margin="10"
-                                    FontFamily="Segoe MDL2 Assets"
-                                    Text="&#xE8AB;" />
-                                <TextBlock Margin="5" Text="Transactions" />
-
-                            </StackPanel>
-
-                            <!--  Transactions Settings  -->
-                        </Button>
-
-
                     </StackPanel>
 
                     <StackPanel
@@ -406,61 +403,65 @@
                                     <ListView
                                         Name="ColorsListView"
                                         IsItemClickEnabled="True"
-                                        SelectionChanged="ColorsListView_SelectionChanged"
+                                        ItemClick="ColorsListView_ItemClick"
                                         SelectionMode="Single">
 
                                         <ListViewItem Name="Red">
                                             <StackPanel Orientation="Horizontal">
-                                                <TextBlock Margin="5" Text="Red" />
+
                                                 <Ellipse
                                                     Width="20"
                                                     Height="20"
                                                     Margin="5"
                                                     Fill="Red" />
+                                                <TextBlock
+                                                    Margin="5"
+                                                    HorizontalAlignment="Right"
+                                                    Text="Red" />
                                             </StackPanel>
                                         </ListViewItem>
 
                                         <ListViewItem Name="Green">
                                             <StackPanel Orientation="Horizontal">
-                                                <TextBlock Margin="5" Text="Green" />
                                                 <Ellipse
                                                     Width="20"
                                                     Height="20"
                                                     Margin="5"
                                                     Fill="Green" />
+                                                <TextBlock
+                                                    Margin="5"
+                                                    HorizontalAlignment="Right"
+                                                    Text="Green" />
                                             </StackPanel>
                                         </ListViewItem>
 
                                         <ListViewItem Name="Blue">
                                             <StackPanel Orientation="Horizontal">
-                                                <TextBlock Margin="5" Text="Blue" />
+
                                                 <Ellipse
                                                     Width="20"
                                                     Height="20"
                                                     Margin="5"
                                                     Fill="Blue" />
+                                                <TextBlock
+                                                    Margin="5"
+                                                    HorizontalAlignment="Right"
+                                                    Text="Blue" />
                                             </StackPanel>
                                         </ListViewItem>
 
                                         <ListViewItem Name="Pink">
                                             <StackPanel Orientation="Horizontal">
-                                                <TextBlock Margin="5" Text="Pink" />
+
                                                 <Ellipse
                                                     Width="20"
                                                     Height="20"
                                                     Margin="5"
                                                     Fill="HotPink" />
-                                            </StackPanel>
-                                        </ListViewItem>
-
-                                        <ListViewItem Name="Yellow">
-                                            <StackPanel Orientation="Horizontal">
-                                                <TextBlock Margin="5" Text="Yellow" />
-                                                <Ellipse
-                                                    Width="20"
-                                                    Height="20"
+                                                <TextBlock
                                                     Margin="5"
-                                                    Fill="GreenYellow" />
+                                                    HorizontalAlignment="Right"
+                                                    Text="Pink" />
                                             </StackPanel>
                                         </ListViewItem>
 
@@ -515,81 +516,12 @@
 
                     </StackPanel>
 
-                    <!--<StackPanel>
-                        <ListView>
-
-                            <ListViewItem>
-
-                            </ListViewItem>
-
-                            <ListViewItem>
-
-                            </ListViewItem>
-
-                            <ListViewItem>
-
-                            </ListViewItem>
-
-                            <ListViewItem>
-
-                            </ListViewItem>
-
-                            <ListViewItem>
-
-                            </ListViewItem>
-
-                            <ListViewItem>
-
-                            </ListViewItem>
-
-                        </ListView>
-                    </StackPanel>-->
-
-
                 </Grid>
 
             </ScrollViewer>
 
-            <!--<Frame  Grid.RowSpan="2" Name="ContentFrame"></Frame>-->
+
         </Grid>
-
-        <!--<Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"></RowDefinition>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
-
-            <Grid   Margin="5,10,0,10"  CornerRadius="10"  >
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.Background>
-                    <LinearGradientBrush  StartPoint="0,0.85" EndPoint="1,0.85">
-                        <GradientStop Color="Transparent" Offset="0.97"/>
-                        <GradientStop Color="LightGreen"    Offset="0.85"/>
-                    </LinearGradientBrush>
-                </Grid.Background>
-
-                <TextBlock Name="MenuTitle" FontSize="32" FontWeight="Bold" VerticalAlignment="Center" Margin="20,15" >
-                </TextBlock>
-        -->
-        <!--<StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="20,10,0,0">
-                    <TextBlock Name="WelcomeTextBlock" Text="Welcome" FontWeight="Bold" FontSize="20"  Margin="0,0,0,0" Style="{StaticResource NarrowMenuText}"/>
-                    <TextBlock Name="UserNameTextBlock" FontWeight="Bold" Text="{x:Bind customer.Name}" FontStyle="Italic"  Margin="5,0,0,0" FontSize="24" Style="{StaticResource NarrowMenuText}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="20,0,0,10" >
-                    <TextBlock Name="LastLoginTextBlock" Text="Last Login : " FontWeight="Light" FontSize="12" Style="{StaticResource NarrowMenuText}" />
-                    <TextBlock Name="LastLoginContentTextBlock" Text="10.00 AM"  FontWeight="Light"  FontSize="12" Style="{StaticResource NarrowMenuText}" />
-                </StackPanel>-->
-        <!--
-
-            </Grid>
-
-
-
-            <Frame  Grid.Row="1" Name="ContentFrame"> </Frame>
-        </Grid>-->
 
         <Frame Name="ContentFrame" Grid.Column="1" />
         <Frame Name="FullFrame" Grid.ColumnSpan="2" />

@@ -7,13 +7,33 @@
     <Application.Resources>
         <ResourceDictionary>
 
-            <Color x:Key="ZBMSAccentColor">#FF0F00</Color>
+            <!--<Color x:Key="ZBMSAccentColor">#FF0F00</Color>-->
 
             <SolidColorBrush
                 x:Key="ZBMSAccentColorBrush"
                 x:Name="ZBMSAccentColorBrush"
                 Color="Green" />
 
+            <SolidColorBrush
+                x:Key="ZBMSAccentColorBrushLight1"
+                x:Name="ZBMSAccentColorBrushLight1"
+                Opacity="0.5"
+                Color="Green" />
+
+            <SolidColorBrush
+                x:Key="ZBMSAccentColorBrushLight2"
+                x:Name="ZBMSAccentColorBrushLight2"
+                Color="LightGreen" />
+
+            <SolidColorBrush
+                x:Key="ZBMSAccentColorBrushDark1"
+                x:Name="ZBMSAccentColorBrushDark1"
+                Color="DarkGreen" />
+
+            <!--<SolidColorBrush
+                x:Key="BorderColorBrush"
+                x:Name="BorderColorBrush"
+                Color="Black" />-->
 
             <ResourceDictionary.ThemeDictionaries>
 

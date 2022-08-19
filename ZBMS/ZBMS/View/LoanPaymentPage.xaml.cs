@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using ZBMS.ZBMSUtils;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -39,7 +40,7 @@ namespace ZBMS
 
         private async void GetValues()
         {
-            UserLoanAccounts = await customerAccountPage.GetUserLoanAccounts(MainPage.GetCustomerData().CustomerId);
+            UserLoanAccounts = await customerAccountPage.GetUserLoanAccounts(UserDetails.Customer.CustomerId);
             if (UserLoanAccounts.Count != 0)
             {
                
@@ -62,7 +63,7 @@ namespace ZBMS
                    
                     ContentGrid.Visibility = Visibility.Visible;
                     NoAccountText.Visibility = Visibility.Collapsed;
-                    UserAccounts = await customerAccountPage.GetUserPaymentAccounts(MainPage.GetCustomerData().CustomerId);
+                    UserAccounts = await customerAccountPage.GetUserPaymentAccounts(UserDetails.Customer.CustomerId);
                     foreach (var account in UserAccounts)
                     {
                         FromUserAccounts.Add(account.AccountNumber);

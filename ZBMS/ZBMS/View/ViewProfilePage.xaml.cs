@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using DataModule;
 using Windows.UI.Xaml.Media.Imaging;
+using ZBMS.ZBMSUtils;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -32,7 +33,7 @@ namespace ZBMS
         }
         private void GetCustomerData()
         {
-            customer=MainPage.GetCustomerData();
+            customer = UserDetails.Customer;
             NameTextBox.Text = customer.Name;
             AddressTextBox.Text = customer.Address;
             ContactTextBox.Text = customer.Contact;
@@ -44,6 +45,7 @@ namespace ZBMS
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
+            EventsUtilsClass.InvokePageChanged(MenuOptions.EditProfile);
             this.Frame.Navigate(typeof(EditProfilePage));
         }
     }

@@ -9,6 +9,6 @@ namespace ZBMS.FilterTransactionsUseCase.DataLayer
 {
     public  interface IFilterTransactionsDataManager
     {
-        FilterTransactionsResponse GetData(FilterTransactionsRequest request, ICallBack<FilterTransactionsResponse> useCallBack);
+        void GetData(FilterTransactionsRequest request, ICallBack<FilterTransactionsResponse> useCallBack);
     }
 }

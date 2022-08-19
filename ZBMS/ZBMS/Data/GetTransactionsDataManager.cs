@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZBMS.Contract.DataManagerContracts;
 using ZBMS.DomainLayer;
 using ZBMS.GetDetailedTransactionsDomainLayer;
 
 namespace ZBMS.DataLayer
 {
-    public class GetTransactionsDataManager
+    public class GetTransactionsDataManager : IGetTransactionsDataManager 
     {
         private GetTransactionsDBHandler dbHandler = new GetTransactionsDBHandler();
         private GetTransactionsResponse response = new GetTransactionsResponse();
-        private GetDetailedTransactionsResponse detailedTransactionsresponse = new GetDetailedTransactionsResponse();
+       
 
         public void GetData(ICallBack<GetTransactionsResponse> callBack, GetTransactionsRequest request)
         {
@@ -42,21 +43,7 @@ namespace ZBMS.DataLayer
             }
         }
 
-        public void GetDetailedTransaction (GetDetailedTransactionsRequest request ,ICallBack<GetDetailedTransactionsResponse> callBack )
-        {
-
-            detailedTransactionsresponse.Transaction = dbHandler.GetDetailedTransaction(request.TransactionId);
-           
-            if (detailedTransactionsresponse.Transaction != null)
-            {
-              callBack.OnSuccess(detailedTransactionsresponse);
-
-            }
-            else
-            {
-                callBack.OnFailure();
-            }
-        }
+       
 
     }
 }

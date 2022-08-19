@@ -4,9 +4,12 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZBMS.Contract.ViewModelBase;
 using ZBMS.DomainLayer;
 using ZBMS.GetDetailedTransactionsDomainLayer;
 using ZBMS.Models;
+using ZBMS.ViewModel;
+using ZBMS.ZBMSUtils;
 
 namespace ZBMS.PresentationLayer
 {
@@ -16,26 +19,15 @@ namespace ZBMS.PresentationLayer
         ListView , GridView
     }
 
-    public class TransactionsPageViewModel
+    public class TransactionsPageViewModel : TransactionsPageViewModelBase
     {
-
-        public ViewTransactionsPage Viewtransactionspage;
-        private ExtendedTransactionDetails DT;
-        
-        public ObservableCollection<ExtendedTransactionDetails> TransactionsList = new ObservableCollection<ExtendedTransactionDetails>();
-        public ObservableCollection<ExtendedTransactionDetails> RecentTransactions = new ObservableCollection<ExtendedTransactionDetails>();
-
-        public ExtendedTransactionDetails SelectedTransaction = new ExtendedTransactionDetails();
-        private GetTransactionsRequest request;
-        private GetDetailedTransactionsRequest detailedTransactionsRequest;
-        private TransactionsDisplayType transactionsdisplaytype;
 
         public TransactionsPageViewModel(ViewTransactionsPage _page)
         {
             Viewtransactionspage = _page;
         }
 
-        public void GetTransactions(string id, TransactionID transactionId)
+        public override void GetTransactions(string id, TransactionID transactionId)
         {
             request = new GetTransactionsRequest(id, transactionId);
             new GetTransactionsUseCase(new TransactionsPresenterCallBack(this), request).Execute();
@@ -89,7 +81,7 @@ namespace ZBMS.PresentationLayer
            
         }
 
-        public void GetSelectedTransaction(string transactionId , TransactionsDisplayType type)
+        public override void GetSelectedTransaction(string transactionId , TransactionsDisplayType type)
         {
             transactionsdisplaytype = type;
             detailedTransactionsRequest = new GetDetailedTransactionsRequest(transactionId);
@@ -111,7 +103,7 @@ namespace ZBMS.PresentationLayer
 
                 if (request.transactionId == TransactionID.CustomerID)
                 {
-                    if (GetTransactionsViewModel.AccountNumbers.Contains(item.SenderAccountNumber) && GetTransactionsViewModel.AccountNumbers.Contains(item.ReceiverAccountNumber))
+                    if (UserDetails.UserAccountNumbers.Contains(item.SenderAccountNumber) && UserDetails.UserAccountNumbers.Contains(item.ReceiverAccountNumber))
                     {
                         item.TypeImage = "Assets/Money2.png";
                         item.AmountString = $"₹{item.Amount}";
@@ -119,7 +111,7 @@ namespace ZBMS.PresentationLayer
                         item.IconColor = new Windows.UI.Xaml.Media.SolidColorBrush(Windows.UI.Colors.Blue);
                         item.IconString = char.ConvertFromUtf32(0xE117);
                     }
-                    else if (GetTransactionsViewModel.AccountNumbers.Contains(item.SenderAccountNumber))
+                    else if (UserDetails.UserAccountNumbers.Contains(item.SenderAccountNumber))
                     {
                         item.TypeImage = "Assets/Money2.png";
                         item.AmountString = $"-  ₹{item.Amount}";
@@ -127,7 +119,7 @@ namespace ZBMS.PresentationLayer
                         item.IconColor = new Windows.UI.Xaml.Media.SolidColorBrush(Windows.UI.Colors.Red);
                         item.IconString = char.ConvertFromUtf32(0xE936);
                     }
-                    else if (GetTransactionsViewModel.AccountNumbers.Contains(item.ReceiverAccountNumber))
+                    else if (UserDetails.UserAccountNumbers.Contains(item.ReceiverAccountNumber))
                     {
                         item.TypeImage = "Assets/Money1.png";
                         item.AmountString = $"+  ₹{item.Amount}";

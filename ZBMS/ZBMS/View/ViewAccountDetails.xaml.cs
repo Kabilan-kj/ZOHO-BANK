@@ -13,6 +13,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using DataModule.AccountDetails;
+using ZBMS.Events;
+using ZBMS.ZBMSUtils;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -26,12 +28,12 @@ namespace ZBMS
        private List<string> AccountNumbers = new List<string> ();
        private List<AccountData> UserAccounts = new List<AccountData>();
        private CustomerAccountPage customerAccountPage = new CustomerAccountPage();
-        
+        private static string selectedAccount; 
         public ViewAccountDetails()
         {
             this.InitializeComponent();
             UserAccounts.Clear();
-            UserAccounts =CustomerDashboard.GetUserAccounts();
+            UserAccounts =UserDetails.UserAccounts;
             if (UserAccounts.Count ==0)
             {
                 ErrorStackPanel.Visibility = Visibility.Visible;
@@ -44,15 +46,55 @@ namespace ZBMS
                 TriggerButton.Visibility = Visibility.Collapsed;
                 LoanPaymentButton.Visibility = Visibility.Collapsed;    
                 GetAccountNumbers();
-
+               
             }
           
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+           selectedAccount= e.Parameter as string;
+            if (selectedAccount != null)
+            {
+                DisplaySelectedAccount();
+            }
+        }
+
         public void GetAccountNumbers()
         {
             AccountNumbers.Clear();
             foreach (var account in UserAccounts)
                 AccountNumbers.Add(account.AccountNumber);
+        }
+        public async void DisplaySelectedAccount()
+        {
+            if (selectedAccount != null)
+            {
+                for (int i = 0; i < UserAccounts.Count; i++)
+                {
+                    if (UserAccounts[i].AccountNumber == selectedAccount)
+                    {
+                        SelectAccountComboBox.SelectedIndex = i;
+                        var useraccount = UserAccounts[i];
+                        AccountNumberContentTextBlock.Text = useraccount.AccountNumber;
+                        AccountTypeContentTextBlock.Text = useraccount.TypeofAccount;
+                        BranchCodeContentTextBlock.Text = useraccount.BranchCode;
+                        BranchContentTextBlock.Text = await customerAccountPage.GetAddress(useraccount.BranchCode);
+                        if (useraccount.TypeofAccount == "RECURRING_ACCOUNT")
+                        {
+                            TriggerButton.Visibility = Visibility.Visible;
+                            RecurringAccountData recurringAccount = (RecurringAccountData)useraccount;
+                            TriggerButton.IsOn = recurringAccount.IsTriggered;
+
+                        }
+                        if (useraccount.TypeofAccount == "LOAN_ACCOUNT")
+                        {
+                            LoanPaymentButton.Visibility = Visibility.Visible;
+                        }
+                    }
+                }
+            }
+
         }
 
         private async void SelectAccountComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -87,13 +129,6 @@ namespace ZBMS
 
 
         }
-
-
-        private void HomeButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
 
         private void TriggerButton_Toggled(object sender, RoutedEventArgs e)
         {

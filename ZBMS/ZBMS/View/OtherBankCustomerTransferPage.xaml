@@ -2,39 +2,204 @@
     x:Class="ZBMS.OtherBankCustomerTransferPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ZBMS"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:ZBMS"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="ms-appx:///Resource/ZBankResource.xaml"/>
+                <ResourceDictionary Source="ms-appx:///Resource/ZBankResource.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
-    
-    <ScrollViewer Margin="20" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" ViewChanged="ScrollViewer_ViewChanged" >
+
+    <ScrollViewer
+        Margin="20"
+        HorizontalScrollBarVisibility="Auto"
+        VerticalScrollBarVisibility="Auto"
+        ViewChanged="ScrollViewer_ViewChanged">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <StackPanel
+                Name="PageTitlePanel"
+                Margin="10,10,0,0"
+                CornerRadius="10">
+                <StackPanel.Background>
+                    <LinearGradientBrush StartPoint="0,0.85" EndPoint="1,0.85">
+                        <GradientStop Offset="0.97" Color="Transparent" />
+                        <GradientStop Offset="0.85" Color="{Binding Color, Source={StaticResource ZBMSAccentColorBrushLight2}}" />
+                    </LinearGradientBrush>
+                </StackPanel.Background>
+
+                <TextBlock
+                    Margin="20,15"
+                    VerticalAlignment="Center"
+                    FontSize="32"
+                    FontWeight="Bold"
+                    Text="Other Bank Transfer Page" />
+            </StackPanel>
+            <StackPanel
+                Grid.Row="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+
+                <Grid
+                    Name="ContentGrid"
+                    Width="350"
+                    Height="600"
+                    Background="{ThemeResource PrimaryBackground}"
+                    CornerRadius="15">
+
+
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition Height="50" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <!--<TextBlock  Name="TitleTextBlock"  Text="Other Bank Transfer"  HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="ExtraBold" FontSize="16" Margin="10" ></TextBlock>-->
+
+                    <StackPanel
+                        Grid.Row="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+
+                        <TextBlock
+                            Name="FromTextBox"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontSize="12"
+                            Text="From :" />
+                        <ComboBox
+                            Name="FromComboBox"
+                            Width="200"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Background="White"
+                            FontSize="12"
+                            ItemsSource="{x:Bind FromUserAccounts}"
+                            PlaceholderText="Select an Account"
+                            Style="{StaticResource NarrowStyleComboBox}" />
+                    </StackPanel>
+
+
+                    <StackPanel
+                        Grid.Row="2"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <TextBlock
+                            Name="ToTextBlock"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontSize="12"
+                            Text="To :" />
+                        <TextBox
+                            Name="ToTextBox"
+                            PlaceholderText="Enter receiver acc number"
+                            Style="{StaticResource NarrowStyleTextBox}" />
+                    </StackPanel>
+
+                    <StackPanel
+                        Grid.Row="3"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <TextBlock
+                            Name="AmountTextBlock"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontSize="12"
+                            Text="Amount:" />
+                        <TextBox
+                            Name="AmountTextBox"
+                            PlaceholderText="Enter amount"
+                            Style="{StaticResource NarrowStyleTextBox}" />
+                    </StackPanel>
+
+                    <StackPanel
+                        Grid.Row="4"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                        <TextBlock
+                            Name="RemarksTextBlock"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontSize="12"
+                            Text="Remarks :" />
+
+                        <TextBox
+                            Name="RemarksTextBox"
+                            PlaceholderText="Short message"
+                            Style="{StaticResource NarrowStyleTextBox}" />
+                    </StackPanel>
+
+                    <TextBlock
+                        Name="ErrorBox"
+                        Grid.Row="5"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontWeight="Bold"
+                        Foreground="Red" />
+
+                    <Grid Grid.Row="6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+
+                        </Grid.ColumnDefinitions>
+
+                        <Button
+                            Name="TransferButton"
+                            Grid.Column="0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Click="TransferButton_Click"
+                            Content="Transfer"
+                            FontSize="16"
+                            Style="{StaticResource PrimaryButtonStyle}" />
+                        <Button
+                            Name="CancelButton"
+                            Grid.Column="2"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Click="CancelButton_Click"
+                            Content="Cancel"
+                            FontSize="16"
+                            Style="{StaticResource SecondaryButtonStyle}" />
+                    </Grid>
+
+                </Grid>
+            </StackPanel>
+        </Grid>
 
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState>
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="700"></AdaptiveTrigger>
+                        <AdaptiveTrigger MinWindowWidth="700" />
                     </VisualState.StateTriggers>
 
                     <VisualState.Setters>
-                        <Setter Target="FromComboBox.FontSize" Value="16"/>
-                        <Setter Target="ToTextBlock.FontSize" Value="16"/>
-                        <Setter Target="FromTextBox.FontSize" Value="16"/>
-                        <Setter Target="AmountTextBlock.FontSize" Value="16"/>
-                        <Setter Target="RemarksTextBlock.FontSize" Value="16"/>
-                        <Setter Target="TransferButton.FontSize" Value="16"/>
-                        <Setter Target="CancelButton.FontSize" Value="16"/>
-                        <Setter Target="ContentGrid.Width" Value="400"/>
-                        <Setter Target="TitleTextBlock.FontSize" Value="20"/>
+                        <Setter Target="FromComboBox.FontSize" Value="16" />
+                        <Setter Target="ToTextBlock.FontSize" Value="16" />
+                        <Setter Target="FromTextBox.FontSize" Value="16" />
+                        <Setter Target="AmountTextBlock.FontSize" Value="16" />
+                        <Setter Target="RemarksTextBlock.FontSize" Value="16" />
+                        <Setter Target="TransferButton.FontSize" Value="16" />
+                        <Setter Target="CancelButton.FontSize" Value="16" />
+                        <Setter Target="ContentGrid.Width" Value="400" />
+                        <!--<Setter Target="TitleTextBlock.FontSize" Value="20"/>-->
 
                         <Setter Target="ToTextBox.Style" Value="{StaticResource WideStyleTextBox}" />
                         <Setter Target="AmountTextBox.Style" Value="{StaticResource WideStyleTextBox}" />
@@ -44,108 +209,5 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" >
-           
-            <Grid Name="ContentGrid" Height="600" Width="350" Background="{ThemeResource PrimaryBackground}" CornerRadius="15">
-
-               
-                
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50"></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition Height="50"></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-
-                <TextBlock  Name="TitleTextBlock"  Text="Other Bank Transfer"  HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="ExtraBold" FontSize="16" Margin="10" ></TextBlock>
-
-                <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-
-                    <TextBlock Name="FromTextBox" Text="From :" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                    <ComboBox 
-                          Name="FromComboBox"
-                          Background="White"
-                         
-                          PlaceholderText="Select an Account"
-                          ItemsSource="{x:Bind FromUserAccounts}" 
-                          FontSize="12"  
-                          Style="{StaticResource NarrowStyleComboBox}"
-                          HorizontalAlignment="Center" 
-                          VerticalAlignment="Center"
-                          Width="200" />
-                </StackPanel>
-               
-
-                <StackPanel Grid.Row="2"  HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Name="ToTextBlock"
-                               Text="To :"
-                               HorizontalAlignment="Left"
-                               VerticalAlignment="Center"
-                               FontSize="12" 
-                               ></TextBlock>
-                    <TextBox Name="ToTextBox"
-                             Style="{StaticResource NarrowStyleTextBox}" 
-                              PlaceholderText="Enter receiver acc number"
-                             ></TextBox>
-                </StackPanel>
-                
-                <StackPanel Grid.Row="3"  HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Name="AmountTextBlock" 
-                               Text="Amount:" 
-                               HorizontalAlignment="Left"
-                               VerticalAlignment="Center"
-                               FontSize="12" 
-                               ></TextBlock>
-                    <TextBox Name="AmountTextBox"
-                             Style="{StaticResource NarrowStyleTextBox}"
-                             PlaceholderText="Enter amount"
-                             ></TextBox>
-                </StackPanel>
-                
-                <StackPanel Grid.Row="4"  HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Name="RemarksTextBlock"
-                               Text="Remarks :" 
-                               HorizontalAlignment="Left"
-                               VerticalAlignment="Center"
-                               FontSize="12" 
-                               ></TextBlock>
-                    
-                    <TextBox Name="RemarksTextBox"
-                             Style="{StaticResource NarrowStyleTextBox}"
-                             PlaceholderText="Short message"
-                             ></TextBox>
-                </StackPanel>
-                
-                <TextBlock Name="ErrorBox" 
-                           Grid.Row="5"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center" 
-                           Foreground="Red" 
-                           FontWeight="Bold"
-                           ></TextBlock>
-
-                <Grid Grid.Row="6">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                       
-                    </Grid.ColumnDefinitions>
-
-                    <Button Name="TransferButton" FontSize="16" Content="Transfer" Style="{StaticResource PrimaryButtonStyle}" Click="TransferButton_Click" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-
-                        
-
-                    </Button>
-                    <Button Name="CancelButton" FontSize="16" Content="Cancel" Click="CancelButton_Click" Style="{StaticResource SecondaryButtonStyle}" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-                       
-                    </Button>
-                </Grid>
-
-            </Grid>
-        </StackPanel>
     </ScrollViewer>
 </Page>

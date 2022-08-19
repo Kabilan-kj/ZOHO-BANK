@@ -47,215 +47,212 @@
             <Style x:Key="WideButton" TargetType="Button" />
         </ResourceDictionary>
     </Page.Resources>
-    <ScrollViewer>
-        <StackPanel>
-            <Grid>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel x:ConnectionId='2'
+            Name="PageTitlePanel"
+            Margin="10,10,0,0"
+            CornerRadius="10">
+            <StackPanel.Background>
+                <LinearGradientBrush StartPoint="0,0.85" EndPoint="1,0.85">
+                    <GradientStop Offset="0.97" Color="Transparent" />
+                    <GradientStop Offset="0.85" Color="{Binding Color, Source={StaticResource ZBMSAccentColorBrushLight2}}" />
+                </LinearGradientBrush>
+            </StackPanel.Background>
 
-                <Grid.RowDefinitions>
-
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition />
-
-                </Grid.RowDefinitions>
-
-
-                <StackPanel x:ConnectionId='2'
-                    Name="ErrorStackPanel"
-                    Grid.RowSpan="2"
-                    Margin="10"
-                    Background="{ThemeResource GridBackGroundColor}"
-                    Visibility="Collapsed">
-
-                    <TextBlock x:ConnectionId='16'
-                        Name="ErrorMessage"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        FontSize="32"
-                        FontWeight="Bold"
-                        Text="No Account Available" />
-
-                    <Button x:ConnectionId='17'
-                        Name="CreateAccountButton"
-                        Margin="10,40,10,10"
-                                                         
-                        Content="Create Account"
-                        Style="{StaticResource PrimaryButtonStyle}" />
-                </StackPanel>
-
-                <StackPanel
-                    Grid.Row="0"
-                    Margin="20"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Background="{StaticResource PrimaryBackground}"
-                    CornerRadius="10">
-                    <ComboBox x:ConnectionId='15'
-                        Name="SelectAccountComboBox"
-                        Width="240"
-                        Height="80"
-                        Margin="40,20"
-                        Background="White"
-                        FontSize="16"
-                        Header="Account Number"
-                                                             
-                        PlaceholderForeground="Gray"
-                        PlaceholderText="Select another account"
-                                                                                  />
-
-                </StackPanel>
-
-                <Grid x:ConnectionId='3'
-                    Name="AccountDetailsGrid"
-                    Grid.Row="1"
-                    Width="300"
-                    Height="500"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Background="{StaticResource PrimaryBackground}"
-                    CornerRadius="10"
-                    Visibility="Collapsed">
+            <TextBlock
+                Margin="20,15"
+                VerticalAlignment="Center"
+                FontSize="32"
+                FontWeight="Bold"
+                Text="Account Details Page" />
+        </StackPanel>
+        <ScrollViewer Grid.Row="1">
+            <StackPanel>
+                <Grid>
 
                     <Grid.RowDefinitions>
 
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
                         <RowDefinition />
 
                     </Grid.RowDefinitions>
 
 
+                    <StackPanel x:ConnectionId='3'
+                        Name="ErrorStackPanel"
+                        Grid.RowSpan="2"
+                        Margin="10"
+                        Background="{ThemeResource GridBackGroundColor}"
+                        Visibility="Collapsed">
+
+                        <TextBlock x:ConnectionId='17'
+                            Name="ErrorMessage"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="32"
+                            FontWeight="Bold"
+                            Text="No Account Available" />
+
+                        <Button x:ConnectionId='18'
+                            Name="CreateAccountButton"
+                            Margin="10,40,10,10"
+                                                             
+                            Content="Create Account"
+                            Style="{StaticResource PrimaryButtonStyle}" />
+                    </StackPanel>
+
                     <StackPanel
                         Grid.Row="0"
-                        Margin="30"
-                        HorizontalAlignment="Left"
+                        Margin="20"
+                        HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Orientation="Horizontal">
-                        <TextBlock x:ConnectionId='13'
-                            Name="AccountNumberTextBlock"
-                            Style="{StaticResource NarrowTextBlock}"
-                            Text=" Account Number :" />
-                        <TextBlock x:ConnectionId='14'
-                            Name="AccountNumberContentTextBlock"
-                            Margin="10,0,0,0"
-                            Style="{StaticResource NarrowContentTextBlock}" />
+                        Background="{StaticResource PrimaryBackground}"
+                        CornerRadius="10">
+                        <ComboBox x:ConnectionId='16'
+                            Name="SelectAccountComboBox"
+                            Width="240"
+                            Height="80"
+                            Margin="40,20"
+                            Background="White"
+                            FontSize="16"
+                            Header="Account Number"
+                                                                 
+                            PlaceholderForeground="Gray"
+                            PlaceholderText="Select another account"
+                                                                                      />
+
                     </StackPanel>
 
-                    <StackPanel
+                    <Grid x:ConnectionId='4'
+                        Name="AccountDetailsGrid"
                         Grid.Row="1"
-                        Margin="30"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Orientation="Horizontal">
-                        <TextBlock x:ConnectionId='11'
-                            Name="AccountTypeTextBlock"
-                            Style="{StaticResource NarrowTextBlock}"
-                            Text="Account Type :" />
-                        <TextBlock x:ConnectionId='12'
-                            Name="AccountTypeContentTextBlock"
-                            Style="{StaticResource NarrowContentTextBlock}"
-                            TextWrapping="Wrap" />
-                    </StackPanel>
-
-                    <StackPanel
-                        Grid.Row="2"
-                        Margin="30"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Orientation="Horizontal">
-                        <TextBlock x:ConnectionId='9'
-                            Name="BranchCodeTextBlock"
-                            Style="{StaticResource NarrowTextBlock}"
-                            Text="Branch Code :" />
-                        <TextBlock x:ConnectionId='10'
-                            Name="BranchCodeContentTextBlock"
-                            Margin="10,0,0,0"
-                            Style="{StaticResource NarrowContentTextBlock}"
-                            TextWrapping="Wrap" />
-                    </StackPanel>
-
-                    <StackPanel
-                        Grid.Row="3"
-                        Margin="30"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Orientation="Horizontal">
-                        <TextBlock x:ConnectionId='7'
-                            Name="BranchTextBlock"
-                            Style="{StaticResource NarrowTextBlock}"
-                            Text="Branch :" />
-                        <TextBlock x:ConnectionId='8'
-                            Name="BranchContentTextBlock"
-                            Margin="10,0,0,0"
-                            Style="{StaticResource NarrowContentTextBlock}"
-                            TextWrapping="Wrap" />
-                    </StackPanel>
-
-                    <Button x:ConnectionId='4'
-                        Name="MoreOptionsButton"
-                        Grid.Row="4"
+                        Width="300"
+                        Height="500"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Content="More Options"
-                        Style="{StaticResource PrimaryButtonStyle}">
-                        <Button.Flyout>
-                            <Flyout>
-                                <StackPanel>
-                                    <Button
-                                        Margin="5"
-                                        HorizontalAlignment="Stretch"
-                                        Content="Delete Account" />
+                        Background="{StaticResource PrimaryBackground}"
+                        CornerRadius="10"
+                        Visibility="Collapsed">
 
-                                    <ToggleSwitch x:ConnectionId='5'
-                                        Name="TriggerButton"
-                                        Header="Trigger Automatic Transaction"
-                                                                        />
+                        <Grid.RowDefinitions>
 
-                                    <Button x:ConnectionId='6'
-                                        Name="LoanPaymentButton"
-                                        Margin="5"
-                                        HorizontalAlignment="Stretch"
-                                                                       
-                                        Content="Pay Loan" />
-                                </StackPanel>
-                            </Flyout>
-                        </Button.Flyout>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
 
-                    </Button>
+                        </Grid.RowDefinitions>
 
-                    <!--<Button
-                        Name="HomeButton"
-                        Grid.Row="5"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Background="White"
-                        Click="HomeButton_Click"
-                        Content=" Go to HomePage"
-                        Foreground="Blue">
-                        <Button.Resources>
-                            <ResourceDictionary>
-                                <ResourceDictionary.ThemeDictionaries>
-                                    <ResourceDictionary x:Key="Dark">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Blue" />
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="White" />
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerPressed" Color="Blue" />
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointePressed" Color="White" />
-                                    </ResourceDictionary>
-                                    <ResourceDictionary x:Key="Light">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Blue" />
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="White" />
-                                    </ResourceDictionary>
-                                </ResourceDictionary.ThemeDictionaries>
-                            </ResourceDictionary>
-                        </Button.Resources>
-                    </Button>-->
+
+                        <StackPanel
+                            Grid.Row="0"
+                            Margin="30"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                            <TextBlock x:ConnectionId='14'
+                                Name="AccountNumberTextBlock"
+                                Style="{StaticResource NarrowTextBlock}"
+                                Text=" Account Number :" />
+                            <TextBlock x:ConnectionId='15'
+                                Name="AccountNumberContentTextBlock"
+                                Margin="10,0,0,0"
+                                Style="{StaticResource NarrowContentTextBlock}" />
+                        </StackPanel>
+
+                        <StackPanel
+                            Grid.Row="1"
+                            Margin="30"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                            <TextBlock x:ConnectionId='12'
+                                Name="AccountTypeTextBlock"
+                                Style="{StaticResource NarrowTextBlock}"
+                                Text="Account Type :" />
+                            <TextBlock x:ConnectionId='13'
+                                Name="AccountTypeContentTextBlock"
+                                Style="{StaticResource NarrowContentTextBlock}"
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+
+                        <StackPanel
+                            Grid.Row="2"
+                            Margin="30"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                            <TextBlock x:ConnectionId='10'
+                                Name="BranchCodeTextBlock"
+                                Style="{StaticResource NarrowTextBlock}"
+                                Text="Branch Code :" />
+                            <TextBlock x:ConnectionId='11'
+                                Name="BranchCodeContentTextBlock"
+                                Margin="10,0,0,0"
+                                Style="{StaticResource NarrowContentTextBlock}"
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+
+                        <StackPanel
+                            Grid.Row="3"
+                            Margin="30"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                            <TextBlock x:ConnectionId='8'
+                                Name="BranchTextBlock"
+                                Style="{StaticResource NarrowTextBlock}"
+                                Text="Branch :" />
+                            <TextBlock x:ConnectionId='9'
+                                Name="BranchContentTextBlock"
+                                Margin="10,0,0,0"
+                                Style="{StaticResource NarrowContentTextBlock}"
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+
+                        <Button x:ConnectionId='5'
+                            Name="MoreOptionsButton"
+                            Grid.Row="4"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Content="More Options"
+                            Style="{StaticResource PrimaryButtonStyle}">
+                            <Button.Flyout>
+                                <Flyout>
+                                    <StackPanel>
+                                        <Button
+                                            Margin="5"
+                                            HorizontalAlignment="Stretch"
+                                            Content="Delete Account" />
+
+                                        <ToggleSwitch x:ConnectionId='6'
+                                            Name="TriggerButton"
+                                            Header="Trigger Automatic Transaction"
+                                                                            />
+
+                                        <Button x:ConnectionId='7'
+                                            Name="LoanPaymentButton"
+                                            Margin="5"
+                                            HorizontalAlignment="Stretch"
+                                                                           
+                                            Content="Pay Loan" />
+                                    </StackPanel>
+                                </Flyout>
+                            </Button.Flyout>
+
+                        </Button>
+
+                    </Grid>
 
                 </Grid>
-
-            </Grid>
-        </StackPanel>
-    </ScrollViewer>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
 </Page>
 

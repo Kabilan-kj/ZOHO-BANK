@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZBMS.Contract;
+using ZBMS.Contract.DataManagerContracts;
 using ZBMS.DataLayer;
 using ZBMS.DomainLayer;
 
@@ -13,7 +15,7 @@ namespace ZBMS.GetDetailedTransactionsDomainLayer
 
         private ICallBack<GetDetailedTransactionsResponse> presenterCallBack;
         private GetDetailedTransactionsRequest request;
-        private GetTransactionsDataManager dataManager;
+        private IGetDetailedTransactionDataManager dataManager;
         private GetDetailedTransactionsUseCaseCallBack useCaseCallBack;
 
         public GetDetailedTransactionsUseCase(GetDetailedTransactionsRequest _request,ICallBack<GetDetailedTransactionsResponse> _presenterCallBack)
@@ -24,8 +26,8 @@ namespace ZBMS.GetDetailedTransactionsDomainLayer
         }
         public override void Action()
         {
-            dataManager = new GetTransactionsDataManager();
-            useCaseCallBack= new GetDetailedTransactionsUseCaseCallBack(this);
+            dataManager = DependencyContainersClass.DependencyContainerObject.GetProvider().GetService(typeof(IGetDetailedTransactionDataManager)) as IGetDetailedTransactionDataManager;
+            useCaseCallBack = new GetDetailedTransactionsUseCaseCallBack(this);
             dataManager.GetDetailedTransaction(request, useCaseCallBack);
         }
 

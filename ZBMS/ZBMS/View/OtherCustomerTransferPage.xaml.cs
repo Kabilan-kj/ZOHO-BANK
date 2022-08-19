@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using ZBMS.ZBMSUtils;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -41,11 +42,11 @@ namespace ZBMS
         public async void GetValues()
         {
             ErrorBox.Visibility = Visibility.Collapsed;
-            UserAccounts = await customerAccountPage.GetUserPaymentAccounts(MainPage.GetCustomerData().CustomerId);
+            UserAccounts = await customerAccountPage.GetUserPaymentAccounts(UserDetails.Customer.CustomerId);
             Accounts = await  customerAccountPage.GetAllPaymentAccounts();
             GetIdList();
-          
         }
+
         private async void SelfTransferFailed(string message)
         {
             MessageDialog showDialog = new MessageDialog(message);

@@ -190,7 +190,7 @@
                         <Grid.Background>
                             <LinearGradientBrush StartPoint="0,0.85" EndPoint="1,0.85">
                                 <GradientStop Offset="0.97" Color="Transparent" />
-                                <GradientStop Offset="0.85" Color="{Binding Color, Source={StaticResource ZBMSAccentColorBrush}}" />
+                                <GradientStop Offset="0.85" Color="{Binding Color, Source={StaticResource ZBMSAccentColorBrushLight2}}" />
                             </LinearGradientBrush>
                         </Grid.Background>
                         <StackPanel
@@ -211,7 +211,7 @@
                                 FontStyle="Italic"
                                 FontWeight="Bold"
                                 Style="{StaticResource NarrowMenuText}"
-                                Text="{x:Bind customer.Name}" />
+                                Text="{x:Bind viewModel.customer.Name}" />
                         </StackPanel>
                         <StackPanel
                             Grid.Row="1"
@@ -263,11 +263,14 @@
                                     Name="SelectAccountComboBox"
                                     Margin="20,10"
                                     FontSize="14"
-                                    ItemsSource="{x:Bind AccountNumbers}"
+                                    ItemsSource="{x:Bind viewModel.AccountNumbers}"
+                                    MaxDropDownHeight="150"
                                     PlaceholderForeground="Gray"
                                     PlaceholderText="Select account"
                                     SelectionChanged="SelectAccountComboBox_SelectionChanged"
                                     Style="{StaticResource NarrowComboBox}" />
+
+
 
                                 <StackPanel Margin="20,0,0,10" Orientation="Vertical">
 
@@ -384,7 +387,6 @@
                                     Name="Filter"
                                     Margin="10,10,30,10"
                                     Background="Transparent"
-                                    Click="Filter_Click"
                                     Content="&#xE16E;"
                                     FontFamily="Segoe MDL2 Assets"
                                     RelativePanel.AlignRightWithPanel="True"
@@ -421,7 +423,7 @@
                                 Margin="0,0,20,0"
                                 VerticalAlignment="Top"
                                 IsItemClickEnabled="False"
-                                ItemsSource="{x:Bind viewmodel.RecentTransactions}"
+                                ItemsSource="{x:Bind viewModel.RecentTransactions}"
                                 SelectionMode="None">
                                 <ListView.ItemTemplate>
                                     <DataTemplate x:DataType="data:ExtendedTransactionDetails">
@@ -533,7 +535,7 @@
                                     Grid.Row="2"
                                     IsItemClickEnabled="True"
                                     ItemClick="ShortcutGrids_ItemClick"
-                                    ItemsSource="{x:Bind ShortcutMenuItems}">
+                                    ItemsSource="{x:Bind viewModel.ShortcutMenuItems}">
                                     <GridView.ItemTemplate>
                                         <DataTemplate x:DataType="local:ShortcutMenuItems">
 
@@ -590,7 +592,7 @@
                                     Name="MoneyTransferGrids"
                                     IsItemClickEnabled="True"
                                     ItemClick="MoneyTransferGrids_ItemClick"
-                                    ItemsSource="{x:Bind MoneyTransferMenuItems}">
+                                    ItemsSource="{x:Bind viewModel.MoneyTransferMenuItems}">
                                     <GridView.ItemTemplate>
                                         <DataTemplate x:DataType="local:ShortcutMenuItems">
 

@@ -317,3 +317,7 @@ C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\obj\x64\Debug\resources.en.res
 C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\obj\x64\Debug\ProjectArchitectures.txt
 C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\obj\x64\Debug\.winmd_cache\$Microsoft.Graphics.Canvas.winmd_637214534760000000.json
 C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\obj\x64\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637424617200000000.json
+C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\obj\x64\Debug\FxResources.Microsoft.Extensions.DependencyInjection.SR.resw
+C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\obj\x64\Debug\FxResources.Microsoft.Extensions.DependencyInjection.Abstractions.SR.resw

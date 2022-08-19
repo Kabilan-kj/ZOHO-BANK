@@ -28,7 +28,11 @@
         TintOpacity="0.5" />
 
 
-    <SolidColorBrush x:Key="ThemeColor" Color="{Binding Color, Source={StaticResource ZBMSAccentColorBrush}}" />
+    <SolidColorBrush x:Key="ThemeColor" Color="{Binding Color, Source={StaticResource ZBMSAccentColorBrushLight1}}" />
+    <SolidColorBrush
+        x:Key="ThemeColorLight"
+        Opacity="5"
+        Color="{Binding Color, Source={StaticResource ZBMSAccentColorBrushLight1}}" />
 
     <SolidColorBrush x:Key="PrimaryThemeColor" Color="LightBlue" />
     <SolidColorBrush x:Key="SecondaryThemeColor" Color="White" />
@@ -433,7 +437,7 @@
                                         </ObjectAnimationUsingKeyFrames>
 
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonForegroundPointerOver}" />
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource BorderColor}" />
                                         </ObjectAnimationUsingKeyFrames>
 
                                     </Storyboard>

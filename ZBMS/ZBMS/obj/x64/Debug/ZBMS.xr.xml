@@ -13,7 +13,6 @@
       <RootProperty Name="MergedDictionaries" />
       <RootProperty Name="Source" />
     </RootType>
-    <RootType FullName="Windows.UI.Color" />
     <RootType FullName="Windows.UI.Xaml.Media.SolidColorBrush">
       <RootProperty Name="Color" />
       <RootProperty Name="Opacity" />
@@ -106,7 +105,6 @@
       <RootProperty Name="Padding" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="FontWeight" />
-      <RootProperty Name="HorizontalContentAlignment" />
       <RootProperty Name="Resources" />
       <RootProperty Name="KeyboardAccelerators" />
       <RootProperty Name="CornerRadius" />
@@ -133,15 +131,16 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="ItemsSource" />
+      <RootProperty Name="MaxDropDownHeight" />
       <RootProperty Name="PlaceholderForeground" />
       <RootProperty Name="PlaceholderText" />
       <RootProperty Name="Style" />
-      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="RenderTransformOrigin" />
       <RootProperty Name="Header" />
-      <RootProperty Name="Background" />
       <RootProperty Name="Width" />
+      <RootProperty Name="Background" />
       <RootProperty Name="Height" />
       <RootEvent Name="SelectionChanged" />
     </RootType>
@@ -163,7 +162,6 @@
       <RootProperty Name="CanContentRenderOutsideBounds" />
       <RootProperty Name="HorizontalScrollBarVisibility" />
       <RootProperty Name="VerticalScrollBarVisibility" />
-      <RootProperty Name="CornerRadius" />
       <RootProperty Name="HorizontalScrollMode" />
       <RootProperty Name="Name" />
       <RootProperty Name="VerticalAlignment" />
@@ -221,9 +219,9 @@
       <RootProperty Name="Source" />
       <RootProperty Name="Stretch" />
       <RootProperty Name="Height" />
+      <RootProperty Name="Margin" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.RelativePanel">
       <RootProperty Name="Name" />
@@ -258,10 +256,9 @@
       <RootProperty Name="ItemTemplate" />
       <RootProperty Name="Name" />
       <RootProperty Name="Items" />
+      <RootProperty Name="ItemContainerStyle" />
       <RootProperty Name="Background" />
       <RootProperty Name="Visibility" />
-      <RootProperty Name="ItemContainerStyle" />
-      <RootProperty Name="CornerRadius" />
       <RootEvent Name="SelectionChanged" />
       <RootEvent Name="ItemClick" />
     </RootType>
@@ -296,24 +293,24 @@
     <RootType FullName="ZBMS.CustomerDashboard" />
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="Name" />
-      <RootProperty Name="Style" />
       <RootProperty Name="PlaceholderText" />
+      <RootProperty Name="Style" />
       <RootProperty Name="Margin" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Background" />
       <RootProperty Name="VerticalContentAlignment" />
       <RootProperty Name="BorderThickness" />
       <RootProperty Name="PlaceholderForeground" />
-      <RootProperty Name="Height" />
       <RootProperty Name="Width" />
+      <RootProperty Name="Height" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="Padding" />
       <RootEvent Name="TextChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.RadioButton">
       <RootProperty Name="Name" />
-      <RootProperty Name="FontSize" />
       <RootProperty Name="Content" />
+      <RootProperty Name="FontSize" />
       <RootProperty Name="GroupName" />
       <RootEvent Name="Checked" />
     </RootType>
@@ -341,12 +338,13 @@
       <RootProperty Name="Template" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Primitives.ListViewItemPresenter">
+      <RootProperty Name="CornerRadius" />
       <RootProperty Name="PointerOverBackground" />
       <RootProperty Name="PressedBackground" />
-      <RootProperty Name="SelectedBackground" />
       <RootProperty Name="SelectedPointerOverBackground" />
       <RootProperty Name="SelectedPressedBackground" />
-      <RootProperty Name="BorderBrush" />
+      <RootProperty Name="SelectedBackground" />
+      <RootProperty Name="SelectedForeground" />
     </RootType>
     <RootType FullName="ZBMS.MenuPage" />
     <RootType FullName="ZBMS.OtherCustomerTransferPage" />

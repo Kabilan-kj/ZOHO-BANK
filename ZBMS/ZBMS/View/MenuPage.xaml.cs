@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using ZBMS.DomainLayer;
 using ZBMS.ViewModel;
+using ZBMS.ZBMSUtils;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -27,16 +28,61 @@ namespace ZBMS
     /// </summary>
     public sealed partial class MenuPage : Page
     {
-        private SolidColorBrush colorBrush = new SolidColorBrush(Colors.Yellow);
-       
-        private CustomerData customer;
-      
+        //private SolidColorBrush colorBrush = new SolidColorBrush(Colors.Yellow);
+        private ListViewItem addedItem = new ListViewItem();
+        private ListViewItem removedItem = new ListViewItem();
+        private ListViewItem previousSelectedItem= new ListViewItem();
 
         public MenuPage()
         {
             this.InitializeComponent();
-            customer= MainPage.GetCustomerData();
+            addedItem = Dashboard;
+            removedItem = Dashboard;
+            EventsUtilsClass.OnPageChanged += UpdateMenuOption;
             ContentFrame.Navigate(typeof(CustomerDashboard));
+
+        }
+
+        private void UpdateMenuOption(MenuOptions name)
+        {
+            switch(name)
+            {
+                case MenuOptions.Dashboard:
+                    MenuOptionsListView.SelectedItem = Dashboard;
+                    break;
+
+                case MenuOptions.SelfTransfer:
+                    MoneyTransferList.SelectedItem = SelfTransfer;
+                    break;
+
+                case MenuOptions.OtherCustomerTransfer:
+                    MoneyTransferList.SelectedItem = OtherCustomer;
+                    break;
+
+                case MenuOptions.OtherBankTransfer:
+                    MoneyTransferList.SelectedItem = OtherBank;
+                    break;
+
+                case MenuOptions.ViewProfile:
+                    ProfileList.SelectedItem = ViewProfile; 
+                    break;
+
+                case MenuOptions.EditProfile:
+                    ProfileList.SelectedItem= EditProfile;
+                    break;
+
+                case MenuOptions.ViewAccount:
+                    AccountsList.SelectedItem = ViewAccount;
+                    break;
+
+                case MenuOptions.ViewTransaction:
+                    AccountsList.SelectedItem= ViewTransaction;
+                    break;
+
+                case MenuOptions.Transactions: 
+                    MenuOptionsListView.SelectedItem= Transactions;
+                    break;
+            }
         }
        
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
@@ -51,164 +97,8 @@ namespace ZBMS
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
-           
-
-            // MainPage.ChangeColor();
-        }
-
-        private void MoneyTransferButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (MoneyTransferList.Visibility == Visibility.Visible)
-            {
-                MoneyTransferList.Visibility = Visibility.Collapsed;
-                Downarrow1.Text = char.ConvertFromUtf32(0xE972);
-
-            }
-            else
-            {
-                MoneyTransferList.Visibility = Visibility.Visible;
-                Downarrow1.Text = char.ConvertFromUtf32(0xE971);
-
-                 AccountsList.Visibility = Visibility.Collapsed;
-                Downarrow2.Text = char.ConvertFromUtf32(0xE972);
-
-                ProfileList.Visibility = Visibility.Collapsed;
-                Downarrow3.Text = char.ConvertFromUtf32(0xE972);
-            }
-        }
-
-        private void ProfileButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (ProfileList.Visibility == Visibility.Visible)
-            {
-                ProfileList.Visibility = Visibility.Collapsed;
-                Downarrow3.Text = char.ConvertFromUtf32(0xE972);
-
-            }
-            else
-            {
-                ProfileList.Visibility = Visibility.Visible;
-                Downarrow3.Text = char.ConvertFromUtf32(0xE971);
-
-                AccountsList.Visibility = Visibility.Collapsed;
-                Downarrow2.Text = char.ConvertFromUtf32(0xE972);
-
-                MoneyTransferList.Visibility = Visibility.Collapsed;
-                Downarrow1.Text = char.ConvertFromUtf32(0xE972);
-            }
-        }
         
-        private void AccountsButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (AccountsList.Visibility == Visibility.Visible)
-            {
-                AccountsList.Visibility = Visibility.Collapsed;
-                Downarrow2.Text = char.ConvertFromUtf32(0xE972);
-
-            }
-            else
-            {
-                AccountsList.Visibility = Visibility.Visible;
-                Downarrow2.Text = char.ConvertFromUtf32(0xE971);
-
-                MoneyTransferList.Visibility = Visibility.Collapsed;
-                Downarrow1.Text = char.ConvertFromUtf32(0xE972);
-
-                ProfileList.Visibility = Visibility.Collapsed;
-                Downarrow3.Text = char.ConvertFromUtf32(0xE972);
-            }
         }
-
-        private void DashboardButton_Click(object sender, RoutedEventArgs e)
-        {
-            MoneyTransferList.Visibility = Visibility.Collapsed;
-            Downarrow1.Text = char.ConvertFromUtf32(0xE972);
-
-            AccountsList.Visibility = Visibility.Collapsed;
-            Downarrow2.Text = char.ConvertFromUtf32(0xE972);
-
-            ProfileList.Visibility = Visibility.Collapsed;
-            Downarrow3.Text = char.ConvertFromUtf32(0xE972);
-
-            ContentFrame.Navigate(typeof(CustomerDashboard));
-
-        }
-
-        private void TransactionsButton_Click(object sender, RoutedEventArgs e)
-        {
-            MoneyTransferList.Visibility = Visibility.Collapsed;
-            Downarrow1.Text = char.ConvertFromUtf32(0xE972);
-
-            AccountsList.Visibility = Visibility.Collapsed;
-            Downarrow2.Text = char.ConvertFromUtf32(0xE972);
-
-            ProfileList.Visibility = Visibility.Collapsed;
-            Downarrow3.Text = char.ConvertFromUtf32(0xE972);
-
-            ViewTransactionsPage.SetSenderId(MainPage.GetCustomerData().CustomerId,TransactionID.CustomerID);
-            ContentFrame.Navigate(typeof(ViewTransactionsPage));
-
-        }
-
-        private void ProfileList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (ViewProfile.IsSelected)
-            {
-                ContentFrame.Navigate(typeof(ViewProfilePage));
-            }
-            if (EditProfile.IsSelected)
-            {
-                ContentFrame.Navigate(typeof(EditProfilePage));
-            }
-        }
-
-        private void AccountsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (ViewTransaction.IsSelected)
-            {
-                ViewTransactionsPage.SetSenderId(customer.CustomerId, TransactionID.CustomerID);
-                ContentFrame.Navigate(typeof(ViewTransactionsPage));
-            }
-
-            if (ViewAccount.IsSelected)
-            {
-                ContentFrame.Navigate(typeof(ViewAccountDetails));
-            }
-        }
-
-        private void MoneyTransferList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (SelfTransfer.IsSelected)
-            {
-                ContentFrame.Navigate(typeof(SelfTransferPage));
-            }
-            if (OtherCustomer.IsSelected)
-            {
-                ContentFrame.Navigate(typeof(OtherCustomerTransferPage));
-            }
-            if (OtherBank.IsSelected)
-            {
-                ContentFrame.Navigate(typeof(OtherBankCustomerTransferPage));
-            }
-        }
-
-        //private void ThemeToggleButton_Toggled(object sender, RoutedEventArgs e)
-        //{
-        //   if (this.RequestedTheme == ElementTheme.Dark)
-        //   {
-        //        this.RequestedTheme = ElementTheme.Light;
-        //        ThemeContent.Text = char.ConvertFromUtf32(0xE706);
-        //   }
-        //    else
-        //    {
-        //        this.RequestedTheme = ElementTheme.Dark;
-        //        ThemeContent.Text = char.ConvertFromUtf32(0xE708);
-        //    }
-
-
-
-        //}
-
         private async void SignOutFunction()
         {
 
@@ -240,29 +130,382 @@ namespace ZBMS
 
 
         }
-
-        private void ColorsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ColorsListView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            if(Red.IsSelected)
+            string selectedColor = ((e.ClickedItem as StackPanel).Parent as ListViewItem).Name.ToString();
+            switch (selectedColor)
             {
-                (Application.Current.Resources["ZBMSAccentColorBrush"] as SolidColorBrush).Color = Colors.Red;
-            }
-            else if(Green.IsSelected)
-            {
-                (Application.Current.Resources["ZBMSAccentColorBrush"] as SolidColorBrush).Color = Colors.Green;
-            }
-            else if(Blue.IsSelected)
-            {
-                (Application.Current.Resources["ZBMSAccentColorBrush"] as SolidColorBrush).Color = Colors.Blue;
-            }
-            else if(Yellow.IsSelected)
-            {
-                (Application.Current.Resources["ZBMSAccentColorBrush"] as SolidColorBrush).Color = Colors.Yellow;
-            }
-            else if(Pink.IsSelected)
-            {
-                (Application.Current.Resources["ZBMSAccentColorBrush"] as SolidColorBrush).Color = Colors.HotPink;
+                case "Red":
+                    (Application.Current.Resources["ZBMSAccentColorBrush"] as SolidColorBrush).Color = Colors.Red;
+                    (Application.Current.Resources["ZBMSAccentColorBrushDark1"] as SolidColorBrush).Color = Colors.DarkRed;
+                    (Application.Current.Resources["ZBMSAccentColorBrushLight1"] as SolidColorBrush).Color = Colors.Red;
+                    (Application.Current.Resources["ZBMSAccentColorBrushLight2"] as SolidColorBrush).Color = Colors.Red;
+                    break;
+
+                case "Green":
+                    (Application.Current.Resources["ZBMSAccentColorBrush"] as SolidColorBrush).Color = Colors.Green;
+                    (Application.Current.Resources["ZBMSAccentColorBrushDark1"] as SolidColorBrush).Color = Colors.DarkGreen;
+                    (Application.Current.Resources["ZBMSAccentColorBrushLight1"] as SolidColorBrush).Color = Colors.Green;
+                    (Application.Current.Resources["ZBMSAccentColorBrushLight2"] as SolidColorBrush).Color = Colors.LightGreen;
+                    break;
+
+                case "Blue":
+                    (Application.Current.Resources["ZBMSAccentColorBrush"] as SolidColorBrush).Color = Colors.Blue;
+                    (Application.Current.Resources["ZBMSAccentColorBrushDark1"] as SolidColorBrush).Color = Colors.DarkBlue;
+                    (Application.Current.Resources["ZBMSAccentColorBrushLight1"] as SolidColorBrush).Color = Colors.Blue;
+                    (Application.Current.Resources["ZBMSAccentColorBrushLight2"] as SolidColorBrush).Color = Colors.DeepSkyBlue;
+                    break;
+
+                case "Pink":
+                    (Application.Current.Resources["ZBMSAccentColorBrush"] as SolidColorBrush).Color = Colors.HotPink;
+                    (Application.Current.Resources["ZBMSAccentColorBrushDark1"] as SolidColorBrush).Color = Colors.HotPink;
+                    (Application.Current.Resources["ZBMSAccentColorBrushLight1"] as SolidColorBrush).Color = Colors.DeepPink;
+                    (Application.Current.Resources["ZBMSAccentColorBrushLight2"] as SolidColorBrush).Color = Colors.Pink;
+                    break;
             }
         }
+
+        private void MoneyTransferSelected()
+        {
+            if (MoneyTransferList.Visibility == Visibility.Visible)
+            {
+                MoneyTransferList.Visibility = Visibility.Collapsed;
+                Downarrow1.Text = char.ConvertFromUtf32(0xE972);
+
+            }
+            else
+            {
+                MoneyTransferList.Visibility = Visibility.Visible;
+                Downarrow1.Text = char.ConvertFromUtf32(0xE971);
+
+            }
+        }
+
+        private void ProfileSelected()
+        {
+            if (ProfileList.Visibility == Visibility.Visible)
+            {
+                ProfileList.Visibility = Visibility.Collapsed;
+                Downarrow3.Text = char.ConvertFromUtf32(0xE972);
+
+            }
+            else
+            {
+                ProfileList.Visibility = Visibility.Visible;
+                Downarrow3.Text = char.ConvertFromUtf32(0xE971);
+
+            }
+        }
+
+        private void AccountsSelected()
+        {
+            if (AccountsList.Visibility == Visibility.Visible)
+            {
+                AccountsList.Visibility = Visibility.Collapsed;
+                Downarrow2.Text = char.ConvertFromUtf32(0xE972);
+
+            }
+            else
+            {
+                AccountsList.Visibility = Visibility.Visible;
+                Downarrow2.Text = char.ConvertFromUtf32(0xE971);
+
+            }
+        }
+
+        private void DashboardSelected()
+        {
+
+            var selectedItem = (AccountsList.SelectedItem as ListViewItem);
+            if (selectedItem != null)
+            {
+                selectedItem.Background = new SolidColorBrush(Colors.Transparent);
+                AccountsList.SelectedItem = null;
+            }
+
+            var selectedItem1 = (ProfileList.SelectedItem as ListViewItem);
+            if (selectedItem1 != null)
+            {
+                selectedItem1.Background = new SolidColorBrush(Colors.Transparent);
+                ProfileList.SelectedItem = null;
+            }
+            var selectedItem2 = (MoneyTransferList.SelectedItem as ListViewItem);
+            if (selectedItem2 != null)
+            {
+                selectedItem2.Background = new SolidColorBrush(Colors.Transparent);
+                MoneyTransferList.SelectedItem = null;
+            }
+
+            addedItem = MenuOptionsListView.SelectedItem as ListViewItem;
+            if (addedItem != null)
+                addedItem.Foreground = new SolidColorBrush(Colors.Green);
+
+            if (removedItem != null)
+                removedItem.Foreground = new SolidColorBrush(Colors.Black);
+
+
+            if (addedItem != removedItem)
+            {
+                removedItem = addedItem;
+                ContentFrame.Navigate(typeof(CustomerDashboard));
+            }
+
+
+        }
+
+
+        private void TransactionSelected()
+        {
+
+            var selectedItem = (AccountsList.SelectedItem as ListViewItem);
+            if (selectedItem != null)
+            {
+                selectedItem.Background = new SolidColorBrush(Colors.Transparent);
+                AccountsList.SelectedItem = null;
+            }
+
+            var selectedItem1 = (ProfileList.SelectedItem as ListViewItem);
+            if (selectedItem1 != null)
+            {
+                selectedItem1.Background = new SolidColorBrush(Colors.Transparent);
+                ProfileList.SelectedItem = null;
+            }
+            var selectedItem2 = (MoneyTransferList.SelectedItem as ListViewItem);
+            if (selectedItem2 != null)
+            {
+                selectedItem2.Background = new SolidColorBrush(Colors.Transparent);
+                MoneyTransferList.SelectedItem = null;
+            }
+
+            addedItem = MenuOptionsListView.SelectedItem as ListViewItem;
+            if (addedItem != null)
+                addedItem.Foreground = new SolidColorBrush(Colors.Green);
+
+            if (removedItem != null)
+                removedItem.Foreground = new SolidColorBrush(Colors.Black);
+
+
+            if (addedItem != removedItem)
+            {
+                removedItem = addedItem;
+
+                ViewTransactionsPage.SetSenderId(UserDetails.Customer.CustomerId, TransactionID.CustomerID);
+                ContentFrame.Navigate(typeof(ViewTransactionsPage));
+            }
+           
+
+        }
+
+        private void ProfileList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var newitem = ((sender as ListView).Parent as StackPanel).Parent as ListViewItem;
+
+            if (addedItem != newitem)
+            {
+                addedItem = newitem;
+
+                if (addedItem != null)
+                    addedItem.Foreground = new SolidColorBrush(Colors.Green);
+
+                if (removedItem != null)
+                    removedItem.Foreground = new SolidColorBrush(Colors.Black);
+
+                removedItem = addedItem;
+            }
+
+            var selectedItem = (MoneyTransferList.SelectedItem as ListViewItem);
+            if (selectedItem != null)
+            {
+                selectedItem.Background = new SolidColorBrush(Colors.Transparent);
+                MoneyTransferList.SelectedItem = null;
+            }
+
+            var selectedItem1 = (AccountsList.SelectedItem as ListViewItem);
+            if (selectedItem1 != null)
+            {
+                selectedItem1.Background = new SolidColorBrush(Colors.Transparent);
+                AccountsList.SelectedItem = null;
+            }
+            var selectedItem2 = ProfileList.SelectedItem as ListViewItem;
+            if(selectedItem2 != null)
+            {
+                selectedItem2.Background = new SolidColorBrush(Colors.LightGreen);
+                
+                if (previousSelectedItem != null && previousSelectedItem != selectedItem2)
+                {
+                    previousSelectedItem.Background = new SolidColorBrush(Colors.Transparent);
+                }
+                previousSelectedItem = selectedItem2;
+            }
+
+
+            if (ViewProfile.IsSelected)
+            {
+                ContentFrame.Navigate(typeof(ViewProfilePage));
+            }
+            if (EditProfile.IsSelected)
+            {
+                ContentFrame.Navigate(typeof(EditProfilePage));
+            }
+
+        }
+
+        private void AccountsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            var newitem = ((sender as ListView).Parent as StackPanel).Parent as ListViewItem;
+
+            if (addedItem != newitem)
+            {
+                addedItem = newitem;
+
+                if (addedItem != null)
+                    addedItem.Foreground = new SolidColorBrush(Colors.Green);
+
+                if (removedItem != null)
+                    removedItem.Foreground = new SolidColorBrush(Colors.Black);
+
+                removedItem = addedItem;
+            }
+
+            var selectedItem = (MoneyTransferList.SelectedItem as ListViewItem);
+            if (selectedItem != null)
+            {
+                selectedItem.Background = new SolidColorBrush(Colors.Transparent);
+               MoneyTransferList.SelectedItem = null;
+            }
+
+            var selectedItem1 = (ProfileList.SelectedItem as ListViewItem);
+            if (selectedItem1 != null)
+            {
+                selectedItem1.Background = new SolidColorBrush(Colors.Transparent);
+                ProfileList.SelectedItem = null;
+            }
+
+            var selectedItem2 = AccountsList.SelectedItem as ListViewItem;  
+            if(selectedItem2 != null)
+            {
+                selectedItem2.Background = new SolidColorBrush(Colors.LightGreen);
+                
+                if (previousSelectedItem != null && previousSelectedItem != selectedItem2)
+                {
+                    previousSelectedItem.Background = new SolidColorBrush(Colors.Transparent);
+                }
+                previousSelectedItem = selectedItem2;
+            }
+
+            if (ViewTransaction.IsSelected)
+            {
+                ViewTransactionsPage.SetSenderId(UserDetails.Customer.CustomerId, TransactionID.CustomerID);
+                ContentFrame.Navigate(typeof(ViewTransactionsPage));
+            }
+
+            if (ViewAccount.IsSelected)
+            {
+                ContentFrame.Navigate(typeof(ViewAccountDetails));
+            }
+
+        }
+
+        private void MoneyTransferList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            var newitem = ((sender as ListView).Parent as StackPanel).Parent as ListViewItem;
+
+            if (addedItem != newitem)
+            {
+                addedItem = newitem;
+
+                if (addedItem != null)
+                    addedItem.Foreground = new SolidColorBrush(Colors.Green);
+
+                if (removedItem != null)
+                    removedItem.Foreground = new SolidColorBrush(Colors.Black);
+
+                removedItem = addedItem;
+            }
+
+            var selectedItem = (AccountsList.SelectedItem as ListViewItem);
+            if (selectedItem != null)
+            {
+                selectedItem.Background = new SolidColorBrush(Colors.Transparent);
+                AccountsList.SelectedItem = null;
+            }
+
+            var selectedItem1 = (ProfileList.SelectedItem as ListViewItem);
+            if (selectedItem1 != null)
+            {
+                selectedItem1.Background = new SolidColorBrush(Colors.Transparent);
+                ProfileList.SelectedItem = null;
+            }
+             var selectedItem2 = MoneyTransferList.SelectedItem as ListViewItem;    
+            if(selectedItem2 != null)
+            {
+                selectedItem2.Background = new SolidColorBrush(Colors.LightGreen); 
+               
+                if(previousSelectedItem != null && previousSelectedItem!=selectedItem2)
+                {
+                    previousSelectedItem.Background = new SolidColorBrush(Colors.Transparent);
+                }
+                previousSelectedItem = selectedItem2;
+            }
+
+            var moneyTransferIndex = MoneyTransferList.SelectedIndex;
+            switch (moneyTransferIndex)
+            {
+                case 0:
+                    ContentFrame.Navigate(typeof(SelfTransferPage));
+                    break;
+
+                case 1:
+                    ContentFrame.Navigate(typeof(OtherCustomerTransferPage));
+                    break;
+
+                case 2:
+                    ContentFrame.Navigate(typeof(OtherBankCustomerTransferPage));
+                    break;
+            }
+
+            
+
+
+        }
+
+        private void MenuOptionsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var index = MenuOptionsListView.SelectedIndex;
+
+            switch (index)
+            {
+                case 0:
+                   
+                    DashboardSelected();
+                    break;
+
+                case 1:
+                    MoneyTransferSelected();
+                    break;
+
+                case 2:
+                    AccountsSelected();
+                    
+
+                    break;
+
+                case 3:
+                    ProfileSelected();
+                   
+                    break;
+
+                case 4:
+                    if (addedItem == removedItem)
+                        TransactionSelected();
+                    break;
+            }
+             MenuOptionsListView.SelectedItem = null;
+        }
+
+
     }
 }
+ 

@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using ZBMS.ZBMSUtils;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -81,10 +82,10 @@ namespace ZBMS
             if (VerifyAccountCreation())
             {
                 DBAccountData dbAccount = new DBAccountData();
-                dbAccount.TypeofAccount = AccountTypeList[AccountTypeComboBox.SelectedItem.ToString()].ToString();// AccountTypeComboBox.SelectedItem.ToString();
+                dbAccount.TypeofAccount = AccountTypeList[AccountTypeComboBox.SelectedItem.ToString()].ToString();
                 dbAccount.Balance = Convert.ToDouble(AmountTextBox.Text);
                 dbAccount.BranchCode = BranchCodeComboBox.SelectedItem.ToString();
-                dbAccount.CustomerId = MainPage.GetCustomerData().CustomerId;
+                dbAccount.CustomerId = UserDetails.Customer.CustomerId;
                 if (TenureComboBox.SelectedItem != null)
                 {
                     dbAccount.Tenure = Convert.ToInt32(TenureComboBox.SelectedItem.ToString());

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZBMS.Contract;
 using ZBMS.DomainLayer;
 using ZBMS.FilterTransactionsUseCase.DataLayer;
 
@@ -22,7 +23,7 @@ namespace ZBMS.FilterTransactionsUseCase.DomainLayer
         }
         public override void Action()
         {
-            dataManager = new FilterTransactionsDataManager();
+            dataManager = DependencyContainersClass.DependencyContainerObject.GetProvider().GetService(typeof(IFilterTransactionsDataManager)) as IFilterTransactionsDataManager;
             useCaseCallBack = new FilterTransactionsUseCaseCallBack(this);
             dataManager.GetData(request, useCaseCallBack);
         }

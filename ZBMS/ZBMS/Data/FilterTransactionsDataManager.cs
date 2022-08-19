@@ -13,7 +13,7 @@ namespace ZBMS.FilterTransactionsUseCase.DataLayer
         private FilterTransactionsResponse response = new FilterTransactionsResponse();
         private GetTransactionsDBHandler dbHandler;
 
-        public FilterTransactionsResponse GetData(FilterTransactionsRequest request, ICallBack<FilterTransactionsResponse> callBack)
+        public void GetData(FilterTransactionsRequest request, ICallBack<FilterTransactionsResponse> callBack)
         {
             dbHandler= new GetTransactionsDBHandler();
             
@@ -35,7 +35,7 @@ namespace ZBMS.FilterTransactionsUseCase.DataLayer
             {
                 callBack.OnFailure();
             }
-            return response;
+            
         }
     }
 }

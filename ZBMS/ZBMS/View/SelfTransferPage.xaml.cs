@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using DataModule.AccountDetails;
 using Windows.UI.Popups;
+using ZBMS.ZBMSUtils;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -40,7 +41,7 @@ namespace ZBMS
 
         private async void GetValues()
         {
-            UserAccounts = await customerAccountPage.GetUserPaymentAccounts(MainPage.GetCustomerData().CustomerId);
+            UserAccounts = await customerAccountPage.GetUserPaymentAccounts(UserDetails.Customer.CustomerId);
             if (UserAccounts.Count > 1)
                 GetIdList();
             else

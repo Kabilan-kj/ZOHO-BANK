@@ -47,214 +47,211 @@
             <Style x:Key="WideButton" TargetType="Button" />
         </ResourceDictionary>
     </Page.Resources>
-    <ScrollViewer>
-        <StackPanel>
-            <Grid>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel
+            Name="PageTitlePanel"
+            Margin="10,10,0,0"
+            CornerRadius="10">
+            <StackPanel.Background>
+                <LinearGradientBrush StartPoint="0,0.85" EndPoint="1,0.85">
+                    <GradientStop Offset="0.97" Color="Transparent" />
+                    <GradientStop Offset="0.85" Color="{Binding Color, Source={StaticResource ZBMSAccentColorBrushLight2}}" />
+                </LinearGradientBrush>
+            </StackPanel.Background>
 
-                <Grid.RowDefinitions>
-
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition />
-
-                </Grid.RowDefinitions>
-
-
-                <StackPanel
-                    Name="ErrorStackPanel"
-                    Grid.RowSpan="2"
-                    Margin="10"
-                    Background="{ThemeResource GridBackGroundColor}"
-                    Visibility="Collapsed">
-
-                    <TextBlock
-                        Name="ErrorMessage"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        FontSize="32"
-                        FontWeight="Bold"
-                        Text="No Account Available" />
-
-                    <Button
-                        Name="CreateAccountButton"
-                        Margin="10,40,10,10"
-                        Click="CreateAccountButton_Click"
-                        Content="Create Account"
-                        Style="{StaticResource PrimaryButtonStyle}" />
-                </StackPanel>
-
-                <StackPanel
-                    Grid.Row="0"
-                    Margin="20"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Background="{StaticResource PrimaryBackground}"
-                    CornerRadius="10">
-                    <ComboBox
-                        Name="SelectAccountComboBox"
-                        Width="240"
-                        Height="80"
-                        Margin="40,20"
-                        Background="White"
-                        FontSize="16"
-                        Header="Account Number"
-                        ItemsSource="{x:Bind AccountNumbers}"
-                        PlaceholderForeground="Gray"
-                        PlaceholderText="Select another account"
-                        SelectionChanged="SelectAccountComboBox_SelectionChanged" />
-
-                </StackPanel>
-
-                <Grid
-                    Name="AccountDetailsGrid"
-                    Grid.Row="1"
-                    Width="300"
-                    Height="500"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Background="{StaticResource PrimaryBackground}"
-                    CornerRadius="10"
-                    Visibility="Collapsed">
+            <TextBlock
+                Margin="20,15"
+                VerticalAlignment="Center"
+                FontSize="32"
+                FontWeight="Bold"
+                Text="Account Details Page" />
+        </StackPanel>
+        <ScrollViewer Grid.Row="1">
+            <StackPanel>
+                <Grid>
 
                     <Grid.RowDefinitions>
 
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
                         <RowDefinition />
 
                     </Grid.RowDefinitions>
 
 
                     <StackPanel
+                        Name="ErrorStackPanel"
+                        Grid.RowSpan="2"
+                        Margin="10"
+                        Background="{ThemeResource GridBackGroundColor}"
+                        Visibility="Collapsed">
+
+                        <TextBlock
+                            Name="ErrorMessage"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="32"
+                            FontWeight="Bold"
+                            Text="No Account Available" />
+
+                        <Button
+                            Name="CreateAccountButton"
+                            Margin="10,40,10,10"
+                            Click="CreateAccountButton_Click"
+                            Content="Create Account"
+                            Style="{StaticResource PrimaryButtonStyle}" />
+                    </StackPanel>
+
+                    <StackPanel
                         Grid.Row="0"
-                        Margin="30"
-                        HorizontalAlignment="Left"
+                        Margin="20"
+                        HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Orientation="Horizontal">
-                        <TextBlock
-                            Name="AccountNumberTextBlock"
-                            Style="{StaticResource NarrowTextBlock}"
-                            Text=" Account Number :" />
-                        <TextBlock
-                            Name="AccountNumberContentTextBlock"
-                            Margin="10,0,0,0"
-                            Style="{StaticResource NarrowContentTextBlock}" />
+                        Background="{StaticResource PrimaryBackground}"
+                        CornerRadius="10">
+                        <ComboBox
+                            Name="SelectAccountComboBox"
+                            Width="240"
+                            Height="80"
+                            Margin="40,20"
+                            Background="White"
+                            FontSize="16"
+                            Header="Account Number"
+                            ItemsSource="{x:Bind AccountNumbers}"
+                            PlaceholderForeground="Gray"
+                            PlaceholderText="Select another account"
+                            SelectionChanged="SelectAccountComboBox_SelectionChanged" />
+
                     </StackPanel>
 
-                    <StackPanel
+                    <Grid
+                        Name="AccountDetailsGrid"
                         Grid.Row="1"
-                        Margin="30"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Orientation="Horizontal">
-                        <TextBlock
-                            Name="AccountTypeTextBlock"
-                            Style="{StaticResource NarrowTextBlock}"
-                            Text="Account Type :" />
-                        <TextBlock
-                            Name="AccountTypeContentTextBlock"
-                            Style="{StaticResource NarrowContentTextBlock}"
-                            TextWrapping="Wrap" />
-                    </StackPanel>
-
-                    <StackPanel
-                        Grid.Row="2"
-                        Margin="30"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Orientation="Horizontal">
-                        <TextBlock
-                            Name="BranchCodeTextBlock"
-                            Style="{StaticResource NarrowTextBlock}"
-                            Text="Branch Code :" />
-                        <TextBlock
-                            Name="BranchCodeContentTextBlock"
-                            Margin="10,0,0,0"
-                            Style="{StaticResource NarrowContentTextBlock}"
-                            TextWrapping="Wrap" />
-                    </StackPanel>
-
-                    <StackPanel
-                        Grid.Row="3"
-                        Margin="30"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Orientation="Horizontal">
-                        <TextBlock
-                            Name="BranchTextBlock"
-                            Style="{StaticResource NarrowTextBlock}"
-                            Text="Branch :" />
-                        <TextBlock
-                            Name="BranchContentTextBlock"
-                            Margin="10,0,0,0"
-                            Style="{StaticResource NarrowContentTextBlock}"
-                            TextWrapping="Wrap" />
-                    </StackPanel>
-
-                    <Button
-                        Name="MoreOptionsButton"
-                        Grid.Row="4"
+                        Width="300"
+                        Height="500"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Content="More Options"
-                        Style="{StaticResource PrimaryButtonStyle}">
-                        <Button.Flyout>
-                            <Flyout>
-                                <StackPanel>
-                                    <Button
-                                        Margin="5"
-                                        HorizontalAlignment="Stretch"
-                                        Content="Delete Account" />
+                        Background="{StaticResource PrimaryBackground}"
+                        CornerRadius="10"
+                        Visibility="Collapsed">
 
-                                    <ToggleSwitch
-                                        Name="TriggerButton"
-                                        Header="Trigger Automatic Transaction"
-                                        Toggled="TriggerButton_Toggled" />
+                        <Grid.RowDefinitions>
 
-                                    <Button
-                                        Name="LoanPaymentButton"
-                                        Margin="5"
-                                        HorizontalAlignment="Stretch"
-                                        Click="LoanPaymentButton_Click"
-                                        Content="Pay Loan" />
-                                </StackPanel>
-                            </Flyout>
-                        </Button.Flyout>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
 
-                    </Button>
+                        </Grid.RowDefinitions>
 
-                    <!--<Button
-                        Name="HomeButton"
-                        Grid.Row="5"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Background="White"
-                        Click="HomeButton_Click"
-                        Content=" Go to HomePage"
-                        Foreground="Blue">
-                        <Button.Resources>
-                            <ResourceDictionary>
-                                <ResourceDictionary.ThemeDictionaries>
-                                    <ResourceDictionary x:Key="Dark">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Blue" />
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="White" />
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerPressed" Color="Blue" />
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointePressed" Color="White" />
-                                    </ResourceDictionary>
-                                    <ResourceDictionary x:Key="Light">
-                                        <SolidColorBrush x:Key="ButtonForegroundPointerOver" Color="Blue" />
-                                        <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="White" />
-                                    </ResourceDictionary>
-                                </ResourceDictionary.ThemeDictionaries>
-                            </ResourceDictionary>
-                        </Button.Resources>
-                    </Button>-->
+
+                        <StackPanel
+                            Grid.Row="0"
+                            Margin="30"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                            <TextBlock
+                                Name="AccountNumberTextBlock"
+                                Style="{StaticResource NarrowTextBlock}"
+                                Text=" Account Number :" />
+                            <TextBlock
+                                Name="AccountNumberContentTextBlock"
+                                Margin="10,0,0,0"
+                                Style="{StaticResource NarrowContentTextBlock}" />
+                        </StackPanel>
+
+                        <StackPanel
+                            Grid.Row="1"
+                            Margin="30"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                            <TextBlock
+                                Name="AccountTypeTextBlock"
+                                Style="{StaticResource NarrowTextBlock}"
+                                Text="Account Type :" />
+                            <TextBlock
+                                Name="AccountTypeContentTextBlock"
+                                Style="{StaticResource NarrowContentTextBlock}"
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+
+                        <StackPanel
+                            Grid.Row="2"
+                            Margin="30"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                            <TextBlock
+                                Name="BranchCodeTextBlock"
+                                Style="{StaticResource NarrowTextBlock}"
+                                Text="Branch Code :" />
+                            <TextBlock
+                                Name="BranchCodeContentTextBlock"
+                                Margin="10,0,0,0"
+                                Style="{StaticResource NarrowContentTextBlock}"
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+
+                        <StackPanel
+                            Grid.Row="3"
+                            Margin="30"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                            <TextBlock
+                                Name="BranchTextBlock"
+                                Style="{StaticResource NarrowTextBlock}"
+                                Text="Branch :" />
+                            <TextBlock
+                                Name="BranchContentTextBlock"
+                                Margin="10,0,0,0"
+                                Style="{StaticResource NarrowContentTextBlock}"
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+
+                        <Button
+                            Name="MoreOptionsButton"
+                            Grid.Row="4"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Content="More Options"
+                            Style="{StaticResource PrimaryButtonStyle}">
+                            <Button.Flyout>
+                                <Flyout>
+                                    <StackPanel>
+                                        <Button
+                                            Margin="5"
+                                            HorizontalAlignment="Stretch"
+                                            Content="Delete Account" />
+
+                                        <ToggleSwitch
+                                            Name="TriggerButton"
+                                            Header="Trigger Automatic Transaction"
+                                            Toggled="TriggerButton_Toggled" />
+
+                                        <Button
+                                            Name="LoanPaymentButton"
+                                            Margin="5"
+                                            HorizontalAlignment="Stretch"
+                                            Click="LoanPaymentButton_Click"
+                                            Content="Pay Loan" />
+                                    </StackPanel>
+                                </Flyout>
+                            </Button.Flyout>
+
+                        </Button>
+
+                    </Grid>
 
                 </Grid>
-
-            </Grid>
-        </StackPanel>
-    </ScrollViewer>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
 </Page>

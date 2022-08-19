@@ -78,7 +78,6 @@ namespace ZBMS.DataLayer
 
                 }
 
-
                 return transaction;
 
             }
@@ -100,7 +99,7 @@ namespace ZBMS.DataLayer
             {
                 connection = dbAdapter.GetConnection();
                 connection.Open();
-                string cmd = "Select * from transactiondetails  ORDER BY autoIncrementID DESC ; ";
+                string cmd = $"Select * from transactiondetails s  join AccountData a on a.accountnumber = s.senderid  join customerdata c on  a.accountnumber = s.senderid  and a.customerid = c.customerid  join AccountData a1 on a1.accountnumber = s.receiverid  join customerdata d on  a1.accountnumber = s.receiverid  and a1.customerid = d.customerid  where d.customerid = '{id}' or c.customerid='{id}'  ORDER BY s.autoIncrementID DESC ;  ";
                 SqliteCommand GetRecord = new SqliteCommand(cmd, connection);
                 SqliteDataReader reader = GetRecord.ExecuteReader();
 

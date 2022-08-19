@@ -69,7 +69,7 @@
     <Grid Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <!--<RowDefinition Height="Auto" />-->
             <RowDefinition />
         </Grid.RowDefinitions>
 
@@ -86,7 +86,7 @@
             <StackPanel.Background>
                 <LinearGradientBrush StartPoint="0,0.85" EndPoint="1,0.85">
                     <GradientStop Offset="0.97" Color="Transparent" />
-                    <GradientStop Offset="0.85" Color="{Binding Color, Source={StaticResource ZBMSAccentColorBrush}}" />
+                    <GradientStop Offset="0.85" Color="{Binding Color, Source={StaticResource ZBMSAccentColorBrushLight2}}" />
                 </LinearGradientBrush>
             </StackPanel.Background>
 
@@ -98,7 +98,7 @@
                 Text="Transactions Page" />
         </StackPanel>
 
-        <RelativePanel
+        <!--<RelativePanel
             Grid.Row="1"
             Margin="10"
             Background="{ThemeResource GridBackGroundColor}"
@@ -114,15 +114,17 @@
                 RelativePanel.AlignVerticalCenterWithPanel="True"
                 Style="{StaticResource NarrowButton}" />
 
-        </RelativePanel>
+        </RelativePanel>-->
 
         <Grid
             Name="ContentGrid"
-            Grid.Row="2"
-            Margin="10,0,10,10"
-            Background="Transparent">
+            Grid.Row="1"
+            Margin="10,10,10,10"
+            Background="{ThemeResource GridBackGroundColor}"
+            CornerRadius="10">
 
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
                 <RowDefinition />
             </Grid.RowDefinitions>
 
@@ -136,32 +138,42 @@
                 Text="No Transactions Available"
                 Visibility="Collapsed" />
 
-            <Grid Name="TransactionsListViewGrid" Background="Transparent">
+            <RelativePanel
+                Grid.Row="0"
+                Margin="10"
+                Background="{ThemeResource GridBackGroundColor}"
+                CornerRadius="10">
+                <Button
+                    Name="ChangeViewButton"
+                    Margin="10"
+                    Padding="5"
+                    Click="ChangeViewButton_Click"
+                    Content="Change View"
+                    FontSize="16"
+                    RelativePanel.AlignRightWithPanel="True"
+                    RelativePanel.AlignVerticalCenterWithPanel="True"
+                    Style="{StaticResource NarrowButton}" />
+
+            </RelativePanel>
+
+            <Grid
+                Name="TransactionsListViewGrid"
+                Grid.Row="1"
+                Background="Transparent">
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
-
-
-                <!--
-                    PressedBackground="LightGray"
-                    SelectedBackground="{StaticResource ThemeColor}"
-                    SelectedPointerOverBackground="{StaticResource ThemeColor}"
-                    SelectedPressedBackground="{StaticResource ThemeColor}"
-                -->
-
-
-
                 <ScrollViewer
-                    CornerRadius="10"
+                    Margin="5"
                     HorizontalScrollBarVisibility="Auto"
                     HorizontalScrollMode="Auto">
                     <ListView
                         Name="TransactionList"
+                        Margin="10"
                         Background="{ThemeResource GridBackGroundColor}"
-                        CornerRadius="10"
                         IsItemClickEnabled="True"
                         ItemsSource="{x:Bind viewModel.TransactionsList}"
                         SelectionChanged="TransactionList_SelectionChanged"
@@ -174,11 +186,12 @@
                                     <Setter.Value>
                                         <ControlTemplate TargetType="ListViewItem">
                                             <ListViewItemPresenter
+                                                CornerRadius="10"
                                                 PointerOverBackground="LightGray"
                                                 PressedBackground="LightGray"
-                                                SelectedBackground="{StaticResource ThemeColor}"
-                                                SelectedPointerOverBackground="{StaticResource ThemeColor}"
-                                                SelectedPressedBackground="{StaticResource ThemeColor}" />
+                                                SelectedBackground="DarkGray"
+                                                SelectedPointerOverBackground="DarkGray"
+                                                SelectedPressedBackground="DarkGray" />
                                         </ControlTemplate>
                                     </Setter.Value>
                                 </Setter>
@@ -190,7 +203,8 @@
                                 <Grid
                                     Name="TransactionListViewGrid"
                                     MinWidth="600"
-                                    Margin="5">
+                                    Margin="5"
+                                    CornerRadius="10">
 
                                     <Grid.RowDefinitions>
                                         <RowDefinition />
@@ -309,7 +323,7 @@
                 <Button
                     Name="DetailedTransactionsCloseButton"
                     Grid.Column="1"
-                    Margin="0,0,10,0"
+                    Margin="0,10,10,0"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Top"
                     Background="Transparent"
@@ -332,8 +346,10 @@
                     <Grid
                         Width="350"
                         Height="700"
-                        Margin="10,0,0,0"
+                        Margin="10"
                         Background="{ThemeResource GridBackGroundColor}"
+                        BorderBrush="{StaticResource BorderColor}"
+                        BorderThickness="1"
                         CornerRadius="10">
                         <Grid.RowDefinitions>
                             <RowDefinition />
@@ -475,6 +491,7 @@
 
             <GridView
                 Name="TransactionsGridView"
+                Grid.Row="1"
                 Margin="10"
                 Background="{ThemeResource GridBackGroundColor}"
                 CornerRadius="10"
@@ -499,15 +516,16 @@
                             Height="150"
                             Margin="0,5"
                             Background="{ThemeResource GridBackGroundColor}"
-                            BorderBrush="{StaticResource ThemeColor}"
-                            BorderThickness="1,0,0,0"
+                            BorderBrush="{StaticResource BorderColor}"
+                            BorderThickness="1"
+                            CornerRadius="10"
                             PointerEntered="TransactionsGridViewOuterGrid_PointerEntered"
                             PointerExited="TransactionsGridViewOuterGrid_PointerExited">
 
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
-                                <RowDefinition Height="1*" />
-                                <RowDefinition Height="3*" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="3*" />
@@ -565,11 +583,10 @@
                                     Text="{x:Bind IconString}" />
                             </StackPanel>
 
-
                             <StackPanel
                                 Name="ContentStackPanel"
                                 Grid.Row="2"
-                                Margin="5,5,5,5"
+                                Margin="5,15,5,5"
                                 VerticalAlignment="Top"
                                 Orientation="Vertical">
 
@@ -603,7 +620,7 @@
                                     <TextBlock
                                         Name="ReceiverNameTextBlock"
                                         Style="{StaticResource NarrowBoldTextBlock}"
-                                        Text="Receiver Name:" />
+                                        Text="Received By:" />
 
                                     <TextBlock
                                         Name="ReceiverNameValueTextBlock"
@@ -629,7 +646,7 @@
                                     <TextBlock
                                         Name="StatusTextBlock"
                                         Style="{StaticResource NarrowBoldTextBlock}"
-                                        Text="Type:" />
+                                        Text="Transaction Type:" />
 
                                     <TextBlock
                                         Name="StatusValueTextBlock"
@@ -667,12 +684,11 @@
                             <Setter.Value>
                                 <ControlTemplate TargetType="GridViewItem">
                                     <ListViewItemPresenter
-                                        BorderBrush="Red"
-                                        PointerOverBackground="LightGray"
-                                        PressedBackground="LightGray"
-                                        SelectedBackground="{StaticResource ThemeColor}"
-                                        SelectedPointerOverBackground="{StaticResource ThemeColor}"
-                                        SelectedPressedBackground="{StaticResource ThemeColor}" />
+                                        PointerOverBackground="Transparent"
+                                        PressedBackground="Transparent"
+                                        SelectedBackground="Transparent"
+                                        SelectedPointerOverBackground="Transparent"
+                                        SelectedPressedBackground="Transparent" />
                                 </ControlTemplate>
                             </Setter.Value>
                         </Setter>

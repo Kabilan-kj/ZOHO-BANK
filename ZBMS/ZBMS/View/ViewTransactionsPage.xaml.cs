@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -18,6 +19,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using ZBMS.Contract;
+using ZBMS.Contract.ViewModelBase;
 using ZBMS.DomainLayer;
 using ZBMS.Models;
 using ZBMS.PresentationLayer;
@@ -29,9 +32,9 @@ namespace ZBMS
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class ViewTransactionsPage : Page
+    public sealed partial class ViewTransactionsPage : Page, ITransactionsPageView
     {
-       private TransactionsPageViewModel viewModel;
+       private TransactionsPageViewModelBase viewModel;
        private static  string Id;
        private static TransactionID transactionId;
         private Grid previousSelectedGrid;
@@ -64,6 +67,11 @@ namespace ZBMS
             }
             
         }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            //if()
+        }
+
 
         public static void SetSenderId(string id, TransactionID _transactionId)
         {
@@ -75,10 +83,9 @@ namespace ZBMS
         {
             ErrorMessage.Visibility = Visibility.Visible; 
         }
-
-        private void TransactionGrids_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        CoreDispatcher ITransactionsPageView.Dispatcher
         {
-
+            get { return this.Dispatcher; }
         }
 
         public void  UpdateListViewSelectedTransaction(ExtendedTransactionDetails transaction)
@@ -132,40 +139,47 @@ namespace ZBMS
             }
         }
 
-        private void TransactionList_PointerEntered(object sender, PointerRoutedEventArgs e)
-        {
-
-        }
-
         private void TransactionsGridViewOuterGrid_PointerEntered(object sender, PointerRoutedEventArgs e)
         {
-            //var grid1 = sender as Grid;
-            //var Panel1 = (StackPanel)grid1.FindName("NormalSenderDetails");
-            //var Panel2 = (StackPanel)grid1.FindName("ExpandedSenderDetails");
-            //var Panel3 = (StackPanel)grid1.FindName("NormalReceiverDetails");
-            //var Panel4 = (StackPanel)grid1.FindName("ExpandedReceiverDetails");
 
-            //Panel1.Visibility = Visibility.Collapsed;
-            //Panel2.Visibility = Visibility.Visible;
-            //Panel3.Visibility = Visibility.Collapsed;
-            //Panel4.Visibility = Visibility.Visible;
-            //grid1.Height = 300;
+            var pointedGrid = sender as Grid;
+            if (selectedGrid != null)
+            {
+                if (pointedGrid != selectedGrid)
+                {
+
+                    pointedGrid.BorderBrush = new SolidColorBrush((Application.Current.Resources["ZBMSAccentColorBrush"] as SolidColorBrush).Color);
+                    pointedGrid.BorderThickness = new Thickness(2);
+                }
+            }
+            else
+            {
+                pointedGrid.BorderBrush = new SolidColorBrush((Application.Current.Resources["ZBMSAccentColorBrush"] as SolidColorBrush).Color);
+                pointedGrid.BorderThickness = new Thickness(2);
+            }
         }
-
+        
         private void TransactionsGridViewOuterGrid_PointerExited(object sender, PointerRoutedEventArgs e)
         {
-            //var grid1 = sender as Grid;
-            //var Panel1 = (StackPanel)grid1.FindName("NormalSenderDetails");
-            //var Panel2 = (StackPanel)grid1.FindName("ExpandedSenderDetails");
-            //var Panel3 = (StackPanel)grid1.FindName("NormalReceiverDetails");
-            //var Panel4 = (StackPanel)grid1.FindName("ExpandedReceiverDetails");
-            //Panel1.Visibility = Visibility.Visible;
-            //Panel2.Visibility = Visibility.Collapsed;
-            //Panel3.Visibility = Visibility.Visible;
-            //Panel4.Visibility = Visibility.Collapsed;
-            //grid1.Height = 150;
-
+            var pointedGrid = sender as Grid;
+            if (selectedGrid != null)
+            {
+                if (pointedGrid != selectedGrid)
+                {
+                    pointedGrid.BorderThickness = new Thickness(1);
+                    pointedGrid.BorderBrush = pointedGrid.BorderBrush = new SolidColorBrush((Application.Current.Resources["BorderColor"] as SolidColorBrush).Color);
+                }
+            }
+            else
+            {
+                pointedGrid.BorderThickness = new Thickness(1);
+                pointedGrid.BorderBrush = pointedGrid.BorderBrush = new SolidColorBrush((Application.Current.Resources["BorderColor"] as SolidColorBrush).Color);
+            }
         }
+
+
+
+    
 
         public void UpdateSelectedTransactionGridView(ExtendedTransactionDetails transaction)
         {
@@ -183,6 +197,8 @@ namespace ZBMS
             Panel5.Visibility = Visibility.Visible;
             closeButton.Visibility = Visibility.Visible;
             selectedGrid.Height = 300;
+            selectedGrid.BorderThickness = new Thickness(3);
+            selectedGrid.BorderBrush = new SolidColorBrush((Application.Current.Resources["ZBMSAccentColorBrush"] as SolidColorBrush).Color);
             var TextBlock1 = (TextBlock)selectedGrid.FindName("StatusValueTextBlock");
             var TextBlock2 = (TextBlock)Panel1.FindName("SenderNameValueTextBlock");
             var TextBlock3 = (TextBlock)Panel1.FindName("ReceiverNameValueTextBlock");
@@ -197,17 +213,15 @@ namespace ZBMS
 
         }
 
-       
-
         private  void TransactionsGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var itemContainer = TransactionsGridView.ContainerFromIndex(TransactionsGridView.SelectedIndex);
             var grid1 = itemContainer.FindDescendant<Grid>();
             selectedGrid = grid1;
-
+             
             var selectedTransaction = TransactionsGridView.SelectedItem as ExtendedTransactionDetails;
             viewModel.GetSelectedTransaction(selectedTransaction.TransactionId, TransactionsDisplayType.GridView);
-             
+
             if (previousSelectedGrid != null)
             {
                 var Panel11 = (StackPanel)previousSelectedGrid.FindName("NormalSenderDetails");
@@ -224,16 +238,18 @@ namespace ZBMS
                 Panel55.Visibility = Visibility.Collapsed;
 
                 previousSelectedGrid.Height = 150;
+                previousSelectedGrid.BorderThickness = new Thickness(1);
+                previousSelectedGrid.BorderBrush =  new SolidColorBrush((Application.Current.Resources["BorderColor"] as SolidColorBrush).Color);
+
             }
+         
             previousSelectedGrid = grid1;
 
         }
 
         private void TransactionGridCloseButton_Click(object sender, RoutedEventArgs e)
         {
-            if (previousSelectedGrid != null)
-            {
-                var Panel11 = (StackPanel)previousSelectedGrid.FindName("NormalSenderDetails");
+             var Panel11 = (StackPanel)previousSelectedGrid.FindName("NormalSenderDetails");
                 var Panel22 = (StackPanel)previousSelectedGrid.FindName("ExpandedSenderDetails");
                 var Panel33 = (StackPanel)previousSelectedGrid.FindName("NormalReceiverDetails");
                 var Panel44 = (StackPanel)previousSelectedGrid.FindName("ExpandedReceiverDetails");
@@ -247,7 +263,10 @@ namespace ZBMS
                 Panel55.Visibility = Visibility.Collapsed;
 
                 previousSelectedGrid.Height = 150;
-            }
+                previousSelectedGrid.BorderThickness = new Thickness(1);
+                previousSelectedGrid.BorderBrush =  new SolidColorBrush((Application.Current.Resources["BorderColor"] as SolidColorBrush).Color);
+
+            
         }
     }
 }

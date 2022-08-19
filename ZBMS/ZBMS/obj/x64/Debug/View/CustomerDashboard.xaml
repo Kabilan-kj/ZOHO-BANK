@@ -190,7 +190,7 @@
                         <Grid.Background>
                             <LinearGradientBrush StartPoint="0,0.85" EndPoint="1,0.85">
                                 <GradientStop Offset="0.97" Color="Transparent" />
-                                <GradientStop Offset="0.85" Color="{Binding Color, Source={StaticResource ZBMSAccentColorBrush}}" />
+                                <GradientStop Offset="0.85" Color="{Binding Color, Source={StaticResource ZBMSAccentColorBrushLight2}}" />
                             </LinearGradientBrush>
                         </Grid.Background>
                         <StackPanel
@@ -211,7 +211,7 @@
                                 FontStyle="Italic"
                                 FontWeight="Bold"
                                 Style="{StaticResource NarrowMenuText}"
-                                                              />
+                                                                        />
                         </StackPanel>
                         <StackPanel
                             Grid.Row="1"
@@ -263,11 +263,14 @@
                                     Name="SelectAccountComboBox"
                                     Margin="20,10"
                                     FontSize="14"
-                                                                         
+                                                                                   
+                                    MaxDropDownHeight="150"
                                     PlaceholderForeground="Gray"
                                     PlaceholderText="Select account"
                                                                                              
                                     Style="{StaticResource NarrowComboBox}" />
+
+
 
                                 <StackPanel Margin="20,0,0,10" Orientation="Vertical">
 
@@ -384,7 +387,6 @@
                                     Name="Filter"
                                     Margin="10,10,30,10"
                                     Background="Transparent"
-                                                        
                                     Content="&#xE16E;"
                                     FontFamily="Segoe MDL2 Assets"
                                     RelativePanel.AlignRightWithPanel="True"
@@ -533,7 +535,7 @@
                                     Grid.Row="2"
                                     IsItemClickEnabled="True"
                                                                        
-                                                                            >
+                                                                                      >
                                     <GridView.ItemTemplate>
                                         <DataTemplate                                     >
 
@@ -590,7 +592,7 @@
                                     Name="MoneyTransferGrids"
                                     IsItemClickEnabled="True"
                                                                             
-                                                                                 >
+                                                                                           >
                                     <GridView.ItemTemplate>
                                         <DataTemplate                                     >
 

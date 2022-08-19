@@ -1,5 +1,6 @@
 ﻿using DataModule;
 using DataModule.AccountDetails;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,8 +19,14 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using ZBMS.Contract;
+using ZBMS.Contract.ViewModelBase;
+using ZBMS.Events;
 using ZBMS.Models;
 using ZBMS.PresentationLayer;
+using ZBMS.ViewModel;
+using ZBMS.ZBMSUtils;
+
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -28,70 +35,42 @@ namespace ZBMS
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class CustomerDashboard : Page
+    public sealed partial class CustomerDashboard : Page , ICustomerDashBoardView
     {
-        public List<string> AccountNumbers = new List<string>();
-        private List<ShortcutMenuItems> ShortcutMenuItems = new List<ShortcutMenuItems>();
-        private List<ShortcutMenuItems> MoneyTransferMenuItems = new List<ShortcutMenuItems>();
-        private GetTransactionsViewModel viewmodel;
-       private CustomerLoginPage customerLoginPage = new CustomerLoginPage();
-        private CustomerAccountPage customerAccountPage = new CustomerAccountPage();
-        private CustomerTransactionsPage customerTransaction = new CustomerTransactionsPage();
-        private CustomerData customer = new CustomerData();
-        public static List<AccountData> UserAccounts = new List<AccountData>();
-        private Dictionary<string, string> AccountTypeList = new Dictionary<string, string>();
+        //public List<string> AccountNumbers = new List<string>();
+        //private List<ShortcutMenuItems> ShortcutMenuItems = new List<ShortcutMenuItems>();
+        //private List<ShortcutMenuItems> MoneyTransferMenuItems = new List<ShortcutMenuItems>();
+        //private GetTransactionsViewModel viewmodel;
+        //private CustomerLoginPage customerLoginPage = new CustomerLoginPage();
+        //private CustomerAccountPage customerAccountPage = new CustomerAccountPage();
+        //private CustomerTransactionsPage customerTransaction = new CustomerTransactionsPage();
+        //private CustomerData customer = new CustomerData();
+       // public static List<AccountData> UserAccounts = new List<AccountData>();
+        //private Dictionary<string, string> AccountTypeList = new Dictionary<string, string>();
+
+        private CustomerDashboardViewModelBase viewModel;
 
         public CustomerDashboard()
         {
             this.InitializeComponent();
-            GetValues();
+             viewModel = new CustomerDashboardViewModel(this);
+           // viewModel = DependencyContainersClass.DependencyContainerObject.GetProvider().GetService(typeof(CustomerDashboardViewModelBase)) as CustomerDashboardViewModelBase;
+            //viewModel.SetViewObject(this);
 
-        }
-
-        public async void GetValues()
-        {
-           
-            MoneyTransferMenuItems = ShortcutMenuItemManager.GetMoneyTransferMenuItems();
-            ShortcutMenuItems = ShortcutMenuItemManager.GetShortcutMenuItems();
-            viewmodel = new GetTransactionsViewModel(this);
-
-            AccountTypeList.Add(AccountType.CURRENT_ACCOUNT.ToString() , "Current account");
-            AccountTypeList.Add(AccountType.SAVINGS_ACCOUNT.ToString(), "Savings account");
-            AccountTypeList.Add( AccountType.FIXED_DEPOSIT_ACCOUNT.ToString(), "Fixed deposit account");
-            AccountTypeList.Add(AccountType.RECURRING_ACCOUNT.ToString(), "Recurring account");
-            AccountTypeList.Add(AccountType.LOAN_ACCOUNT.ToString(), "Loan account");
-
-            customer = MainPage.GetCustomerData();
-           
-
-            UserAccounts = await customerAccountPage.GetUserAccounts(customer.CustomerId);
-            if (UserAccounts.Count > 0)
+            if (viewModel.UserAccounts.Count > 0)
             {
-                GetAccountNumbers();
                 ContentStackPanel.Visibility = Visibility.Visible;
                 ErrorStackPanel.Visibility = Visibility.Collapsed;
-
+                UserDetails.UserAccounts = viewModel.UserAccounts;
             }
             else
             {
                 ContentStackPanel.Visibility = Visibility.Collapsed;
                 ErrorStackPanel.Visibility = Visibility.Visible;
             }
-            viewmodel.GetTransactions(customer.CustomerId, DomainLayer.TransactionID.CustomerID);
+           
+            // GetValues();
 
-        }
-        private void GetAccountNumbers()
-        {
-            AccountNumbers.Clear();
-
-            foreach (AccountData account in UserAccounts)
-                AccountNumbers.Add(account.AccountNumber);
-
-
-        }
-        public static List<AccountData> GetUserAccounts()
-        {
-            return UserAccounts;
         }
 
         public void UpdateErrorMessage()
@@ -106,10 +85,16 @@ namespace ZBMS
            
         }
 
+        CoreDispatcher ICustomerDashBoardView.Dispatcher
+        { 
+            get { return this.Dispatcher; }
+        }
+
         private void TransactionButton_Click(object sender, RoutedEventArgs e)
         {
             if (SelectAccountComboBox.SelectedItem != null)
             {
+                EventsUtilsClass.InvokePageChanged(MenuOptions.ViewTransaction);
                 ViewTransactionsPage.SetSenderId(SelectAccountComboBox.SelectedItem.ToString(), DomainLayer.TransactionID.SenderID);
                 this.Frame.Navigate(typeof(ViewTransactionsPage));
             }
@@ -117,18 +102,19 @@ namespace ZBMS
 
         private void ShowDetailsButton_Click(object sender, RoutedEventArgs e)
         {
-
+            if (SelectAccountComboBox.SelectedItem != null)
+            {
+                EventsUtilsClass.InvokePageChanged(MenuOptions.ViewAccount);
+                var selectedAccount = SelectAccountComboBox.SelectedItem.ToString();
+                this.Frame.Navigate(typeof(ViewAccountDetails),selectedAccount);
+            }
         }
 
         private void TransactionAllButton_Click(object sender, RoutedEventArgs e)
         {
-            ViewTransactionsPage.SetSenderId(customer.CustomerId, DomainLayer.TransactionID.SenderID);
+            EventsUtilsClass.InvokePageChanged(MenuOptions.Transactions);
+            ViewTransactionsPage.SetSenderId(viewModel.customer.CustomerId, DomainLayer.TransactionID.SenderID);
             this.Frame.Navigate(typeof(ViewTransactionsPage));
-        }
-
-        private void Filter_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void SelectAccountComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -138,11 +124,11 @@ namespace ZBMS
             BalanceTextBlock.Visibility = Visibility.Visible;
             BalanceContentTextBlock.Visibility = Visibility.Visible;
 
-            foreach (AccountData useraccount in UserAccounts)
+            foreach (AccountData useraccount in viewModel.UserAccounts)
             {
                 if (useraccount.AccountNumber == e.AddedItems[0].ToString())
                 {
-                    AccountTypeTextBlock.Text= AccountTypeList[useraccount.TypeofAccount];
+                    AccountTypeTextBlock.Text= viewModel.AccountTypeList[useraccount.TypeofAccount];
                     BalanceContentTextBlock.Text = useraccount.Balance.ToString();
                     AccountNumberTextBlock.Text = useraccount.AccountNumber;
                 }
@@ -163,15 +149,14 @@ namespace ZBMS
                     break;
 
                 case 2:
-
-                    ViewTransactionsPage.SetSenderId(customer.CustomerId, DomainLayer.TransactionID.CustomerID);
+                    EventsUtilsClass.InvokePageChanged(MenuOptions.Transactions);
+                    ViewTransactionsPage.SetSenderId(viewModel.customer.CustomerId, DomainLayer.TransactionID.CustomerID);
                     this.Frame.Navigate(typeof(ViewTransactionsPage));
+                     break;
 
-                    break;
                 case 3:
 
                     this.Frame.Navigate(typeof(LoanPaymentPage));
-
                     break;
             }
         }
@@ -208,17 +193,18 @@ namespace ZBMS
             switch (shortcutItems.ItemId)
             {
                 case 1:
-
+                    EventsUtilsClass.InvokePageChanged(MenuOptions.SelfTransfer);
                     this.Frame.Navigate(typeof(SelfTransferPage));
 
                     break;
                 case 2:
-
+                    EventsUtilsClass.InvokePageChanged(MenuOptions.OtherCustomerTransfer);
                     this.Frame.Navigate(typeof(OtherCustomerTransferPage));
 
                     break;
 
                 case 3:
+                    EventsUtilsClass.InvokePageChanged(MenuOptions.OtherBankTransfer);
                     this.Frame.Navigate(typeof(OtherBankCustomerTransferPage));
                     break;
 
@@ -232,15 +218,15 @@ namespace ZBMS
         {
             if (FilterToday.IsSelected)
             {
-                viewmodel.GetRecentTransactions(customer.CustomerId,DomainLayer.RecentTransactionFilterOption.Today);
+                viewModel.GetRecentTransactions(viewModel.customer.CustomerId,DomainLayer.RecentTransactionFilterOption.Today);
             }
             else if (FilterLastTwoDays.IsSelected)
             {
-                viewmodel.GetRecentTransactions(customer.CustomerId,  DomainLayer.RecentTransactionFilterOption.LastTwoDays);
+                viewModel.GetRecentTransactions(viewModel.customer.CustomerId,  DomainLayer.RecentTransactionFilterOption.LastTwoDays);
             }
             else if (FilterLastSevenDays.IsSelected)
             {
-                viewmodel.GetRecentTransactions(customer.CustomerId,DomainLayer.RecentTransactionFilterOption.LastSevenDays);
+                viewModel.GetRecentTransactions(viewModel.customer.CustomerId,DomainLayer.RecentTransactionFilterOption.LastSevenDays);
             }
         }
     }

@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 using DataModule;
 using Windows.UI.Popups;
 using System.Threading;
+using ZBMS.ZBMSUtils;
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace ZBMS
@@ -28,14 +29,13 @@ namespace ZBMS
     public sealed partial class MainPage : Page
     {
         private CustomerLoginPage LoginPage = new CustomerLoginPage();
-        private static CustomerData customer = new CustomerData();
+        private CustomerData customer = new CustomerData();
 
         public MainPage()
         {
              this.InitializeComponent();
             // LoginAction("UID107");
-            SamplePageTesting("UID107");
-
+           // SamplePageTesting("UID107");
 
         }
 
@@ -43,13 +43,10 @@ namespace ZBMS
         {
             customer = null;
             customer = LoginPage.GetCustomer(id);
+            UserDetails.Customer=customer;
             MainFrame.Navigate(typeof(MenuPage));
         }
-        public static CustomerData GetCustomerData()
-        {
-            return customer;
-        }
-        
+
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
         {
            MainFrame.Navigate(typeof(SignUpPage));
@@ -68,6 +65,7 @@ namespace ZBMS
                 }
                 else 
                 {
+                    UserDetails.Customer = customer;
                     Login(customer.Name);
                 }
               
@@ -83,7 +81,7 @@ namespace ZBMS
         {
             customer = null;
             customer = LoginPage.GetCustomer(id);
-            MainFrame.Navigate(typeof(MenuPage));
+            MainFrame.Navigate(typeof(MainFramePage));
 
         }
 
@@ -97,7 +95,6 @@ namespace ZBMS
             {
                 MainFrame.Navigate(typeof(MenuPage));
             }
-
 
         }
        
