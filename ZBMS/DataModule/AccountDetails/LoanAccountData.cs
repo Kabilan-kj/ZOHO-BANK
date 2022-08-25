@@ -14,8 +14,8 @@ namespace DataModule.AccountDetails
 
         public LoanAccountData(int _id, string _customerID, string _bankCode, double _loanAmount, int _tenure) : base(_customerID, _bankCode)
         {
-            autoIncrementId = _id;
-            AccountNumber = "LNACC" + (1000 + ++autoIncrementId);
+            AccountCount = _id;
+            AccountNumber = "LNACC" + (1000 + ++AccountCount);
             Type = AccountType.LOAN_ACCOUNT;
             TypeofAccount = AccountType.LOAN_ACCOUNT.ToString();
             Tenure = _tenure;

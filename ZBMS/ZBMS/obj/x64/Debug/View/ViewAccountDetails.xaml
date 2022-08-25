@@ -20,27 +20,25 @@
 
                 <Setter Property="FontSize" Value="14" />
                 <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="Foreground" Value="Black" />
 
             </Style>
             <Style x:Key="WideTextBlock" TargetType="TextBlock">
                 <Setter Property="FontSize" Value="20" />
                 <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="Foreground" Value="Gray" />
             </Style>
 
             <Style x:Key="NarrowContentTextBlock" TargetType="TextBlock">
-
                 <Setter Property="FontSize" Value="14" />
                 <Setter Property="FontWeight" Value="Medium" />
                 <Setter Property="Foreground" Value="Gray" />
             </Style>
 
             <Style x:Key="WideContentTextBlock" TargetType="TextBlock">
-
                 <Setter Property="FontSize" Value="20" />
                 <Setter Property="FontWeight" Value="Medium" />
                 <Setter Property="Foreground" Value="Gray" />
-
-
             </Style>
 
             <Style x:Key="NarrowButton" TargetType="Button" />
@@ -66,8 +64,9 @@
             <TextBlock
                 Margin="20,15"
                 VerticalAlignment="Center"
-                FontSize="32"
+                FontSize="28"
                 FontWeight="Bold"
+                Foreground="Black"
                 Text="Account Details Page" />
         </StackPanel>
         <ScrollViewer Grid.Row="1">
@@ -89,7 +88,7 @@
                         Background="{ThemeResource GridBackGroundColor}"
                         Visibility="Collapsed">
 
-                        <TextBlock x:ConnectionId='17'
+                        <TextBlock x:ConnectionId='20'
                             Name="ErrorMessage"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
@@ -97,7 +96,7 @@
                             FontWeight="Bold"
                             Text="No Account Available" />
 
-                        <Button x:ConnectionId='18'
+                        <Button x:ConnectionId='21'
                             Name="CreateAccountButton"
                             Margin="10,40,10,10"
                                                              
@@ -112,26 +111,33 @@
                         VerticalAlignment="Center"
                         Background="{StaticResource PrimaryBackground}"
                         CornerRadius="10">
-                        <ComboBox x:ConnectionId='16'
+                        <TextBlock x:ConnectionId='18'
+                            Name="FromTextBox"
+                            Margin="40,10,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontWeight="SemiBold"
+                            Style="{StaticResource WideStyleTextBlock}"
+                            Text="Accounts :" />
+
+                        <ComboBox x:ConnectionId='19'
                             Name="SelectAccountComboBox"
-                            Width="240"
-                            Height="80"
                             Margin="40,20"
-                            Background="White"
+                            Background="{ThemeResource TextBackGroundColor}"
                             FontSize="16"
-                            Header="Account Number"
                                                                  
-                            PlaceholderForeground="Gray"
-                            PlaceholderText="Select another account"
-                                                                                      />
+                            PlaceholderForeground="{ThemeResource TextForeGroundColor}"
+                            PlaceholderText="Select account"
+                                                                                     
+                            Style="{StaticResource WideStyleComboBox}" />
 
                     </StackPanel>
 
                     <Grid x:ConnectionId='4'
                         Name="AccountDetailsGrid"
                         Grid.Row="1"
-                        Width="300"
-                        Height="500"
+                        Width="360"
+                        Height="450"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Background="{StaticResource PrimaryBackground}"
@@ -144,7 +150,7 @@
                             <RowDefinition />
                             <RowDefinition />
                             <RowDefinition />
-                            <RowDefinition />
+                            <RowDefinition Height="2*" />
                             <RowDefinition />
 
                         </Grid.RowDefinitions>
@@ -152,15 +158,13 @@
 
                         <StackPanel
                             Grid.Row="0"
-                            Margin="30"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
+                            Margin="30,10,10,10"
                             Orientation="Horizontal">
-                            <TextBlock x:ConnectionId='14'
+                            <TextBlock x:ConnectionId='16'
                                 Name="AccountNumberTextBlock"
                                 Style="{StaticResource NarrowTextBlock}"
                                 Text=" Account Number :" />
-                            <TextBlock x:ConnectionId='15'
+                            <TextBlock x:ConnectionId='17'
                                 Name="AccountNumberContentTextBlock"
                                 Margin="10,0,0,0"
                                 Style="{StaticResource NarrowContentTextBlock}" />
@@ -168,31 +172,28 @@
 
                         <StackPanel
                             Grid.Row="1"
-                            Margin="30"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
+                            Margin="30,10,10,10"
                             Orientation="Horizontal">
-                            <TextBlock x:ConnectionId='12'
+                            <TextBlock x:ConnectionId='14'
                                 Name="AccountTypeTextBlock"
                                 Style="{StaticResource NarrowTextBlock}"
                                 Text="Account Type :" />
-                            <TextBlock x:ConnectionId='13'
+                            <TextBlock x:ConnectionId='15'
                                 Name="AccountTypeContentTextBlock"
+                                Margin="10,0,0,0"
                                 Style="{StaticResource NarrowContentTextBlock}"
                                 TextWrapping="Wrap" />
                         </StackPanel>
 
                         <StackPanel
                             Grid.Row="2"
-                            Margin="30"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
+                            Margin="30,10,10,10"
                             Orientation="Horizontal">
-                            <TextBlock x:ConnectionId='10'
+                            <TextBlock x:ConnectionId='12'
                                 Name="BranchCodeTextBlock"
                                 Style="{StaticResource NarrowTextBlock}"
                                 Text="Branch Code :" />
-                            <TextBlock x:ConnectionId='11'
+                            <TextBlock x:ConnectionId='13'
                                 Name="BranchCodeContentTextBlock"
                                 Margin="10,0,0,0"
                                 Style="{StaticResource NarrowContentTextBlock}"
@@ -201,24 +202,43 @@
 
                         <StackPanel
                             Grid.Row="3"
-                            Margin="30"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
+                            Margin="30,10,10,10"
                             Orientation="Horizontal">
-                            <TextBlock x:ConnectionId='8'
+                            <TextBlock x:ConnectionId='10'
                                 Name="BranchTextBlock"
                                 Style="{StaticResource NarrowTextBlock}"
-                                Text="Branch :" />
-                            <TextBlock x:ConnectionId='9'
+                                Text="Branch Name :" />
+                            <TextBlock x:ConnectionId='11'
                                 Name="BranchContentTextBlock"
                                 Margin="10,0,0,0"
                                 Style="{StaticResource NarrowContentTextBlock}"
                                 TextWrapping="Wrap" />
                         </StackPanel>
 
+                        <StackPanel
+                            Grid.Row="4"
+                            Padding="30,10,10,10"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Orientation="Horizontal">
+                            <TextBlock x:ConnectionId='8'
+                                Name="BranchAddressTextBlock"
+                                VerticalAlignment="Top"
+                                Style="{StaticResource NarrowTextBlock}"
+                                Text="Branch Address :" />
+
+                            <TextBlock x:ConnectionId='9'
+                                Name="BranchAddressContentTextBlock"
+                                Margin="10,0"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Style="{StaticResource NarrowContentTextBlock}"
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+
                         <Button x:ConnectionId='5'
                             Name="MoreOptionsButton"
-                            Grid.Row="4"
+                            Grid.Row="5"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Content="More Options"

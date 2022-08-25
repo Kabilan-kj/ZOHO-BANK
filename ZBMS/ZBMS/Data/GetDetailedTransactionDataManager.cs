@@ -11,22 +11,22 @@ namespace ZBMS.Data
 {
     public class GetDetailedTransactionDataManager : IGetDetailedTransactionDataManager
     {
-        private GetDetailedTransactionsResponse detailedTransactionsresponse ;
-        private GetTransactionsDBHandler dbHandler ;
+       private GetDetailedTransactionsResponse _detailedTransactionsresponse ;
+       private GetTransactionsDBHandler _dbHandler ;
        public  GetDetailedTransactionDataManager()
        {
-            detailedTransactionsresponse = new GetDetailedTransactionsResponse();
-            dbHandler = new GetTransactionsDBHandler();
+            _detailedTransactionsresponse = new GetDetailedTransactionsResponse();
+            _dbHandler = new GetTransactionsDBHandler();
        }
 
         public void GetDetailedTransaction(GetDetailedTransactionsRequest request, ICallBack<GetDetailedTransactionsResponse> callBack)
         {
 
-            detailedTransactionsresponse.Transaction = dbHandler.GetDetailedTransaction(request.TransactionId);
+            _detailedTransactionsresponse.Transaction = _dbHandler.GetDetailedTransaction(request.TransactionId);
 
-            if (detailedTransactionsresponse.Transaction != null)
+            if (_detailedTransactionsresponse.Transaction != null)
             {
-                callBack.OnSuccess(detailedTransactionsresponse);
+                callBack.OnSuccess(_detailedTransactionsresponse);
 
             }
             else

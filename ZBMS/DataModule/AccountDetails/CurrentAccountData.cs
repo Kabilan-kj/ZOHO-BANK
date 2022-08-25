@@ -11,8 +11,8 @@ namespace DataModule.AccountDetails
 
         public CurrentAccountData(int _id, string _customerID, string _bankCode, double _balance) : base(_customerID, _bankCode)
         {
-            autoIncrementId = _id;
-            AccountNumber = "CTACC" + (1000 + ++autoIncrementId);
+            AccountCount = _id;
+            AccountNumber = "CTACC" + (1000 + ++AccountCount);
             CustomerId = _customerID;
             BranchCode = _bankCode;
             Balance = _balance;

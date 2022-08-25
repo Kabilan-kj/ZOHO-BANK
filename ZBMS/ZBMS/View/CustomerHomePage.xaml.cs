@@ -98,7 +98,7 @@ namespace ZBMS
              
                 case 2:
 
-                    ViewTransactionsPage.SetSenderId(customer.CustomerId, TransactionID.CustomerID);
+                    ViewTransactionsPage.SetSenderId(customer.CustomerId, TransactionFilterType.CustomerID);
                     this.Frame.Navigate(typeof(ViewTransactionsPage));
                    
                     break;
@@ -155,7 +155,7 @@ namespace ZBMS
         {
             if (SelectAccountComboBox.SelectedItem!=null)
             {
-                ViewTransactionsPage.SetSenderId(SelectAccountComboBox.SelectedItem.ToString(), TransactionID.SenderID);
+                ViewTransactionsPage.SetSenderId(SelectAccountComboBox.SelectedItem.ToString(), TransactionFilterType.SenderID);
                 this.Frame.Navigate(typeof(ViewTransactionsPage));
             }
 

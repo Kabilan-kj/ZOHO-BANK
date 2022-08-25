@@ -5,11 +5,10 @@ using SQLite;
 
 namespace DatabaseHandler
 {
-    [Table("AccountData")]
+    
     public class DBAccountData
     {
-        public int autoIncrementId { get; set; }
-        [PrimaryKey]
+        public int AccountCount{ get; set; }
         public string AccountNumber { get; set; }
         public string CustomerId { get; set; }
         public string BranchCode { get; set; }

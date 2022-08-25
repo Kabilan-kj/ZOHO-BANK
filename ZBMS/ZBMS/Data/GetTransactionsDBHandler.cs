@@ -11,18 +11,18 @@ namespace ZBMS.DataLayer
 {
     public class GetTransactionsDBHandler
     {
-        private SqliteConnection connection;
-        private DBAdapter dbAdapter= new DBAdapter();
+        private SqliteConnection _connection;
+        private DBAdapter _dbAdapter= new DBAdapter();
 
         public ExtendedTransactionDetails GetDetailedTransaction(string transactionId)
         {
             ExtendedTransactionDetails transaction = new ExtendedTransactionDetails();
             try
             {
-                connection = dbAdapter.GetConnection();
-                connection.Open();
+                _connection = _dbAdapter.GetConnection();
+                _connection.Open();
                 string cmd = $"Select s.transactiontime,s.senderid,c.name,s.receiverid,d.name,s.amount,s.transactionid,c.customerid,d.customerid from transactiondetails s join AccountData a on a.accountnumber = s.senderid join customerdata c on  a.accountnumber = s.senderid and a.customerid = c.customerid join AccountData a1 on a1.accountnumber = s.receiverid join customerdata d on  a1.accountnumber = s.receiverid and a1.customerid = d.customerid where s.transactionid = '{transactionId}'; ";
-                SqliteCommand GetRecord = new SqliteCommand(cmd, connection);
+                SqliteCommand GetRecord = new SqliteCommand(cmd, _connection);
                 SqliteDataReader reader = GetRecord.ExecuteReader();
 
                 while (reader.Read())
@@ -34,9 +34,8 @@ namespace ZBMS.DataLayer
                    transaction.ReceiverName= reader.GetString(4);
                    transaction.Amount=reader.GetDouble(5);
                    transaction.TransactionId= reader.GetString(6); 
-                    transaction.SenderId= reader.GetString(7);
-                    transaction.ReceiverId= reader.GetString(8);
-                   
+                   transaction.SenderId= reader.GetString(7);
+                   transaction.ReceiverId= reader.GetString(8);
                 }
 
                 if (transaction.TransactionId == null)
@@ -52,7 +51,7 @@ namespace ZBMS.DataLayer
             }
             finally
             {
-                connection.Close();
+                _connection.Close();
             }
         }
 
@@ -61,10 +60,10 @@ namespace ZBMS.DataLayer
             ExtendedTransactionDetails transaction = new ExtendedTransactionDetails();
             try
             {
-                connection = dbAdapter.GetConnection();
-                connection.Open();
+                _connection = _dbAdapter.GetConnection();
+                _connection.Open();
                 string cmd = $"Select s.transactiontime,s.senderid,c.name,s.receiverid,s.amount,s.transactionid from transactiondetails s join AccountData a on a.accountnumber = s.senderid join customerdata c on  a.customerid = c.customerid  where s.transactionid = '{transactionId}'; ";
-                SqliteCommand GetRecord = new SqliteCommand(cmd, connection);
+                SqliteCommand GetRecord = new SqliteCommand(cmd, _connection);
                 SqliteDataReader reader = GetRecord.ExecuteReader();
 
                 while (reader.Read())
@@ -87,20 +86,19 @@ namespace ZBMS.DataLayer
             }
             finally
             {
-                connection.Close();
+                _connection.Close();
             }
         }
-
 
         public List<ExtendedTransactionDetails> GetTransactionsByCustomerID(string id)
         {
             List<ExtendedTransactionDetails> Transactions = new List<ExtendedTransactionDetails>();
             try
             {
-                connection = dbAdapter.GetConnection();
-                connection.Open();
+                _connection = _dbAdapter.GetConnection();
+                _connection.Open();
                 string cmd = $"Select * from transactiondetails s  join AccountData a on a.accountnumber = s.senderid  join customerdata c on  a.accountnumber = s.senderid  and a.customerid = c.customerid  join AccountData a1 on a1.accountnumber = s.receiverid  join customerdata d on  a1.accountnumber = s.receiverid  and a1.customerid = d.customerid  where d.customerid = '{id}' or c.customerid='{id}'  ORDER BY s.autoIncrementID DESC ;  ";
-                SqliteCommand GetRecord = new SqliteCommand(cmd, connection);
+                SqliteCommand GetRecord = new SqliteCommand(cmd, _connection);
                 SqliteDataReader reader = GetRecord.ExecuteReader();
 
                 while (reader.Read())
@@ -111,7 +109,7 @@ namespace ZBMS.DataLayer
                     transaction.ReceiverAccountNumber = reader.GetString(3);
                     transaction.Time = reader.GetString(4);
                     transaction.Amount = reader.GetDouble(5);
-                    transaction.Status = reader.GetString(7);
+                   
 
                     Transactions.Add(transaction);
 
@@ -126,7 +124,7 @@ namespace ZBMS.DataLayer
             }
             finally
             {
-                connection.Close();
+                _connection.Close();
             }
 
         }
@@ -137,13 +135,13 @@ namespace ZBMS.DataLayer
             List<ExtendedTransactionDetails> Transactions = new List<ExtendedTransactionDetails>();
             try
             {
-                connection = dbAdapter.GetConnection();
-                connection.Open();
+                _connection = _dbAdapter.GetConnection();
+                _connection.Open();
                 //  string cmd = $"Select * from transactiondetails where senderid = '{accountNumber}' OR receiverid= '{accountNumber}'  ORDER BY autoIncrementID DESC ; ";
                 //  SqliteCommand SQLiteCommand = new SqliteCommand(cmd,connection);
 
                 SqliteCommand SQLiteCommand = new SqliteCommand();
-                SQLiteCommand.Connection = connection;
+                SQLiteCommand.Connection = _connection;
                 SQLiteCommand.CommandText = "Select * from transactiondetails where senderid = $accountnumber OR receiverid= $accountnumber  ORDER BY autoIncrementID DESC ; ";
                 SQLiteCommand.Parameters.AddWithValue("$accountnumber", accountNumber);
                
@@ -157,7 +155,7 @@ namespace ZBMS.DataLayer
                     transaction.ReceiverAccountNumber = reader.GetString(3);
                     transaction.Time = reader.GetString(4);
                     transaction.Amount = reader.GetDouble(5);
-                    transaction.Status = reader.GetString(7);
+                   
                     Transactions.Add(transaction);
 
                 }
@@ -171,7 +169,7 @@ namespace ZBMS.DataLayer
             }
             finally
             {
-                connection.Close();
+                _connection.Close();
             }
 
         }
@@ -181,14 +179,14 @@ namespace ZBMS.DataLayer
             List<ExtendedTransactionDetails> Transactions = new List<ExtendedTransactionDetails>();
             try
             {
-                connection = dbAdapter.GetConnection();
-                connection.Open();
+                _connection = _dbAdapter.GetConnection();
+                _connection.Open();
                // string cmd = $"Select * from transactiondetails Where  ";
 
                 string cmd = $" Select s.transactionid,s.senderid , s.receiverid ,s.transactiontime,s.amount from transactiondetails s join AccountData a on a.accountnumber = s.senderid join customerdata c on  a.accountnumber = s.senderid and a.customerid = c.customerid where c.customerid = '{customerid}' and transactiontime between '{endDate}' and '{startDate}'   ORDER BY s.autoIncrementID DESC ; ";
 
 
-                SqliteCommand GetRecord = new SqliteCommand(cmd, connection);
+                SqliteCommand GetRecord = new SqliteCommand(cmd, _connection);
                 SqliteDataReader reader = GetRecord.ExecuteReader();
 
                 while (reader.Read())
@@ -214,7 +212,7 @@ namespace ZBMS.DataLayer
             }
             finally
             {
-                connection.Close();
+                _connection.Close();
             }
         }
 

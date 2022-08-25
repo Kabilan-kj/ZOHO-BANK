@@ -125,7 +125,6 @@
     <Compile Include="Contract\ViewModelBase\CustomerDashboardViewModelBase.cs" />
     <Compile Include="Contract\ViewModelBase\TransactionsPageViewModelBase.cs" />
     <Compile Include="Data\DefaultData.cs" />
-    <Compile Include="Events\SelectAccountEventClass.cs" />
     <Compile Include="ViewModel\CustomerDashboardViewModel.cs" />
     <Compile Include="ViewModel\MenuPageViewModel.cs" />
     <Compile Include="View\AboutUsPage.xaml.cs">
@@ -240,6 +239,7 @@
     <Content Include="Assets\LargeTile.scale-200.png" />
     <Content Include="Assets\LargeTile.scale-400.png" />
     <Content Include="Assets\Loan1.png" />
+    <Content Include="Assets\LoanPayment.png" />
     <Content Include="Assets\Login1.jpg" />
     <Content Include="Assets\Login2.jpg" />
     <Content Include="Assets\BackGround2.jpg" />

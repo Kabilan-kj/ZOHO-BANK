@@ -10,20 +10,20 @@ namespace ZBMS.FilterTransactionsUseCase.DataLayer
 {
     public class FilterTransactionsDataManager : IFilterTransactionsDataManager
     {
-        private FilterTransactionsResponse response = new FilterTransactionsResponse();
-        private GetTransactionsDBHandler dbHandler;
+        private FilterTransactionsResponse _response = new FilterTransactionsResponse();
+        private GetTransactionsDBHandler _dbHandler;
 
         public void GetData(FilterTransactionsRequest request, ICallBack<FilterTransactionsResponse> callBack)
         {
-            dbHandler= new GetTransactionsDBHandler();
-            
-            response.transactions = dbHandler.GetFilteredTransactions(request.CustomerId,request.StartDate,request.EndDate);
+            _dbHandler= new GetTransactionsDBHandler();
 
-            if (response.transactions != null)
+            _response.Transactions = _dbHandler.GetFilteredTransactions(request.CustomerId,request.StartDate,request.EndDate);
+
+            if (_response.Transactions != null)
             {
-                if (response.transactions.Count != 0)
+                if (_response.Transactions.Count != 0)
                 {
-                    callBack.OnSuccess(response);
+                    callBack.OnSuccess(_response);
 
                 }
                 else

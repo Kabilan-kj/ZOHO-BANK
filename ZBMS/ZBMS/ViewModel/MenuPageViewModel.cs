@@ -10,10 +10,7 @@ namespace ZBMS.ViewModel
     public class MenuPageViewModel
     {
 
-        public static Color selecetdColor = Colors.Blue;
-
-
-
+       // public static Color selecetdColor = Colors.Blue;
 
     }
 }

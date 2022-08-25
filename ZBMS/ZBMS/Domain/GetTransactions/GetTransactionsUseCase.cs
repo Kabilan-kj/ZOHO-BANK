@@ -12,44 +12,42 @@ namespace ZBMS.DomainLayer
 {
     public  class GetTransactionsUseCase : UseCaseBase
     {
-        public IGetTransactionsDataManager dataManager; 
-        private ICallBack<GetTransactionsResponse> callBack;
-        private GetTransactionsRequest request;
+       // private IGetTransactionsDataManager _dataManager; 
+        private ICallBack<GetTransactionsResponse> _callBack;
+        private GetTransactionsRequest _request;
 
-
-        public GetTransactionsUseCase(ICallBack<GetTransactionsResponse> _callBack,GetTransactionsRequest _request)
+        public GetTransactionsUseCase(ICallBack<GetTransactionsResponse> callBack,GetTransactionsRequest request)
         {
-            callBack = _callBack;
-            request = _request;
+            _callBack = callBack;
+            _request = request;
         }
 
         public override void Action()
         {
-            dataManager = DependencyContainersClass.DependencyContainerObject.GetProvider().GetService(typeof(IGetTransactionsDataManager)) as IGetTransactionsDataManager;
-            dataManager.GetData(new GetTransactionsCallBack(this),request);
+           var dataManager = DependencyContainersClass.DependencyContainerObject.GetProvider().GetService(typeof(IGetTransactionsDataManager)) as IGetTransactionsDataManager;
+           var usecaseCallback = new GetTransactionsCallBack(this);
+           dataManager.GetData(_request, usecaseCallback);
         }
-
-
 
         private class GetTransactionsCallBack : ICallBack<GetTransactionsResponse>
         {
-            GetTransactionsUseCase useCase;
-            public GetTransactionsCallBack(GetTransactionsUseCase _useCase)
+            private GetTransactionsUseCase _useCase;
+            public GetTransactionsCallBack(GetTransactionsUseCase useCase)
             {
-                useCase = _useCase;
+                _useCase = useCase;
             }
             public void OnSuccess(GetTransactionsResponse response)
             {
-                useCase.callBack.OnSuccess(response);   
+                _useCase._callBack.OnSuccess(response);   
             }
             public void OnFailure()
             {
-                useCase.callBack.OnFailure();
+                _useCase._callBack.OnFailure();
             }
 
             public void OnError()
             {
-                throw new NotImplementedException();
+               // throw new NotImplementedException();
             }
         }
 

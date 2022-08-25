@@ -13,8 +13,7 @@ namespace ZBMS
     {
         private CustomerLoginPageDBHandler dbHandler = new CustomerLoginPageDBHandler();
         private CustomerData SelectedCustomer = new CustomerData();
-        //private  static CancellationTokenSource  tokenSource = new CancellationTokenSource();
-        //private  CancellationToken token = tokenSource.Token;
+       
 
         public async Task<CustomerData> GetCustomerAsync(string id)
         {
@@ -29,8 +28,6 @@ namespace ZBMS
            return dbHandler.GetCustomer(id);
          
         }
-
-
 
         public  async Task<CustomerData> SignUp(CustomerData customer)
         {

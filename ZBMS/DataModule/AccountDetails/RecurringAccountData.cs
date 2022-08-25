@@ -15,8 +15,8 @@ namespace DataModule.AccountDetails
         public bool IsTriggered { get; set; }
         public RecurringAccountData(int _id, string _customerID, string _bankCode, string _savingsAccountNumber, double _amount) : base(_customerID, _bankCode)
         {
-            autoIncrementId = _id;
-            AccountNumber = "RCACC" + (1000 + ++autoIncrementId);
+            AccountCount= _id;
+            AccountNumber = "RCACC" + (1000 + ++AccountCount);
             PrincipalAmount = _amount;
             Balance = (PrincipalAmount * Tenure * InterestRate / 12) + PrincipalAmount;
             Type = AccountType.RECURRING_ACCOUNT;

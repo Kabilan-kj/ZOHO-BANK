@@ -60,7 +60,7 @@
 
     </Page.Resources>
 
-    <Grid Background="DeepSkyBlue" >
+    <Grid  >
 
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
@@ -107,7 +107,7 @@
                 <ColumnDefinition Width="1*" ></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Image Source="Assets/Login2.jpg" Stretch="Uniform" Grid.Column="0" ></Image>
+            <Image Source="ms-appx:///Assets/Login2.jpg" Stretch="Uniform" Grid.Column="0" ></Image>
 
             <Grid x:ConnectionId='4' Name="ContentGrid"   Grid.Column="1" Height="Auto" Width="Auto"  Margin="20" Background="DeepSkyBlue" >
                 <Grid.RowDefinitions>

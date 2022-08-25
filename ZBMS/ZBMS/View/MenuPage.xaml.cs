@@ -28,16 +28,17 @@ namespace ZBMS
     /// </summary>
     public sealed partial class MenuPage : Page
     {
-        //private SolidColorBrush colorBrush = new SolidColorBrush(Colors.Yellow);
         private ListViewItem addedItem = new ListViewItem();
         private ListViewItem removedItem = new ListViewItem();
         private ListViewItem previousSelectedItem= new ListViewItem();
-
+      
         public MenuPage()
         {
             this.InitializeComponent();
             addedItem = Dashboard;
             removedItem = Dashboard;
+          
+            EventsUtilsClass.OnPopupTriggered += TriggerPopup;
             EventsUtilsClass.OnPageChanged += UpdateMenuOption;
             ContentFrame.Navigate(typeof(CustomerDashboard));
 
@@ -238,18 +239,25 @@ namespace ZBMS
 
             addedItem = MenuOptionsListView.SelectedItem as ListViewItem;
             if (addedItem != null)
-                addedItem.Foreground = new SolidColorBrush(Colors.Green);
+                addedItem.Foreground = Application.Current.Resources["ZBMSAccentColorBrush"] as SolidColorBrush;
 
             if (removedItem != null)
-                removedItem.Foreground = new SolidColorBrush(Colors.Black);
-
+            {
+                if (this.RequestedTheme == ElementTheme.Dark)
+                {
+                    removedItem.Foreground = new SolidColorBrush(Colors.White);
+                }
+                else
+                {
+                    removedItem.Foreground = new SolidColorBrush(Colors.Black);
+                }
+            }
 
             if (addedItem != removedItem)
             {
                 removedItem = addedItem;
                 ContentFrame.Navigate(typeof(CustomerDashboard));
             }
-
 
         }
 
@@ -279,17 +287,25 @@ namespace ZBMS
 
             addedItem = MenuOptionsListView.SelectedItem as ListViewItem;
             if (addedItem != null)
-                addedItem.Foreground = new SolidColorBrush(Colors.Green);
+                addedItem.Foreground = Application.Current.Resources["ZBMSAccentColorBrush"] as SolidColorBrush;
 
             if (removedItem != null)
-                removedItem.Foreground = new SolidColorBrush(Colors.Black);
-
+            {
+                if (this.RequestedTheme == ElementTheme.Dark)
+                {
+                    removedItem.Foreground = new SolidColorBrush(Colors.White);
+                }
+                else
+                {
+                    removedItem.Foreground = new SolidColorBrush(Colors.Black);
+                }
+            }
 
             if (addedItem != removedItem)
             {
                 removedItem = addedItem;
 
-                ViewTransactionsPage.SetSenderId(UserDetails.Customer.CustomerId, TransactionID.CustomerID);
+                ViewTransactionsPage.SetSenderId(UserDetails.Customer.CustomerId, TransactionFilterType.CustomerID);
                 ContentFrame.Navigate(typeof(ViewTransactionsPage));
             }
            
@@ -305,11 +321,19 @@ namespace ZBMS
                 addedItem = newitem;
 
                 if (addedItem != null)
-                    addedItem.Foreground = new SolidColorBrush(Colors.Green);
+                    addedItem.Foreground = Application.Current.Resources["ZBMSAccentColorBrush"] as SolidColorBrush;
 
                 if (removedItem != null)
-                    removedItem.Foreground = new SolidColorBrush(Colors.Black);
-
+                {
+                    if (this.RequestedTheme == ElementTheme.Dark)
+                    {
+                        removedItem.Foreground = new SolidColorBrush(Colors.White);
+                    }
+                    else
+                    {
+                        removedItem.Foreground = new SolidColorBrush(Colors.Black);
+                    }
+                }
                 removedItem = addedItem;
             }
 
@@ -329,7 +353,7 @@ namespace ZBMS
             var selectedItem2 = ProfileList.SelectedItem as ListViewItem;
             if(selectedItem2 != null)
             {
-                selectedItem2.Background = new SolidColorBrush(Colors.LightGreen);
+                selectedItem2.Background = Application.Current.Resources["ZBMSAccentColorBrushLight2"] as SolidColorBrush;
                 
                 if (previousSelectedItem != null && previousSelectedItem != selectedItem2)
                 {
@@ -360,11 +384,19 @@ namespace ZBMS
                 addedItem = newitem;
 
                 if (addedItem != null)
-                    addedItem.Foreground = new SolidColorBrush(Colors.Green);
+                    addedItem.Foreground = Application.Current.Resources["ZBMSAccentColorBrush"] as SolidColorBrush;
 
                 if (removedItem != null)
-                    removedItem.Foreground = new SolidColorBrush(Colors.Black);
-
+                {
+                    if (this.RequestedTheme == ElementTheme.Dark)
+                    {
+                        removedItem.Foreground = new SolidColorBrush(Colors.White);
+                    }
+                    else
+                    {
+                        removedItem.Foreground = new SolidColorBrush(Colors.Black);
+                    }
+                }
                 removedItem = addedItem;
             }
 
@@ -385,7 +417,7 @@ namespace ZBMS
             var selectedItem2 = AccountsList.SelectedItem as ListViewItem;  
             if(selectedItem2 != null)
             {
-                selectedItem2.Background = new SolidColorBrush(Colors.LightGreen);
+                selectedItem2.Background = Application.Current.Resources["ZBMSAccentColorBrushLight2"] as SolidColorBrush;
                 
                 if (previousSelectedItem != null && previousSelectedItem != selectedItem2)
                 {
@@ -396,7 +428,7 @@ namespace ZBMS
 
             if (ViewTransaction.IsSelected)
             {
-                ViewTransactionsPage.SetSenderId(UserDetails.Customer.CustomerId, TransactionID.CustomerID);
+                ViewTransactionsPage.SetSenderId(UserDetails.Customer.CustomerId, TransactionFilterType.CustomerID);
                 ContentFrame.Navigate(typeof(ViewTransactionsPage));
             }
 
@@ -417,11 +449,19 @@ namespace ZBMS
                 addedItem = newitem;
 
                 if (addedItem != null)
-                    addedItem.Foreground = new SolidColorBrush(Colors.Green);
+                    addedItem.Foreground = Application.Current.Resources["ZBMSAccentColorBrush"] as SolidColorBrush;
 
                 if (removedItem != null)
-                    removedItem.Foreground = new SolidColorBrush(Colors.Black);
-
+                {
+                    if (this.RequestedTheme == ElementTheme.Dark)
+                    {
+                        removedItem.Foreground = new SolidColorBrush(Colors.White);
+                    }
+                    else
+                    {
+                        removedItem.Foreground = new SolidColorBrush(Colors.Black);
+                    }
+                }
                 removedItem = addedItem;
             }
 
@@ -441,7 +481,7 @@ namespace ZBMS
              var selectedItem2 = MoneyTransferList.SelectedItem as ListViewItem;    
             if(selectedItem2 != null)
             {
-                selectedItem2.Background = new SolidColorBrush(Colors.LightGreen); 
+                selectedItem2.Background = Application.Current.Resources["ZBMSAccentColorBrushLight2"] as SolidColorBrush; 
                
                 if(previousSelectedItem != null && previousSelectedItem!=selectedItem2)
                 {
@@ -505,7 +545,85 @@ namespace ZBMS
              MenuOptionsListView.SelectedItem = null;
         }
 
+        private async void TriggerPopup(string message)
+        {
+            await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+           {
+               BlinkPopup.Begin();
+               Popup.Visibility = Visibility.Visible;
+               PopupTextBlock.Text = message;
+           });
+        }
 
+        private void AccountsList_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+
+            var newitem = ((sender as ListView).Parent as StackPanel).Parent as ListViewItem;
+
+            if (addedItem != newitem)
+            {
+                addedItem = newitem;
+
+                if (addedItem != null)
+                {
+                    addedItem.Foreground = Application.Current.Resources["ZBMSAccentColorBrush"] as SolidColorBrush;
+                }
+                if (removedItem != null)
+                {
+                    if (this.RequestedTheme == ElementTheme.Dark)
+                    {
+                        removedItem.Foreground = new SolidColorBrush(Colors.White);
+                    }
+                    else
+                    {
+                        removedItem.Foreground = new SolidColorBrush(Colors.Black);
+                    }
+                }
+                removedItem = addedItem;
+            }
+
+            var selectedItem = (MoneyTransferList.SelectedItem as ListViewItem);
+            if (selectedItem != null)
+            {
+                selectedItem.Background = new SolidColorBrush(Colors.Transparent);
+                MoneyTransferList.SelectedItem = null;
+            }
+
+            var selectedItem1 = (ProfileList.SelectedItem as ListViewItem);
+            if (selectedItem1 != null)
+            {
+                selectedItem1.Background = new SolidColorBrush(Colors.Transparent);
+                ProfileList.SelectedItem = null;
+            }
+
+            var selectedItem2 = AccountsList.SelectedItem as ListViewItem;
+            if (selectedItem2 != null)
+            {
+                selectedItem2.Background = Application.Current.Resources["ZBMSAccentColorBrushLight2"] as SolidColorBrush;
+
+                if (previousSelectedItem != null && previousSelectedItem != selectedItem2)
+                {
+                    previousSelectedItem.Background = new SolidColorBrush(Colors.Transparent);
+                }
+                previousSelectedItem = selectedItem2;
+            }
+             
+            
+
+            if (e.ClickedItem==ViewTransaction)
+            {
+                ViewTransactionsPage.SetSenderId(UserDetails.Customer.CustomerId, TransactionFilterType.CustomerID);
+                ContentFrame.Navigate(typeof(ViewTransactionsPage));
+            }
+
+            if (e.ClickedItem==ViewAccount)
+            {
+                ContentFrame.Navigate(typeof(ViewAccountDetails));
+            }
+
+
+        }
     }
 }
  

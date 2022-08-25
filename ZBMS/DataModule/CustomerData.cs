@@ -9,7 +9,7 @@ namespace DataModule
     public class CustomerData
     {
         [PrimaryKey, AutoIncrement]
-        public int autoIncrementId { get; set; }
+        public int CustomerCount { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
         public string Contact { get; set; }
@@ -18,15 +18,16 @@ namespace DataModule
 
         public string CustomerId { get; set; }
 
-        public CustomerData(string _name, string _address, string _contact, string _mailId, int _autoIncrementId)
+        public CustomerData(string name, string address, string contact, string mailId, int count)
         {
 
-            autoIncrementId = _autoIncrementId;
-            CustomerId = "UID" + (100 + ++autoIncrementId);
-            Name = _name;
-            Address = _address;
-            Contact = _contact;
-            MailId = _mailId;
+            CustomerCount = count;
+           
+            CustomerId = "UID" + (100 + ++CustomerCount);
+            Name = name;
+            Address = address;
+            Contact = contact;
+            MailId = mailId;
         }
         public CustomerData()
         {

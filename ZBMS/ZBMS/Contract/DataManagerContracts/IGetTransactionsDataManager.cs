@@ -9,6 +9,6 @@ namespace ZBMS.Contract.DataManagerContracts
 {
     public interface IGetTransactionsDataManager
     {
-        void GetData(ICallBack<GetTransactionsResponse> callBack, GetTransactionsRequest request);
+        void GetData( GetTransactionsRequest request , ICallBack<GetTransactionsResponse> callBack);
     }
 }

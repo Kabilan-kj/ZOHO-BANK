@@ -213,6 +213,9 @@
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Loan1.png">
       <PackagePath>Assets\Loan1.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\LoanPayment.png">
+      <PackagePath>Assets\LoanPayment.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\Assets\Money1.png">
       <PackagePath>Assets\Money1.png</PackagePath>
     </AppxPackagedFile>

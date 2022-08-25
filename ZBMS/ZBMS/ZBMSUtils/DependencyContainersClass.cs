@@ -16,8 +16,8 @@ namespace ZBMS.Contract
     public class DependencyContainersClass
     {
         public static DependencyContainersClass DependencyContainerObject = new DependencyContainersClass();
-        private ServiceProvider serviceProvider;
-        private ServiceCollection serviceObjectsCollection;
+        private ServiceProvider _serviceProvider;
+        private ServiceCollection _serviceObjectsCollection;
 
         private DependencyContainersClass()
         {
@@ -26,19 +26,19 @@ namespace ZBMS.Contract
 
         private void ConfigureServices()
         {
-            serviceObjectsCollection = new ServiceCollection();
+            _serviceObjectsCollection = new ServiceCollection();
 
-            serviceObjectsCollection.AddSingleton<IGetTransactionsDataManager,GetTransactionsDataManager>();
-            serviceObjectsCollection.AddSingleton<IGetDetailedTransactionDataManager, GetDetailedTransactionDataManager>();
-            serviceObjectsCollection.AddSingleton<IFilterTransactionsDataManager, FilterTransactionsDataManager>();
-           
+            _serviceObjectsCollection.AddSingleton<IGetTransactionsDataManager,GetTransactionsDataManager>();
+            _serviceObjectsCollection.AddSingleton<IGetDetailedTransactionDataManager, GetDetailedTransactionDataManager>();
+            _serviceObjectsCollection.AddSingleton<IFilterTransactionsDataManager, FilterTransactionsDataManager>();
 
-            serviceProvider=serviceObjectsCollection.BuildServiceProvider();
+
+            _serviceProvider = _serviceObjectsCollection.BuildServiceProvider();
         }
 
         public ServiceProvider GetProvider()
         {
-            return serviceProvider;
+            return _serviceProvider;
         }
     }
 }

@@ -65,7 +65,6 @@ namespace ZBMS
 
         private void GetIdList()
         {
-            
             foreach (var account in UserAccounts)
             {
                 FromUserAccounts.Add(account.AccountNumber);
@@ -85,12 +84,12 @@ namespace ZBMS
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            TransferFailed("DO you Want to abort Transaction");
+            EventsUtilsClass.InvokeOnPopupTiggered("Transaction Cancelled");
+            this.Frame.Navigate(typeof(CustomerDashboard));
         }
 
         private async void TransferButton_Click(object sender, RoutedEventArgs e)
         {
-
             if (VerifyTransfer())
             {
                 foreach (var account in UserAccounts)
@@ -128,7 +127,6 @@ namespace ZBMS
             }
         }
 
-
         private bool VerifyTransfer()
         {
             if (FromComboBox.SelectedItem != null)
@@ -157,16 +155,10 @@ namespace ZBMS
             return false;
         }
 
-        private async void TransferDone(string message)
+        private void TransferDone(string message)
         {
-            MessageDialog showDialog = new MessageDialog(message);
-            showDialog.Commands.Add(new UICommand("Okay") { Id = 0 });
-            showDialog.DefaultCommandIndex = 0;
-            var result = await showDialog.ShowAsync();
-            if ((int)result.Id == 0)
-            {
-                this.Frame.Navigate(typeof(SelfTransferPage));
-            }
+            EventsUtilsClass.InvokeOnPopupTiggered(message);
+            this.Frame.Navigate(typeof(SelfTransferPage));
         }
     }
 }

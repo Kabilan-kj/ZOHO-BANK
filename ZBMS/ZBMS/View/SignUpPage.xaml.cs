@@ -69,7 +69,7 @@ namespace ZBMS
         }
         private async void SignUp(CustomerData Customer)
         {
-            MessageDialog showDialog = new MessageDialog($"Hello {Customer.Name} your have registered succesfully !! \n Your CUstomer ID is {Customer.CustomerId} ");
+            MessageDialog showDialog = new MessageDialog($"Hello {Customer.Name} your have registered succesfully !! \n Your Customer ID is {Customer.CustomerId} ");
             showDialog.Commands.Add(new UICommand("Okay") { Id = 0 });
             showDialog.DefaultCommandIndex = 0;
             var result = await showDialog.ShowAsync();

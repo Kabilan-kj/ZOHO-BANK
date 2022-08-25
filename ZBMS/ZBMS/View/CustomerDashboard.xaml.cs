@@ -21,7 +21,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using ZBMS.Contract;
 using ZBMS.Contract.ViewModelBase;
-using ZBMS.Events;
+using ZBMS.DomainLayer;
 using ZBMS.Models;
 using ZBMS.PresentationLayer;
 using ZBMS.ViewModel;
@@ -37,25 +37,14 @@ namespace ZBMS
     /// </summary>
     public sealed partial class CustomerDashboard : Page , ICustomerDashBoardView
     {
-        //public List<string> AccountNumbers = new List<string>();
-        //private List<ShortcutMenuItems> ShortcutMenuItems = new List<ShortcutMenuItems>();
-        //private List<ShortcutMenuItems> MoneyTransferMenuItems = new List<ShortcutMenuItems>();
-        //private GetTransactionsViewModel viewmodel;
-        //private CustomerLoginPage customerLoginPage = new CustomerLoginPage();
-        //private CustomerAccountPage customerAccountPage = new CustomerAccountPage();
-        //private CustomerTransactionsPage customerTransaction = new CustomerTransactionsPage();
-        //private CustomerData customer = new CustomerData();
-       // public static List<AccountData> UserAccounts = new List<AccountData>();
-        //private Dictionary<string, string> AccountTypeList = new Dictionary<string, string>();
-
+        
         private CustomerDashboardViewModelBase viewModel;
 
         public CustomerDashboard()
         {
             this.InitializeComponent();
-             viewModel = new CustomerDashboardViewModel(this);
-           // viewModel = DependencyContainersClass.DependencyContainerObject.GetProvider().GetService(typeof(CustomerDashboardViewModelBase)) as CustomerDashboardViewModelBase;
-            //viewModel.SetViewObject(this);
+
+            viewModel = new CustomerDashboardViewModel(this);
 
             if (viewModel.UserAccounts.Count > 0)
             {
@@ -69,20 +58,22 @@ namespace ZBMS
                 ErrorStackPanel.Visibility = Visibility.Visible;
             }
            
-            // GetValues();
-
         }
 
         public void UpdateErrorMessage()
         {
-            TransactionsErrorMessage.Visibility = Visibility.Visible;
+            RecentTransactionsErrorMessage.Visibility = Visibility.Visible;
             Filter.Visibility = Visibility.Collapsed;
+            TransactionButton.Visibility = Visibility.Collapsed;
+
         }
 
         public void UpdateRecentTransactionErrorMessage()
         {
             RecentTransactionsErrorMessage.Visibility = Visibility.Visible;
-           
+           // Filter.Visibility = Visibility.Collapsed;
+            TransactionButton.Visibility = Visibility.Collapsed;
+
         }
 
         CoreDispatcher ICustomerDashBoardView.Dispatcher
@@ -95,7 +86,7 @@ namespace ZBMS
             if (SelectAccountComboBox.SelectedItem != null)
             {
                 EventsUtilsClass.InvokePageChanged(MenuOptions.ViewTransaction);
-                ViewTransactionsPage.SetSenderId(SelectAccountComboBox.SelectedItem.ToString(), DomainLayer.TransactionID.SenderID);
+                ViewTransactionsPage.SetSenderId(SelectAccountComboBox.SelectedItem.ToString(), TransactionFilterType.SenderID);
                 this.Frame.Navigate(typeof(ViewTransactionsPage));
             }
         }
@@ -113,7 +104,7 @@ namespace ZBMS
         private void TransactionAllButton_Click(object sender, RoutedEventArgs e)
         {
             EventsUtilsClass.InvokePageChanged(MenuOptions.Transactions);
-            ViewTransactionsPage.SetSenderId(viewModel.customer.CustomerId, DomainLayer.TransactionID.SenderID);
+            ViewTransactionsPage.SetSenderId(viewModel.Customer.CustomerId, DomainLayer.TransactionFilterType.CustomerID);
             this.Frame.Navigate(typeof(ViewTransactionsPage));
         }
 
@@ -150,7 +141,7 @@ namespace ZBMS
 
                 case 2:
                     EventsUtilsClass.InvokePageChanged(MenuOptions.Transactions);
-                    ViewTransactionsPage.SetSenderId(viewModel.customer.CustomerId, DomainLayer.TransactionID.CustomerID);
+                    ViewTransactionsPage.SetSenderId(viewModel.Customer.CustomerId, DomainLayer.TransactionFilterType.CustomerID);
                     this.Frame.Navigate(typeof(ViewTransactionsPage));
                      break;
 
@@ -218,15 +209,15 @@ namespace ZBMS
         {
             if (FilterToday.IsSelected)
             {
-                viewModel.GetRecentTransactions(viewModel.customer.CustomerId,DomainLayer.RecentTransactionFilterOption.Today);
+                viewModel.GetRecentTransactions(viewModel.Customer.CustomerId,DomainLayer.RecentTransactionFilterOption.Today);
             }
             else if (FilterLastTwoDays.IsSelected)
             {
-                viewModel.GetRecentTransactions(viewModel.customer.CustomerId,  DomainLayer.RecentTransactionFilterOption.LastTwoDays);
+                viewModel.GetRecentTransactions(viewModel.Customer.CustomerId,  DomainLayer.RecentTransactionFilterOption.LastTwoDays);
             }
             else if (FilterLastSevenDays.IsSelected)
             {
-                viewModel.GetRecentTransactions(viewModel.customer.CustomerId,DomainLayer.RecentTransactionFilterOption.LastSevenDays);
+                viewModel.GetRecentTransactions(viewModel.Customer.CustomerId,DomainLayer.RecentTransactionFilterOption.LastSevenDays);
             }
         }
     }

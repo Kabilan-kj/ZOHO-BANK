@@ -70,14 +70,7 @@ namespace ZBMS
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             
-            MessageDialog showDialog = new MessageDialog("Do you want Save the Changes");
-            showDialog.Commands.Add(new UICommand("Save") { Id = 0 });
-            showDialog.Commands.Add(new UICommand("Cancel") { Id=1});
-            showDialog.DefaultCommandIndex = 0;
-            showDialog.CancelCommandIndex = 1;
-            var results= await showDialog.ShowAsync();
-            if((int)results.Id==0){
-
+            
                 if(NameTextBox.Text!="")
                 {
                     customer.Name = NameTextBox.Text;   
@@ -102,43 +95,24 @@ namespace ZBMS
                 {
                     ProfileEdited();
                 }
-               
-            }
-
+              
         }
 
         private  void ProfileEdited()
         {
-            //MessageDialog showDialog = new MessageDialog("Profile Updated Successfully");
-            //showDialog.Commands.Add(new UICommand("Okay") { Id = 0 });
-           
-            //showDialog.DefaultCommandIndex = 0;
-            //showDialog.CancelCommandIndex = 1;
-            //var results = await showDialog.ShowAsync();
-            //if ((int)results.Id == 0)
-            //{
-                ViewProfilePageFrame.Navigate(typeof(CustomerDashboard));
-          //  }
+            EventsUtilsClass.InvokeOnPopupTiggered("Profile Updated ");
+            ViewProfilePageFrame.Navigate(typeof(CustomerDashboard));
         }
         private  void ProfileEditingFailed()
-        {
-            //MessageDialog showDialog = new MessageDialog("Unable to Update Values");
-            //showDialog.Commands.Add(new UICommand("Okay") { Id = 0 });
-         
-            //showDialog.DefaultCommandIndex = 0;
-            
-            //var results = await showDialog.ShowAsync();
-            //if ((int)results.Id == 0)
-            //{
-                this.Frame.Navigate(typeof(EditProfilePage));
-            //}
+        {        
+            EventsUtilsClass.InvokeOnPopupTiggered("Profile Updation Failed");
+            ViewProfilePageFrame.Navigate(typeof(EditProfilePage));
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             IsTextModified = true;
             ButtonPanel.Visibility = Visibility.Visible;
-            
         }
     }
 }

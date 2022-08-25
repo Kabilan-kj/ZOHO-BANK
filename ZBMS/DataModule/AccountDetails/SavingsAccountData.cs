@@ -11,8 +11,8 @@ namespace DataModule.AccountDetails
         public double InterestRate = 0.05;
         public SavingsAccountData(int _id, string _customerID, string _bankCode, double _balance) : base(_customerID, _bankCode)
         {
-            autoIncrementId = _id;
-            AccountNumber = "SVACC" + (1000 + ++autoIncrementId);
+            AccountCount = _id;
+            AccountNumber = "SVACC" + (1000 + ++AccountCount);
             Balance = _balance;
             MinimumBalance = 2500;
             Type = AccountType.SAVINGS_ACCOUNT;

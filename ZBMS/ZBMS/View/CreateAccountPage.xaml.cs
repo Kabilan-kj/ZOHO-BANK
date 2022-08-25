@@ -77,7 +77,7 @@ namespace ZBMS
 
         }
 
-        private async void CreateButton_Click(object sender, RoutedEventArgs e)
+        private  void CreateButton_Click(object sender, RoutedEventArgs e)
         {
             if (VerifyAccountCreation())
             {
@@ -105,15 +105,12 @@ namespace ZBMS
                         {
                             if (savingsaccount.Balance < Convert.ToDouble(AmountTextBox.Text))
                             {
-                                MessageDialog showDialog = new MessageDialog($"Selected Savings Account does not contain required Initial Balance ");
-                                showDialog.Commands.Add(new UICommand("Okay") { Id = 0 });
-                                showDialog.DefaultCommandIndex = 0;
-                                var result = await showDialog.ShowAsync();
-                                if ((int)result.Id == 0)
-                                {
-                                    this.Frame.Navigate(typeof(CreateAccountPage));
-                                    return;
-                                }
+                               
+                                ErrorMessage.Visibility= Visibility.Visible;
+                                ErrorMessage.Text = "Select account type";
+                                this.Frame.Navigate(typeof(CreateAccountPage));
+                                return;
+                                
                             }
                             else
                             {
@@ -133,11 +130,7 @@ namespace ZBMS
           
 
         }
-
-        //dbAccount.TypeofAccount=AccountTypeComboBox.SelectedItem.ToString();
-        //    dbAccount.Balance =Convert.ToDouble(AmountTextBox.Text);
-        //    dbAccount.BranchCode=BranchCodeComboBox.SelectedItem.ToString();
-      
+              
         private bool VerifyAccountCreation()
         {
             if(AccountTypeComboBox.SelectedItem!=null)
@@ -204,7 +197,6 @@ namespace ZBMS
             AccountData account = await customerAccountPage.CreateAccount(dbAccount);
             if (account != null)
             {
-
                 AccountCreated(account);
             }
             else
@@ -232,32 +224,18 @@ namespace ZBMS
 
         private async void AccountCreated(AccountData account)
         {
-            //MessageDialog showDialog = new MessageDialog($" your have been created succesfully !! \n Your AccountNumber is {account.AccountNumber} ");
-            //showDialog.Commands.Add(new UICommand("Okay") { Id = 0 });
-            //showDialog.DefaultCommandIndex = 0;
-            //var result = await showDialog.ShowAsync();
-            //if ((int)result.Id == 0)
-            //{
-                //this.Frame.Navigate(typeof(CustomerHomePage));
                 await Window.Current.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                 {
+                    EventsUtilsClass.InvokeOnPopupTiggered($"Account created succesfully !! \nAccountNumber :{account.AccountNumber} ");
                     CoreWindow.GetForCurrentThread().Close();
                 });
 
-           // }
+         
         }
 
         private  void AccountCreationFailed()
         {
-            //MessageDialog showDialog = new MessageDialog(" Unable to Create Account");
-            //showDialog.Commands.Add(new UICommand("Okay") { Id = 0 });
-            //showDialog.DefaultCommandIndex = 0;
-            //var result = await showDialog.ShowAsync();
-            //if ((int)result.Id == 0)
-            //{
-                this.Frame.Navigate(typeof(CreateAccountPage));
-
-            //}
+          this.Frame.Navigate(typeof(CreateAccountPage));
         }
 
         private async void AccountTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -266,7 +244,6 @@ namespace ZBMS
           
             if (data =="Recurring account")
             {
-
                 if (savingsAccount.Count == 0)
                 {
                     MessageDialog showDialog = new MessageDialog($"You does not have any Savings Account \n Create Savings Account and Try Again");
@@ -305,25 +282,17 @@ namespace ZBMS
 
         }
 
-        private async void CancelButton_Click(object sender, RoutedEventArgs e)
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageDialog showDialog = new MessageDialog($"Do you want to cancel account creation ");
-            showDialog.Commands.Add(new UICommand("Okay") { Id = 0 });
-            showDialog.DefaultCommandIndex = 0;
-            var result = await showDialog.ShowAsync();
-            if ((int)result.Id == 0)
-            {
-                this.Frame.Navigate(typeof(CreateAccountPage));
-                return;
-            }
+            this.Frame.Navigate(typeof(CreateAccountPage));
+                     
         }
 
-        //private async void CloseButton_Click(object sender, RoutedEventArgs e)
-        //{
-        //    await Window.Current.CoreWindow.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
-        //    { 
-        //        CoreWindow.GetForCurrentThread().Close();
-        //    });
-        //}
+        private void UpdateErrorMessage(string message)
+        {
+            ErrorMessage.Visibility = Visibility.Visible;
+            ErrorMessage.Text = message;    
+        }
+
     }
 }

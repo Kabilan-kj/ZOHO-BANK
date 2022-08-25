@@ -25,7 +25,7 @@ namespace ZBMS
                 db.Open();
                 string cmd = "Insert into Accountdata (autoincrementid,AccountNumber,CustomerId,branchcode,balance,typeofaccount,minimumbalance," +
                     "interestrate,SourceAccountNumber,Tenure,MonthsCompleted,PrincipalAmount,Istriggered)"+
-                  $"Values({dbaccount.autoIncrementId},'{dbaccount.AccountNumber}','{dbaccount.CustomerId}','{dbaccount.BranchCode}',{dbaccount.Balance}," +
+                  $"Values({dbaccount.AccountCount},'{dbaccount.AccountNumber}','{dbaccount.CustomerId}','{dbaccount.BranchCode}',{dbaccount.Balance}," +
                   $"'{dbaccount.TypeofAccount}',{dbaccount.MinimumBalance},{dbaccount.InterestRate},'{dbaccount.SourceAccountNumber}',{dbaccount.Tenure}," +
                   $"{dbaccount.MonthsCompleted},{dbaccount.PrincipalAmount},{dbaccount.IsTriggered})";
                 SqliteCommand GetRecord = new SqliteCommand(cmd, db);
@@ -201,7 +201,7 @@ namespace ZBMS
                 while (reader.Read())
                 {
                     DBAccountData account = new DBAccountData();
-                    account.autoIncrementId = reader.GetInt32(0);
+                    account.AccountCount = reader.GetInt32(0);
                     account.AccountNumber = reader.GetString(1);
                     account.CustomerId = reader.GetString(2);
                     account.BranchCode = reader.GetString(3);
@@ -225,7 +225,7 @@ namespace ZBMS
                 db.Close();
                 foreach (DBAccountData dbaccount in DBaccounts)
                 {
-                    UserAccounts.Add(getAccount(dbaccount));
+                    UserAccounts.Add(GetAccount(dbaccount));
                 }
                 return UserAccounts;
 
@@ -251,7 +251,7 @@ namespace ZBMS
                 while (reader.Read())
                 {
                     LoanAccountData account = new LoanAccountData();
-                    account.autoIncrementId = reader.GetInt32(0);
+                    account.AccountCount = reader.GetInt32(0);
                     account.AccountNumber = reader.GetString(1);
                     account.CustomerId = reader.GetString(2);
                     account.BranchCode = reader.GetString(3);
@@ -343,9 +343,9 @@ namespace ZBMS
 
         }
 
-        public string GetAddress(string branchcode)
+        public BankData GetAddress(string branchcode)
         {
-            string branchAddress = null;
+            BankData branch = new BankData();
             try
             {
                 db = new SqliteConnection($"FileName={dbpath}");
@@ -355,11 +355,12 @@ namespace ZBMS
                 SqliteDataReader reader = GetRecord.ExecuteReader();
                 while (reader.Read())
                 {
-                   branchAddress = reader.GetString(3); 
+                   branch.BranchName = reader.GetString(1); 
+                   branch.BranchAddress = reader.GetString(3); 
 
                 }
 
-                return branchAddress;
+                return branch;
 
 
             }
@@ -407,13 +408,13 @@ namespace ZBMS
 
         }
 
-        public AccountData getAccount(DBAccountData Account)
+        public AccountData GetAccount(DBAccountData Account)
         {
             switch (Account.TypeofAccount)
             {
                 case "CURRENT_ACCOUNT":
                     CurrentAccountData currentAccount = new CurrentAccountData();
-                    currentAccount.autoIncrementId = Account.autoIncrementId;
+                    currentAccount.AccountCount= Account.AccountCount;
                     currentAccount.AccountNumber = Account.AccountNumber;
                     currentAccount.TypeofAccount = Account.TypeofAccount;
                     currentAccount.CustomerId = Account.CustomerId;
@@ -424,7 +425,7 @@ namespace ZBMS
 
                 case "SAVINGS_ACCOUNT":
                     SavingsAccountData savingsAccount = new SavingsAccountData();
-                    savingsAccount.autoIncrementId = Account.autoIncrementId;
+                    savingsAccount.AccountCount = Account.AccountCount;
                     savingsAccount.AccountNumber = Account.AccountNumber;
                     savingsAccount.TypeofAccount = Account.TypeofAccount;
                     savingsAccount.BranchCode = Account.BranchCode;
@@ -436,7 +437,7 @@ namespace ZBMS
 
                 case "RECURRING_ACCOUNT":
                     RecurringAccountData recurringAccount = new RecurringAccountData();
-                    recurringAccount.autoIncrementId = Account.autoIncrementId;
+                    recurringAccount.AccountCount = Account.AccountCount;
                     recurringAccount.AccountNumber = Account.AccountNumber;
                     recurringAccount.TypeofAccount = Account.TypeofAccount;
                     recurringAccount.CustomerId = Account.CustomerId;
@@ -452,7 +453,7 @@ namespace ZBMS
 
                 case "FIXED_DEPOSIT_ACCOUNT":
                     FixedDepositAccountData fixedDepositAccount = new FixedDepositAccountData();
-                    fixedDepositAccount.autoIncrementId = Account.autoIncrementId;
+                    fixedDepositAccount.AccountCount = Account.AccountCount;
                     fixedDepositAccount.AccountNumber = Account.AccountNumber;
                     fixedDepositAccount.TypeofAccount = Account.TypeofAccount;
                     fixedDepositAccount.BranchCode = Account.BranchCode;
@@ -466,7 +467,7 @@ namespace ZBMS
 
                 case "LOAN_ACCOUNT":
                     LoanAccountData loanAccount = new LoanAccountData();
-                    loanAccount.autoIncrementId = Account.autoIncrementId;
+                    loanAccount.AccountCount = Account.AccountCount;
                     loanAccount.AccountNumber = Account.AccountNumber;
                     loanAccount.TypeofAccount = Account.TypeofAccount;
                     loanAccount.BranchCode = Account.BranchCode;
@@ -495,7 +496,7 @@ namespace ZBMS
                     CurrentAccountData ca = (CurrentAccountData)Account;
                     DBaccount = new DBAccountData()
                     {
-                        autoIncrementId = ca.autoIncrementId,
+                        AccountCount = ca.AccountCount,
                         AccountNumber = ca.AccountNumber,
                         CustomerId = ca.CustomerId,
                         BranchCode = ca.BranchCode,
@@ -509,7 +510,7 @@ namespace ZBMS
                     SavingsAccountData sa = (SavingsAccountData)Account;
                     DBaccount = new DBAccountData()
                     {
-                        autoIncrementId = sa.autoIncrementId,
+                        AccountCount = sa.AccountCount,
                         AccountNumber = sa.AccountNumber,
                         CustomerId = sa.CustomerId,
                         BranchCode = sa.BranchCode,
@@ -525,7 +526,7 @@ namespace ZBMS
                     RecurringAccountData ra = (RecurringAccountData)Account;
                     DBaccount = new DBAccountData()
                     {
-                        autoIncrementId = ra.autoIncrementId,
+                        AccountCount = ra.AccountCount,
                         AccountNumber = ra.AccountNumber,
                         CustomerId = ra.CustomerId,
                         BranchCode = ra.BranchCode,
@@ -542,7 +543,7 @@ namespace ZBMS
                     FixedDepositAccountData fa = (FixedDepositAccountData)Account;
                     DBaccount = new DBAccountData()
                     {
-                        autoIncrementId = fa.autoIncrementId,
+                        AccountCount = fa.AccountCount,
                         AccountNumber = fa.AccountNumber,
                         CustomerId = fa.CustomerId,
                         BranchCode = fa.BranchCode,
@@ -556,7 +557,7 @@ namespace ZBMS
                     LoanAccountData la = (LoanAccountData)Account;
                     DBaccount = new DBAccountData()
                     {
-                        autoIncrementId = la.autoIncrementId,
+                        AccountCount = la.AccountCount,
                         AccountNumber = la.AccountNumber,
                         CustomerId = la.CustomerId,
                         BranchCode = la.BranchCode,

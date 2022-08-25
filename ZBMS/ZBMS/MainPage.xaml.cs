@@ -35,7 +35,7 @@ namespace ZBMS
         {
              this.InitializeComponent();
             // LoginAction("UID107");
-           // SamplePageTesting("UID107");
+            //SamplePageTesting("UID107");
 
         }
 
@@ -58,7 +58,7 @@ namespace ZBMS
             {
                 customer = null;
                 customer = LoginPage.GetCustomer(UserIdTextBox.Text);
-                if (customer==null)
+                if (customer==null || customer.Name==null)
                 {
                     ErrorMessage.Foreground = new SolidColorBrush(Colors.Red);
                     ErrorMessage.Text = "Invalid UserID";
@@ -66,7 +66,8 @@ namespace ZBMS
                 else 
                 {
                     UserDetails.Customer = customer;
-                    Login(customer.Name);
+                     MainFrame.Navigate(typeof(MenuPage));
+                  //  Login(customer.Name);
                 }
               
             }
@@ -85,17 +86,10 @@ namespace ZBMS
 
         }
 
-        public async void Login( string UserName)
+        public  void Login( string UserName)
         {
-            MessageDialog showDialog = new MessageDialog("Welcome " +UserName + " !!..");
-            showDialog.Commands.Add(new UICommand("Okay") { Id = 0 });
-            showDialog.DefaultCommandIndex = 0;
-            var result = await showDialog.ShowAsync();
-            if ((int)result.Id == 0)
-            {
-                MainFrame.Navigate(typeof(MenuPage));
-            }
-
+            MainFrame.Navigate(typeof(MenuPage));
+          
         }
        
 

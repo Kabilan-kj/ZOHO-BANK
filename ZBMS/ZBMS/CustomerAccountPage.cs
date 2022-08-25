@@ -86,7 +86,7 @@ namespace ZBMS
             });
         }
 
-        public async Task<string> GetAddress(string branchCode)
+        public async Task<BankData> GetAddress(string branchCode)
         {
             return await Task.Run(() =>
             {

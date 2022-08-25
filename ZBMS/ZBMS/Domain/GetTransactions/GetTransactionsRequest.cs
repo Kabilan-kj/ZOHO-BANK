@@ -9,32 +9,31 @@ namespace ZBMS.DomainLayer
     public class GetTransactionsRequest
     {
         public string Id { get; set; }
-        public TransactionID transactionId { get; set; }
-        public RecentTransactionFilterOption filterOption { get; set; }
+        public TransactionFilterType TransactionId { get; set; }
+        public RecentTransactionFilterOption FilterOption { get; set; }
 
-        public GetTransactionsRequest(string id,RecentTransactionFilterOption _filterOption)
+        public GetTransactionsRequest(string id,RecentTransactionFilterOption filterOption)
         {
             Id = id;
-            transactionId = TransactionID.CustomerID;
-            filterOption = _filterOption;   
+            TransactionId = TransactionFilterType.CustomerID;
+            FilterOption = filterOption;   
         }
 
-        public GetTransactionsRequest(string id, TransactionID _transactionId)
+        public GetTransactionsRequest(string id, TransactionFilterType transactionId)
         {
             Id = id;
-            transactionId = _transactionId;
+            TransactionId = transactionId;
         }
 
         public GetTransactionsRequest(string id)
         {
             Id = id;
-
         }
 
     }
 
 
-    public enum TransactionID
+    public enum TransactionFilterType
     {
         CustomerID, SenderID
     }

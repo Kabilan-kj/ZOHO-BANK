@@ -10,7 +10,10 @@ namespace ZBMS.ZBMSUtils
     {
         Dashboard,SelfTransfer,OtherCustomerTransfer,OtherBankTransfer,ViewProfile,EditProfile,ViewAccount,ViewTransaction,Transactions
     }
+
     public delegate void PageChanged(MenuOptions name);
+    public delegate void PopupTriggered(string message);
+
     public  class EventsUtilsClass
     {
        
@@ -20,6 +23,11 @@ namespace ZBMS.ZBMSUtils
             OnPageChanged?.Invoke(name);
         }
 
+        public static event PopupTriggered OnPopupTriggered;
+        public static void InvokeOnPopupTiggered(string message)
+        {
+            OnPopupTriggered?.Invoke(message);
+        }
 
     }
 }

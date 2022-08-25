@@ -24,23 +24,20 @@ namespace ZBMS
             {
                 db = new SqliteConnection($"FileName={dbpath}");
                 db.Open();
-                // string query = $"select * from customerdata where customerid = '{id}' ; ";
-                //SqliteCommand command = new SqliteCommand(cmd, db);
                 string query = "select * from customerdata where customerid = $sample ; ";
                 SqliteCommand command = new SqliteCommand(query,db);
-               // command.Connection = db;
                 command.Parameters.AddWithValue("$sample", id);
                 
                 SqliteDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    customer.autoIncrementId = reader.GetInt32(0);
+                    customer.CustomerCount = reader.GetInt32(0);
                     customer.Name = reader.GetString(1);
                     customer.Address = reader.GetString(2);
                     customer.Contact = reader.GetString(3);
                     customer.MailId = reader.GetString(4);
                     customer.CustomerId = reader.GetString(5);
-                    //customer.ProfileImage = reader.GetString(6);
+                   
                 }
                 
               return customer;
@@ -56,7 +53,6 @@ namespace ZBMS
                 db.Close();
             }
 
-
         }
 
         public int GetCustomerId()
@@ -71,15 +67,13 @@ namespace ZBMS
                 SqliteCommand GetRecord = new SqliteCommand(cmd, db);
                 SqliteDataReader reader = GetRecord.ExecuteReader();
 
-
                 while (reader.Read())
                 {
-                    customer.autoIncrementId = reader.GetInt32(0);
+                    customer.CustomerCount = reader.GetInt32(0);
                    
                 }
 
-                return customer.autoIncrementId;
-
+                return customer.CustomerCount;
 
             }
             catch (Exception)
@@ -94,16 +88,15 @@ namespace ZBMS
 
         }
 
-        public int AddCustomer(CustomerData NewCustomer)
+        public int AddCustomer(CustomerData newCustomer)
         {
 
-            CustomerData customer = new CustomerData();
             try
             {
                 db = new SqliteConnection($"FileName={dbpath}");
                 db.Open();
                 string cmd = "Insert Into Customerdata (autoincrementid,Name,Address,Contact,Mailid,CustomerID)" +
-                 $" Values({NewCustomer.autoIncrementId},'{NewCustomer.Name}','{NewCustomer.Address}','{NewCustomer.Contact}','{NewCustomer.MailId}','{NewCustomer.CustomerId}');  ";
+                 $" Values({newCustomer.CustomerCount},'{newCustomer.Name}','{newCustomer.Address}','{newCustomer.Contact}','{newCustomer.MailId}','{newCustomer.CustomerId}');  ";
                 SqliteCommand GetRecord = new SqliteCommand(cmd, db);
                
                 int rows= GetRecord.ExecuteNonQuery();
@@ -120,7 +113,6 @@ namespace ZBMS
             {
                 db.Close();
             }
-
 
         }
 

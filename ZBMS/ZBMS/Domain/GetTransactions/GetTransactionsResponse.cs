@@ -10,6 +10,6 @@ namespace ZBMS.DomainLayer
 {
     public class GetTransactionsResponse
     {
-        public List<ExtendedTransactionDetails> transactions { get; set; }
+        public List<ExtendedTransactionDetails> Transactions { get; set; }
     }
 }

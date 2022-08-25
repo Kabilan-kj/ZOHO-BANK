@@ -17,20 +17,20 @@ namespace ZBMS.ViewModel
 {
     public class CustomerDashboardViewModel : CustomerDashboardViewModelBase
     {
-        private GetTransactionsRequest request;
+        private GetTransactionsRequest _request;
 
-        private FilterTransactionsRequest filterTransactionsRequest;
+        //private FilterTransactionsRequest _filterTransactionsRequest;
 
-        public CustomerDashboardViewModel(ICustomerDashBoardView _dashboardview) 
+        public CustomerDashboardViewModel(ICustomerDashBoardView dashboardview) 
         {
-            dashboardView = _dashboardview;
+            DashboardView = dashboardview;
             GetValues();
 
         }
        
-        public override void SetViewObject(ICustomerDashBoardView _dashboardView)
+        public override void SetViewObject(ICustomerDashBoardView dashboardView)
         {
-            dashboardView = _dashboardView;
+            DashboardView = dashboardView;
         }
 
         public void GetValues()
@@ -38,21 +38,20 @@ namespace ZBMS.ViewModel
 
             MoneyTransferMenuItems = ShortcutMenuItemManager.GetMoneyTransferMenuItems();
             ShortcutMenuItems = ShortcutMenuItemManager.GetShortcutMenuItems();
-            //viewmodel = new GetTransactionsViewModel(this);
-
+            
             AccountTypeList.Add(AccountType.CURRENT_ACCOUNT.ToString(), "Current account");
             AccountTypeList.Add(AccountType.SAVINGS_ACCOUNT.ToString(), "Savings account");
             AccountTypeList.Add(AccountType.FIXED_DEPOSIT_ACCOUNT.ToString(), "Fixed deposit account");
             AccountTypeList.Add(AccountType.RECURRING_ACCOUNT.ToString(), "Recurring account");
             AccountTypeList.Add(AccountType.LOAN_ACCOUNT.ToString(), "Loan account");
 
-            customer = UserDetails.Customer;
+            Customer = UserDetails.Customer;
 
-            UserAccounts =  customerAccountPage.GetUserAccounts(customer.CustomerId);
+            UserAccounts =  CustomerAccountPage.GetUserAccounts(Customer.CustomerId);
             UserDetails.UserAccounts = UserAccounts;
             GetAccountNumbers();
             UserDetails.UserAccountNumbers = AccountNumbers;
-            GetTransactions(customer.CustomerId, DomainLayer.TransactionID.CustomerID);
+            GetTransactions(Customer.CustomerId, TransactionFilterType.CustomerID);
 
         }
         private void GetAccountNumbers()
@@ -64,10 +63,10 @@ namespace ZBMS.ViewModel
 
         }
        
-        public void GetTransactions(string id, TransactionID transactionId)
+        public void GetTransactions(string id, TransactionFilterType transactionId)
         {
-            request = new GetTransactionsRequest(id, transactionId);
-            new GetTransactionsUseCase(new PresenterCallBack(this), request).Execute();
+            _request = new GetTransactionsRequest(id, transactionId);
+            new GetTransactionsUseCase(new PresenterCallBack(this), _request).Execute();
         }
 
         public void SetSelectedTransaction(string transactionId)
@@ -94,7 +93,7 @@ namespace ZBMS.ViewModel
                 case RecentTransactionFilterOption.Today:
                     endDate = date.ToString();
                     startDate = DateTime.Today.ToString();
-                    filterTransactionsRequest = new FilterTransactionsRequest(startDate, endDate, customerId);
+                   var filterTransactionsRequest = new FilterTransactionsRequest(startDate, endDate, customerId);
                     new FilterTransactionUseCase(filterTransactionsRequest, new FilterTransactionsPresenterCallBack(this)).Execute();
                     break;
 
@@ -125,7 +124,7 @@ namespace ZBMS.ViewModel
                 item.ModifiedDate = transactionTime.ToString("MMM/dd,yyyy").Replace("-", ",");
                 item.ModifiedTime = transactionTime.ToString("hh/mm").Replace("-", ":") + transactionTime.ToString("tt").Replace("-", " ");
 
-                if (request.transactionId == TransactionID.CustomerID)
+                if (_request.TransactionId == TransactionFilterType.CustomerID)
                 {
                     if (AccountNumbers.Contains(item.SenderAccountNumber) && AccountNumbers.Contains(item.ReceiverAccountNumber))
                     {
@@ -156,7 +155,7 @@ namespace ZBMS.ViewModel
                 }
                 else
                 {
-                    if (item.SenderAccountNumber == request.Id)
+                    if (item.SenderAccountNumber == _request.Id)
                     {
                         item.TypeImage = "Assets/Money2.png";
                         item.AmountString = $"-  ₹{item.Amount}";
@@ -165,7 +164,7 @@ namespace ZBMS.ViewModel
                         item.IconString = char.ConvertFromUtf32(0xE936);
 
                     }
-                    else if (item.ReceiverAccountNumber == request.Id)
+                    else if (item.ReceiverAccountNumber == _request.Id)
                     {
                         item.TypeImage = "Assets/Money1.png";
                         item.AmountString = $"+  ₹{item.Amount}";
@@ -175,18 +174,18 @@ namespace ZBMS.ViewModel
                     }
                     RecentTransactions.Add(item);
                 }
-
+                
             }
         }
 
 
         public class FilterTransactionsPresenterCallBack : ICallBack<FilterTransactionsResponse>
         {
-            private CustomerDashboardViewModel viewModel;
+            private CustomerDashboardViewModel _viewModel;
 
-            public FilterTransactionsPresenterCallBack(CustomerDashboardViewModel _viewModel)
+            public FilterTransactionsPresenterCallBack(CustomerDashboardViewModel viewModel)
             {
-                viewModel = _viewModel;
+                _viewModel = viewModel;
             }
 
             public void OnError()
@@ -196,17 +195,18 @@ namespace ZBMS.ViewModel
 
             public async void OnFailure()
             {
-                await viewModel.dashboardView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                await _viewModel.DashboardView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                 {
-                    viewModel.dashboardView.UpdateRecentTransactionErrorMessage();
+                    _viewModel.RecentTransactions.Clear();
+                    _viewModel.DashboardView.UpdateRecentTransactionErrorMessage();
                 });
             }
 
             public async void OnSuccess(FilterTransactionsResponse response)
             {
-                await viewModel.dashboardView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                await _viewModel.DashboardView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                 {
-                    viewModel.SetRecentTransactions(response.transactions);
+                    _viewModel.SetRecentTransactions(response.Transactions);
 
                 });
             }
@@ -215,11 +215,11 @@ namespace ZBMS.ViewModel
 
         public class PresenterCallBack : ICallBack<GetTransactionsResponse>
         {
-            private CustomerDashboardViewModel viewModel;
+            private CustomerDashboardViewModel _viewModel;
 
-            public PresenterCallBack(CustomerDashboardViewModel _viewModel)
+            public PresenterCallBack(CustomerDashboardViewModel viewModel)
             {
-                viewModel = _viewModel;
+                _viewModel = viewModel;
             }
 
             public void OnError()
@@ -229,18 +229,18 @@ namespace ZBMS.ViewModel
 
             public async void OnFailure()
             {
-                await viewModel.dashboardView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                await _viewModel.DashboardView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                 {
-
-                    viewModel.dashboardView.UpdateErrorMessage();
+                    _viewModel.RecentTransactions.Clear();
+                    _viewModel.DashboardView.UpdateErrorMessage();
                 });
             }
 
             public async void OnSuccess(GetTransactionsResponse response)
             {
-                await viewModel.dashboardView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                await _viewModel.DashboardView.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                 {
-                    viewModel.SetRecentTransactions(response.transactions);
+                    _viewModel.SetRecentTransactions(response.Transactions);
 
                 });
             }

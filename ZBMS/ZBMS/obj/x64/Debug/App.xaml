@@ -50,6 +50,8 @@
                     <SolidColorBrush x:Key="ButtonBorderBrushPressed" Color="Transparent" />
 
                     <SolidColorBrush x:Key="GridBackGroundColor" Color="White" />
+                    <SolidColorBrush x:Key="TextBackGroundColor" Color="White" />
+                    <SolidColorBrush x:Key="TextForeGroundColor" Color="Gray" />
                     <SolidColorBrush x:Key="BorderColor" Color="Black" />
 
                     <SolidColorBrush x:Key="ColorBrush4" Color="Black" />
@@ -71,6 +73,8 @@
                     <SolidColorBrush x:Key="ButtonBorderBrushPressed" Color="Transparent" />
 
                     <SolidColorBrush x:Key="GridBackGroundColor" Color="Black" />
+                    <SolidColorBrush x:Key="TextBackGroundColor" Color="Gray" />
+                    <SolidColorBrush x:Key="TextForeGroundColor" Color="White" />
                     <SolidColorBrush x:Key="BorderColor" Color="White" />
 
                     <SolidColorBrush x:Key="ColorBrush4" Color="Black" />

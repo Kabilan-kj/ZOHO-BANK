@@ -21,74 +21,89 @@ namespace ZBMS.PresentationLayer
 
     public class TransactionsPageViewModel : TransactionsPageViewModelBase
     {
-
-        public TransactionsPageViewModel(ViewTransactionsPage _page)
+       
+        public TransactionsPageViewModel(ViewTransactionsPage page)
         {
-            Viewtransactionspage = _page;
+            Viewtransactionspage = page;
         }
 
-        public override void GetTransactions(string id, TransactionID transactionId)
+        public override void GetTransactions(string id, TransactionFilterType transactionId)
         {
-            request = new GetTransactionsRequest(id, transactionId);
-            new GetTransactionsUseCase(new TransactionsPresenterCallBack(this), request).Execute();
+            Request = new GetTransactionsRequest(id, transactionId);
+            new GetTransactionsUseCase(new TransactionsPresenterCallBack(this), Request).Execute();
 
         }
         public ExtendedTransactionDetails GetDT()
         {
-            return DT;
+            return DetailedTransaction;
         }
         public void SetSelectedTransaction(ExtendedTransactionDetails transaction)
         {
-            if(transaction.SenderName==transaction.ReceiverName)
+            transaction.IconColor = SelectedTransaction.IconColor;
+            transaction.IconString = SelectedTransaction.IconString;    
+            transaction.AmountString= SelectedTransaction.AmountString; 
+            if (transaction != null)
             {
-                transaction.Status = "Self Transfered";
-            }
-            else if (transaction.SenderId == request.Id)
-            {
-                transaction.Status = "Debited";
+                if (transaction.SenderName == transaction.ReceiverName)
+                {
+                    transaction.Status = "Self Transfered";
+                }
+                else if (transaction.SenderId == Request.Id)
+                {
+                    transaction.Status = "Debited";
 
-            }
-            else if (transaction.ReceiverId == request.Id)
-            {
-                transaction.Status = "Credited";
-            }
-            else
-            {
-                transaction.Status = "Debited";
-            }
-           
-            DateTime transactionTime = Convert.ToDateTime(transaction.Time);
-            transaction.ModifiedDate = transactionTime.ToString("MMM/dd,yyyy").Replace("-", ",");
-            transaction.ModifiedTime = transactionTime.ToString("hh/mm").Replace("-", ":") + transactionTime.ToString("tt").Replace("-", " ");
-            transaction.SenderName= transaction.SenderName + $" ({transaction.SenderAccountNumber}) ";
-            if(transaction.ReceiverName !=null)
-            {
-                transaction.ReceiverName = transaction.ReceiverName + $" ({transaction.ReceiverAccountNumber}) ";
-            }
-            else
-            {
-                transaction.ReceiverName = "Unknown_User" + $" ({transaction.ReceiverAccountNumber}) ";
-            }
+                }
+                else if (transaction.ReceiverId == Request.Id)
+                {
+                    transaction.Status = "Credited";
+                }
+                else
+                {
+                    transaction.Status = "Debited";
+                }
 
-            if(transactionsdisplaytype ==TransactionsDisplayType.ListView)
-            {
-                Viewtransactionspage.UpdateListViewSelectedTransaction(transaction);
+                DateTime transactionTime = Convert.ToDateTime(transaction.Time);
+                transaction.ModifiedDate = transactionTime.ToString("MMM/dd,yyyy").Replace("-", ",");
+                transaction.ModifiedTime = transactionTime.ToString("hh/mm").Replace("-", ":") + transactionTime.ToString("tt").Replace("-", " ");
+                transaction.SenderName = transaction.SenderName + $" ({transaction.SenderAccountNumber}) ";
+                if (transaction.ReceiverName != null)
+                {
+                    transaction.ReceiverName = transaction.ReceiverName + $" ({transaction.ReceiverAccountNumber}) ";
+                }
+                else
+                {
+                    transaction.ReceiverName = "Unknown_User" + $" ({transaction.ReceiverAccountNumber}) ";
+                }
+
+                if (Transactionsdisplaytype == TransactionsDisplayType.ListView)
+                {
+                    
+                    Viewtransactionspage.UpdateListViewSelectedTransaction(transaction);
+                }
+                else
+                {
+                    Viewtransactionspage.UpdateSelectedTransactionGridView(transaction);
+                }
             }
             else
             {
-               Viewtransactionspage.UpdateSelectedTransactionGridView(transaction);
+                Viewtransactionspage.UpdateErrorMessage();
             }
            
         }
 
-        public override void GetSelectedTransaction(string transactionId , TransactionsDisplayType type)
+        public override void GetSelectedTransaction(ExtendedTransactionDetails _selectedTransaction , TransactionsDisplayType type)
         {
-            transactionsdisplaytype = type;
-            detailedTransactionsRequest = new GetDetailedTransactionsRequest(transactionId);
-            DetailedTransactionsPresenterCallBack callBack = new DetailedTransactionsPresenterCallBack(this);
-            GetDetailedTransactionsUseCase usecase = new GetDetailedTransactionsUseCase(detailedTransactionsRequest, callBack);
-            usecase.Execute();
-
+            if (_selectedTransaction != null)
+            {
+                SelectedTransaction = _selectedTransaction;
+                Transactionsdisplaytype = type;
+                DetailedTransactionsRequest = new GetDetailedTransactionsRequest(SelectedTransaction.TransactionId);
+                DetailedTransactionsPresenterCallBack callBack = new DetailedTransactionsPresenterCallBack(this);
+                GetDetailedTransactionsUseCase usecase = new GetDetailedTransactionsUseCase(DetailedTransactionsRequest, callBack);
+                usecase.Execute();
+            }
+           
         }
 
         public void SetTransactions(IList<ExtendedTransactionDetails> list)
@@ -101,7 +116,7 @@ namespace ZBMS.PresentationLayer
                 item.ModifiedDate = transactionTime.ToString("MMM/dd,yyyy").Replace("-", ",");
                 item.ModifiedTime = transactionTime.ToString("hh/mm").Replace("-", ":") + transactionTime.ToString("tt").Replace("-", " ");
 
-                if (request.transactionId == TransactionID.CustomerID)
+                if (Request.TransactionId == TransactionFilterType.CustomerID)
                 {
                     if (UserDetails.UserAccountNumbers.Contains(item.SenderAccountNumber) && UserDetails.UserAccountNumbers.Contains(item.ReceiverAccountNumber))
                     {
@@ -132,7 +147,7 @@ namespace ZBMS.PresentationLayer
                 }
                 else
                 {
-                    if (item.SenderAccountNumber == request.Id)
+                    if (item.SenderAccountNumber == Request.Id)
                     {
                         item.TypeImage = "Assets/Money2.png";
                         item.AmountString = $"-  ₹{item.Amount}";
@@ -141,7 +156,7 @@ namespace ZBMS.PresentationLayer
                         item.IconString = char.ConvertFromUtf32(0xE936);
 
                     }
-                    else if (item.ReceiverAccountNumber == request.Id)
+                    else if (item.ReceiverAccountNumber == Request.Id)
                     {
                         item.TypeImage = "Assets/Money1.png";
                         item.AmountString = $"+  ₹{item.Amount}";
@@ -152,10 +167,9 @@ namespace ZBMS.PresentationLayer
                     TransactionsList.Add(item);
                 }
 
-
             }
 
-                GetSelectedTransaction(TransactionsList[0].TransactionId,TransactionsDisplayType.ListView);
+            GetSelectedTransaction(TransactionsList[0],TransactionsDisplayType.ListView);
         }
 
         private class TransactionsPresenterCallBack : ICallBack<GetTransactionsResponse>
@@ -181,7 +195,7 @@ namespace ZBMS.PresentationLayer
                 {
                     await viewModel.Viewtransactionspage.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                     {
-                        viewModel.SetTransactions(response.transactions);
+                        viewModel.SetTransactions(response.Transactions);
 
                     });
                 }
@@ -211,7 +225,6 @@ namespace ZBMS.PresentationLayer
                 {
                     await viewModel.Viewtransactionspage.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                     {
-
                         viewModel.Viewtransactionspage.UpdateErrorMessage();
                     });
                 }

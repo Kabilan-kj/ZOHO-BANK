@@ -45,7 +45,7 @@
                 BasedOn="{StaticResource PrimaryButtonStyle}"
                 TargetType="Button">
                 <Setter Property="Margin" Value="5" />
-                <Setter Property="Width" Value="75" />
+                <Setter Property="Width" Value="100" />
             </Style>
 
             <Style
@@ -79,8 +79,9 @@
             <TextBlock
                 Margin="20,15"
                 VerticalAlignment="Center"
-                FontSize="32"
+                FontSize="28"
                 FontWeight="Bold"
+                Foreground="Black"
                 Text="Profile Page" />
         </StackPanel>
 
@@ -105,11 +106,6 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
 
-                <!--<TextBlock
-                    Name="TitleTextBlock"
-                    Style="{StaticResource TitleStyleTextBlock}"
-                    Text="Profile Page" />-->
-
                 <Image x:ConnectionId='5'
                     Name="ProfileImage"
                     Grid.Row="1"
@@ -126,12 +122,14 @@
                     Orientation="Horizontal">
                     <TextBlock x:ConnectionId='13'
                         Name="NameTextBlock"
+                        Foreground="Black"
                         Style="{StaticResource NarrowTextBlock}"
                         Text="Name :" />
                     <TextBlock x:ConnectionId='14'
                         Name="NameTextBox"
                         Margin="10,0,0,0"
                         FontWeight="Normal"
+                        Foreground="DimGray"
                         Style="{StaticResource NarrowTextBlock}" />
                 </StackPanel>
 
@@ -141,12 +139,14 @@
                     Orientation="Horizontal">
                     <TextBlock x:ConnectionId='11'
                         Name="ContactTextBlock"
+                        Foreground="Black"
                         Style="{StaticResource NarrowTextBlock}"
                         Text="Contact:" />
                     <TextBlock x:ConnectionId='12'
                         Name="ContactTextBox"
                         Margin="10,0,0,0"
                         FontWeight="Normal"
+                        Foreground="DimGray"
                         Style="{StaticResource NarrowTextBlock}" />
                 </StackPanel>
 
@@ -156,12 +156,14 @@
                     Orientation="Horizontal">
                     <TextBlock x:ConnectionId='9'
                         Name="MailIdTextBlock"
+                        Foreground="Black"
                         Style="{StaticResource NarrowTextBlock}"
                         Text="MailId:" />
                     <TextBlock x:ConnectionId='10'
                         Name="MailIdTextBox"
                         Margin="10,0,0,0"
                         FontWeight="Normal"
+                        Foreground="DimGray"
                         Style="{StaticResource NarrowTextBlock}" />
                 </StackPanel>
 
@@ -171,21 +173,24 @@
                     Orientation="Horizontal">
                     <TextBlock x:ConnectionId='7'
                         Name="AddressTextBlock"
+                        Foreground="Black"
                         Style="{StaticResource NarrowTextBlock}"
                         Text="Address :" />
                     <TextBlock x:ConnectionId='8'
                         Name="AddressTextBox"
                         Margin="10,0,0,0"
                         FontWeight="Normal"
+                        Foreground="DimGray"
                         Style="{StaticResource NarrowTextBlock}" />
                 </StackPanel>
 
                 <Button x:ConnectionId='6'
                     Name="EditButton"
                     Grid.Row="6"
+                    HorizontalAlignment="Center"
                                             
                     Content="Edit Profile"
-                    Style="{StaticResource SecondaryButtonStyle}" />
+                    Style="{StaticResource NarrowPrimaryButton}" />
 
             </Grid>
 
@@ -208,8 +213,6 @@
                         <Setter Target="ContactTextBox.Style" Value="{StaticResource WideTextBlock}" />
                         <Setter Target="MailIdTextBox.Style" Value="{StaticResource WideTextBlock}" />
                         <Setter Target="AddressTextBox.Style" Value="{StaticResource WideTextBlock}" />
-
-                        <Setter Target="EditButton.Style" Value="{StaticResource WideButton}" />
 
                         <Setter Target="ContentGrid.Height" Value="600" />
                         <Setter Target="ContentGrid.Width" Value="350" />

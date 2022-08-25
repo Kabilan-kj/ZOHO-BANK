@@ -15,17 +15,17 @@ namespace ZBMS.Contract.ViewModelBase
     public abstract class TransactionsPageViewModelBase
     {
         public ViewTransactionsPage Viewtransactionspage;
-        public ExtendedTransactionDetails DT;
+        public ExtendedTransactionDetails DetailedTransaction;
         public ObservableCollection<ExtendedTransactionDetails> TransactionsList = new ObservableCollection<ExtendedTransactionDetails>();
         public ObservableCollection<ExtendedTransactionDetails> RecentTransactions = new ObservableCollection<ExtendedTransactionDetails>();
 
         public ExtendedTransactionDetails SelectedTransaction = new ExtendedTransactionDetails();
-        public GetTransactionsRequest request;
-        public GetDetailedTransactionsRequest detailedTransactionsRequest;
-        public TransactionsDisplayType transactionsdisplaytype;
+        public GetTransactionsRequest Request;
+        public GetDetailedTransactionsRequest DetailedTransactionsRequest;
+        public TransactionsDisplayType Transactionsdisplaytype;
 
-        public abstract void GetSelectedTransaction(string transactionId, TransactionsDisplayType type);
-        public abstract void GetTransactions(string id, TransactionID transactionId);
+        public abstract void GetSelectedTransaction(ExtendedTransactionDetails selectedTransaction, TransactionsDisplayType type);
+        public abstract void GetTransactions(string id, TransactionFilterType transactionId);
 
     }
 }

@@ -16,39 +16,39 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <ScrollViewer x:ConnectionId='2'
-        Margin="20"
-        HorizontalScrollBarVisibility="Auto"
-        VerticalScrollBarVisibility="Auto"
-                                              >
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition />
-            </Grid.RowDefinitions>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
 
-            <StackPanel x:ConnectionId='3'
-                Name="PageTitlePanel"
-                Margin="10,10,0,0"
-                CornerRadius="10">
-                <StackPanel.Background>
-                    <LinearGradientBrush StartPoint="0,0.85" EndPoint="1,0.85">
-                        <GradientStop Offset="0.97" Color="Transparent" />
-                        <GradientStop Offset="0.85" Color="{Binding Color, Source={StaticResource ZBMSAccentColorBrushLight2}}" />
-                    </LinearGradientBrush>
-                </StackPanel.Background>
+        <StackPanel x:ConnectionId='2'
+            Name="PageTitlePanel"
+            Margin="10,10,0,0"
+            CornerRadius="10">
+            <StackPanel.Background>
+                <LinearGradientBrush StartPoint="0,0.85" EndPoint="1,0.85">
+                    <GradientStop Offset="0.97" Color="Transparent" />
+                    <GradientStop Offset="0.85" Color="{Binding Color, Source={StaticResource ZBMSAccentColorBrushLight2}}" />
+                </LinearGradientBrush>
+            </StackPanel.Background>
 
-                <TextBlock
-                    Margin="20,15"
-                    VerticalAlignment="Center"
-                    FontSize="32"
-                    FontWeight="Bold"
-                    Text="Other Bank Transfer Page" />
-            </StackPanel>
-            <StackPanel
-                Grid.Row="2"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center">
+            <TextBlock
+                Margin="20,15"
+                VerticalAlignment="Center"
+                FontSize="28"
+                FontWeight="Bold"
+                Foreground="Black"
+                Text="Other Bank Transfer Page" />
+        </StackPanel>
+
+        <ScrollViewer x:ConnectionId='3'
+            Grid.Row="2"
+            HorizontalScrollBarVisibility="Auto"
+            VerticalScrollBarVisibility="Auto"
+                                                  >
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
 
                 <Grid x:ConnectionId='4'
                     Name="ContentGrid"
@@ -78,22 +78,26 @@
 
                         <TextBlock x:ConnectionId='14'
                             Name="FromTextBox"
+                            Margin="5"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
-                            FontSize="12"
+                            FontWeight="SemiBold"
+                            Style="{StaticResource WideStyleTextBlock}"
                             Text="From :" />
                         <ComboBox x:ConnectionId='15'
                             Name="FromComboBox"
                             Width="200"
+                            Height="40"
+                            Margin="5"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            Background="White"
+                            Background="{ThemeResource TextBackGroundColor}"
                             FontSize="12"
+                            Foreground="{ThemeResource TextForeGroundColor}"
                                                                    
                             PlaceholderText="Select an Account"
                             Style="{StaticResource NarrowStyleComboBox}" />
                     </StackPanel>
-
 
                     <StackPanel
                         Grid.Row="2"
@@ -101,12 +105,15 @@
                         VerticalAlignment="Center">
                         <TextBlock x:ConnectionId='12'
                             Name="ToTextBlock"
+                            Margin="5"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
-                            FontSize="12"
+                            FontWeight="SemiBold"
+                            Style="{StaticResource WideStyleTextBlock}"
                             Text="To :" />
                         <TextBox x:ConnectionId='13'
                             Name="ToTextBox"
+                            Margin="5"
                             PlaceholderText="Enter receiver acc number"
                             Style="{StaticResource NarrowStyleTextBox}" />
                     </StackPanel>
@@ -117,12 +124,15 @@
                         VerticalAlignment="Center">
                         <TextBlock x:ConnectionId='10'
                             Name="AmountTextBlock"
+                            Margin="5"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
-                            FontSize="12"
+                            FontWeight="SemiBold"
+                            Style="{StaticResource WideStyleTextBlock}"
                             Text="Amount:" />
                         <TextBox x:ConnectionId='11'
                             Name="AmountTextBox"
+                            Margin="5"
                             PlaceholderText="Enter amount"
                             Style="{StaticResource NarrowStyleTextBox}" />
                     </StackPanel>
@@ -133,9 +143,11 @@
                         VerticalAlignment="Center">
                         <TextBlock x:ConnectionId='8'
                             Name="RemarksTextBlock"
+                            Margin="5"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
-                            FontSize="12"
+                            FontWeight="SemiBold"
+                            Style="{StaticResource WideStyleTextBlock}"
                             Text="Remarks :" />
 
                         <TextBox x:ConnectionId='9'
@@ -155,13 +167,15 @@
                     <Grid Grid.Row="6">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="2*" />
                             <ColumnDefinition />
 
                         </Grid.ColumnDefinitions>
 
                         <Button x:ConnectionId='6'
                             Name="TransferButton"
-                            Grid.Column="0"
+                            Grid.Column="1"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                                                         
@@ -181,8 +195,8 @@
 
                 </Grid>
             </StackPanel>
-        </Grid>
 
+        </ScrollViewer>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState>
@@ -209,6 +223,6 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-    </ScrollViewer>
+    </Grid>
 </Page>
 

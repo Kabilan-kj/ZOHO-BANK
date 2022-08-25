@@ -16,7 +16,7 @@ namespace ZBMS
         {
 
             TransactionDetails transaction = new TransactionDetails(amount, senderAccount.AccountNumber, receiverAccountNumber,
-                       TransactionType.DEBITED, TransactionStatus.SUCCESSFUL, dbHandler.GetTransactionId());
+                       dbHandler.GetTransactionId());
 
             if ( await Task.Run(() => dbHandler.AddTransaction(transaction)) > 0)
             {

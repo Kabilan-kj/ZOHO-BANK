@@ -13,7 +13,7 @@ namespace ZBMS.Data
     {
 
         private SqliteConnection connection;
-        private DBAdapter dbAdapter = new DBAdapter();
+        private readonly DBAdapter dbAdapter = new DBAdapter();
 
         public int GetDetailedTransaction(string transactionId)
         {

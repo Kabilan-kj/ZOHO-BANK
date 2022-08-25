@@ -26,7 +26,7 @@ namespace ZBMS
 
             ShortCutMenuItems.Add(new ShortcutMenuItems { ImageLocation = "ms-appx:///Assets/CreateNewAccount1.png", ItemName = "Create New Account" , ItemId = 1 });
             ShortCutMenuItems.Add(new ShortcutMenuItems { ImageLocation = "ms-appx:///Assets/ViewTransactions1.png", ItemName = "View Transaction", ItemId = 2 });
-            ShortCutMenuItems.Add(new ShortcutMenuItems { ImageLocation = "ms-appx:///Assets/Loan1.png", ItemName = "Loan Payment", ItemId = 3 });
+            ShortCutMenuItems.Add(new ShortcutMenuItems { ImageLocation = "ms-appx:///Assets/LoanPayment.png", ItemName = "Loan Payment", ItemId = 3 });
         }
 
         public static List<ShortcutMenuItems> GetMoneyTransferMenuItems()

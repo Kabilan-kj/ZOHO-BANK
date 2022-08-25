@@ -47,10 +47,18 @@
                 <Setter Property="BorderThickness" Value="0,0,0,1" />
             </Style>
 
-            <Style x:Key="TransactionDetailsTextBlockStyle" TargetType="TextBlock">
-                <Setter Property="VerticalAlignment" Value="Center" />
-                <Setter Property="HorizontalAlignment" Value="Center" />
+            <Style x:Key="TransactionDetailsBoldTextBlockStyle" TargetType="TextBlock">
+                <Setter Property="VerticalAlignment" Value="Top" />
+                <Setter Property="HorizontalAlignment" Value="Left" />
                 <Setter Property="Margin" Value="30,10" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+            </Style>
+
+            <Style x:Key="TransactionDetailsTextBlockStyle" TargetType="TextBlock">
+                <Setter Property="VerticalAlignment" Value="Stretch" />
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                <Setter Property="Padding" Value="30,10" />
+                <Setter Property="TextWrapping" Value="Wrap" />
             </Style>
 
             <Style
@@ -93,28 +101,11 @@
             <TextBlock
                 Margin="20,15"
                 VerticalAlignment="Center"
-                FontSize="32"
+                FontSize="28"
                 FontWeight="Bold"
+                Foreground="Black"
                 Text="Transactions Page" />
         </StackPanel>
-
-        <!--<RelativePanel
-            Grid.Row="1"
-            Margin="10"
-            Background="{ThemeResource GridBackGroundColor}"
-            CornerRadius="10">
-            <Button
-                Name="ChangeViewButton"
-                Margin="10"
-                Padding="5"
-                Click="ChangeViewButton_Click"
-                Content="Change View"
-                FontSize="16"
-                RelativePanel.AlignRightWithPanel="True"
-                RelativePanel.AlignVerticalCenterWithPanel="True"
-                Style="{StaticResource NarrowButton}" />
-
-        </RelativePanel>-->
 
         <Grid
             Name="ContentGrid"
@@ -127,7 +118,6 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition />
             </Grid.RowDefinitions>
-
 
             <TextBlock
                 Name="ErrorMessage"
@@ -332,7 +322,6 @@
                     Content="&#xE10A;"
                     FontFamily="Segoe MDL2 Assets"
                     FontWeight="Bold"
-                    Foreground="{ThemeResource BorderColor}"
                     Style="{StaticResource ExitButtonStyle}" />
 
 
@@ -348,7 +337,7 @@
                         Height="700"
                         Margin="10"
                         Background="{ThemeResource GridBackGroundColor}"
-                        BorderBrush="{StaticResource BorderColor}"
+                        BorderBrush="{ThemeResource BorderColor}"
                         BorderThickness="1"
                         CornerRadius="10">
                         <Grid.RowDefinitions>
@@ -362,8 +351,13 @@
                             <RowDefinition />
                             <RowDefinition Height="2*" />
                         </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
 
                         <TextBlock
+                            Grid.ColumnSpan="2"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             FontSize="16"
@@ -373,6 +367,7 @@
 
                         <RelativePanel
                             Grid.Row="1"
+                            Grid.ColumnSpan="2"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
                             BorderBrush="{ThemeResource BorderColor}"
@@ -396,93 +391,139 @@
                                 Text="Time" />
                         </RelativePanel>
 
-                        <StackPanel Grid.Row="2" Style="{StaticResource TransactionDetailsStackPanelStyle}">
-                            <TextBlock
-                                HorizontalAlignment="Left"
-                                FontWeight="SemiBold"
-                                Style="{StaticResource TransactionDetailsTextBlockStyle}"
-                                Text="Sent By" />
-                            <TextBlock
-                                Name="SenderNameTextBlock"
-                                Style="{StaticResource TransactionDetailsTextBlockStyle}"
-                                Text="" />
-                        </StackPanel>
+                        <!--<StackPanel Grid.Row="2" Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
+                        <TextBlock
+                            Grid.Row="2"
+                            Style="{StaticResource TransactionDetailsBoldTextBlockStyle}"
+                            Text="Sent By" />
+                        <TextBlock
+                            Name="SenderNameTextBlock"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            HorizontalTextAlignment="Left"
+                            Style="{StaticResource TransactionDetailsTextBlockStyle}"
+                            Text="" />
+                        <!--</StackPanel>-->
 
-                        <StackPanel Grid.Row="3" Style="{StaticResource TransactionDetailsStackPanelStyle}">
-                            <TextBlock
-                                HorizontalAlignment="Left"
-                                FontWeight="SemiBold"
-                                Style="{StaticResource TransactionDetailsTextBlockStyle}"
-                                Text="Received By" />
-                            <TextBlock
-                                Name="ReceiverNameTextBlock"
-                                Style="{StaticResource TransactionDetailsTextBlockStyle}"
-                                Text="" />
-                        </StackPanel>
+                        <!--<StackPanel Grid.Row="3" Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
+                        <TextBlock
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            HorizontalAlignment="Left"
+                            FontWeight="SemiBold"
+                            Style="{StaticResource TransactionDetailsBoldTextBlockStyle}"
+                            Text="Received By" />
 
-                        <StackPanel Grid.Row="4" Style="{StaticResource TransactionDetailsStackPanelStyle}">
-                            <TextBlock
-                                HorizontalAlignment="Left"
-                                FontWeight="SemiBold"
-                                Style="{StaticResource TransactionDetailsTextBlockStyle}"
-                                Text="Amount" />
-                            <TextBlock
-                                Name="TransactionAmountTextBlock"
-                                Style="{StaticResource TransactionDetailsTextBlockStyle}"
-                                Text="" />
-                        </StackPanel>
+                        <TextBlock
+                            Name="ReceiverNameTextBlock"
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Style="{StaticResource TransactionDetailsTextBlockStyle}"
+                            Text="" />
+                        <!--</StackPanel>-->
 
-                        <StackPanel Grid.Row="5" Style="{StaticResource TransactionDetailsStackPanelStyle}">
-                            <TextBlock
-                                HorizontalAlignment="Left"
-                                FontWeight="SemiBold"
-                                Style="{StaticResource TransactionDetailsTextBlockStyle}"
-                                Text="Status" />
-                            <TextBlock
-                                Name="TransactionStatusTextBlock"
-                                Style="{StaticResource TransactionDetailsTextBlockStyle}"
-                                Text="" />
-                        </StackPanel>
+                        <!--<StackPanel Grid.Row="4" Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
+                        <TextBlock
+                            Grid.Row="4"
+                            Grid.Column="0"
+                            HorizontalAlignment="Left"
+                            FontWeight="SemiBold"
+                            Style="{StaticResource TransactionDetailsBoldTextBlockStyle}"
+                            Text="Amount" />
 
-                        <StackPanel Grid.Row="6" Style="{StaticResource TransactionDetailsStackPanelStyle}">
-                            <TextBlock
-                                HorizontalAlignment="Left"
-                                FontWeight="SemiBold"
-                                Style="{StaticResource TransactionDetailsTextBlockStyle}"
-                                Text="Balance" />
-                            <TextBlock
-                                Name="BalanceTextBlock"
-                                Style="{StaticResource TransactionDetailsTextBlockStyle}"
-                                Text="" />
-                        </StackPanel>
-
-
-                        <StackPanel Grid.Row="7" Style="{StaticResource TransactionDetailsStackPanelStyle}">
-                            <TextBlock
-                                HorizontalAlignment="Left"
-                                FontWeight="SemiBold"
-                                Style="{StaticResource TransactionDetailsTextBlockStyle}"
-                                Text="Reference no " />
-                            <TextBlock
-                                Name="TransactionIdTextBlock"
-                                Style="{StaticResource TransactionDetailsTextBlockStyle}"
-                                Text="" />
-                        </StackPanel>
 
                         <StackPanel
-                            Grid.Row="8"
-                            BorderThickness="0"
-                            Style="{StaticResource TransactionDetailsStackPanelStyle}">
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            Orientation="Horizontal">
+
                             <TextBlock
-                                HorizontalAlignment="Left"
-                                FontWeight="SemiBold"
+                                Name="TransactionAmountTextBlock"
+                                Grid.Row="4"
+                                Grid.Column="1"
+                                Padding="30,5,15,5"
                                 Style="{StaticResource TransactionDetailsTextBlockStyle}"
-                                Text="Remarks" />
+                                Text="" />
+
                             <TextBlock
-                                Name="RemarksTextBlock"
+                                Name="AmountIconTextBlock"
+                                Grid.Row="6"
+                                Grid.Column="1"
+                                Padding="5"
+                                FontFamily="Segoe MDL2 Assets"
                                 Style="{StaticResource TransactionDetailsTextBlockStyle}"
                                 Text="" />
                         </StackPanel>
+
+                        <!--</StackPanel>-->
+
+                        <!--<StackPanel Grid.Row="5" Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
+                        <TextBlock
+                            Grid.Row="5"
+                            Grid.Column="0"
+                            HorizontalAlignment="Left"
+                            FontWeight="SemiBold"
+                            Style="{StaticResource TransactionDetailsBoldTextBlockStyle}"
+                            Text="Status" />
+                        <TextBlock
+                            Name="TransactionStatusTextBlock"
+                            Grid.Row="5"
+                            Grid.Column="1"
+                            Style="{StaticResource TransactionDetailsTextBlockStyle}"
+                            Text="" />
+                        <!--</StackPanel>-->
+
+                        <!--<StackPanel Grid.Row="6" Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
+                        <TextBlock
+                            Grid.Row="6"
+                            Grid.Column="0"
+                            HorizontalAlignment="Left"
+                            FontWeight="SemiBold"
+                            Style="{StaticResource TransactionDetailsBoldTextBlockStyle}"
+                            Text="Balance" />
+                        <TextBlock
+                            Name="BalanceTextBlock"
+                            Grid.Row="6"
+                            Grid.Column="1"
+                            Style="{StaticResource TransactionDetailsTextBlockStyle}"
+                            Text="-" />
+                        <!--</StackPanel>-->
+
+
+                        <!--<StackPanel Grid.Row="7" Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
+                        <TextBlock
+                            Grid.Row="7"
+                            HorizontalAlignment="Left"
+                            FontWeight="SemiBold"
+                            Style="{StaticResource TransactionDetailsBoldTextBlockStyle}"
+                            Text="Ref no " />
+                        <TextBlock
+                            Name="TransactionIdTextBlock"
+                            Grid.Row="7"
+                            Grid.Column="1"
+                            Style="{StaticResource TransactionDetailsTextBlockStyle}"
+                            Text="" />
+                        <!--</StackPanel>-->
+
+                        <!--<StackPanel
+                            Grid.Row="8"
+                            BorderThickness="0"
+                            Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
+                        <TextBlock
+                            Grid.Row="8"
+                            HorizontalAlignment="Left"
+                            FontWeight="SemiBold"
+                            Style="{StaticResource TransactionDetailsBoldTextBlockStyle}"
+                            Text="Remarks" />
+                        <TextBlock
+                            Name="RemarksTextBlock"
+                            Grid.Row="8"
+                            Grid.Column="1"
+                            Style="{StaticResource TransactionDetailsTextBlockStyle}"
+                            Text="-" />
+                        <!--</StackPanel>-->
 
                     </Grid>
                 </ScrollViewer>
@@ -516,7 +557,7 @@
                             Height="150"
                             Margin="0,5"
                             Background="{ThemeResource GridBackGroundColor}"
-                            BorderBrush="{StaticResource BorderColor}"
+                            BorderBrush="{ThemeResource BorderColor}"
                             BorderThickness="1"
                             CornerRadius="10"
                             PointerEntered="TransactionsGridViewOuterGrid_PointerEntered"

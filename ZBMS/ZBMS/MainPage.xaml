@@ -9,17 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.Resources>
 
-        <!--<ResourceDictionary>
-        
-            <ResourceDictionary.ThemeDictionaries>
-                <ResourceDictionary x:Key="Default">
-                    <AcrylicBrush x:Key="CustomAcrylicInAppBrush" BackgroundSource="Backdrop" TintOpacity="0.8" TintColor="Black" FallbackColor="Green"/>
-                    <AcrylicBrush x:Key="CustomAcrylicBackgroundBrush" BackgroundSource="HostBackdrop" TintOpacity="0.4" TintColor="DeepSkyBlue" FallbackColor="Green"/>
-                    <AcrylicBrush x:Key="CustomAcrylicInAppLuminosity" BackgroundSource="Backdrop" TintOpacity="0.8" TintColor="SkyBlue" FallbackColor="SkyBlue"/>
-                </ResourceDictionary>
-            </ResourceDictionary.ThemeDictionaries>
        
-        </ResourceDictionary>-->
         <SolidColorBrush x:Key="Brush1" Color="SkyBlue" />
         <SolidColorBrush x:Key="Brush2" Color="DeepSkyBlue" />
         

@@ -49,7 +49,7 @@ namespace ZBMS
             {
                 db = new SqliteConnection($"FileName={dbpath}");
                 db.Open();
-                string cmd = $"Insert into Transactiondetails (autoIncrementID,TransactionId,SenderId,receiverid,transactiontime,amount,type,status) Values('{transaction.autoIncrement}','{transaction.TransactionId}', '{transaction.SenderAccountNumber}', '{transaction.ReceiverAccountNumber}', '{transaction.TransactionTime}', {transaction.Amount}, '{transaction.Type}','{transaction.Status}'); ";
+                string cmd = $"Insert into Transactiondetails (autoIncrementID,TransactionId,SenderId,receiverid,transactiontime,amount) Values('{transaction.TransactionCount}','{transaction.TransactionId}', '{transaction.SenderAccountNumber}', '{transaction.ReceiverAccountNumber}', '{transaction.TransactionTime}', {transaction.Amount} ";
                 SqliteCommand GetRecord = new SqliteCommand(cmd, db);
 
                 int rows = GetRecord.ExecuteNonQuery();
@@ -88,8 +88,6 @@ namespace ZBMS
                     transaction.ReceiverAccountNumber = reader.GetString(3);
                     transaction.Time = reader.GetString(4);
                     transaction.Amount = reader.GetDouble(5);
-                    transaction.Type = reader.GetString(6);
-                    transaction.Status = reader.GetString(7);
                     Transactions.Add(transaction);
 
                 }
@@ -128,9 +126,7 @@ namespace ZBMS
                     transaction.ReceiverAccountNumber = reader.GetString(3);
                     transaction.Time = reader.GetString(4);
                     transaction.Amount = reader.GetDouble(5);
-                    transaction.Type = reader.GetString(6);
-                    transaction.Status = reader.GetString(7);
-                    
+                                      
                     Transactions.Add(transaction);
 
                 }

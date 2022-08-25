@@ -47,10 +47,18 @@
                 <Setter Property="BorderThickness" Value="0,0,0,1" />
             </Style>
 
-            <Style x:Key="TransactionDetailsTextBlockStyle" TargetType="TextBlock">
-                <Setter Property="VerticalAlignment" Value="Center" />
-                <Setter Property="HorizontalAlignment" Value="Center" />
+            <Style x:Key="TransactionDetailsBoldTextBlockStyle" TargetType="TextBlock">
+                <Setter Property="VerticalAlignment" Value="Top" />
+                <Setter Property="HorizontalAlignment" Value="Left" />
                 <Setter Property="Margin" Value="30,10" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+            </Style>
+
+            <Style x:Key="TransactionDetailsTextBlockStyle" TargetType="TextBlock">
+                <Setter Property="VerticalAlignment" Value="Stretch" />
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                <Setter Property="Padding" Value="30,10" />
+                <Setter Property="TextWrapping" Value="Wrap" />
             </Style>
 
             <Style
@@ -93,28 +101,11 @@
             <TextBlock
                 Margin="20,15"
                 VerticalAlignment="Center"
-                FontSize="32"
+                FontSize="28"
                 FontWeight="Bold"
+                Foreground="Black"
                 Text="Transactions Page" />
         </StackPanel>
-
-        <!--<RelativePanel
-            Grid.Row="1"
-            Margin="10"
-            Background="{ThemeResource GridBackGroundColor}"
-            CornerRadius="10">
-            <Button
-                Name="ChangeViewButton"
-                Margin="10"
-                Padding="5"
-                Click="ChangeViewButton_Click"
-                Content="Change View"
-                FontSize="16"
-                RelativePanel.AlignRightWithPanel="True"
-                RelativePanel.AlignVerticalCenterWithPanel="True"
-                Style="{StaticResource NarrowButton}" />
-
-        </RelativePanel>-->
 
         <Grid x:ConnectionId='3'
             Name="ContentGrid"
@@ -127,7 +118,6 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition />
             </Grid.RowDefinitions>
-
 
             <TextBlock x:ConnectionId='4'
                 Name="ErrorMessage"
@@ -143,7 +133,7 @@
                 Margin="10"
                 Background="{ThemeResource GridBackGroundColor}"
                 CornerRadius="10">
-                <Button x:ConnectionId='58'
+                <Button x:ConnectionId='59'
                     Name="ChangeViewButton"
                     Margin="10"
                     Padding="5"
@@ -170,7 +160,7 @@
                     Margin="5"
                     HorizontalScrollBarVisibility="Auto"
                     HorizontalScrollMode="Auto">
-                    <ListView x:ConnectionId='45'
+                    <ListView x:ConnectionId='46'
                         Name="TransactionList"
                         Margin="10"
                         Background="{ThemeResource GridBackGroundColor}"
@@ -200,7 +190,7 @@
                         <ListView.ItemTemplate>
                             <DataTemplate                                             >
 
-                                <Grid x:ConnectionId='49'
+                                <Grid x:ConnectionId='50'
                                     Name="TransactionListViewGrid"
                                     MinWidth="600"
                                     Margin="5"
@@ -222,12 +212,12 @@
                                         VerticalAlignment="Center"
                                         Orientation="Horizontal">
 
-                                        <TextBlock x:ConnectionId='56'
+                                        <TextBlock x:ConnectionId='57'
                                             Margin="10"
                                             FontSize="14"
                                             FontWeight="SemiBold"
                                                                          />
-                                        <TextBlock x:ConnectionId='57'
+                                        <TextBlock x:ConnectionId='58'
                                             Margin="10"
                                             FontSize="14"
                                             FontWeight="SemiBold"
@@ -240,13 +230,13 @@
                                         HorizontalAlignment="Left"
                                         VerticalAlignment="Center"
                                         Orientation="Horizontal">
-                                        <TextBlock x:ConnectionId='54'
+                                        <TextBlock x:ConnectionId='55'
                                             Margin="10"
                                             FontSize="14"
                                             FontWeight="SemiBold"
                                                                          />
 
-                                        <TextBlock x:ConnectionId='55'
+                                        <TextBlock x:ConnectionId='56'
                                             Margin="10,15,10,10"
                                             FontFamily="Segoe MDL2 Assets"
                                             FontSize="14"
@@ -269,7 +259,7 @@
                                             FontSize="14"
                                             FontWeight="Bold"
                                             Text="Sender Acc no:" />
-                                        <TextBlock x:ConnectionId='53'
+                                        <TextBlock x:ConnectionId='54'
                                             Grid.Row="1"
                                             Margin="10"
                                             FontSize="14"
@@ -288,7 +278,7 @@
                                             FontSize="14"
                                             FontWeight="Bold"
                                             Text="Receiver Acc no:" />
-                                        <TextBlock x:ConnectionId='52'
+                                        <TextBlock x:ConnectionId='53'
                                             Grid.Row="1"
                                             Margin="10"
                                             FontSize="14"
@@ -306,7 +296,7 @@
                                             FontSize="14"
                                             FontWeight="Bold"
                                             Text="Ref no:" />
-                                        <TextBlock x:ConnectionId='51'
+                                        <TextBlock x:ConnectionId='52'
                                             Margin="10"
                                             FontSize="14"
                                                                           />
@@ -332,7 +322,6 @@
                     Content="&#xE10A;"
                     FontFamily="Segoe MDL2 Assets"
                     FontWeight="Bold"
-                    Foreground="{ThemeResource BorderColor}"
                     Style="{StaticResource ExitButtonStyle}" />
 
 
@@ -348,7 +337,7 @@
                         Height="700"
                         Margin="10"
                         Background="{ThemeResource GridBackGroundColor}"
-                        BorderBrush="{StaticResource BorderColor}"
+                        BorderBrush="{ThemeResource BorderColor}"
                         BorderThickness="1"
                         CornerRadius="10">
                         <Grid.RowDefinitions>
@@ -362,8 +351,13 @@
                             <RowDefinition />
                             <RowDefinition Height="2*" />
                         </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
 
                         <TextBlock
+                            Grid.ColumnSpan="2"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             FontSize="16"
@@ -373,12 +367,13 @@
 
                         <RelativePanel
                             Grid.Row="1"
+                            Grid.ColumnSpan="2"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
                             BorderBrush="{ThemeResource BorderColor}"
                             BorderThickness="0,0,0,1">
 
-                            <TextBlock x:ConnectionId='43'
+                            <TextBlock x:ConnectionId='44'
                                 Name="DateTextBlock"
                                 Margin="20,10"
                                 HorizontalAlignment="Center"
@@ -386,7 +381,7 @@
                                 RelativePanel.AlignLeftWithPanel="True"
                                 RelativePanel.AlignVerticalCenterWithPanel="True"
                                 Text="Date" />
-                            <TextBlock x:ConnectionId='44'
+                            <TextBlock x:ConnectionId='45'
                                 Name="TimeTextBlock"
                                 Margin="40,10"
                                 HorizontalAlignment="Right"
@@ -396,93 +391,139 @@
                                 Text="Time" />
                         </RelativePanel>
 
-                        <StackPanel Grid.Row="2" Style="{StaticResource TransactionDetailsStackPanelStyle}">
-                            <TextBlock
-                                HorizontalAlignment="Left"
-                                FontWeight="SemiBold"
-                                Style="{StaticResource TransactionDetailsTextBlockStyle}"
-                                Text="Sent By" />
-                            <TextBlock x:ConnectionId='42'
-                                Name="SenderNameTextBlock"
-                                Style="{StaticResource TransactionDetailsTextBlockStyle}"
-                                Text="" />
-                        </StackPanel>
+                        <!--<StackPanel Grid.Row="2" Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
+                        <TextBlock
+                            Grid.Row="2"
+                            Style="{StaticResource TransactionDetailsBoldTextBlockStyle}"
+                            Text="Sent By" />
+                        <TextBlock x:ConnectionId='36'
+                            Name="SenderNameTextBlock"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            HorizontalTextAlignment="Left"
+                            Style="{StaticResource TransactionDetailsTextBlockStyle}"
+                            Text="" />
+                        <!--</StackPanel>-->
 
-                        <StackPanel Grid.Row="3" Style="{StaticResource TransactionDetailsStackPanelStyle}">
-                            <TextBlock
-                                HorizontalAlignment="Left"
-                                FontWeight="SemiBold"
-                                Style="{StaticResource TransactionDetailsTextBlockStyle}"
-                                Text="Received By" />
-                            <TextBlock x:ConnectionId='41'
-                                Name="ReceiverNameTextBlock"
-                                Style="{StaticResource TransactionDetailsTextBlockStyle}"
-                                Text="" />
-                        </StackPanel>
+                        <!--<StackPanel Grid.Row="3" Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
+                        <TextBlock
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            HorizontalAlignment="Left"
+                            FontWeight="SemiBold"
+                            Style="{StaticResource TransactionDetailsBoldTextBlockStyle}"
+                            Text="Received By" />
 
-                        <StackPanel Grid.Row="4" Style="{StaticResource TransactionDetailsStackPanelStyle}">
-                            <TextBlock
-                                HorizontalAlignment="Left"
-                                FontWeight="SemiBold"
-                                Style="{StaticResource TransactionDetailsTextBlockStyle}"
-                                Text="Amount" />
-                            <TextBlock x:ConnectionId='40'
-                                Name="TransactionAmountTextBlock"
-                                Style="{StaticResource TransactionDetailsTextBlockStyle}"
-                                Text="" />
-                        </StackPanel>
+                        <TextBlock x:ConnectionId='37'
+                            Name="ReceiverNameTextBlock"
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Style="{StaticResource TransactionDetailsTextBlockStyle}"
+                            Text="" />
+                        <!--</StackPanel>-->
 
-                        <StackPanel Grid.Row="5" Style="{StaticResource TransactionDetailsStackPanelStyle}">
-                            <TextBlock
-                                HorizontalAlignment="Left"
-                                FontWeight="SemiBold"
-                                Style="{StaticResource TransactionDetailsTextBlockStyle}"
-                                Text="Status" />
-                            <TextBlock x:ConnectionId='39'
-                                Name="TransactionStatusTextBlock"
-                                Style="{StaticResource TransactionDetailsTextBlockStyle}"
-                                Text="" />
-                        </StackPanel>
+                        <!--<StackPanel Grid.Row="4" Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
+                        <TextBlock
+                            Grid.Row="4"
+                            Grid.Column="0"
+                            HorizontalAlignment="Left"
+                            FontWeight="SemiBold"
+                            Style="{StaticResource TransactionDetailsBoldTextBlockStyle}"
+                            Text="Amount" />
 
-                        <StackPanel Grid.Row="6" Style="{StaticResource TransactionDetailsStackPanelStyle}">
-                            <TextBlock
-                                HorizontalAlignment="Left"
-                                FontWeight="SemiBold"
-                                Style="{StaticResource TransactionDetailsTextBlockStyle}"
-                                Text="Balance" />
-                            <TextBlock x:ConnectionId='38'
-                                Name="BalanceTextBlock"
-                                Style="{StaticResource TransactionDetailsTextBlockStyle}"
-                                Text="" />
-                        </StackPanel>
-
-
-                        <StackPanel Grid.Row="7" Style="{StaticResource TransactionDetailsStackPanelStyle}">
-                            <TextBlock
-                                HorizontalAlignment="Left"
-                                FontWeight="SemiBold"
-                                Style="{StaticResource TransactionDetailsTextBlockStyle}"
-                                Text="Reference no " />
-                            <TextBlock x:ConnectionId='37'
-                                Name="TransactionIdTextBlock"
-                                Style="{StaticResource TransactionDetailsTextBlockStyle}"
-                                Text="" />
-                        </StackPanel>
 
                         <StackPanel
-                            Grid.Row="8"
-                            BorderThickness="0"
-                            Style="{StaticResource TransactionDetailsStackPanelStyle}">
-                            <TextBlock
-                                HorizontalAlignment="Left"
-                                FontWeight="SemiBold"
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            Orientation="Horizontal">
+
+                            <TextBlock x:ConnectionId='42'
+                                Name="TransactionAmountTextBlock"
+                                Grid.Row="4"
+                                Grid.Column="1"
+                                Padding="30,5,15,5"
                                 Style="{StaticResource TransactionDetailsTextBlockStyle}"
-                                Text="Remarks" />
-                            <TextBlock x:ConnectionId='36'
-                                Name="RemarksTextBlock"
+                                Text="" />
+
+                            <TextBlock x:ConnectionId='43'
+                                Name="AmountIconTextBlock"
+                                Grid.Row="6"
+                                Grid.Column="1"
+                                Padding="5"
+                                FontFamily="Segoe MDL2 Assets"
                                 Style="{StaticResource TransactionDetailsTextBlockStyle}"
                                 Text="" />
                         </StackPanel>
+
+                        <!--</StackPanel>-->
+
+                        <!--<StackPanel Grid.Row="5" Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
+                        <TextBlock
+                            Grid.Row="5"
+                            Grid.Column="0"
+                            HorizontalAlignment="Left"
+                            FontWeight="SemiBold"
+                            Style="{StaticResource TransactionDetailsBoldTextBlockStyle}"
+                            Text="Status" />
+                        <TextBlock x:ConnectionId='38'
+                            Name="TransactionStatusTextBlock"
+                            Grid.Row="5"
+                            Grid.Column="1"
+                            Style="{StaticResource TransactionDetailsTextBlockStyle}"
+                            Text="" />
+                        <!--</StackPanel>-->
+
+                        <!--<StackPanel Grid.Row="6" Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
+                        <TextBlock
+                            Grid.Row="6"
+                            Grid.Column="0"
+                            HorizontalAlignment="Left"
+                            FontWeight="SemiBold"
+                            Style="{StaticResource TransactionDetailsBoldTextBlockStyle}"
+                            Text="Balance" />
+                        <TextBlock x:ConnectionId='39'
+                            Name="BalanceTextBlock"
+                            Grid.Row="6"
+                            Grid.Column="1"
+                            Style="{StaticResource TransactionDetailsTextBlockStyle}"
+                            Text="-" />
+                        <!--</StackPanel>-->
+
+
+                        <!--<StackPanel Grid.Row="7" Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
+                        <TextBlock
+                            Grid.Row="7"
+                            HorizontalAlignment="Left"
+                            FontWeight="SemiBold"
+                            Style="{StaticResource TransactionDetailsBoldTextBlockStyle}"
+                            Text="Ref no " />
+                        <TextBlock x:ConnectionId='40'
+                            Name="TransactionIdTextBlock"
+                            Grid.Row="7"
+                            Grid.Column="1"
+                            Style="{StaticResource TransactionDetailsTextBlockStyle}"
+                            Text="" />
+                        <!--</StackPanel>-->
+
+                        <!--<StackPanel
+                            Grid.Row="8"
+                            BorderThickness="0"
+                            Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
+                        <TextBlock
+                            Grid.Row="8"
+                            HorizontalAlignment="Left"
+                            FontWeight="SemiBold"
+                            Style="{StaticResource TransactionDetailsBoldTextBlockStyle}"
+                            Text="Remarks" />
+                        <TextBlock x:ConnectionId='41'
+                            Name="RemarksTextBlock"
+                            Grid.Row="8"
+                            Grid.Column="1"
+                            Style="{StaticResource TransactionDetailsTextBlockStyle}"
+                            Text="-" />
+                        <!--</StackPanel>-->
 
                     </Grid>
                 </ScrollViewer>
@@ -516,7 +557,7 @@
                             Height="150"
                             Margin="0,5"
                             Background="{ThemeResource GridBackGroundColor}"
-                            BorderBrush="{StaticResource BorderColor}"
+                            BorderBrush="{ThemeResource BorderColor}"
                             BorderThickness="1"
                             CornerRadius="10"
                                                                                          
@@ -703,9 +744,9 @@
 
 
         <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:ConnectionId='59'                                                           >
+            <VisualStateGroup x:ConnectionId='60'                                                           >
 
-                <VisualState x:ConnectionId='60' x:Name="WideState">
+                <VisualState x:ConnectionId='61' x:Name="WideState">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="1350" />
                     </VisualState.StateTriggers>
@@ -717,7 +758,7 @@
 
                 </VisualState>
 
-                <VisualState x:ConnectionId='61' x:Name="NarrowState">
+                <VisualState x:ConnectionId='62' x:Name="NarrowState">
 
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0" />

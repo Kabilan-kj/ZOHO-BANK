@@ -26,10 +26,10 @@ namespace ZBMS.Models
 
         public string Remarks { get; set; } 
 
+        public string Status { get; set; }  
+
         public string ModifiedDate { get; set; }    
-
-        private DateTime DateTimeData { get; set; }  
-
+               
         public string IconString { get; set; }
 
         public SolidColorBrush IconColor { get; set; }

@@ -11,25 +11,25 @@ namespace ZBMS.DataLayer
 {
     public class GetTransactionsDataManager : IGetTransactionsDataManager 
     {
-        private GetTransactionsDBHandler dbHandler = new GetTransactionsDBHandler();
-        private GetTransactionsResponse response = new GetTransactionsResponse();
+        private GetTransactionsDBHandler _dbHandler = new GetTransactionsDBHandler();
+        private GetTransactionsResponse _response= new GetTransactionsResponse();
        
 
-        public void GetData(ICallBack<GetTransactionsResponse> callBack, GetTransactionsRequest request)
+        public void GetData( GetTransactionsRequest request , ICallBack<GetTransactionsResponse> callBack)
         {
-            if(request.transactionId==TransactionID.CustomerID)
+            if(request.TransactionId== TransactionFilterType.CustomerID)
             {
-               response.transactions = dbHandler.GetTransactionsByCustomerID(request.Id);
+                _response.Transactions = _dbHandler.GetTransactionsByCustomerID(request.Id);
             }
             else
             {
-                response.transactions = dbHandler.GetTransactionsBySenderID(request.Id);
+                _response.Transactions = _dbHandler.GetTransactionsBySenderID(request.Id);
             }
-            if (response.transactions != null)
+            if (_response.Transactions != null)
             {
-                if (response.transactions.Count != 0)
+                if (_response.Transactions.Count != 0)
                 {
-                    callBack.OnSuccess(response);
+                    callBack.OnSuccess(_response);
 
                 }
                 else

@@ -13,45 +13,45 @@ namespace ZBMS.GetDetailedTransactionsDomainLayer
     public class GetDetailedTransactionsUseCase : UseCaseBase
     {
 
-        private ICallBack<GetDetailedTransactionsResponse> presenterCallBack;
-        private GetDetailedTransactionsRequest request;
-        private IGetDetailedTransactionDataManager dataManager;
-        private GetDetailedTransactionsUseCaseCallBack useCaseCallBack;
+        private ICallBack<GetDetailedTransactionsResponse> _presenterCallBack;
+        private GetDetailedTransactionsRequest _request;
+       // private IGetDetailedTransactionDataManager _dataManager;
+       // private GetDetailedTransactionsUseCaseCallBack _useCaseCallBack;
 
-        public GetDetailedTransactionsUseCase(GetDetailedTransactionsRequest _request,ICallBack<GetDetailedTransactionsResponse> _presenterCallBack)
+        public GetDetailedTransactionsUseCase(GetDetailedTransactionsRequest request,ICallBack<GetDetailedTransactionsResponse> presenterCallBack)
         {
-            presenterCallBack = _presenterCallBack;
-            request = _request;
+            _presenterCallBack = presenterCallBack;
+            _request = request;
 
         }
         public override void Action()
         {
-            dataManager = DependencyContainersClass.DependencyContainerObject.GetProvider().GetService(typeof(IGetDetailedTransactionDataManager)) as IGetDetailedTransactionDataManager;
-            useCaseCallBack = new GetDetailedTransactionsUseCaseCallBack(this);
-            dataManager.GetDetailedTransaction(request, useCaseCallBack);
+           var  dataManager = DependencyContainersClass.DependencyContainerObject.GetProvider().GetService(typeof(IGetDetailedTransactionDataManager)) as IGetDetailedTransactionDataManager;
+           var useCaseCallBack = new GetDetailedTransactionsUseCaseCallBack(this);
+           dataManager.GetDetailedTransaction(_request, useCaseCallBack);
         }
 
         private class GetDetailedTransactionsUseCaseCallBack : ICallBack<GetDetailedTransactionsResponse>
         {
-            GetDetailedTransactionsUseCase usecase;
-           public  GetDetailedTransactionsUseCaseCallBack(GetDetailedTransactionsUseCase _usecase)
+           private GetDetailedTransactionsUseCase _usecase;
+           public  GetDetailedTransactionsUseCaseCallBack(GetDetailedTransactionsUseCase usecase)
            {
-                usecase = _usecase;
+                _usecase = usecase;
            }
 
            public  void OnError()
            {
-                usecase.presenterCallBack.OnError();
+                _usecase._presenterCallBack.OnError();
            }
 
             public void OnFailure()
             {
-               usecase.presenterCallBack.OnFailure();   
+                _usecase._presenterCallBack.OnFailure();   
             }
 
             public  void OnSuccess(GetDetailedTransactionsResponse response)
             {
-                usecase.presenterCallBack.OnSuccess(response);  
+                _usecase._presenterCallBack.OnSuccess(response);  
             }
         }
 

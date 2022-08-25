@@ -20,27 +20,25 @@
 
                 <Setter Property="FontSize" Value="14" />
                 <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="Foreground" Value="Black" />
 
             </Style>
             <Style x:Key="WideTextBlock" TargetType="TextBlock">
                 <Setter Property="FontSize" Value="20" />
                 <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="Foreground" Value="Gray" />
             </Style>
 
             <Style x:Key="NarrowContentTextBlock" TargetType="TextBlock">
-
                 <Setter Property="FontSize" Value="14" />
                 <Setter Property="FontWeight" Value="Medium" />
                 <Setter Property="Foreground" Value="Gray" />
             </Style>
 
             <Style x:Key="WideContentTextBlock" TargetType="TextBlock">
-
                 <Setter Property="FontSize" Value="20" />
                 <Setter Property="FontWeight" Value="Medium" />
                 <Setter Property="Foreground" Value="Gray" />
-
-
             </Style>
 
             <Style x:Key="NarrowButton" TargetType="Button" />
@@ -66,8 +64,9 @@
             <TextBlock
                 Margin="20,15"
                 VerticalAlignment="Center"
-                FontSize="32"
+                FontSize="28"
                 FontWeight="Bold"
+                Foreground="Black"
                 Text="Account Details Page" />
         </StackPanel>
         <ScrollViewer Grid.Row="1">
@@ -112,26 +111,33 @@
                         VerticalAlignment="Center"
                         Background="{StaticResource PrimaryBackground}"
                         CornerRadius="10">
+                        <TextBlock
+                            Name="FromTextBox"
+                            Margin="40,10,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontWeight="SemiBold"
+                            Style="{StaticResource WideStyleTextBlock}"
+                            Text="Accounts :" />
+
                         <ComboBox
                             Name="SelectAccountComboBox"
-                            Width="240"
-                            Height="80"
                             Margin="40,20"
-                            Background="White"
+                            Background="{ThemeResource TextBackGroundColor}"
                             FontSize="16"
-                            Header="Account Number"
                             ItemsSource="{x:Bind AccountNumbers}"
-                            PlaceholderForeground="Gray"
-                            PlaceholderText="Select another account"
-                            SelectionChanged="SelectAccountComboBox_SelectionChanged" />
+                            PlaceholderForeground="{ThemeResource TextForeGroundColor}"
+                            PlaceholderText="Select account"
+                            SelectionChanged="SelectAccountComboBox_SelectionChanged"
+                            Style="{StaticResource WideStyleComboBox}" />
 
                     </StackPanel>
 
                     <Grid
                         Name="AccountDetailsGrid"
                         Grid.Row="1"
-                        Width="300"
-                        Height="500"
+                        Width="360"
+                        Height="450"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Background="{StaticResource PrimaryBackground}"
@@ -144,7 +150,7 @@
                             <RowDefinition />
                             <RowDefinition />
                             <RowDefinition />
-                            <RowDefinition />
+                            <RowDefinition Height="2*" />
                             <RowDefinition />
 
                         </Grid.RowDefinitions>
@@ -152,9 +158,7 @@
 
                         <StackPanel
                             Grid.Row="0"
-                            Margin="30"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
+                            Margin="30,10,10,10"
                             Orientation="Horizontal">
                             <TextBlock
                                 Name="AccountNumberTextBlock"
@@ -168,9 +172,7 @@
 
                         <StackPanel
                             Grid.Row="1"
-                            Margin="30"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
+                            Margin="30,10,10,10"
                             Orientation="Horizontal">
                             <TextBlock
                                 Name="AccountTypeTextBlock"
@@ -178,15 +180,14 @@
                                 Text="Account Type :" />
                             <TextBlock
                                 Name="AccountTypeContentTextBlock"
+                                Margin="10,0,0,0"
                                 Style="{StaticResource NarrowContentTextBlock}"
                                 TextWrapping="Wrap" />
                         </StackPanel>
 
                         <StackPanel
                             Grid.Row="2"
-                            Margin="30"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
+                            Margin="30,10,10,10"
                             Orientation="Horizontal">
                             <TextBlock
                                 Name="BranchCodeTextBlock"
@@ -201,14 +202,12 @@
 
                         <StackPanel
                             Grid.Row="3"
-                            Margin="30"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
+                            Margin="30,10,10,10"
                             Orientation="Horizontal">
                             <TextBlock
                                 Name="BranchTextBlock"
                                 Style="{StaticResource NarrowTextBlock}"
-                                Text="Branch :" />
+                                Text="Branch Name :" />
                             <TextBlock
                                 Name="BranchContentTextBlock"
                                 Margin="10,0,0,0"
@@ -216,9 +215,30 @@
                                 TextWrapping="Wrap" />
                         </StackPanel>
 
+                        <StackPanel
+                            Grid.Row="4"
+                            Padding="30,10,10,10"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Orientation="Horizontal">
+                            <TextBlock
+                                Name="BranchAddressTextBlock"
+                                VerticalAlignment="Top"
+                                Style="{StaticResource NarrowTextBlock}"
+                                Text="Branch Address :" />
+
+                            <TextBlock
+                                Name="BranchAddressContentTextBlock"
+                                Margin="10,0"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                Style="{StaticResource NarrowContentTextBlock}"
+                                TextWrapping="Wrap" />
+                        </StackPanel>
+
                         <Button
                             Name="MoreOptionsButton"
-                            Grid.Row="4"
+                            Grid.Row="5"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Content="More Options"

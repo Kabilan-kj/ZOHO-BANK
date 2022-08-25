@@ -13,7 +13,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using DataModule.AccountDetails;
-using ZBMS.Events;
 using ZBMS.ZBMSUtils;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -28,7 +27,8 @@ namespace ZBMS
        private List<string> AccountNumbers = new List<string> ();
        private List<AccountData> UserAccounts = new List<AccountData>();
        private CustomerAccountPage customerAccountPage = new CustomerAccountPage();
-        private static string selectedAccount; 
+       private static string selectedAccount; 
+
         public ViewAccountDetails()
         {
             this.InitializeComponent();
@@ -44,8 +44,8 @@ namespace ZBMS
                 ErrorStackPanel.Visibility = Visibility.Collapsed;
                 SelectAccountComboBox.Visibility = Visibility.Visible;
                 TriggerButton.Visibility = Visibility.Collapsed;
-                LoanPaymentButton.Visibility = Visibility.Collapsed;    
-                GetAccountNumbers();
+                LoanPaymentButton.Visibility = Visibility.Collapsed;
+                AccountNumbers = UserDetails.UserAccountNumbers;
                
             }
           
@@ -60,12 +60,7 @@ namespace ZBMS
             }
         }
 
-        public void GetAccountNumbers()
-        {
-            AccountNumbers.Clear();
-            foreach (var account in UserAccounts)
-                AccountNumbers.Add(account.AccountNumber);
-        }
+       
         public async void DisplaySelectedAccount()
         {
             if (selectedAccount != null)
@@ -76,16 +71,18 @@ namespace ZBMS
                     {
                         SelectAccountComboBox.SelectedIndex = i;
                         var useraccount = UserAccounts[i];
+                        var bankData = await customerAccountPage.GetAddress(useraccount.BranchCode);
                         AccountNumberContentTextBlock.Text = useraccount.AccountNumber;
-                        AccountTypeContentTextBlock.Text = useraccount.TypeofAccount;
+                        AccountTypeContentTextBlock.Text = UserDetails.GetAccountTypeList()[useraccount.TypeofAccount]; ;// useraccount.TypeofAccount;
                         BranchCodeContentTextBlock.Text = useraccount.BranchCode;
-                        BranchContentTextBlock.Text = await customerAccountPage.GetAddress(useraccount.BranchCode);
+                        BranchContentTextBlock.Text =bankData.BranchName ;
+                        BranchAddressContentTextBlock.Text =bankData.BranchAddress;
+
                         if (useraccount.TypeofAccount == "RECURRING_ACCOUNT")
                         {
                             TriggerButton.Visibility = Visibility.Visible;
                             RecurringAccountData recurringAccount = (RecurringAccountData)useraccount;
                             TriggerButton.IsOn = recurringAccount.IsTriggered;
-
                         }
                         if (useraccount.TypeofAccount == "LOAN_ACCOUNT")
                         {
@@ -106,18 +103,19 @@ namespace ZBMS
             {
                 if (useraccount.AccountNumber == account)
                 {
-
+                    var bankData = await customerAccountPage.GetAddress(useraccount.BranchCode);
                     AccountNumberContentTextBlock.Text = useraccount.AccountNumber;
-                    AccountTypeContentTextBlock.Text = useraccount.TypeofAccount;
+                    AccountTypeContentTextBlock.Text = UserDetails.GetAccountTypeList()[useraccount.TypeofAccount];
                     BranchCodeContentTextBlock.Text = useraccount.BranchCode;
-                    BranchContentTextBlock.Text = await customerAccountPage.GetAddress(useraccount.BranchCode);
-                   if(useraccount.TypeofAccount == "RECURRING_ACCOUNT")
-                   {
+                    BranchContentTextBlock.Text = bankData.BranchName;
+                    BranchAddressContentTextBlock.Text = bankData.BranchAddress;
+                    if (useraccount.TypeofAccount == "RECURRING_ACCOUNT")
+                    {
                         TriggerButton.Visibility = Visibility.Visible;
                         RecurringAccountData recurringAccount =(RecurringAccountData) useraccount;
                         TriggerButton.IsOn = recurringAccount.IsTriggered;
+                    }
 
-                   }
                    if(useraccount.TypeofAccount == "LOAN_ACCOUNT")
                    {
                       LoanPaymentButton.Visibility = Visibility.Visible;

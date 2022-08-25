@@ -34,9 +34,9 @@ namespace ZBMS
     /// </summary>
     public sealed partial class ViewTransactionsPage : Page, ITransactionsPageView
     {
-       private TransactionsPageViewModelBase viewModel;
-       private static  string Id;
-       private static TransactionID transactionId;
+        private TransactionsPageViewModelBase viewModel;
+        private static  string Id;
+        private static TransactionFilterType transactionFilterType;
         private Grid previousSelectedGrid;
         private Grid selectedGrid;
         public ExtendedTransactionDetails selectedDT;
@@ -49,9 +49,9 @@ namespace ZBMS
 
             if (Id != null)
             {
-                viewModel.GetTransactions(Id, transactionId);
+                viewModel.GetTransactions(Id, transactionFilterType);
                 ErrorMessage.Visibility = Visibility.Collapsed;
-                // TitlePanel.Visibility = Visibility.Visible;
+               
 
                 TransactionsGridView.Visibility = Visibility.Collapsed;
                 DetailedTransactionGrid.Visibility = Visibility.Collapsed;
@@ -62,27 +62,27 @@ namespace ZBMS
             else
             {
                 ErrorMessage.Visibility = Visibility.Visible;
-               // TitlePanel.Visibility = Visibility.Collapsed;
-               
             }
             
         }
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            //if()
-        }
+
+        //protected override void OnNavigatedTo(NavigationEventArgs e)
+        //{
+           
+        //}
 
 
-        public static void SetSenderId(string id, TransactionID _transactionId)
+        public static void SetSenderId(string id, TransactionFilterType _transactionId)
         {
             Id = id;
-            transactionId= _transactionId;
+            transactionFilterType = _transactionId;
         }
 
         public void UpdateErrorMessage()
         {
             ErrorMessage.Visibility = Visibility.Visible; 
         }
+
         CoreDispatcher ITransactionsPageView.Dispatcher
         {
             get { return this.Dispatcher; }
@@ -94,7 +94,9 @@ namespace ZBMS
             TimeTextBlock.Text = transaction.ModifiedTime;
             SenderNameTextBlock.Text = transaction.SenderName;  
             ReceiverNameTextBlock.Text = transaction.ReceiverName;
-            TransactionAmountTextBlock.Text = "₹ " + transaction.Amount.ToString();
+            TransactionAmountTextBlock.Text = transaction.AmountString;
+            AmountIconTextBlock.Text = transaction.IconString;
+            AmountIconTextBlock.Foreground = transaction.IconColor;
             TransactionIdTextBlock.Text = transaction.TransactionId;
             TransactionStatusTextBlock.Text = transaction.Status;
         }
@@ -113,7 +115,7 @@ namespace ZBMS
                 this.FindName("DetailedTransactionGrid");
                 DetailedTransactionGrid.Visibility = Visibility.Visible;
                 DetailedTransactionsCloseButton.Visibility = Visibility.Visible;
-                viewModel.GetSelectedTransaction(selectedTransaction.TransactionId,TransactionsDisplayType.ListView);
+                viewModel.GetSelectedTransaction(selectedTransaction,TransactionsDisplayType.ListView);
 
             }
             else
@@ -177,10 +179,6 @@ namespace ZBMS
             }
         }
 
-
-
-    
-
         public void UpdateSelectedTransactionGridView(ExtendedTransactionDetails transaction)
         {
             var Panel1 = (StackPanel)selectedGrid.FindName("NormalSenderDetails");
@@ -202,8 +200,11 @@ namespace ZBMS
             var TextBlock1 = (TextBlock)selectedGrid.FindName("StatusValueTextBlock");
             var TextBlock2 = (TextBlock)Panel1.FindName("SenderNameValueTextBlock");
             var TextBlock3 = (TextBlock)Panel1.FindName("ReceiverNameValueTextBlock");
-
-            TextBlock1.Text = transaction.Status;
+            if(transaction.Status!=null)
+            {
+                TextBlock1.Text = transaction.Status;
+            }
+           
             TextBlock2.Text = transaction.SenderName;
             TextBlock3.Text = transaction.ReceiverName;
         }
@@ -220,7 +221,7 @@ namespace ZBMS
             selectedGrid = grid1;
              
             var selectedTransaction = TransactionsGridView.SelectedItem as ExtendedTransactionDetails;
-            viewModel.GetSelectedTransaction(selectedTransaction.TransactionId, TransactionsDisplayType.GridView);
+            viewModel.GetSelectedTransaction(selectedTransaction, TransactionsDisplayType.GridView);
 
             if (previousSelectedGrid != null)
             {
@@ -249,24 +250,23 @@ namespace ZBMS
 
         private void TransactionGridCloseButton_Click(object sender, RoutedEventArgs e)
         {
-             var Panel11 = (StackPanel)previousSelectedGrid.FindName("NormalSenderDetails");
-                var Panel22 = (StackPanel)previousSelectedGrid.FindName("ExpandedSenderDetails");
-                var Panel33 = (StackPanel)previousSelectedGrid.FindName("NormalReceiverDetails");
-                var Panel44 = (StackPanel)previousSelectedGrid.FindName("ExpandedReceiverDetails");
-                var closeButton = (Button)previousSelectedGrid.FindName("TransactionGridCloseButton");
-                var Panel55 = (StackPanel)previousSelectedGrid.FindName("StatusDetails");
-                Panel11.Visibility = Visibility.Visible;
-                Panel22.Visibility = Visibility.Collapsed;
-                Panel33.Visibility = Visibility.Visible;
-                closeButton.Visibility = Visibility.Collapsed;
-                Panel44.Visibility = Visibility.Collapsed;
-                Panel55.Visibility = Visibility.Collapsed;
+            var Panel11 = (StackPanel)previousSelectedGrid.FindName("NormalSenderDetails");
+            var Panel22 = (StackPanel)previousSelectedGrid.FindName("ExpandedSenderDetails");
+            var Panel33 = (StackPanel)previousSelectedGrid.FindName("NormalReceiverDetails");
+            var Panel44 = (StackPanel)previousSelectedGrid.FindName("ExpandedReceiverDetails");
+            var closeButton = (Button)previousSelectedGrid.FindName("TransactionGridCloseButton");
+            var Panel55 = (StackPanel)previousSelectedGrid.FindName("StatusDetails");
+            Panel11.Visibility = Visibility.Visible;
+            Panel22.Visibility = Visibility.Collapsed;
+            Panel33.Visibility = Visibility.Visible;
+            closeButton.Visibility = Visibility.Collapsed;
+            Panel44.Visibility = Visibility.Collapsed;
+            Panel55.Visibility = Visibility.Collapsed;
 
-                previousSelectedGrid.Height = 150;
-                previousSelectedGrid.BorderThickness = new Thickness(1);
-                previousSelectedGrid.BorderBrush =  new SolidColorBrush((Application.Current.Resources["BorderColor"] as SolidColorBrush).Color);
+            previousSelectedGrid.Height = 150;
+            previousSelectedGrid.BorderThickness = new Thickness(1);
+            previousSelectedGrid.BorderBrush =  new SolidColorBrush((Application.Current.Resources["BorderColor"] as SolidColorBrush).Color);
 
-            
         }
     }
 }

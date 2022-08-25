@@ -12,7 +12,7 @@ namespace DataModule.AccountDetails
     public class AccountData
     {
 
-        public int autoIncrementId { get; set; }
+        public int AccountCount { get; set; }
         public string AccountNumber { get; set; }
         public string CustomerId { get; set; }
         public string BranchCode { get; set; }

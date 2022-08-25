@@ -78,18 +78,7 @@ namespace ZBMS
   
         }
 
-        private async void TransferFailed(string message)
-        {
-            MessageDialog showDialog = new MessageDialog(message);
-            showDialog.Commands.Add(new UICommand("Okay") { Id = 0 });
-            showDialog.DefaultCommandIndex = 0;
-            var result = await showDialog.ShowAsync();
-            if ((int)result.Id == 0)
-            {
-                this.Frame.Navigate(typeof(CustomerDashboard));
-            }
-
-        }
+       
 
         private void FromComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -104,7 +93,8 @@ namespace ZBMS
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            TransferFailed("DO you Want to abort Transaction");
+            EventsUtilsClass.InvokeOnPopupTiggered("Loanpayment Cancelled");
+            this.Frame.Navigate(typeof(CustomerDashboard));
         }
 
         private async void TransferButton_Click(object sender, RoutedEventArgs e)
@@ -187,16 +177,11 @@ namespace ZBMS
             return false;
         }
 
-        private async void TransferDone(string message)
+        private  void TransferDone(string message)
         {
-            MessageDialog showDialog = new MessageDialog(message);
-            showDialog.Commands.Add(new UICommand("Okay") { Id = 0 });
-            showDialog.DefaultCommandIndex = 0;
-            var result = await showDialog.ShowAsync();
-            if ((int)result.Id == 0)
-            {
-                this.Frame.Navigate(typeof(LoanPaymentPage));
-            }
+           EventsUtilsClass.InvokeOnPopupTiggered(message);
+           this.Frame.Navigate(typeof(LoanPaymentPage));
+            
         }
 
         private void LoanPaymentRadioButton_Checked(object sender, RoutedEventArgs e)

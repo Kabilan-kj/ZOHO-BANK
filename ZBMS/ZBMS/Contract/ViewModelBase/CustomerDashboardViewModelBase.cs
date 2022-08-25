@@ -15,14 +15,14 @@ namespace ZBMS.Contract.ViewModelBase
     public abstract class CustomerDashboardViewModelBase
     {
 
-        public ICustomerDashBoardView dashboardView;
+        public ICustomerDashBoardView DashboardView;
         public List<string> AccountNumbers = new List<string>();
         public List<ShortcutMenuItems> ShortcutMenuItems = new List<ShortcutMenuItems>();
         public List<ShortcutMenuItems> MoneyTransferMenuItems = new List<ShortcutMenuItems>();
-        public CustomerLoginPage customerLoginPage = new CustomerLoginPage();
-        public CustomerAccountPage customerAccountPage = new CustomerAccountPage();
-        public CustomerTransactionsPage customerTransaction = new CustomerTransactionsPage();
-        public CustomerData customer = new CustomerData();
+        public CustomerLoginPage CustomerLoginPage = new CustomerLoginPage();
+        public CustomerAccountPage CustomerAccountPage = new CustomerAccountPage();
+        public CustomerTransactionsPage CustomerTransaction = new CustomerTransactionsPage();
+        public CustomerData Customer = new CustomerData();
         public  List<AccountData> UserAccounts = new List<AccountData>();
         public Dictionary<string, string> AccountTypeList = new Dictionary<string, string>();
        
@@ -32,6 +32,6 @@ namespace ZBMS.Contract.ViewModelBase
         public ExtendedTransactionDetails SelectedTransaction = new ExtendedTransactionDetails();
 
         public abstract void GetRecentTransactions(string customerId, RecentTransactionFilterOption filterOption);
-        public abstract void SetViewObject(ICustomerDashBoardView _dashboardView);
+        public abstract void SetViewObject(ICustomerDashBoardView dashboardView);
     }
 }

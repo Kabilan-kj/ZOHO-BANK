@@ -9,6 +9,6 @@ namespace ZBMS.FilterTransactionsUseCase.DomainLayer
 {
     public class FilterTransactionsResponse
     {
-        public List<ExtendedTransactionDetails> transactions { get; set; }
+        public List<ExtendedTransactionDetails> Transactions { get; set; }
     }
 }

@@ -44,6 +44,32 @@
                 <Setter Property="Foreground" Value="Black" />
             </Style>
 
+            <Storyboard x:ConnectionId='2' x:Name="BlinkPopup">
+
+                <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Popup" Storyboard.TargetProperty="(UIElement.Visibility)">
+                    <DiscreteObjectKeyFrame KeyTime="0:0:0.5">
+
+                        <DiscreteObjectKeyFrame.Value>
+                            <Visibility>Visible</Visibility>
+                        </DiscreteObjectKeyFrame.Value>
+
+                    </DiscreteObjectKeyFrame>
+
+                    <DiscreteObjectKeyFrame KeyTime="0:0:5">
+
+                        <DiscreteObjectKeyFrame.Value>
+                            <Visibility>Collapsed</Visibility>
+                        </DiscreteObjectKeyFrame.Value>
+
+                    </DiscreteObjectKeyFrame>
+
+                </ObjectAnimationUsingKeyFrames>
+
+            </Storyboard>
+
+
+
+
         </ResourceDictionary>
 
     </Page.Resources>
@@ -61,13 +87,13 @@
             Fill="{ThemeResource GridBackGroundColor}"
             Opacity="0.5" />
 
-        <Grid x:ConnectionId='2' Name="MenuGrid" Width="250">
+        <Grid x:ConnectionId='3' Name="MenuGrid" Width="220">
             <Grid.RowDefinitions>
                 <RowDefinition Height="70" />
                 <RowDefinition />
             </Grid.RowDefinitions>
 
-            <Image x:ConnectionId='5'
+            <Image x:ConnectionId='8'
                 Name="LogoImage"
                 Grid.Row="0"
                 Width="180"
@@ -88,12 +114,12 @@
                         EF58 account settings , E971 Up arrow , E972 down arrow , E935 flick up ,E936 Flick down , E779 contact info , E77B contact
                     -->
                     <StackPanel>
-                        <ListView x:ConnectionId='16'
+                        <ListView x:ConnectionId='19'
                             Name="MenuOptionsListView"
                             Margin="10"
                                                                                    >
 
-                            <ListViewItem x:ConnectionId='17' Name="Dashboard">
+                            <ListViewItem x:ConnectionId='20' Name="Dashboard">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock
                                         Margin="8"
@@ -108,7 +134,7 @@
                                 </StackPanel>
                             </ListViewItem>
 
-                            <ListViewItem x:ConnectionId='18' Name="MoneyTransfer">
+                            <ListViewItem x:ConnectionId='21' Name="MoneyTransfer">
                                 <StackPanel>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
@@ -131,7 +157,7 @@
                                             FontSize="16"
                                             Text="Money Transfer" />
 
-                                        <TextBlock x:ConnectionId='47'
+                                        <TextBlock x:ConnectionId='50'
                                             Name="Downarrow1"
                                             Grid.Column="3"
                                             Margin="10"
@@ -140,29 +166,29 @@
 
                                     </Grid>
 
-                                    <ListView x:ConnectionId='38'
+                                    <ListView x:ConnectionId='41'
                                         Name="MoneyTransferList"
                                         Margin="30,0,0,10"
                                         Background="Transparent"
                                                                                              
                                         SelectionMode="Single">
 
-                                        <ListViewItem x:ConnectionId='39' Name="SelfTransfer">
-                                            <TextBlock x:ConnectionId='44'
+                                        <ListViewItem x:ConnectionId='42' Name="SelfTransfer">
+                                            <TextBlock x:ConnectionId='47'
                                                 Name="SelfTransferTextBlock"
                                                 Style="{StaticResource NarrowListText}"
                                                 Text="Self" />
                                         </ListViewItem>
 
-                                        <ListViewItem x:ConnectionId='40' Name="OtherCustomer">
-                                            <TextBlock x:ConnectionId='43'
+                                        <ListViewItem x:ConnectionId='43' Name="OtherCustomer">
+                                            <TextBlock x:ConnectionId='46'
                                                 Name="OtherCustomerTransferTextBlock"
                                                 Style="{StaticResource NarrowListText}"
                                                 Text="Other Customer " />
                                         </ListViewItem>
 
-                                        <ListViewItem x:ConnectionId='41' Name="OtherBank">
-                                            <TextBlock x:ConnectionId='42'
+                                        <ListViewItem x:ConnectionId='44' Name="OtherBank">
+                                            <TextBlock x:ConnectionId='45'
                                                 Name="OtherBankTransferTextBlock"
                                                 Style="{StaticResource NarrowListText}"
                                                 Text="Other Bank" />
@@ -177,9 +203,9 @@
                                                             <ListViewItemPresenter
                                                                 CornerRadius="10"
                                                                 PointerOverBackground="LightGray"
-                                                                PressedBackground="Green"
-                                                                SelectedPointerOverBackground="LightGreen"
-                                                                SelectedPressedBackground="Green" />
+                                                                PressedBackground="{StaticResource ZBMSAccentColorBrush}"
+                                                                SelectedPointerOverBackground="{StaticResource ZBMSAccentColorBrushLight2}"
+                                                                SelectedPressedBackground="{StaticResource ZBMSAccentColorBrush}" />
                                                         </ControlTemplate>
                                                     </Setter.Value>
                                                 </Setter>
@@ -192,7 +218,7 @@
                             </ListViewItem>
 
 
-                            <ListViewItem x:ConnectionId='19' Name="Accounts">
+                            <ListViewItem x:ConnectionId='22' Name="Accounts">
                                 <StackPanel>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
@@ -214,7 +240,7 @@
                                             Margin="5"
                                             FontSize="16"
                                             Text="Accounts" />
-                                        <TextBlock x:ConnectionId='37'
+                                        <TextBlock x:ConnectionId='40'
                                             Name="Downarrow2"
                                             Grid.Column="3"
                                             Margin="10"
@@ -223,22 +249,22 @@
 
                                     </Grid>
 
-                                    <ListView x:ConnectionId='30'
+                                    <ListView x:ConnectionId='33'
                                         Name="AccountsList"
                                         Margin="30,0,0,10"
                                         Background="Transparent"
                                                                                         
                                         SelectionMode="Single">
 
-                                        <ListViewItem x:ConnectionId='31' Name="ViewAccount">
-                                            <TextBlock x:ConnectionId='34'
+                                        <ListViewItem x:ConnectionId='34' Name="ViewAccount">
+                                            <TextBlock x:ConnectionId='37'
                                                 Name="ViewAccountTextBlock"
                                                 Style="{StaticResource NarrowListText}"
                                                 Text="View Account Details" />
                                         </ListViewItem>
 
-                                        <ListViewItem x:ConnectionId='32' Name="ViewTransaction">
-                                            <TextBlock x:ConnectionId='33'
+                                        <ListViewItem x:ConnectionId='35' Name="ViewTransaction">
+                                            <TextBlock x:ConnectionId='36'
                                                 Name="ViewTransactionTextBlock"
                                                 Style="{StaticResource NarrowListText}"
                                                 Text="View Transaction " />
@@ -253,9 +279,9 @@
                                                             <ListViewItemPresenter
                                                                 CornerRadius="10"
                                                                 PointerOverBackground="LightGray"
-                                                                PressedBackground="Green"
-                                                                SelectedPointerOverBackground="LightGreen"
-                                                                SelectedPressedBackground="Green" />
+                                                                PressedBackground="{StaticResource ZBMSAccentColorBrush}"
+                                                                SelectedPointerOverBackground="{StaticResource ZBMSAccentColorBrushLight2}"
+                                                                SelectedPressedBackground="{StaticResource ZBMSAccentColorBrushLight2}" />
                                                         </ControlTemplate>
                                                     </Setter.Value>
                                                 </Setter>
@@ -267,8 +293,7 @@
                                 </StackPanel>
                             </ListViewItem>
 
-
-                            <ListViewItem x:ConnectionId='20' Name="Profile">
+                            <ListViewItem x:ConnectionId='23' Name="Profile">
                                 <StackPanel>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
@@ -289,7 +314,7 @@
                                             Margin="5"
                                             FontSize="16"
                                             Text="Profile" />
-                                        <TextBlock x:ConnectionId='29'
+                                        <TextBlock x:ConnectionId='32'
                                             Name="Downarrow3"
                                             Grid.Column="3"
                                             Margin="10"
@@ -297,22 +322,22 @@
                                             Text="&#xE971;" />
                                     </Grid>
 
-                                    <ListView x:ConnectionId='22'
+                                    <ListView x:ConnectionId='25'
                                         Name="ProfileList"
                                         Margin="30,0,0,0"
                                         Background="Transparent"
                                                                                        
                                         SelectionMode="Single">
 
-                                        <ListViewItem x:ConnectionId='23' Name="ViewProfile">
-                                            <TextBlock x:ConnectionId='26'
+                                        <ListViewItem x:ConnectionId='26' Name="ViewProfile">
+                                            <TextBlock x:ConnectionId='29'
                                                 Name="ViewProfileTextBlock"
                                                 Style="{StaticResource NarrowListText}"
                                                 Text="View Profile" />
                                         </ListViewItem>
 
-                                        <ListViewItem x:ConnectionId='24' Name="EditProfile">
-                                            <TextBlock x:ConnectionId='25'
+                                        <ListViewItem x:ConnectionId='27' Name="EditProfile">
+                                            <TextBlock x:ConnectionId='28'
                                                 Name="EditProfileTextBlock"
                                                 Style="{StaticResource NarrowListText}"
                                                 Text="Edit Profile" />
@@ -327,9 +352,9 @@
                                                             <ListViewItemPresenter
                                                                 CornerRadius="10"
                                                                 PointerOverBackground="LightGray"
-                                                                PressedBackground="Green"
-                                                                SelectedPointerOverBackground="LightGreen"
-                                                                SelectedPressedBackground="Green" />
+                                                                PressedBackground="{StaticResource ZBMSAccentColorBrush}"
+                                                                SelectedPointerOverBackground="{StaticResource ZBMSAccentColorBrushLight2}"
+                                                                SelectedPressedBackground="{StaticResource ZBMSAccentColorBrushLight2}" />
                                                         </ControlTemplate>
                                                     </Setter.Value>
                                                 </Setter>
@@ -341,7 +366,7 @@
 
                             </ListViewItem>
 
-                            <ListViewItem x:ConnectionId='21' Name="Transactions">
+                            <ListViewItem x:ConnectionId='24' Name="Transactions">
 
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock
@@ -368,7 +393,7 @@
                                                     PointerOverBackground="Transparent"
                                                     PressedBackground="Transparent"
                                                     SelectedBackground="Transparent"
-                                                    SelectedForeground="Green"
+                                                    SelectedForeground="{StaticResource ZBMSAccentColorBrush}"
                                                     SelectedPointerOverBackground="Transparent"
                                                     SelectedPressedBackground="Transparent" />
                                             </ControlTemplate>
@@ -385,7 +410,7 @@
                         HorizontalAlignment="Center"
                         Orientation="Horizontal">
 
-                        <Button x:ConnectionId='6'
+                        <Button x:ConnectionId='9'
                             Name="SettingsButton"
                             Margin="10"
                             Padding="5"
@@ -399,14 +424,14 @@
                             </ToolTipService.ToolTip>
 
                             <Button.Flyout>
-                                <Flyout x:ConnectionId='10' x:Name="SettingsButtonFlyout">
-                                    <ListView x:ConnectionId='11'
+                                <Flyout x:ConnectionId='13' x:Name="SettingsButtonFlyout">
+                                    <ListView x:ConnectionId='14'
                                         Name="ColorsListView"
                                         IsItemClickEnabled="True"
                                                                             
                                         SelectionMode="Single">
 
-                                        <ListViewItem x:ConnectionId='12' Name="Red">
+                                        <ListViewItem x:ConnectionId='15' Name="Red">
                                             <StackPanel Orientation="Horizontal">
 
                                                 <Ellipse
@@ -421,7 +446,7 @@
                                             </StackPanel>
                                         </ListViewItem>
 
-                                        <ListViewItem x:ConnectionId='13' Name="Green">
+                                        <ListViewItem x:ConnectionId='16' Name="Green">
                                             <StackPanel Orientation="Horizontal">
                                                 <Ellipse
                                                     Width="20"
@@ -435,7 +460,7 @@
                                             </StackPanel>
                                         </ListViewItem>
 
-                                        <ListViewItem x:ConnectionId='14' Name="Blue">
+                                        <ListViewItem x:ConnectionId='17' Name="Blue">
                                             <StackPanel Orientation="Horizontal">
 
                                                 <Ellipse
@@ -450,7 +475,7 @@
                                             </StackPanel>
                                         </ListViewItem>
 
-                                        <ListViewItem x:ConnectionId='15' Name="Pink">
+                                        <ListViewItem x:ConnectionId='18' Name="Pink">
                                             <StackPanel Orientation="Horizontal">
 
                                                 <Ellipse
@@ -471,7 +496,7 @@
 
                         </Button>
 
-                        <Button x:ConnectionId='7'
+                        <Button x:ConnectionId='10'
                             Name="InfoButton"
                             Margin="10"
                             Padding="5"
@@ -485,7 +510,7 @@
                             </ToolTipService.ToolTip>
                         </Button>
 
-                        <Button x:ConnectionId='8'
+                        <Button x:ConnectionId='11'
                             Name="LogoutButton"
                             Margin="10"
                             Padding="5"
@@ -500,7 +525,7 @@
                             </ToolTipService.ToolTip>
                         </Button>
 
-                        <Button x:ConnectionId='9'
+                        <Button x:ConnectionId='12'
                             Name="ThemeButton"
                             Margin="10"
                             Padding="5"
@@ -523,14 +548,43 @@
 
         </Grid>
 
-        <Frame x:ConnectionId='3' Name="ContentFrame" Grid.Column="1" />
-        <Frame x:ConnectionId='4' Name="FullFrame" Grid.ColumnSpan="2" />
+        <Border x:ConnectionId='4'
+            Name="Popup"
+            Width="200"
+            Height="Auto"
+            Margin="20,0,0,50"
+            Padding="5"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Background="{ThemeResource GridBackGroundColor}"
+            Canvas.ZIndex="5"
+            CornerRadius="5"
+            Visibility="Collapsed">
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:ConnectionId='7'
+                    Name="PopupTextBlock"
+                    Margin="5"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Canvas.ZIndex="3"
+                    FontSize="14"
+                    Foreground="{ThemeResource BorderColor}"
+                    TextAlignment="Center"
+                    TextWrapping="Wrap" />
+
+            </StackPanel>
+        </Border>
+
+
+        <Frame x:ConnectionId='5' Name="ContentFrame" Grid.Column="1" />
+        <Frame x:ConnectionId='6' Name="FullFrame" Grid.ColumnSpan="2" />
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
 
                 <VisualState>
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="1200" />
+                        <AdaptiveTrigger MinWindowWidth="1000" />
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="MenuGrid.Width" Value="250" />

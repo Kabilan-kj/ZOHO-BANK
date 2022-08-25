@@ -195,7 +195,7 @@ namespace ZBMS
         {
             if(ViewTransaction.IsSelected)
             {
-                ViewTransactionsPage.SetSenderId(customer.CustomerId, TransactionID.CustomerID);
+                ViewTransactionsPage.SetSenderId(customer.CustomerId, TransactionFilterType.CustomerID);
                 HomePageFrame.Navigate(typeof(ViewTransactionsPage));
             }
          

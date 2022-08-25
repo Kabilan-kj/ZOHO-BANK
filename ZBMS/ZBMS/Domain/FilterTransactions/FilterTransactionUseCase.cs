@@ -11,45 +11,45 @@ namespace ZBMS.FilterTransactionsUseCase.DomainLayer
 {
     public class FilterTransactionUseCase : UseCaseBase
     {
-        private FilterTransactionsRequest request;
-        private ICallBack<FilterTransactionsResponse> presenterCallBack;
-        private FilterTransactionsUseCaseCallBack useCaseCallBack;
-        private IFilterTransactionsDataManager dataManager;
+        private FilterTransactionsRequest _request;
+        private ICallBack<FilterTransactionsResponse> _presenterCallBack;
+       // private FilterTransactionsUseCaseCallBack _useCaseCallBack;
+       // private IFilterTransactionsDataManager _dataManager;
 
-        public FilterTransactionUseCase(FilterTransactionsRequest _request, ICallBack<FilterTransactionsResponse> _callBack)
+        public FilterTransactionUseCase(FilterTransactionsRequest request, ICallBack<FilterTransactionsResponse> callBack)
         {
-            request = _request;
-            presenterCallBack = _callBack;
+            _request = request;
+            _presenterCallBack = callBack;
         }
         public override void Action()
         {
-            dataManager = DependencyContainersClass.DependencyContainerObject.GetProvider().GetService(typeof(IFilterTransactionsDataManager)) as IFilterTransactionsDataManager;
-            useCaseCallBack = new FilterTransactionsUseCaseCallBack(this);
-            dataManager.GetData(request, useCaseCallBack);
+           var dataManager = DependencyContainersClass.DependencyContainerObject.GetProvider().GetService(typeof(IFilterTransactionsDataManager)) as IFilterTransactionsDataManager;
+           var useCaseCallBack = new FilterTransactionsUseCaseCallBack(this);
+           dataManager.GetData(_request, useCaseCallBack);
         }
 
         private class FilterTransactionsUseCaseCallBack : ICallBack<FilterTransactionsResponse>
         {
-            FilterTransactionUseCase usecase;
+            private FilterTransactionUseCase _usecase;
 
-            public FilterTransactionsUseCaseCallBack(FilterTransactionUseCase _usecase)
+            public FilterTransactionsUseCaseCallBack(FilterTransactionUseCase usecase)
             {
-                usecase = _usecase;
+                _usecase = usecase;
             }
 
             public void OnError()
             {
-                usecase.presenterCallBack.OnError();
+                _usecase._presenterCallBack.OnError();
             }
 
             public void OnFailure()
             {
-                usecase.presenterCallBack.OnFailure();
+                _usecase._presenterCallBack.OnFailure();
             }
 
             public void OnSuccess(FilterTransactionsResponse response)
             {
-                usecase.presenterCallBack.OnSuccess(response);
+                _usecase._presenterCallBack.OnSuccess(response);
             }
         }
 

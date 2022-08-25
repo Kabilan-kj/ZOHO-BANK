@@ -47,17 +47,10 @@ namespace ZBMS
             GetIdList();
         }
 
-        private async void SelfTransferFailed(string message)
+        private void SelfTransferFailed(string message)
         {
-            MessageDialog showDialog = new MessageDialog(message);
-            showDialog.Commands.Add(new UICommand("Okay") { Id = 0 });
-            showDialog.DefaultCommandIndex = 0;
-            var result = await showDialog.ShowAsync();
-            if ((int)result.Id == 0)
-            {
-                this.Frame.Navigate(typeof(CustomerDashboard));
-            }
-
+            EventsUtilsClass.InvokeOnPopupTiggered(message);    
+            this.Frame.Navigate(typeof(CustomerDashboard));
         }
 
         private void GetIdList()
@@ -80,7 +73,8 @@ namespace ZBMS
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            SelfTransferFailed("Do you want to abort transaction");
+           SelfTransferFailed("Do you want to cancel transaction");
+          
         }
 
         private async void TransferButton_Click(object sender, RoutedEventArgs e)
@@ -159,16 +153,12 @@ namespace ZBMS
             }
             return false;
         }
-        private async void TransferDone(string message)
+        private  void TransferDone(string message)
         {
-            MessageDialog showDialog = new MessageDialog(message);
-            showDialog.Commands.Add(new UICommand("Okay") { Id = 0 });
-            showDialog.DefaultCommandIndex = 0;
-            var result = await showDialog.ShowAsync();
-            if ((int)result.Id == 0)
-            {
+            
+            EventsUtilsClass.InvokeOnPopupTiggered(message);
                 this.Frame.Navigate(typeof(OtherCustomerTransferPage));
-            }
+       
         }
 
     }

@@ -10,9 +10,9 @@ namespace ZBMS.GetDetailedTransactionsDomainLayer
     {
         public string TransactionId;
 
-        public GetDetailedTransactionsRequest (string _transactionID)
+        public GetDetailedTransactionsRequest (string transactionID)
         {
-            TransactionId = _transactionID; 
+            TransactionId = transactionID; 
         }
 
     }
