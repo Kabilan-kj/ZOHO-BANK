@@ -477,6 +477,9 @@
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\View\SignUpPage.xbf">
       <PackagePath>View\SignUpPage.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\View\TransactionsGridViewUC.xbf">
+      <PackagePath>View\TransactionsGridViewUC.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kabilan-13333\Desktop\ZohoBank\ZBMS\ZBMS\bin\x64\Debug\View\ViewAccountDetails.xbf">
       <PackagePath>View\ViewAccountDetails.xbf</PackagePath>
     </AppxPackagedFile>

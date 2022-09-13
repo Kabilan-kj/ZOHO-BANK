@@ -119,6 +119,9 @@
     <Compile Include="Contract\DataManagerContracts\IGetDetailedTransactionDataManager.cs" />
     <Compile Include="Contract\DataManagerContracts\IGetTransactionsDataManager.cs" />
     <Compile Include="Data\GetDetailedTransactionDataManager.cs" />
+    <Compile Include="View\TransactionsGridViewUC.xaml.cs">
+      <DependentUpon>TransactionsGridViewUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ZBMSUtils\DependencyContainersClass.cs" />
     <Compile Include="Contract\ICustomerDashBoardView.cs" />
     <Compile Include="Contract\ITransactionsPageView.cs" />
@@ -361,6 +364,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SignUpPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TransactionsGridViewUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -7,6 +7,7 @@
     xmlns:data="using:ZBMS.Models"
     xmlns:local="using:ZBMS"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:view="using:ZBMS.View"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
@@ -133,7 +134,7 @@
                 Margin="10"
                 Background="{ThemeResource GridBackGroundColor}"
                 CornerRadius="10">
-                <Button x:ConnectionId='59'
+                <Button x:ConnectionId='36'
                     Name="ChangeViewButton"
                     Margin="10"
                     Padding="5"
@@ -160,7 +161,7 @@
                     Margin="5"
                     HorizontalScrollBarVisibility="Auto"
                     HorizontalScrollMode="Auto">
-                    <ListView x:ConnectionId='46'
+                    <ListView x:ConnectionId='23'
                         Name="TransactionList"
                         Margin="10"
                         Background="{ThemeResource GridBackGroundColor}"
@@ -190,7 +191,7 @@
                         <ListView.ItemTemplate>
                             <DataTemplate                                             >
 
-                                <Grid x:ConnectionId='50'
+                                <Grid x:ConnectionId='27'
                                     Name="TransactionListViewGrid"
                                     MinWidth="600"
                                     Margin="5"
@@ -212,12 +213,12 @@
                                         VerticalAlignment="Center"
                                         Orientation="Horizontal">
 
-                                        <TextBlock x:ConnectionId='57'
+                                        <TextBlock x:ConnectionId='34'
                                             Margin="10"
                                             FontSize="14"
                                             FontWeight="SemiBold"
                                                                          />
-                                        <TextBlock x:ConnectionId='58'
+                                        <TextBlock x:ConnectionId='35'
                                             Margin="10"
                                             FontSize="14"
                                             FontWeight="SemiBold"
@@ -230,13 +231,13 @@
                                         HorizontalAlignment="Left"
                                         VerticalAlignment="Center"
                                         Orientation="Horizontal">
-                                        <TextBlock x:ConnectionId='55'
+                                        <TextBlock x:ConnectionId='32'
                                             Margin="10"
                                             FontSize="14"
                                             FontWeight="SemiBold"
                                                                          />
 
-                                        <TextBlock x:ConnectionId='56'
+                                        <TextBlock x:ConnectionId='33'
                                             Margin="10,15,10,10"
                                             FontFamily="Segoe MDL2 Assets"
                                             FontSize="14"
@@ -259,7 +260,7 @@
                                             FontSize="14"
                                             FontWeight="Bold"
                                             Text="Sender Acc no:" />
-                                        <TextBlock x:ConnectionId='54'
+                                        <TextBlock x:ConnectionId='31'
                                             Grid.Row="1"
                                             Margin="10"
                                             FontSize="14"
@@ -278,7 +279,7 @@
                                             FontSize="14"
                                             FontWeight="Bold"
                                             Text="Receiver Acc no:" />
-                                        <TextBlock x:ConnectionId='53'
+                                        <TextBlock x:ConnectionId='30'
                                             Grid.Row="1"
                                             Margin="10"
                                             FontSize="14"
@@ -296,7 +297,7 @@
                                             FontSize="14"
                                             FontWeight="Bold"
                                             Text="Ref no:" />
-                                        <TextBlock x:ConnectionId='52'
+                                        <TextBlock x:ConnectionId='29'
                                             Margin="10"
                                             FontSize="14"
                                                                           />
@@ -310,7 +311,7 @@
                 </ScrollViewer>
 
 
-                <Button x:ConnectionId='34'
+                <Button x:ConnectionId='11'
                     Name="DetailedTransactionsCloseButton"
                     Grid.Column="1"
                     Margin="0,10,10,0"
@@ -325,7 +326,7 @@
                     Style="{StaticResource ExitButtonStyle}" />
 
 
-                <ScrollViewer x:ConnectionId='35'
+                <ScrollViewer x:ConnectionId='12'
                     Name="DetailedTransactionGrid"
                     Grid.Column="1"
                     VerticalAlignment="Top"
@@ -373,7 +374,7 @@
                             BorderBrush="{ThemeResource BorderColor}"
                             BorderThickness="0,0,0,1">
 
-                            <TextBlock x:ConnectionId='44'
+                            <TextBlock x:ConnectionId='21'
                                 Name="DateTextBlock"
                                 Margin="20,10"
                                 HorizontalAlignment="Center"
@@ -381,7 +382,7 @@
                                 RelativePanel.AlignLeftWithPanel="True"
                                 RelativePanel.AlignVerticalCenterWithPanel="True"
                                 Text="Date" />
-                            <TextBlock x:ConnectionId='45'
+                            <TextBlock x:ConnectionId='22'
                                 Name="TimeTextBlock"
                                 Margin="40,10"
                                 HorizontalAlignment="Right"
@@ -391,12 +392,11 @@
                                 Text="Time" />
                         </RelativePanel>
 
-                        <!--<StackPanel Grid.Row="2" Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
                         <TextBlock
                             Grid.Row="2"
                             Style="{StaticResource TransactionDetailsBoldTextBlockStyle}"
                             Text="Sent By" />
-                        <TextBlock x:ConnectionId='36'
+                        <TextBlock x:ConnectionId='13'
                             Name="SenderNameTextBlock"
                             Grid.Row="2"
                             Grid.Column="1"
@@ -405,9 +405,7 @@
                             HorizontalTextAlignment="Left"
                             Style="{StaticResource TransactionDetailsTextBlockStyle}"
                             Text="" />
-                        <!--</StackPanel>-->
 
-                        <!--<StackPanel Grid.Row="3" Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
                         <TextBlock
                             Grid.Row="3"
                             Grid.Column="0"
@@ -416,15 +414,13 @@
                             Style="{StaticResource TransactionDetailsBoldTextBlockStyle}"
                             Text="Received By" />
 
-                        <TextBlock x:ConnectionId='37'
+                        <TextBlock x:ConnectionId='14'
                             Name="ReceiverNameTextBlock"
                             Grid.Row="3"
                             Grid.Column="1"
                             Style="{StaticResource TransactionDetailsTextBlockStyle}"
                             Text="" />
-                        <!--</StackPanel>-->
 
-                        <!--<StackPanel Grid.Row="4" Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
                         <TextBlock
                             Grid.Row="4"
                             Grid.Column="0"
@@ -439,7 +435,7 @@
                             Grid.Column="1"
                             Orientation="Horizontal">
 
-                            <TextBlock x:ConnectionId='42'
+                            <TextBlock x:ConnectionId='19'
                                 Name="TransactionAmountTextBlock"
                                 Grid.Row="4"
                                 Grid.Column="1"
@@ -447,7 +443,7 @@
                                 Style="{StaticResource TransactionDetailsTextBlockStyle}"
                                 Text="" />
 
-                            <TextBlock x:ConnectionId='43'
+                            <TextBlock x:ConnectionId='20'
                                 Name="AmountIconTextBlock"
                                 Grid.Row="6"
                                 Grid.Column="1"
@@ -457,9 +453,7 @@
                                 Text="" />
                         </StackPanel>
 
-                        <!--</StackPanel>-->
 
-                        <!--<StackPanel Grid.Row="5" Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
                         <TextBlock
                             Grid.Row="5"
                             Grid.Column="0"
@@ -467,15 +461,13 @@
                             FontWeight="SemiBold"
                             Style="{StaticResource TransactionDetailsBoldTextBlockStyle}"
                             Text="Status" />
-                        <TextBlock x:ConnectionId='38'
+                        <TextBlock x:ConnectionId='15'
                             Name="TransactionStatusTextBlock"
                             Grid.Row="5"
                             Grid.Column="1"
                             Style="{StaticResource TransactionDetailsTextBlockStyle}"
                             Text="" />
-                        <!--</StackPanel>-->
 
-                        <!--<StackPanel Grid.Row="6" Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
                         <TextBlock
                             Grid.Row="6"
                             Grid.Column="0"
@@ -483,47 +475,39 @@
                             FontWeight="SemiBold"
                             Style="{StaticResource TransactionDetailsBoldTextBlockStyle}"
                             Text="Balance" />
-                        <TextBlock x:ConnectionId='39'
+                        <TextBlock x:ConnectionId='16'
                             Name="BalanceTextBlock"
                             Grid.Row="6"
                             Grid.Column="1"
                             Style="{StaticResource TransactionDetailsTextBlockStyle}"
                             Text="-" />
-                        <!--</StackPanel>-->
 
-
-                        <!--<StackPanel Grid.Row="7" Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
                         <TextBlock
                             Grid.Row="7"
                             HorizontalAlignment="Left"
                             FontWeight="SemiBold"
                             Style="{StaticResource TransactionDetailsBoldTextBlockStyle}"
                             Text="Ref no " />
-                        <TextBlock x:ConnectionId='40'
+                        <TextBlock x:ConnectionId='17'
                             Name="TransactionIdTextBlock"
                             Grid.Row="7"
                             Grid.Column="1"
                             Style="{StaticResource TransactionDetailsTextBlockStyle}"
                             Text="" />
-                        <!--</StackPanel>-->
 
-                        <!--<StackPanel
-                            Grid.Row="8"
-                            BorderThickness="0"
-                            Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
                         <TextBlock
                             Grid.Row="8"
                             HorizontalAlignment="Left"
                             FontWeight="SemiBold"
                             Style="{StaticResource TransactionDetailsBoldTextBlockStyle}"
                             Text="Remarks" />
-                        <TextBlock x:ConnectionId='41'
+                        <TextBlock x:ConnectionId='18'
                             Name="RemarksTextBlock"
                             Grid.Row="8"
                             Grid.Column="1"
                             Style="{StaticResource TransactionDetailsTextBlockStyle}"
                             Text="-" />
-                        <!--</StackPanel>-->
+
 
                     </Grid>
                 </ScrollViewer>
@@ -551,7 +535,10 @@
                 <GridView.ItemTemplate>
                     <DataTemplate                                             >
 
-                        <Grid x:ConnectionId='8'
+                        <view:TransactionsGridViewUC />
+
+
+                        <!--<Grid
                             Name="TransactionsGrid"
                             Width="270"
                             Height="150"
@@ -560,8 +547,8 @@
                             BorderBrush="{ThemeResource BorderColor}"
                             BorderThickness="1"
                             CornerRadius="10"
-                                                                                         
-                                                                                       >
+                            PointerEntered="TransactionsGridViewOuterGrid_PointerEntered"
+                            PointerExited="TransactionsGridViewOuterGrid_PointerExited">
 
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto" />
@@ -573,18 +560,18 @@
                                 <ColumnDefinition Width="1*" />
                             </Grid.ColumnDefinitions>
 
-                            <TextBlock x:ConnectionId='9'
+                            <TextBlock
                                 Name="DateTextBlock"
                                 Grid.Row="1"
                                 Style="{StaticResource NarrowTextBlock}"
-                                                             />
-                            <TextBlock x:ConnectionId='10'
+                                Text="{x:Bind ModifiedDate}" />
+                            <TextBlock
                                 Name="TimeTextBlock"
                                 Grid.Row="1"
                                 Grid.Column="1"
                                 Style="{StaticResource NarrowTextBlock}"
-                                                             />
-                            <Button x:ConnectionId='11'
+                                Text="{x:Bind ModifiedTime}" />
+                            <Button
                                 Name="TransactionGridCloseButton"
                                 Grid.Column="1"
                                 Margin="0,0,5,0"
@@ -592,7 +579,7 @@
                                 VerticalAlignment="Top"
                                 Background="Transparent"
                                 Canvas.ZIndex="5"
-                                                                        
+                                Click="TransactionGridCloseButton_Click"
                                 Content="&#xE10A;"
                                 FontFamily="Segoe MDL2 Assets"
                                 FontSize="10"
@@ -607,21 +594,21 @@
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center">
 
-                                <TextBlock x:ConnectionId='30'
+                                <TextBlock
                                     Name="AmountValueTextBlock"
                                     Margin="5"
                                     FontSize="14"
                                     Style="{StaticResource NarrowBoldTextBlock}"
-                                                                 />
+                                    Text="{x:Bind AmountString}" />
 
-                                <TextBlock x:ConnectionId='31'
+                                <TextBlock
                                     Margin="5"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
                                     FontFamily="Segoe MDL2 Assets"
                                     FontSize="16"
-                                                                   
-                                                               />
+                                    Foreground="{x:Bind IconColor}"
+                                    Text="{x:Bind IconString}" />
                             </StackPanel>
 
                             <StackPanel
@@ -637,10 +624,10 @@
                                         Style="{StaticResource NarrowBoldTextBlock}"
                                         Text="Sender Acc no:" />
 
-                                    <TextBlock x:ConnectionId='29'
+                                    <TextBlock
                                         Name="SenderIdValueTextBlock"
                                         Style="{StaticResource NarrowTextBlock}"
-                                                                            />
+                                        Text="{x:Bind SenderAccountNumber}" />
 
                                 </StackPanel>
 
@@ -650,10 +637,10 @@
                                         Style="{StaticResource NarrowBoldTextBlock}"
                                         Text="Sent By:" />
 
-                                    <TextBlock x:ConnectionId='27'
+                                    <TextBlock
                                         Name="SenderNameValueTextBlock"
                                         Style="{StaticResource NarrowTextBlock}"
-                                                                   />
+                                        Text="{x:Bind SenderName}" />
 
                                 </StackPanel>
 
@@ -663,10 +650,10 @@
                                         Style="{StaticResource NarrowBoldTextBlock}"
                                         Text="Received By:" />
 
-                                    <TextBlock x:ConnectionId='25'
+                                    <TextBlock
                                         Name="ReceiverNameValueTextBlock"
                                         Style="{StaticResource NarrowTextBlock}"
-                                                                     />
+                                        Text="{x:Bind ReceiverName}" />
 
                                 </StackPanel>
 
@@ -676,10 +663,10 @@
                                         Style="{StaticResource NarrowBoldTextBlock}"
                                         Text="Receiver acc no:" />
 
-                                    <TextBlock x:ConnectionId='23'
+                                    <TextBlock
                                         Name="ReceiverIdValueTextBlock"
                                         Style="{StaticResource NarrowTextBlock}"
-                                                                              />
+                                        Text="{x:Bind ReceiverAccountNumber}" />
 
                                 </StackPanel>
 
@@ -689,10 +676,10 @@
                                         Style="{StaticResource NarrowBoldTextBlock}"
                                         Text="Transaction Type:" />
 
-                                    <TextBlock x:ConnectionId='21'
+                                    <TextBlock
                                         Name="StatusValueTextBlock"
                                         Style="{StaticResource NarrowTextBlock}"
-                                                               />
+                                        Text="{x:Bind Status}" />
 
                                 </StackPanel>
 
@@ -704,16 +691,16 @@
                                         Style="{StaticResource NarrowBoldTextBlock}"
                                         Text="Ref no:" />
 
-                                    <TextBlock x:ConnectionId='19'
+                                    <TextBlock
                                         Name="TransactionIdValueTextBlock"
                                         Margin="5,20,5,5"
                                         Style="{StaticResource NarrowTextBlock}"
-                                                                      />
+                                        Text="{x:Bind TransactionId}" />
                                 </StackPanel>
 
                             </StackPanel>
 
-                        </Grid>
+                        </Grid>-->
 
                     </DataTemplate>
                 </GridView.ItemTemplate>
@@ -744,9 +731,9 @@
 
 
         <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:ConnectionId='60'                                                           >
+            <VisualStateGroup x:ConnectionId='37'                                                           >
 
-                <VisualState x:ConnectionId='61' x:Name="WideState">
+                <VisualState x:ConnectionId='38' x:Name="WideState">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="1350" />
                     </VisualState.StateTriggers>
@@ -758,7 +745,7 @@
 
                 </VisualState>
 
-                <VisualState x:ConnectionId='62' x:Name="NarrowState">
+                <VisualState x:ConnectionId='39' x:Name="NarrowState">
 
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0" />

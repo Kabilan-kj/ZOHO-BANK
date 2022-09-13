@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZBMS.Models;
 
 namespace ZBMS.ZBMSUtils
 {
@@ -13,6 +14,7 @@ namespace ZBMS.ZBMSUtils
 
     public delegate void PageChanged(MenuOptions name);
     public delegate void PopupTriggered(string message);
+    public delegate void GridSelected(ExtendedTransactionDetails transactions);
 
     public  class EventsUtilsClass
     {
@@ -29,5 +31,10 @@ namespace ZBMS.ZBMSUtils
             OnPopupTriggered?.Invoke(message);
         }
 
+        public static event GridSelected OnGridSelected;
+        public static void InvokeOnGridSelected(ExtendedTransactionDetails transactions)
+        {
+            OnGridSelected?.Invoke(transactions);
+        }
     }
 }

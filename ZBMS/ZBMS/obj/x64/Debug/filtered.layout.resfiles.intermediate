@@ -93,6 +93,7 @@ View\OtherBankCustomerTransferPage.xbf
 View\OtherCustomerTransferPage.xbf
 View\SelfTransferPage.xbf
 View\SignUpPage.xbf
+View\TransactionsGridViewUC.xbf
 View\ViewAccountDetails.xbf
 View\ViewProfilePage.xbf
 View\ViewTransactionsPage.xbf

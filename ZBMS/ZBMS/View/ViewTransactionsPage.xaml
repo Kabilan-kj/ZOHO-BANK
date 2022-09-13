@@ -7,6 +7,7 @@
     xmlns:data="using:ZBMS.Models"
     xmlns:local="using:ZBMS"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:view="using:ZBMS.View"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
@@ -391,7 +392,6 @@
                                 Text="Time" />
                         </RelativePanel>
 
-                        <!--<StackPanel Grid.Row="2" Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
                         <TextBlock
                             Grid.Row="2"
                             Style="{StaticResource TransactionDetailsBoldTextBlockStyle}"
@@ -405,9 +405,7 @@
                             HorizontalTextAlignment="Left"
                             Style="{StaticResource TransactionDetailsTextBlockStyle}"
                             Text="" />
-                        <!--</StackPanel>-->
 
-                        <!--<StackPanel Grid.Row="3" Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
                         <TextBlock
                             Grid.Row="3"
                             Grid.Column="0"
@@ -422,9 +420,7 @@
                             Grid.Column="1"
                             Style="{StaticResource TransactionDetailsTextBlockStyle}"
                             Text="" />
-                        <!--</StackPanel>-->
 
-                        <!--<StackPanel Grid.Row="4" Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
                         <TextBlock
                             Grid.Row="4"
                             Grid.Column="0"
@@ -457,9 +453,7 @@
                                 Text="" />
                         </StackPanel>
 
-                        <!--</StackPanel>-->
 
-                        <!--<StackPanel Grid.Row="5" Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
                         <TextBlock
                             Grid.Row="5"
                             Grid.Column="0"
@@ -473,9 +467,7 @@
                             Grid.Column="1"
                             Style="{StaticResource TransactionDetailsTextBlockStyle}"
                             Text="" />
-                        <!--</StackPanel>-->
 
-                        <!--<StackPanel Grid.Row="6" Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
                         <TextBlock
                             Grid.Row="6"
                             Grid.Column="0"
@@ -489,10 +481,7 @@
                             Grid.Column="1"
                             Style="{StaticResource TransactionDetailsTextBlockStyle}"
                             Text="-" />
-                        <!--</StackPanel>-->
 
-
-                        <!--<StackPanel Grid.Row="7" Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
                         <TextBlock
                             Grid.Row="7"
                             HorizontalAlignment="Left"
@@ -505,12 +494,7 @@
                             Grid.Column="1"
                             Style="{StaticResource TransactionDetailsTextBlockStyle}"
                             Text="" />
-                        <!--</StackPanel>-->
 
-                        <!--<StackPanel
-                            Grid.Row="8"
-                            BorderThickness="0"
-                            Style="{StaticResource TransactionDetailsStackPanelStyle}">-->
                         <TextBlock
                             Grid.Row="8"
                             HorizontalAlignment="Left"
@@ -523,7 +507,7 @@
                             Grid.Column="1"
                             Style="{StaticResource TransactionDetailsTextBlockStyle}"
                             Text="-" />
-                        <!--</StackPanel>-->
+
 
                     </Grid>
                 </ScrollViewer>
@@ -551,7 +535,10 @@
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="data:ExtendedTransactionDetails">
 
-                        <Grid
+                        <view:TransactionsGridViewUC />
+
+
+                        <!--<Grid
                             Name="TransactionsGrid"
                             Width="270"
                             Height="150"
@@ -713,7 +700,7 @@
 
                             </StackPanel>
 
-                        </Grid>
+                        </Grid>-->
 
                     </DataTemplate>
                 </GridView.ItemTemplate>

@@ -1,0 +1,282 @@
+﻿<UserControl
+    x:Class="ZBMS.View.TransactionsGridViewUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:ZBMS.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ms-appx:///Resource/ZBankResource.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style x:Key="NarrowTextBlock" TargetType="TextBlock">
+                <Setter Property="Margin" Value="3" />
+                <Setter Property="FontSize" Value="14" />
+            </Style>
+
+            <Style x:Key="WideTextBlock" TargetType="TextBlock">
+                <Setter Property="Margin" Value="5" />
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+
+            <Style x:Key="NarrowBoldTextBlock" TargetType="TextBlock">
+                <Setter Property="Margin" Value="3" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontWeight" Value="Bold" />
+            </Style>
+
+            <Style x:Key="WideBoldTextBlock" TargetType="TextBlock">
+                <Setter Property="Margin" Value="5" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="FontWeight" Value="Bold" />
+            </Style>
+
+            <Style x:Key="TransactionDetailsStackPanelStyle" TargetType="StackPanel">
+                <Setter Property="VerticalAlignment" Value="Stretch" />
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                <Setter Property="Orientation" Value="Horizontal" />
+                <Setter Property="BorderBrush" Value="{ThemeResource BorderColor}" />
+                <Setter Property="BorderThickness" Value="0,0,0,1" />
+            </Style>
+
+            <Style x:Key="TransactionDetailsBoldTextBlockStyle" TargetType="TextBlock">
+                <Setter Property="VerticalAlignment" Value="Top" />
+                <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="Margin" Value="30,10" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+            </Style>
+
+            <Style x:Key="TransactionDetailsTextBlockStyle" TargetType="TextBlock">
+                <Setter Property="VerticalAlignment" Value="Stretch" />
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                <Setter Property="Padding" Value="30,10" />
+                <Setter Property="TextWrapping" Value="Wrap" />
+            </Style>
+
+            <Style
+                x:Key="NarrowButton"
+                BasedOn="{StaticResource NarrowStyleButton}"
+                TargetType="Button">
+                <Setter Property="FontWeight" Value="SemiBold" />
+                <Setter Property="Padding" Value="5" />
+            </Style>
+
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid
+        Name="TransactionsGrid"
+        Width="270"
+        Height="150"
+        Margin="0,5"
+        Background="{ThemeResource GridBackGroundColor}"
+        BorderBrush="{ThemeResource BorderColor}"
+        BorderThickness="1"
+        CornerRadius="10"
+        PointerEntered="TransactionsGrid_PointerEntered"
+        PointerExited="TransactionsGrid_PointerExited">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock
+            Name="DateTextBlock"
+            Grid.Row="1"
+            Style="{StaticResource NarrowTextBlock}"
+            Text="{x:Bind Transaction.ModifiedDate}" />
+        <TextBlock
+            Name="TimeTextBlock"
+            Grid.Row="1"
+            Grid.Column="1"
+            Style="{StaticResource NarrowTextBlock}"
+            Text="{x:Bind Transaction.ModifiedTime}" />
+        <Button
+            Name="TransactionGridCloseButton"
+            Grid.Column="1"
+            Margin="0,0,5,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Background="Transparent"
+            Canvas.ZIndex="5"
+            Click="TransactionGridCloseButton_Click"
+            Content="&#xE10A;"
+            FontFamily="Segoe MDL2 Assets"
+            FontSize="10"
+            Foreground="{ThemeResource BorderColor}"
+            Style="{StaticResource ExitButtonStyle}"
+            Visibility="Collapsed" />
+
+
+        <StackPanel
+            Grid.Row="2"
+            Grid.Column="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+
+            <TextBlock
+                Name="AmountValueTextBlock"
+                Margin="5"
+                FontSize="14"
+                Style="{StaticResource NarrowBoldTextBlock}"
+                Text="{x:Bind Transaction.AmountString}" />
+
+            <TextBlock
+                Margin="5"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontFamily="Segoe MDL2 Assets"
+                FontSize="16"
+                Foreground="{x:Bind Transaction.IconColor}"
+                Text="{x:Bind Transaction.IconString}" />
+        </StackPanel>
+
+        <StackPanel
+            Name="ContentStackPanel"
+            Grid.Row="2"
+            Margin="5,15,5,5"
+            VerticalAlignment="Top"
+            Orientation="Vertical">
+
+            <StackPanel Name="NormalSenderDetails" Orientation="Horizontal">
+                <TextBlock
+                    Name="SenderIdTextBlock"
+                    Style="{StaticResource NarrowBoldTextBlock}"
+                    Text="Sender Acc no:" />
+
+                <TextBlock
+                    Name="SenderIdValueTextBlock"
+                    Style="{StaticResource NarrowTextBlock}"
+                    Text="{x:Bind Transaction.SenderAccountNumber}" />
+
+            </StackPanel>
+
+            <StackPanel Name="ExpandedSenderDetails" Visibility="Collapsed">
+                <TextBlock
+                    Name="SenderNameTextBlock"
+                    Style="{StaticResource NarrowBoldTextBlock}"
+                    Text="Sent By:" />
+
+                <TextBlock
+                    Name="SenderNameValueTextBlock"
+                    Style="{StaticResource NarrowTextBlock}"
+                    Text="{x:Bind Transaction.SenderName}" />
+
+            </StackPanel>
+
+            <StackPanel Name="ExpandedReceiverDetails" Visibility="Collapsed">
+                <TextBlock
+                    Name="ReceiverNameTextBlock"
+                    Style="{StaticResource NarrowBoldTextBlock}"
+                    Text="Received By:" />
+
+                <TextBlock
+                    Name="ReceiverNameValueTextBlock"
+                    Style="{StaticResource NarrowTextBlock}"
+                    Text="{x:Bind Transaction.ReceiverName}" />
+
+            </StackPanel>
+
+            <StackPanel Name="NormalReceiverDetails" Orientation="Horizontal">
+                <TextBlock
+                    Name="ReceiverIdTextBlock"
+                    Style="{StaticResource NarrowBoldTextBlock}"
+                    Text="Receiver acc no:" />
+
+                <TextBlock
+                    Name="ReceiverIdValueTextBlock"
+                    Style="{StaticResource NarrowTextBlock}"
+                    Text="{x:Bind Transaction.ReceiverAccountNumber}" />
+
+            </StackPanel>
+
+            <StackPanel Name="StatusDetails" Visibility="Collapsed">
+                <TextBlock
+                    Name="StatusTextBlock"
+                    Style="{StaticResource NarrowBoldTextBlock}"
+                    Text="Transaction Type:" />
+
+                <TextBlock
+                    Name="StatusValueTextBlock"
+                    Style="{StaticResource NarrowTextBlock}"
+                    Text="{x:Bind Transaction.Status}" />
+
+            </StackPanel>
+
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock
+                    Name="TransactionIdTextBlock"
+                    Margin="5,20,5,5"
+                    Style="{StaticResource NarrowBoldTextBlock}"
+                    Text="Ref no:" />
+
+                <TextBlock
+                    Name="TransactionIdValueTextBlock"
+                    Margin="5,20,5,5"
+                    Style="{StaticResource NarrowTextBlock}"
+                    Text="{x:Bind Transaction.TransactionId}" />
+            </StackPanel>
+
+        </StackPanel>
+
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="CommonStates">
+
+                <VisualState x:Name="PointerEnter">
+                    <VisualState.Setters>
+                        <Setter Target="TransactionsGrid.BorderBrush" Value="{ThemeResource ThemeColor}" />
+                        <Setter Target="TransactionsGrid.BorderThickness" Value="2" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="PointerExit">
+                    <VisualState.Setters>
+                        <Setter Target="TransactionsGrid.BorderBrush" Value="{ThemeResource BorderColor}" />
+                        <Setter Target="TransactionsGrid.BorderThickness" Value="1" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="Selected">
+                    <VisualState.Setters>
+                        <Setter Target="TransactionsGrid.BorderBrush" Value="{ThemeResource ThemeColor}" />
+                        <Setter Target="TransactionsGrid.BorderThickness" Value="3" />
+                        <Setter Target="TransactionsGrid.Height" Value="300" />
+                        <Setter Target="TransactionGridCloseButton.Visibility" Value="Visible" />
+                        <Setter Target="NormalSenderDetails.Visibility" Value="Collapsed" />
+                        <Setter Target="ExpandedSenderDetails.Visibility" Value="Visible" />
+                        <Setter Target="StatusDetails.Visibility" Value="Visible" />
+                        <Setter Target="NormalReceiverDetails.Visibility" Value="Collapsed" />
+                        <Setter Target="ExpandedReceiverDetails.Visibility" Value="Visible" />
+                    </VisualState.Setters>
+                </VisualState>
+
+                <VisualState x:Name="UnSelected">
+                    <VisualState.Setters>
+                        <Setter Target="TransactionsGrid.BorderBrush" Value="{ThemeResource BorderColor}" />
+                        <Setter Target="TransactionsGrid.BorderThickness" Value="1" />
+                        <Setter Target="TransactionsGrid.Height" Value="150" />
+                        <Setter Target="TransactionGridCloseButton.Visibility" Value="Collapsed" />
+                        <Setter Target="NormalSenderDetails.Visibility" Value="Visible" />
+                        <Setter Target="ExpandedSenderDetails.Visibility" Value="Collapsed" />
+                        <Setter Target="StatusDetails.Visibility" Value="Collapsed" />
+                        <Setter Target="NormalReceiverDetails.Visibility" Value="Visible" />
+                        <Setter Target="ExpandedReceiverDetails.Visibility" Value="Collapsed" />
+                    </VisualState.Setters>
+                </VisualState>
+
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+</UserControl>
